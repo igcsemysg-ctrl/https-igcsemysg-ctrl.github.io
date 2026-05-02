@@ -5,144 +5,179 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>IGCSE Tuition Hub</title>
 
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+
 <style>
 body {
   margin: 0;
-  font-family: Arial, sans-serif;
-  background: #f5f7fb;
-  color: #333;
+  font-family: 'Inter', sans-serif;
+  background: #f6f7fb;
+  color: #1a1a1a;
 }
 
+/* HERO */
 header {
-  background: linear-gradient(135deg, #667eea, #764ba2);
+  background: linear-gradient(135deg, #4f46e5, #7c3aed);
   color: white;
   text-align: center;
-  padding: 80px 20px;
+  padding: 100px 20px;
 }
 
 header h1 {
   font-size: 3em;
+  margin-bottom: 10px;
 }
 
 header p {
   font-size: 1.2em;
-  margin: 20px 0;
+  opacity: 0.9;
 }
 
 .btn {
-  padding: 12px 25px;
-  background: white;
-  color: #333;
-  text-decoration: none;
-  border-radius: 25px;
-  font-weight: bold;
   display: inline-block;
-  margin-top: 15px;
+  margin-top: 20px;
+  padding: 14px 28px;
+  background: white;
+  color: #111;
+  text-decoration: none;
+  border-radius: 30px;
+  font-weight: 600;
 }
 
-.whatsapp-btn {
-  background: #25D366;
-  color: white;
-}
-
+/* SECTIONS */
 section {
-  padding: 60px 20px;
+  padding: 70px 20px;
   text-align: center;
 }
 
+h2 {
+  font-size: 2em;
+  margin-bottom: 10px;
+}
+
+/* GRID */
 .grid {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
   gap: 20px;
+  margin-top: 30px;
 }
 
+/* CARDS */
 .card {
   background: white;
-  padding: 20px;
-  width: 250px;
-  border-radius: 10px;
-  box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+  padding: 25px;
+  width: 260px;
+  border-radius: 14px;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+  transition: 0.3s;
 }
 
-/* DARK SECTION FIXED */
+.card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 12px 30px rgba(0,0,0,0.12);
+}
+
+.card h3 {
+  color: #111;
+  margin-bottom: 10px;
+}
+
+.card p {
+  color: #444;
+  font-size: 0.95em;
+  line-height: 1.5;
+}
+
+/* DARK SECTION */
 .dark {
-  background: #2f2f2f;
+  background: #111827;
   color: white;
 }
 
 .dark .card {
-  background: white;
-  color: #333;
+  background: #1f2937;
+  color: white;
 }
 
-.dark p {
-  color: #ddd;
+.dark .card p {
+  color: #d1d5db;
 }
 
 .dark h2 {
   color: white;
 }
 
+/* WHATSAPP BUTTON */
+.whatsapp-btn {
+  background: #25D366;
+  color: white;
+}
+
+/* FOOTER */
 footer {
-  background: #111;
+  background: #0f172a;
   color: white;
   padding: 20px;
   text-align: center;
+  font-size: 0.9em;
 }
 </style>
 </head>
 
 <body>
 
+<!-- HERO -->
 <header>
-  <h1>Struggling with IGCSE?</h1>
-  <p>Turn confusion into A* results with proven exam-focused tutoring</p>
-  <a href="#contact" class="btn">Get Started</a>
+  <h1>IGCSE Tuition That Gets Results</h1>
+  <p>Clear explanations. Exam-focused learning. Real grade improvement.</p>
+  <a href="#contact" class="btn">Start Learning</a>
 </header>
 
+<!-- PROBLEM -->
 <section>
-  <h2>Does This Sound Like You?</h2>
+  <h2>Students Come To Us When They Feel...</h2>
   <div class="grid">
-    <div class="card">Studying hard but not improving</div>
-    <div class="card">Confused by difficult topics</div>
-    <div class="card">Past papers feel overwhelming</div>
+    <div class="card">“I study but nothing improves”</div>
+    <div class="card">“I don’t understand the basics”</div>
+    <div class="card">“Past papers feel impossible”</div>
   </div>
 </section>
 
-<!-- FIXED OUR SOLUTION -->
+<!-- SOLUTION -->
 <section class="dark">
-  <h2>Our Solution</h2>
-  <p>We don’t just teach content — we fix understanding, rebuild confidence, and train students to perform in exams.</p>
+  <h2>Our Teaching Method</h2>
 
   <div class="grid">
     <div class="card">
-      <h3>📖 Concept Clarity</h3>
-      <p>We simplify difficult topics into clear step-by-step explanations so students finally understand.</p>
+      <h3>Concept Mastery</h3>
+      <p>We rebuild understanding from the ground up so students truly understand topics.</p>
     </div>
 
     <div class="card">
-      <h3>🎯 Exam-Focused Teaching</h3>
-      <p>We focus on past paper patterns, mark schemes, and what actually comes out in exams.</p>
+      <h3>Exam Strategy</h3>
+      <p>We teach exactly how marks are awarded and how to structure answers.</p>
     </div>
 
     <div class="card">
-      <h3>🧠 Problem-Solving Skills</h3>
-      <p>Students learn how to apply knowledge, not just memorise it.</p>
+      <h3>Smart Practice</h3>
+      <p>Targeted past paper questions that train exam performance, not memorisation.</p>
     </div>
 
     <div class="card">
-      <h3>💪 Confidence Building</h3>
-      <p>We remove fear and guide students until they can solve problems independently.</p>
+      <h3>Confidence Growth</h3>
+      <p>Students become independent and confident problem solvers.</p>
     </div>
   </div>
 </section>
 
+<!-- SUBJECTS -->
 <section>
-  <h2>Subjects Offered</h2>
+  <h2>Subjects We Teach</h2>
   <div class="grid">
-    <div class="card">Maths</div>
-    <div class="card">Add Maths</div>
+    <div class="card">Mathematics</div>
+    <div class="card">Additional Maths</div>
     <div class="card">Physics</div>
     <div class="card">Chemistry</div>
     <div class="card">Biology</div>
@@ -152,44 +187,46 @@ footer {
   </div>
 </section>
 
-<section>
+<!-- WHAT YOU GET -->
+<section class="dark">
   <h2>What You Get</h2>
+
   <div class="grid">
     <div class="card">
       <h3>📚 Structured Notes</h3>
-      <p>Clean, exam-ready notes that remove confusion.</p>
+      <p>Clean revision notes designed for fast exam preparation.</p>
     </div>
 
     <div class="card">
-      <h3>📄 Past Papers</h3>
-      <p>Step-by-step guided practice.</p>
+      <h3>📄 Past Paper Training</h3>
+      <p>Step-by-step walkthroughs of real exam questions.</p>
     </div>
 
     <div class="card">
       <h3>🧠 Exam Techniques</h3>
-      <p>Learn how to score maximum marks efficiently.</p>
+      <p>Learn how to maximise marks with smart answering methods.</p>
     </div>
 
     <div class="card">
-      <h3>👨‍🏫 Support</h3>
-      <p>Help whenever you’re stuck.</p>
+      <h3>👨‍🏫 Personal Support</h3>
+      <p>Direct help when students are stuck or confused.</p>
     </div>
   </div>
 </section>
 
+<!-- RESULTS -->
 <section>
-  <h2>Results</h2>
-  <p>Students improve faster, gain confidence, and achieve top grades.</p>
+  <h2>Results That Matter</h2>
+  <p>Students consistently improve grades by focusing on understanding + exam strategy.</p>
 </section>
 
-<!-- CONTACT + WHATSAPP -->
+<!-- CONTACT -->
 <section id="contact" class="dark">
   <h2>Start Improving Today</h2>
-  <p>Email: yourname@email.com</p>
-  <p>WhatsApp: +60XXXXXXXXX</p>
+  <p>Email: igcsemysg@email.com</p>
 
   <a 
-    href="https://wa.me/60123456789?text=Hi%20I%20want%20to%20join%20your%20IGCSE%20tuition"
+    href="https://wa.me/60172731112?text=Hi%20I%20want%20to%20join%20your%20IGCSE%20tuition"
     target="_blank"
     class="btn whatsapp-btn"
   >
@@ -198,7 +235,7 @@ footer {
 </section>
 
 <footer>
-  <p>© 2026 IGCSE Tuition Hub</p>
+  © 2026 IGCSE Tuition Hub • All Rights Reserved
 </footer>
 
 </body>
