@@ -13,6 +13,7 @@ body {
   font-family: 'Inter', sans-serif;
   background: #f6f7fb;
   color: #1a1a1a;
+  scroll-behavior: smooth;
 }
 
 /* HERO */
@@ -130,9 +131,8 @@ footer {
 
 <!-- HERO -->
 <header>
-  <h1>Singapore O-Levels & IGCSE Tuition That Gets Results</h1>
-  <p>Clear explanations. Exam-focused learning.</p>
-    <p>Real grade improvement. MOE/NIE teachers available at your request.</p>
+  <h1>IGCSE Tuition That Gets Results</h1>
+  <p>Clear explanations. Exam-focused learning. Real grade improvement.</p>
   <a href="#contact" class="btn">Start Learning</a>
 </header>
 
@@ -224,10 +224,10 @@ footer {
 <!-- CONTACT -->
 <section id="contact" class="dark">
   <h2>Start Improving Today</h2>
-  <p>Email: igcsemysg@email.com</p>
+  <p>Email: yourname@email.com</p>
 
   <a 
-    href="https://wa.me/60172731112?text=Hi%20I%20want%20to%20join%20your%20IGCSE%20tuition"
+    href="https://wa.me/60123456789?text=Hi%20I%20want%20to%20join%20your%20IGCSE%20tuition"
     target="_blank"
     class="btn whatsapp-btn"
   >
@@ -238,6 +238,17 @@ footer {
 <footer>
   © 2026 IGCSE Tuition Hub • All Rights Reserved
 </footer>
+
+<!-- FORCE START AT TOP ON EVERY VISIT -->
+<script>
+  if ('scrollRestoration' in history) {
+    history.scrollRestoration = 'manual';
+  }
+
+  window.addEventListener('load', function () {
+    window.scrollTo(0, 0);
+  });
+</script>
 
 </body>
 </html>
