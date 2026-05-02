@@ -3,253 +3,69 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>O-levels & IGCSE Tuition Hub</title>
+<title>Singapore O-levels & IGCSE Tuition Hub</title>
 
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
 
 <style>
-body {
-  margin: 0;
-  font-family: 'Inter', sans-serif;
-  background: #f6f7fb;
-  color: #1a1a1a;
-  scroll-behavior: smooth;
-}
+body { margin:0; font-family:Inter; background:#f6f7fb; }
 
-/* HERO */
+nav {
+  display:flex;
+  justify-content:center;
+  gap:20px;
+  background:#111827;
+  padding:15px;
+}
+nav a { color:white; text-decoration:none; font-weight:600; }
+
 header {
   background: linear-gradient(135deg, #4f46e5, #7c3aed);
-  color: white;
-  text-align: center;
-  padding: 100px 20px;
+  color:white;
+  text-align:center;
+  padding:100px 20px;
 }
 
-header h1 {
-  font-size: 3em;
-  margin-bottom: 10px;
-}
+header h1 { font-size:3em; }
 
-header p {
-  font-size: 1.2em;
-  opacity: 0.9;
+section {
+  padding:60px 20px;
+  text-align:center;
 }
 
 .btn {
-  display: inline-block;
-  margin-top: 20px;
-  padding: 14px 28px;
-  background: white;
-  color: #111;
-  text-decoration: none;
-  border-radius: 30px;
-  font-weight: 600;
-}
-
-/* SECTIONS */
-section {
-  padding: 70px 20px;
-  text-align: center;
-}
-
-h2 {
-  font-size: 2em;
-  margin-bottom: 10px;
-}
-
-/* GRID */
-.grid {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 20px;
-  margin-top: 30px;
-}
-
-/* CARDS */
-.card {
-  background: white;
-  padding: 25px;
-  width: 260px;
-  border-radius: 14px;
-  box-shadow: 0 8px 20px rgba(0,0,0,0.08);
-  transition: 0.3s;
-}
-
-.card:hover {
-  transform: translateY(-6px);
-  box-shadow: 0 12px 30px rgba(0,0,0,0.12);
-}
-
-.card h3 {
-  color: #111;
-  margin-bottom: 10px;
-}
-
-.card p {
-  color: #444;
-  font-size: 0.95em;
-  line-height: 1.5;
-}
-
-/* DARK SECTION */
-.dark {
-  background: #111827;
-  color: white;
-}
-
-.dark .card {
-  background: #1f2937;
-  color: white;
-}
-
-.dark .card p {
-  color: #d1d5db;
-}
-
-.dark h2 {
-  color: white;
-}
-
-/* WHATSAPP BUTTON */
-.whatsapp-btn {
-  background: #25D366;
-  color: white;
-}
-
-/* FOOTER */
-footer {
-  background: #0f172a;
-  color: white;
-  padding: 20px;
-  text-align: center;
-  font-size: 0.9em;
+  display:inline-block;
+  margin-top:20px;
+  padding:12px 24px;
+  background:white;
+  color:black;
+  border-radius:25px;
+  text-decoration:none;
+  font-weight:600;
 }
 </style>
 </head>
 
 <body>
 
-<!-- HERO -->
+<nav>
+  <a href="index.html">Home</a>
+  <a href="about.html">About Us</a>
+  <a href="how-we-help.html">How We Help</a>
+  <a href="contact.html">Contact</a>
+</nav>
+
 <header>
-  <h1>Singapore O-levels & IGCSE Tuition That Gets Results</h1>
-  <p>Clear explanations. Exam-focused learning. Real grade improvement.</p>
-  <p>MOE / NIE teachers available upon request.</p>
-  <a href="#contact" class="btn">Start Learning</a>
+  <h1>O-levels/IGCSE Tuition That Builds Real Understanding</h1>
+  <p>MOE/NIE teachers available upon request</p>
+  <p>From confusion → clarity → confidence</p>
+  <a class="btn" href="contact.html">Book Free Trial</a>
 </header>
 
-<!-- PROBLEM -->
 <section>
-  <h2>Students Come To Us When They Feel...</h2>
-  <div class="grid">
-    <div class="card">“I study but nothing improves”</div>
-    <div class="card">“I don’t understand the basics”</div>
-    <div class="card">“Past papers feel impossible”</div>
-  </div>
+  <h2>Why Students Choose Us</h2>
+  <p>We focus on understanding, not memorisation.</p>
 </section>
-
-<!-- SOLUTION -->
-<section class="dark">
-  <h2>Our Teaching Method</h2>
-
-  <div class="grid">
-    <div class="card">
-      <h3>Concept Mastery</h3>
-      <p>We rebuild understanding from the ground up so students truly understand topics.</p>
-    </div>
-
-    <div class="card">
-      <h3>Exam Strategy</h3>
-      <p>We teach exactly how marks are awarded and how to structure answers.</p>
-    </div>
-
-    <div class="card">
-      <h3>Smart Practice</h3>
-      <p>Targeted past paper questions that train exam performance, not memorisation.</p>
-    </div>
-
-    <div class="card">
-      <h3>Confidence Growth</h3>
-      <p>Students become independent and confident problem solvers.</p>
-    </div>
-  </div>
-</section>
-
-<!-- SUBJECTS -->
-<section>
-  <h2>Subjects We Teach</h2>
-  <div class="grid">
-    <div class="card">Mathematics</div>
-    <div class="card">Additional Maths</div>
-    <div class="card">Physics</div>
-    <div class="card">Chemistry</div>
-    <div class="card">Biology</div>
-    <div class="card">Economics</div>
-    <div class="card">Business</div>
-    <div class="card">ICT</div>
-  </div>
-</section>
-
-<!-- WHAT YOU GET -->
-<section class="dark">
-  <h2>What You Get</h2>
-
-  <div class="grid">
-    <div class="card">
-      <h3>📚 Structured Notes</h3>
-      <p>Clean revision notes designed for fast exam preparation.</p>
-    </div>
-
-    <div class="card">
-      <h3>📄 Past Paper Training</h3>
-      <p>Step-by-step walkthroughs of real exam questions.</p>
-    </div>
-
-    <div class="card">
-      <h3>🧠 Exam Techniques</h3>
-      <p>Learn how to maximise marks with smart answering methods.</p>
-    </div>
-
-    <div class="card">
-      <h3>👨‍🏫 Personal Support</h3>
-      <p>Direct help when students are stuck or confused.</p>
-    </div>
-  </div>
-</section>
-
-<!-- RESULTS -->
-<section>
-  <h2>Results That Matter</h2>
-  <p>Students consistently improve grades by focusing on understanding + exam strategy.</p>
-</section>
-
-<!-- CONTACT -->
-<section id="contact" class="dark">
-  <h2>Start Improving Today</h2>
-  <p>Email: igcsemysg@email.com</p>
-
-  <a 
-    href="https://wa.me/60172731112?text=Hi%20I%20want%20to%20join%20your%20IGCSE%20tuition"
-    target="_blank"
-    class="btn whatsapp-btn"
-  >
-    Chat on WhatsApp
-  </a>
-</section>
-
-<footer>
-  © 2026 IGCSE Tuition Hub • All Rights Reserved
-</footer>
-
-<!-- FORCE START AT TOP ON EVERY VISIT -->
-<script>
-  if ('scrollRestoration' in history) {
-    history.scrollRestoration = 'manual';
-  }
-
-  window.addEventListener('load', function () {
-    window.scrollTo(0, 0);
-  });
-</script>
 
 </body>
 </html>
