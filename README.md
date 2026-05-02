@@ -1,1 +1,1 @@
-# https://igcsesgmy-ctrl.github.io
+# igcsesgmy-ctrl.github.io
