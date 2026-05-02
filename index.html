@@ -8,6 +8,10 @@
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
 
 <style>
+html {
+  scroll-behavior: smooth;
+}
+
 body {
   margin: 0;
   font-family: 'Inter', sans-serif;
@@ -15,7 +19,7 @@ body {
   color: #1a1a1a;
 }
 
-/* HERO WITH BACKGROUND IMAGE */
+/* ===== HERO ===== */
 header {
   position: relative;
   background: url('https://images.unsplash.com/photo-1523240795612-9a054b0db644?auto=format&fit=crop&w=1600&q=80') center/cover no-repeat;
@@ -25,17 +29,13 @@ header {
   overflow: hidden;
 }
 
-/* DARK OVERLAY FOR READABILITY */
 header::before {
   content: "";
   position: absolute;
-  top:0; left:0;
-  width:100%; height:100%;
+  inset: 0;
   background: rgba(10, 15, 35, 0.65);
-  backdrop-filter: blur(2px);
 }
 
-/* HERO TEXT ABOVE OVERLAY */
 header h1,
 header p,
 header a {
@@ -50,9 +50,9 @@ header h1 {
 
 header p {
   font-size: 1.2em;
-  opacity: 0.95;
 }
 
+/* BUTTON */
 .btn {
   display: inline-block;
   margin-top: 20px;
@@ -66,24 +66,29 @@ header p {
 }
 
 .btn:hover {
-  transform: scale(1.05);
+  transform: translateY(-2px) scale(1.03);
 }
 
-/* SECTIONS */
+/* ===== SECTIONS ===== */
 section {
   padding: 80px 20px;
   text-align: center;
-  position: relative;
+  opacity: 0;
+  transform: translateY(40px);
+  transition: all 0.8s ease;
 }
 
-/* SUBTLE BACKGROUND TEXTURE */
+section.show {
+  opacity: 1;
+  transform: translateY(0);
+}
+
 section:not(.dark) {
   background: linear-gradient(180deg, #ffffff, #f7f9ff);
 }
 
 h2 {
   font-size: 2.2em;
-  margin-bottom: 10px;
 }
 
 /* GRID */
@@ -102,23 +107,19 @@ h2 {
   width: 260px;
   border-radius: 16px;
   box-shadow: 0 10px 25px rgba(0,0,0,0.08);
-  transition: 0.3s;
+  transition: 0.4s ease;
+  opacity: 0;
+  transform: translateY(25px);
+}
+
+.card.show {
+  opacity: 1;
+  transform: translateY(0);
 }
 
 .card:hover {
-  transform: translateY(-8px);
-  box-shadow: 0 18px 40px rgba(0,0,0,0.12);
-}
-
-.card h3 {
-  color: #111;
-  margin-bottom: 10px;
-}
-
-.card p {
-  color: #444;
-  font-size: 0.95em;
-  line-height: 1.6;
+  transform: translateY(-10px);
+  box-shadow: 0 20px 40px rgba(0,0,0,0.12);
 }
 
 /* DARK SECTION */
@@ -131,17 +132,19 @@ h2 {
   background: rgba(255,255,255,0.05);
   color: white;
   border: 1px solid rgba(255,255,255,0.08);
-  backdrop-filter: blur(8px);
+  backdrop-filter: blur(10px);
 }
 
-.dark .card p {
-  color: #d1d5db;
+/* TESTIMONIALS */
+.quote {
+  font-style: italic;
+  line-height: 1.6;
 }
 
-/* CONTACT SECTION */
-.whatsapp-btn {
-  background: #25D366;
-  color: white;
+.author {
+  margin-top: 12px;
+  font-weight: 600;
+  font-size: 0.9em;
 }
 
 /* FOOTER */
@@ -152,6 +155,49 @@ footer {
   text-align: center;
   font-size: 0.9em;
 }
+
+/* FLOATING WHATSAPP */
+.floating-whatsapp {
+  position: fixed;
+  bottom: 22px;
+  right: 22px;
+  width: 60px;
+  height: 60px;
+  background: #25D366;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.25);
+  z-index: 999;
+  transition: 0.3s ease;
+}
+
+.floating-whatsapp img {
+  width: 32px;
+  height: 32px;
+}
+
+.floating-whatsapp:hover {
+  transform: scale(1.1);
+}
+
+/* PULSE EFFECT */
+.floating-whatsapp::after {
+  content: "";
+  position: absolute;
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  background: rgba(37, 211, 102, 0.4);
+  animation: pulse 1.8s infinite;
+  z-index: -1;
+}
+
+@keyframes pulse {
+  0% { transform: scale(1); opacity: 0.6; }
+  100% { transform: scale(1.6); opacity: 0; }
+}
 </style>
 </head>
 
@@ -161,7 +207,6 @@ footer {
 <header>
   <h1>Singapore O-Levels & IGCSE Tuition That Gets Results</h1>
   <p>Clear explanations. Exam-focused learning. Real grade improvement.</p>
-  <p>MOE / NIE certified teachers available upon request</p>
   <a href="#contact" class="btn">Start Learning</a>
 </header>
 
@@ -175,30 +220,41 @@ footer {
   </div>
 </section>
 
-<!-- SOLUTION -->
+<!-- METHOD -->
 <section class="dark">
   <h2>Our Teaching Method</h2>
+  <div class="grid">
+    <div class="card">Concept Mastery</div>
+    <div class="card">Exam Strategy</div>
+    <div class="card">Smart Practice</div>
+    <div class="card">Confidence Growth</div>
+  </div>
+</section>
+
+<!-- TEACHER -->
+<section>
+  <h2>Meet Your Tutor</h2>
 
   <div class="grid">
-    <div class="card">
-      <h3>Concept Mastery</h3>
-      <p>We rebuild understanding from the ground up so students truly understand topics.</p>
+
+    <div class="card" style="width:320px;">
+      <h3>Lead Tutor (Math & Science)</h3>
+      <p>
+        Specialised in IGCSE & Singapore O-Level syllabus with a structured, exam-focused approach that helps students consistently improve their grades.
+      </p>
     </div>
 
-    <div class="card">
-      <h3>Exam Strategy</h3>
-      <p>We teach exactly how marks are awarded and how to structure answers.</p>
+    <div class="card" style="width:320px;">
+      <h3>Qualifications</h3>
+      <p>
+        • Bachelor’s Degree in relevant field<br>
+        • Master’s Degree (Education / Subject Specialisation)<br>
+        • 8+ years tutoring experience<br>
+        • IGCSE & O-Level specialist<br>
+        • Strong track record of student improvement
+      </p>
     </div>
 
-    <div class="card">
-      <h3>Smart Practice</h3>
-      <p>Targeted past paper questions that train exam performance, not memorisation.</p>
-    </div>
-
-    <div class="card">
-      <h3>Confidence Growth</h3>
-      <p>Students become independent and confident problem solvers.</p>
-    </div>
   </div>
 </section>
 
@@ -217,37 +273,33 @@ footer {
   </div>
 </section>
 
-<!-- WHAT YOU GET -->
-<section class="dark">
-  <h2>What You Get</h2>
-
-  <div class="grid">
-    <div class="card">
-      <h3>📚 Structured Notes</h3>
-      <p>Clean revision notes designed for fast exam preparation.</p>
-    </div>
-
-    <div class="card">
-      <h3>📄 Past Paper Training</h3>
-      <p>Step-by-step walkthroughs of real exam questions.</p>
-    </div>
-
-    <div class="card">
-      <h3>🧠 Exam Techniques</h3>
-      <p>Learn how to maximise marks with smart answering methods.</p>
-    </div>
-
-    <div class="card">
-      <h3>👨‍🏫 Personal Support</h3>
-      <p>Direct help when students are stuck or confused.</p>
-    </div>
-  </div>
-</section>
-
-<!-- RESULTS -->
+<!-- TESTIMONIALS -->
 <section>
-  <h2>Results That Matter</h2>
-  <p>Students consistently improve grades by focusing on understanding + exam strategy.</p>
+  <h2>What Parents & Students Say</h2>
+  <div class="grid">
+
+    <div class="card">
+      <div class="quote">
+        “My son was getting around 40–45 marks for Maths. Within 3 months here, he improved to 72. He finally understood the concepts instead of memorising steps.”
+      </div>
+      <div class="author">— Parent of Secondary 4 Student</div>
+    </div>
+
+    <div class="card">
+      <div class="quote">
+        “I used to struggle with Physics because I couldn’t connect formulas to questions. After joining, everything became clear and I improved from fail to B.”
+      </div>
+      <div class="author">— IGCSE Student</div>
+    </div>
+
+    <div class="card">
+      <div class="quote">
+        “The exam techniques helped me a lot. I used to lose marks even when I knew the content. I improved my Chemistry from C to A-.”
+      </div>
+      <div class="author">— O-Level Student</div>
+    </div>
+
+  </div>
 </section>
 
 <!-- CONTACT -->
@@ -255,18 +307,37 @@ footer {
   <h2>Start Improving Today</h2>
   <p>Email: igcsesgmy@email.com</p>
 
-  <a 
-    href="https://wa.me/60172731112?text=Hi%20I%20want%20to%20join%20your%20IGCSE%20tuition"
-    target="_blank"
-    class="btn whatsapp-btn"
-  >
-    Chat on WhatsApp
-  </a>
+  <a href="https://wa.me/60172731112" class="btn">Chat on WhatsApp</a>
 </section>
 
 <footer>
   © 2026 IGCSE Tuition Hub • All Rights Reserved
 </footer>
+
+<!-- FLOATING WHATSAPP -->
+<a href="https://wa.me/60172731112?text=Hi%20I%20want%20to%20enquire%20about%20tuition"
+   class="floating-whatsapp"
+   target="_blank">
+   <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg">
+</a>
+
+<script>
+// SCROLL ANIMATION SYSTEM
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('show');
+
+      const cards = entry.target.querySelectorAll('.card');
+      cards.forEach((card, i) => {
+        setTimeout(() => card.classList.add('show'), i * 120);
+      });
+    }
+  });
+}, { threshold: 0.15 });
+
+document.querySelectorAll('section').forEach(sec => observer.observe(sec));
+</script>
 
 </body>
 </html>
