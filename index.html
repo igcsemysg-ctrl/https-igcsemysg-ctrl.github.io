@@ -147,6 +147,35 @@ h2 {
   font-size: 0.9em;
 }
 
+/* ===== QUALIFICATIONS PILL STYLE ===== */
+.pill-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 10px;
+}
+
+.pill-row span {
+  background: #f1f5ff;
+  border: 1px solid #dbe4ff;
+  padding: 6px 12px;
+  border-radius: 999px;
+  font-size: 0.85em;
+  color: #1a1a1a;
+  transition: 0.3s ease;
+}
+
+.pill-row span:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 15px rgba(0,0,0,0.1);
+}
+
+.dark .pill-row span {
+  background: rgba(255,255,255,0.08);
+  border: 1px solid rgba(255,255,255,0.15);
+  color: white;
+}
+
 /* FOOTER */
 footer {
   background: #0f172a;
@@ -182,7 +211,6 @@ footer {
   transform: scale(1.1);
 }
 
-/* PULSE EFFECT */
 .floating-whatsapp::after {
   content: "";
   position: absolute;
@@ -244,25 +272,19 @@ footer {
       </p>
     </div>
 
-<div class="card" style="width:320px;">
-  <h3>Qualifications</h3>
-
-  <div class="pill-row">
-    <span>Bachelor’s Degree</span>
-    <span>Master’s Degree</span>
-    <span>8+ Years Experience</span>
-    <span>IGCSE Specialist</span>
-    <span>O-Level Specialist</span>
-    <span>Proven Grade Improvement</span>
-  </div>
-</div>
-
     <div class="card" style="width:320px;">
-      <h3>A Word From Our Lead Tutor</h3>
-      <p>
-        Students should not be categorized by their grade or their speed of learning but by what motivates them. Consistent failures only displays mistakes to learn from, and the student's mindset is what determines their ability to have the eagerness to learn and improve.
-      </p>
+      <h3>Qualifications</h3>
+
+      <div class="pill-row">
+        <span>• Bachelor’s Degree</span>
+        <span>• Master’s Degree</span>
+        <span>• 8+ Years Experience</span>
+        <span>• IGCSE Specialist</span>
+        <span>• O-Level Specialist</span>
+        <span>• Proven Grade Improvement</span>
+      </div>
     </div>
+
   </div>
 </section>
 
@@ -288,21 +310,21 @@ footer {
 
     <div class="card">
       <div class="quote">
-        “My son was getting around 40–45 marks for Maths. Within 3 months here, he improved to 72. He finally understood the concepts instead of memorising steps.”
+        “My son improved from 40–45 marks to 72 in 3 months. He finally understands Maths instead of memorising steps.”
       </div>
       <div class="author">— Parent of Secondary 4 Student</div>
     </div>
 
     <div class="card">
       <div class="quote">
-        “I used to struggle with Physics because I couldn’t connect formulas to questions. After joining, everything became clear and I improved from fail to B.”
+        “Physics used to be my weakest subject. Now I can actually solve questions without guessing.”
       </div>
       <div class="author">— IGCSE Student</div>
     </div>
 
     <div class="card">
       <div class="quote">
-        “The exam techniques helped me a lot. I used to lose marks even when I knew the content. I improved my Chemistry from C to A-.”
+        “The exam technique training helped me jump from C to A- in Chemistry.”
       </div>
       <div class="author">— O-Level Student</div>
     </div>
@@ -330,7 +352,7 @@ footer {
 </a>
 
 <script>
-// SCROLL ANIMATION SYSTEM
+// SCROLL ANIMATION
 const observer = new IntersectionObserver((entries) => {
   entries.forEach(entry => {
     if (entry.isIntersecting) {
