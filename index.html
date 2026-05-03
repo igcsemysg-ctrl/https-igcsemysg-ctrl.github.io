@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>IGCSE & O-Level Tuition</title>
+<title>IGCSESGMY Tuition</title>
 
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
 
@@ -26,16 +26,22 @@ body {
   transform: translateX(-50%);
   width: 90%;
   max-width: 1100px;
+
   display: flex;
-  justify-content: center;
+  justify-content: space-between;
   align-items: center;
-  padding: 14px 0;
+
+  padding: 14px 20px;
   border-radius: 50px;
-  background: rgba(255,255,255,0.6);
-  backdrop-filter: blur(12px);
+
+  background: rgba(255,255,255,0.65);
+  backdrop-filter: blur(14px);
+
   box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+
   transition: all 0.35s ease;
   z-index: 1000;
+
   opacity: 0;
   pointer-events: none;
 }
@@ -45,19 +51,43 @@ body {
   pointer-events: auto;
 }
 
+/* LOGO IN NAVBAR */
 #navbar img {
   height: 42px;
   transition: all 0.35s ease;
 }
 
+/* CTA BUTTON IN NAVBAR */
+.nav-btn {
+  padding: 10px 20px;
+  border-radius: 25px;
+  background: #111827;
+  color: white;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 0.9em;
+  transition: 0.3s ease;
+}
+
+.nav-btn:hover {
+  transform: scale(1.05);
+  background: #000;
+}
+
+/* SHRINK EFFECT */
 #navbar.shrink {
   top: 10px;
-  padding: 8px 0;
+  padding: 8px 16px;
   border-radius: 30px;
 }
 
 #navbar.shrink img {
   height: 32px;
+}
+
+#navbar.shrink .nav-btn {
+  padding: 8px 16px;
+  font-size: 0.85em;
 }
 
 /* HERO */
@@ -97,6 +127,7 @@ header * {
 
 header h1 {
   font-size: 3em;
+  margin-bottom: 10px;
 }
 
 header p {
@@ -214,14 +245,17 @@ footer {
 
 <!-- NAVBAR -->
 <nav id="navbar">
-  <img src="logo.png" alt="Logo">
+  <img src="logo.png" alt="IGCSESGMY Logo">
+  <a href="#contact" class="nav-btn">Book Trial</a>
 </nav>
 
 <!-- HERO -->
 <header>
-  <img src="logo.png" alt="IGCSESGMY Logo" class="logo">
+  <img src="logo.png" class="logo">
+
   <h1>From Confused to Confident — IGCSE & O-Level Tuition That Delivers Results</h1>
   <p>We turn weak fundamentals into A-grade performance with structured, exam-focused teaching.</p>
+
   <a href="#contact" class="btn">Book a Free Trial Class</a>
 </header>
 
@@ -250,18 +284,9 @@ footer {
 <section>
   <h2>How It Works</h2>
   <div class="grid">
-    <div class="card">
-      <h3>1. Assessment</h3>
-      <p>We identify weak areas and gaps</p>
-    </div>
-    <div class="card">
-      <h3>2. Structured Lessons</h3>
-      <p>Concept-first teaching with exam focus</p>
-    </div>
-    <div class="card">
-      <h3>3. Measurable Progress</h3>
-      <p>Track improvement through tests</p>
-    </div>
+    <div class="card"><h3>1. Assessment</h3><p>We identify weak areas and gaps</p></div>
+    <div class="card"><h3>2. Structured Lessons</h3><p>Concept-first teaching with exam focus</p></div>
+    <div class="card"><h3>3. Measurable Progress</h3><p>Track improvement through tests</p></div>
   </div>
 </section>
 
@@ -276,7 +301,7 @@ footer {
   © 2026 IGCSESGMY • All Rights Reserved
 </footer>
 
-<a href="https://wa.me/60172731112" class="floating-whatsapp">
+<a href="https://wa.me/60172731112" class="floating-whatsapp" target="_blank">
   <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg">
 </a>
 
@@ -302,17 +327,11 @@ const navbar = document.getElementById('navbar');
 window.addEventListener('scroll', () => {
   const scrollY = window.scrollY;
 
-  if (scrollY > 80) {
-    navbar.classList.add('show');
-  } else {
-    navbar.classList.remove('show');
-  }
+  if (scrollY > 80) navbar.classList.add('show');
+  else navbar.classList.remove('show');
 
-  if (scrollY > 200) {
-    navbar.classList.add('shrink');
-  } else {
-    navbar.classList.remove('shrink');
-  }
+  if (scrollY > 200) navbar.classList.add('shrink');
+  else navbar.classList.remove('shrink');
 });
 </script>
 
