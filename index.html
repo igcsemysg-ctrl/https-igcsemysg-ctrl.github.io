@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>IGCSE MYSG Tuition</title>
+<title>IGCSE & O-Level Tuition</title>
 
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
 
@@ -15,32 +15,58 @@ body {
   font-family: 'Inter', sans-serif;
   background: #f6f7fb;
   color: #1a1a1a;
+  padding-top: 20px;
 }
 
-/* ===== NAVBAR ===== */
-.navbar {
+/* NAVBAR */
+#navbar {
   position: fixed;
-  top: 0;
-  width: 100%;
-  padding: 12px 40px;
-  background: rgba(255,255,255,0.9);
-  backdrop-filter: blur(10px);
+  top: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 90%;
+  max-width: 1100px;
   display: flex;
+  justify-content: center;
   align-items: center;
+  padding: 14px 0;
+  border-radius: 50px;
+  background: rgba(255,255,255,0.6);
+  backdrop-filter: blur(12px);
+  box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+  transition: all 0.35s ease;
   z-index: 1000;
-  box-shadow: 0 5px 20px rgba(0,0,0,0.05);
+  opacity: 0;
+  pointer-events: none;
 }
 
-.logo { height: 45px; }
+#navbar.show {
+  opacity: 1;
+  pointer-events: auto;
+}
 
-/* ===== HERO ===== */
+#navbar img {
+  height: 42px;
+  transition: all 0.35s ease;
+}
+
+#navbar.shrink {
+  top: 10px;
+  padding: 8px 0;
+  border-radius: 30px;
+}
+
+#navbar.shrink img {
+  height: 32px;
+}
+
+/* HERO */
 header {
   position: relative;
   background: url('https://images.unsplash.com/photo-1523240795612-9a054b0db644?auto=format&fit=crop&w=1600&q=80') center/cover no-repeat;
   color: white;
   text-align: center;
-  padding: 180px 20px 120px;
-  overflow: hidden;
+  padding: 120px 20px;
 }
 
 header::before {
@@ -50,18 +76,32 @@ header::before {
   background: rgba(10, 15, 35, 0.65);
 }
 
-header h1, header p, header a, .hero-logo {
+header * {
   position: relative;
   z-index: 2;
 }
 
-.hero-logo {
-  width: 120px;
+/* HERO LOGO */
+.logo {
+  width: 140px;
   margin-bottom: 20px;
+  opacity: 0.95;
+  transition: 0.3s ease;
+  filter: drop-shadow(0 8px 20px rgba(0,0,0,0.25));
 }
 
-header h1 { font-size: 2.8em; margin-bottom: 10px; }
-header p { font-size: 1.2em; }
+.logo:hover {
+  transform: scale(1.04);
+  opacity: 1;
+}
+
+header h1 {
+  font-size: 3em;
+}
+
+header p {
+  font-size: 1.2em;
+}
 
 /* BUTTON */
 .btn {
@@ -76,9 +116,11 @@ header p { font-size: 1.2em; }
   transition: 0.3s;
 }
 
-.btn:hover { transform: translateY(-2px) scale(1.03); }
+.btn:hover {
+  transform: translateY(-2px) scale(1.03);
+}
 
-/* ===== SECTIONS ===== */
+/* SECTIONS */
 section {
   padding: 80px 20px;
   text-align: center;
@@ -126,7 +168,8 @@ h2 { font-size: 2.2em; }
 
 .card:hover {
   transform: translateY(-10px);
-  box-shadow: 0 20px 40px rgba(0,0,0,0.12);
+  box-shadow: 0 20px 40px rgba(0,0,0,0.12),
+              0 0 0 1px rgba(100,150,255,0.2);
 }
 
 /* DARK */
@@ -137,35 +180,6 @@ h2 { font-size: 2.2em; }
 
 .dark .card {
   background: rgba(255,255,255,0.05);
-  color: white;
-  border: 1px solid rgba(255,255,255,0.08);
-  backdrop-filter: blur(10px);
-}
-
-/* TESTIMONIALS */
-.quote { font-style: italic; line-height: 1.6; }
-.author { margin-top: 12px; font-weight: 600; font-size: 0.9em; }
-
-/* PILLS */
-.pill-row {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 10px;
-  margin-top: 10px;
-}
-
-.pill-row span {
-  background: #f1f5ff;
-  border: 1px solid #dbe4ff;
-  padding: 6px 12px;
-  border-radius: 999px;
-  font-size: 0.85em;
-}
-
-.dark .pill-row span {
-  background: rgba(255,255,255,0.08);
-  border: 1px solid rgba(255,255,255,0.15);
-  color: white;
 }
 
 /* FOOTER */
@@ -188,26 +202,10 @@ footer {
   display: flex;
   align-items: center;
   justify-content: center;
-  box-shadow: 0 10px 25px rgba(0,0,0,0.25);
-  z-index: 999;
 }
 
-.floating-whatsapp img { width: 32px; }
-
-.floating-whatsapp::after {
-  content: "";
-  position: absolute;
-  width: 60px;
-  height: 60px;
-  border-radius: 50%;
-  background: rgba(37, 211, 102, 0.4);
-  animation: pulse 1.8s infinite;
-  z-index: -1;
-}
-
-@keyframes pulse {
-  0% { transform: scale(1); opacity: 0.6; }
-  100% { transform: scale(1.6); opacity: 0; }
+.floating-whatsapp img {
+  width: 32px;
 }
 </style>
 </head>
@@ -215,16 +213,16 @@ footer {
 <body>
 
 <!-- NAVBAR -->
-<div class="navbar">
-  <img src="logo.png" class="logo">
-</div>
+<nav id="navbar">
+  <img src="logo.png" alt="Logo">
+</nav>
 
 <!-- HERO -->
 <header>
-  <img src="logo.png" class="hero-logo">
-  <h1>IGCSE MYSG Tuition</h1>
-  <p>Understand • Practice • Succeed</p>
-  <a href="#contact" class="btn">Start Learning</a>
+  <img src="logo.png" alt="IGCSESGMY Logo" class="logo">
+  <h1>From Confused to Confident — IGCSE & O-Level Tuition That Delivers Results</h1>
+  <p>We turn weak fundamentals into A-grade performance with structured, exam-focused teaching.</p>
+  <a href="#contact" class="btn">Book a Free Trial Class</a>
 </header>
 
 <!-- PROBLEM -->
@@ -248,36 +246,22 @@ footer {
   </div>
 </section>
 
-<!-- TEACHER -->
+<!-- HOW IT WORKS -->
 <section>
-  <h2>Lead Tutor's Profile</h2>
+  <h2>How It Works</h2>
   <div class="grid">
-    <div class="card" style="width:320px;">
-      <h3>Lead Tutor (Math & Science)</h3>
-      <p>Specialised in IGCSE & Singapore O-Level syllabus with structured, exam-focused approach.</p>
+    <div class="card">
+      <h3>1. Assessment</h3>
+      <p>We identify weak areas and gaps</p>
     </div>
-
-    <div class="card" style="width:320px;">
-      <h3>Qualifications</h3>
-      <div class="pill-row">
-        <span>• Bachelor’s Degree</span>
-        <span>• Master’s Degree</span>
-        <span>• 8+ Years Experience</span>
-        <span>• IGCSE Specialist</span>
-        <span>• O-Level Specialist</span>
-      </div>
+    <div class="card">
+      <h3>2. Structured Lessons</h3>
+      <p>Concept-first teaching with exam focus</p>
     </div>
-  </div>
-</section>
-
-<!-- SUBJECTS -->
-<section>
-  <h2>Subjects We Teach</h2>
-  <div class="grid">
-    <div class="card">Mathematics</div>
-    <div class="card">Physics</div>
-    <div class="card">Chemistry</div>
-    <div class="card">Biology</div>
+    <div class="card">
+      <h3>3. Measurable Progress</h3>
+      <p>Track improvement through tests</p>
+    </div>
   </div>
 </section>
 
@@ -289,14 +273,15 @@ footer {
 </section>
 
 <footer>
-  © 2026 IGCSE MYSG Tuition
+  © 2026 IGCSESGMY • All Rights Reserved
 </footer>
 
-<a href="https://wa.me/60172731112" class="floating-whatsapp" target="_blank">
+<a href="https://wa.me/60172731112" class="floating-whatsapp">
   <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg">
 </a>
 
 <script>
+// SCROLL REVEAL
 const observer = new IntersectionObserver((entries) => {
   entries.forEach(entry => {
     if (entry.isIntersecting) {
@@ -310,6 +295,25 @@ const observer = new IntersectionObserver((entries) => {
 }, { threshold: 0.15 });
 
 document.querySelectorAll('section').forEach(sec => observer.observe(sec));
+
+// NAVBAR SCROLL EFFECT
+const navbar = document.getElementById('navbar');
+
+window.addEventListener('scroll', () => {
+  const scrollY = window.scrollY;
+
+  if (scrollY > 80) {
+    navbar.classList.add('show');
+  } else {
+    navbar.classList.remove('show');
+  }
+
+  if (scrollY > 200) {
+    navbar.classList.add('shrink');
+  } else {
+    navbar.classList.remove('shrink');
+  }
+});
 </script>
 
 </body>
