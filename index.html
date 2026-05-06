@@ -5,168 +5,120 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>IGCSESGMY Tuition</title>
 
+<link rel="icon" href="favicon.ico">
+<link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
+
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
 
 <style>
-html { scroll-behavior: smooth; }
-
 body {
   margin: 0;
   font-family: 'Inter', sans-serif;
   background: #f6f7fb;
-  color: #1a1a1a;
-  padding-top: 20px;
+  color: #111;
 }
 
-/* NAVBAR */
-#navbar {
+/* NAV */
+nav {
   position: fixed;
   top: 20px;
   left: 50%;
   transform: translateX(-50%);
-  width: 90%;
-  max-width: 1100px;
-
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-
-  padding: 14px 20px;
-  border-radius: 50px;
-
-  background: rgba(255,255,255,0.65);
+  background: rgba(255,255,255,0.9);
   backdrop-filter: blur(14px);
-
-  box-shadow: 0 10px 30px rgba(0,0,0,0.08);
-
-  transition: all 0.35s ease;
-  z-index: 1000;
-
-  opacity: 0;
-  pointer-events: none;
-}
-
-#navbar.show {
-  opacity: 1;
-  pointer-events: auto;
-}
-
-/* LOGO IN NAVBAR */
-#navbar img {
-  height: 42px;
-  transition: all 0.35s ease;
-}
-
-/* CTA BUTTON IN NAVBAR */
-.nav-btn {
   padding: 10px 20px;
-  border-radius: 25px;
-  background: #111827;
-  color: white;
-  text-decoration: none;
-  font-weight: 600;
-  font-size: 0.9em;
-  transition: 0.3s ease;
+  border-radius: 50px;
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  z-index: 1000;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.08);
 }
 
-.nav-btn:hover {
-  transform: scale(1.05);
-  background: #000;
-}
-
-/* SHRINK EFFECT */
-#navbar.shrink {
-  top: 10px;
-  padding: 8px 16px;
-  border-radius: 30px;
-}
-
-#navbar.shrink img {
-  height: 32px;
-}
-
-#navbar.shrink .nav-btn {
-  padding: 8px 16px;
-  font-size: 0.85em;
-}
+nav img { height: 40px; }
 
 /* HERO */
 header {
   position: relative;
-  background: url('https://images.unsplash.com/photo-1523240795612-9a054b0db644?auto=format&fit=crop&w=1600&q=80') center/cover no-repeat;
+  background: url('https://images.unsplash.com/photo-1523240795612-9a054b0db644?auto=format&fit=crop&w=1600&q=80') center/cover;
   color: white;
   text-align: center;
-  padding: 120px 20px;
+  padding: 160px 20px;
+  overflow: hidden;
 }
 
 header::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background: rgba(10, 15, 35, 0.65);
+  content:"";
+  position:absolute;
+  inset:0;
+  background:rgba(0,0,0,0.65);
 }
 
-header * {
-  position: relative;
-  z-index: 2;
+header::after {
+  content:"";
+  position:absolute;
+  width:300px;
+  height:300px;
+  background:radial-gradient(circle, rgba(147,51,234,0.3), transparent);
+  top:20%;
+  left:50%;
+  transform:translateX(-50%);
+  filter:blur(80px);
 }
 
-/* HERO LOGO */
-.logo {
-  width: 140px;
-  margin-bottom: 20px;
-  opacity: 0.95;
-  transition: 0.3s ease;
-  filter: drop-shadow(0 8px 20px rgba(0,0,0,0.25));
+header * { position: relative; }
+
+.logo { width: 130px; margin-bottom: 20px; }
+
+h1 {
+  font-size: 2.8em;
+  letter-spacing: -1px;
 }
 
-.logo:hover {
-  transform: scale(1.04);
-  opacity: 1;
-}
+p { line-height: 1.6; }
 
-header h1 {
-  font-size: 3em;
-  margin-bottom: 10px;
-}
+/* CURSOR */
+.cursor { animation: blink 1s infinite; }
 
-header p {
-  font-size: 1.2em;
+@keyframes blink {
+  0%,50%,100% { opacity: 1; }
+  25%,75% { opacity: 0; }
 }
 
 /* BUTTON */
 .btn {
-  display: inline-block;
-  margin-top: 20px;
-  padding: 14px 28px;
-  background: white;
-  color: #111;
-  text-decoration: none;
+  margin-top: 25px;
+  padding: 15px 32px;
   border-radius: 30px;
+  background: linear-gradient(135deg,#2563eb,#9333ea);
+  color: white;
+  text-decoration: none;
   font-weight: 600;
+  display: inline-block;
   transition: 0.3s;
 }
 
-.btn:hover {
-  transform: translateY(-2px) scale(1.03);
-}
+.btn:hover { transform: scale(1.05); }
 
 /* SECTIONS */
 section {
-  padding: 80px 20px;
+  padding: 90px 20px;
   text-align: center;
+}
+
+.light { background: #ffffff; }
+.dark { background: #0b1220; color: white; }
+
+/* REVEAL */
+.reveal {
   opacity: 0;
   transform: translateY(40px);
   transition: all 0.8s ease;
 }
 
-section.show {
+.reveal.show {
   opacity: 1;
   transform: translateY(0);
-}
-
-section:not(.dark) {
-  background: linear-gradient(180deg, #ffffff, #f7f9ff);
 }
 
 h2 { font-size: 2.2em; }
@@ -177,48 +129,81 @@ h2 { font-size: 2.2em; }
   flex-wrap: wrap;
   justify-content: center;
   gap: 22px;
-  margin-top: 35px;
 }
 
 /* CARDS */
 .card {
-  background: white;
   padding: 25px;
   width: 260px;
   border-radius: 16px;
-  box-shadow: 0 10px 25px rgba(0,0,0,0.08);
-  transition: 0.4s ease;
-  opacity: 0;
-  transform: translateY(25px);
+  transition: 0.3s;
 }
 
-.card.show {
-  opacity: 1;
-  transform: translateY(0);
-}
-
-.card:hover {
-  transform: translateY(-10px);
-  box-shadow: 0 20px 40px rgba(0,0,0,0.12),
-              0 0 0 1px rgba(100,150,255,0.2);
-}
-
-/* DARK */
-.dark {
-  background: linear-gradient(135deg, #0b1220, #111827);
-  color: white;
+.light .card {
+  background: #f9fafc;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.06);
 }
 
 .dark .card {
-  background: rgba(255,255,255,0.05);
+  background: rgba(255,255,255,0.06);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(255,255,255,0.1);
+}
+
+.card:hover { transform: translateY(-8px); }
+
+/* FAQ */
+.faq-container {
+  max-width: 700px;
+  margin: 40px auto;
+  text-align: left;
+}
+
+.faq-item {
+  border-bottom: 1px solid rgba(0,0,0,0.08);
+  padding: 10px 0;
+}
+
+.faq-question {
+  width: 100%;
+  background: none;
+  border: none;
+  font-size: 1em;
+  font-weight: 600;
+  text-align: left;
+  cursor: pointer;
+  padding: 15px 0;
+  position: relative;
+}
+
+.faq-question::after {
+  content: "+";
+  position: absolute;
+  right: 0;
+  transition: 0.3s;
+}
+
+.faq-item.active .faq-question::after {
+  transform: rotate(45deg);
+}
+
+.faq-answer {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.4s ease;
+}
+
+.faq-answer p {
+  margin: 0 0 15px;
+  opacity: 0.8;
 }
 
 /* FOOTER */
 footer {
   background: #0f172a;
   color: white;
-  padding: 20px;
   text-align: center;
+  padding: 20px;
 }
 
 /* WHATSAPP */
@@ -227,41 +212,29 @@ footer {
   bottom: 22px;
   right: 22px;
   width: 60px;
-  height: 60px;
-  background: #25D366;
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.floating-whatsapp img {
-  width: 32px;
 }
 </style>
 </head>
 
 <body>
 
-<!-- NAVBAR -->
-<nav id="navbar">
-  <img src="logo.png" alt="IGCSESGMY Logo">
-  <a href="#contact" class="nav-btn">Book Trial</a>
+<nav>
+  <img src="logo.png">
 </nav>
 
-<!-- HERO -->
 <header>
   <img src="logo.png" class="logo">
 
-  <h1>From Confused to Confident — IGCSE & O-Level Tuition That Delivers Results</h1>
-  <p>We turn weak fundamentals into A-grade performance with structured, exam-focused teaching.</p>
+  <h1>
+    <span id="typing"></span><span class="cursor">|</span>
+  </h1>
 
-  <a href="#contact" class="btn">Book a Free Trial Class</a>
+  <p>IGCSE & O-Level Tuition That Delivers Real Results</p>
+  <a href="enquiry.html" class="btn">Book Free Trial</a>
 </header>
 
-<!-- PROBLEM -->
-<section>
-  <h2>Students Come To Us When They Feel...</h2>
+<section class="light reveal">
+  <h2>Students Come To Us When...</h2>
   <div class="grid">
     <div class="card">“I study but nothing improves”</div>
     <div class="card">“I don’t understand the basics”</div>
@@ -269,8 +242,7 @@ footer {
   </div>
 </section>
 
-<!-- METHOD -->
-<section class="dark">
+<section class="dark reveal">
   <h2>Our Teaching Method</h2>
   <div class="grid">
     <div class="card">Concept Mastery</div>
@@ -280,105 +252,100 @@ footer {
   </div>
 </section>
 
-<!-- HOW IT WORKS -->
-<section>
-  <h2>How It Works</h2>
+<section class="light reveal">
+  <h2>How Lessons Are Structured</h2>
   <div class="grid">
-    <div class="card"><h3>1. Assessment</h3><p>We identify weak areas and gaps</p></div>
-    <div class="card"><h3>2. Structured Lessons</h3><p>Concept-first teaching with exam focus</p></div>
-    <div class="card"><h3>3. Measurable Progress</h3><p>Track improvement through tests</p></div>
+    <div class="card"><h3>1. Diagnose</h3><p>Identify weak areas</p></div>
+    <div class="card"><h3>2. Build</h3><p>Strengthen concepts</p></div>
+    <div class="card"><h3>3. Apply</h3><p>Master exam questions</p></div>
   </div>
 </section>
-  <!-- TEACHER -->
-<section>
-  <h2>Lead Tutor's Profile</h2>
 
-  <div class="grid">
+<!-- FAQ DROPDOWN -->
+<section class="light reveal">
+  <h2>Frequently Asked Questions</h2>
 
-    <div class="card" style="width:320px;">
-      <h3>Lead Tutor (Math & Science)</h3>
-      <p>
-        Specialised in IGCSE & Singapore O-Level syllabus with a structured, exam-focused approach that helps students consistently improve their grades.
-      </p>
+  <div class="faq-container">
+
+    <div class="faq-item">
+      <button class="faq-question">How big are the classes?</button>
+      <div class="faq-answer">
+        <p>Small group classes for focused attention.</p>
+      </div>
     </div>
 
-    <div class="card" style="width:320px;">
-      <h3>Qualifications</h3>
+    <div class="faq-item">
+      <button class="faq-question">Which syllabus do you cover?</button>
+      <div class="faq-answer">
+        <p>IGCSE & Singapore O-Level.</p>
+      </div>
+    </div>
 
-      <div class="pill-row">
-        <span>• Bachelor’s Degree</span>
-        <span>• Master’s Degree</span>
-        <span>• 8+ Years Experience</span>
-        <span>• IGCSE Specialist</span>
-        <span>• O-Level Specialist</span>
-        <span>• Proven Grade Improvement</span>
+    <div class="faq-item">
+      <button class="faq-question">Do you provide materials?</button>
+      <div class="faq-answer">
+        <p>Yes, structured notes and exam practice are provided.</p>
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-question">How fast can results improve?</button>
+      <div class="faq-answer">
+        <p>Most students improve within a few months.</p>
       </div>
     </div>
 
   </div>
 </section>
-<!-- LEAD TUTOR MESSAGE -->
-<section>
-  <h2>A Word From Our Lead Tutor</h2>
 
-  <div class="grid">
-    <div class="card" style="width:700px; max-width:90%;">
-      <p style="font-size:1.1em; line-height:1.7; font-style:italic;">
-        “Students should not be categorized by their grade or their speed of learning but by what motivates them. 
-        Consistent failures only display mistakes to learn from, and the student's mindset is what determines their ability 
-        to have the eagerness to learn and improve.”
-      </p>
-
-      <p style="margin-top:15px; font-weight:600;">
-        — Lead Tutor
-      </p>
-    </div>
-  </div>
-</section>
-
-<!-- CONTACT -->
-<section id="contact" class="dark">
-  <h2>Start Improving Today</h2>
-  <p>Email: igcsemysg@gmail.com</p>
-  <a href="https://wa.me/60172731112" class="btn">Chat on WhatsApp</a>
+<section class="dark reveal">
+  <h2>Ready to See Real Improvement?</h2>
+  <p>Book a trial class and experience the difference.</p>
+  <a href="enquiry.html" class="btn">Book Free Trial</a>
 </section>
 
 <footer>
-  © 2026 IGCSESGMY • All Rights Reserved
+© 2026 IGCSESGMY Tuition
 </footer>
 
-<a href="https://wa.me/60172731112" class="floating-whatsapp" target="_blank">
-  <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg">
+<a href="https://wa.me/60172731112">
+<img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" class="floating-whatsapp">
 </a>
 
 <script>
-// SCROLL REVEAL
-const observer = new IntersectionObserver((entries) => {
-  entries.forEach(entry => {
-    if (entry.isIntersecting) {
-      entry.target.classList.add('show');
-      const cards = entry.target.querySelectorAll('.card');
-      cards.forEach((card, i) => {
-        setTimeout(() => card.classList.add('show'), i * 120);
-      });
+// typing
+const text = "From Confused to A-Grade Confidence";
+let i = 0;
+function typeEffect(){
+  if(i<text.length){
+    document.getElementById("typing").innerHTML += text.charAt(i);
+    i++;
+    setTimeout(typeEffect,50);
+  }
+}
+
+// reveal
+const observer = new IntersectionObserver(entries=>{
+  entries.forEach(entry=>{
+    if(entry.isIntersecting){
+      entry.target.classList.add("show");
     }
   });
-}, { threshold: 0.15 });
-
-document.querySelectorAll('section').forEach(sec => observer.observe(sec));
-
-// NAVBAR SCROLL EFFECT
-const navbar = document.getElementById('navbar');
-
-window.addEventListener('scroll', () => {
-  const scrollY = window.scrollY;
-
-  if (scrollY > 80) navbar.classList.add('show');
-  else navbar.classList.remove('show');
-
-  if (scrollY > 200) navbar.classList.add('shrink');
-  else navbar.classList.remove('shrink');
 });
+document.querySelectorAll(".reveal").forEach(el=>observer.observe(el));
+
+// FAQ dropdown
+document.querySelectorAll(".faq-item").forEach(item=>{
+  item.querySelector(".faq-question").addEventListener("click", ()=>{
+    item.classList.toggle("active");
+    const answer = item.querySelector(".faq-answer");
+    answer.style.maxHeight = item.classList.contains("active")
+      ? answer.scrollHeight + "px"
+      : null;
+  });
+});
+
+window.onload = typeEffect;
 </script>
 
 </body>
