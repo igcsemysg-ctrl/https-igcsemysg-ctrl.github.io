@@ -355,7 +355,7 @@ function typeLoop() {
     }
   }
 
-  setTimeout(typeLoop, isDeleting ? 60 : 100);
+  setTimeout(typeLoop, isDeleting ? 300 : 200);
 }
 
 window.onload = typeLoop;
