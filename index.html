@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>IGCSESGMY Tuition</title>
+<title>IGCSEMYSG Tuition</title>
 
 <link rel="icon" href="favicon.ico">
 <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
@@ -11,6 +11,8 @@
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
 
 <style>
+html { scroll-behavior: smooth; }
+
 body {
   margin: 0;
   font-family: 'Inter', sans-serif;
@@ -18,24 +20,58 @@ body {
   color: #111;
 }
 
-/* NAV */
-nav {
+/* NAVBAR */
+#navbar {
   position: fixed;
   top: 20px;
   left: 50%;
   transform: translateX(-50%);
-  background: rgba(255,255,255,0.9);
-  backdrop-filter: blur(14px);
-  padding: 10px 20px;
-  border-radius: 50px;
+  width: 90%;
+  max-width: 1100px;
+
   display: flex;
+  justify-content: space-between;
   align-items: center;
-  gap: 20px;
-  z-index: 1000;
+
+  padding: 12px 20px;
+  border-radius: 50px;
+
+  background: rgba(255,255,255,0.75);
+  backdrop-filter: blur(14px);
+
   box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+  z-index: 1000;
 }
 
-nav img { height: 40px; }
+.nav-logo { height: 40px; }
+
+.nav-links {
+  display: flex;
+  gap: 25px;
+}
+
+.nav-links a {
+  text-decoration: none;
+  color: #333;
+  font-weight: 500;
+  font-size: 0.95em;
+  transition: 0.3s;
+}
+
+.nav-links a:hover { opacity: 0.6; }
+
+.nav-cta {
+  padding: 10px 18px;
+  border-radius: 25px;
+  background: #111;
+  color: white;
+  text-decoration: none;
+  font-size: 0.9em;
+  font-weight: 600;
+  transition: 0.3s;
+}
+
+.nav-cta:hover { transform: scale(1.05); }
 
 /* HERO */
 header {
@@ -44,7 +80,6 @@ header {
   color: white;
   text-align: center;
   padding: 160px 20px;
-  overflow: hidden;
 }
 
 header::before {
@@ -77,28 +112,12 @@ h1 {
 
 p { line-height: 1.6; }
 
-/* CURSOR */
 .cursor { animation: blink 1s infinite; }
 
 @keyframes blink {
   0%,50%,100% { opacity: 1; }
   25%,75% { opacity: 0; }
 }
-
-/* BUTTON */
-.btn {
-  margin-top: 25px;
-  padding: 15px 32px;
-  border-radius: 30px;
-  background: linear-gradient(135deg,#2563eb,#9333ea);
-  color: white;
-  text-decoration: none;
-  font-weight: 600;
-  display: inline-block;
-  transition: 0.3s;
-}
-
-.btn:hover { transform: scale(1.05); }
 
 /* SECTIONS */
 section {
@@ -108,6 +127,8 @@ section {
 
 .light { background: #ffffff; }
 .dark { background: #0b1220; color: white; }
+
+h2 { font-size: 2.2em; }
 
 /* REVEAL */
 .reveal {
@@ -120,8 +141,6 @@ section {
   opacity: 1;
   transform: translateY(0);
 }
-
-h2 { font-size: 2.2em; }
 
 /* GRID */
 .grid {
@@ -152,6 +171,39 @@ h2 { font-size: 2.2em; }
 
 .card:hover { transform: translateY(-8px); }
 
+/* CTA */
+.btn {
+  margin-top: 25px;
+  padding: 14px 30px;
+  border-radius: 40px;
+  background: white;
+  color: #111;
+  text-decoration: none;
+  font-weight: 600;
+  border: 1px solid rgba(0,0,0,0.1);
+  display: inline-block;
+  transition: all 0.3s ease;
+}
+
+.btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 25px rgba(0,0,0,0.12);
+}
+
+/* WhatsApp CTA */
+.whatsapp-cta {
+  display: inline-block;
+  margin-top: 18px;
+  padding: 10px 20px;
+  border-radius: 25px;
+  background: rgba(37,211,102,0.1);
+  color: #25D366;
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.whatsapp-cta:hover { transform: scale(1.05); }
+
 /* FAQ */
 .faq-container {
   max-width: 700px;
@@ -161,7 +213,6 @@ h2 { font-size: 2.2em; }
 
 .faq-item {
   border-bottom: 1px solid rgba(0,0,0,0.08);
-  padding: 10px 0;
 }
 
 .faq-question {
@@ -180,7 +231,6 @@ h2 { font-size: 2.2em; }
   content: "+";
   position: absolute;
   right: 0;
-  transition: 0.3s;
 }
 
 .faq-item.active .faq-question::after {
@@ -206,43 +256,47 @@ footer {
   padding: 20px;
 }
 
-/* WHATSAPP */
-.floating-whatsapp {
-  position: fixed;
-  bottom: 22px;
-  right: 22px;
-  width: 60px;
+/* MOBILE */
+@media(max-width:768px){
+  .nav-links { display:none; }
 }
 </style>
 </head>
 
 <body>
 
-<nav>
-  <img src="logo.png">
+<!-- NAVBAR -->
+<nav id="navbar">
+  <img src="logo.png" class="nav-logo">
+
+  <div class="nav-links">
+    <a href="#about">About</a>
+    <a href="#method">Method</a>
+    <a href="#faq">FAQ</a>
+  </div>
+
+  <a href="enquiry.html" class="nav-cta">Book Trial</a>
 </nav>
 
+<!-- HERO -->
 <header>
   <img src="logo.png" class="logo">
-
-  <h1>
-    <span id="typing"></span><span class="cursor">|</span>
-  </h1>
-
-  <p>IGCSE & O-Level Tuition That Delivers Real Results</p>
-  <a href="enquiry.html" class="btn">Book Free Trial</a>
+  <h1><span id="typing"></span><span class="cursor">|</span></h1>
+  <p>IGCSE, Edexel & O-Level Tuition That Delivers Real Results</p>
 </header>
 
-<section class="light reveal">
+<!-- ABOUT -->
+<section id="about" class="light reveal">
   <h2>Students Come To Us When...</h2>
   <div class="grid">
-    <div class="card">“I study but nothing improves”</div>
-    <div class="card">“I don’t understand the basics”</div>
+    <div class="card">“I study but i don't see any improvements”</div>
+    <div class="card">“I don’t have a strong foundation”</div>
     <div class="card">“Past papers feel impossible”</div>
   </div>
 </section>
 
-<section class="dark reveal">
+<!-- METHOD -->
+<section id="method" class="dark reveal">
   <h2>Our Teaching Method</h2>
   <div class="grid">
     <div class="card">Concept Mastery</div>
@@ -252,65 +306,59 @@ footer {
   </div>
 </section>
 
+<!-- STRUCTURE -->
 <section class="light reveal">
   <h2>How Lessons Are Structured</h2>
   <div class="grid">
-    <div class="card"><h3>1. Diagnose</h3><p>Identify weak areas</p></div>
-    <div class="card"><h3>2. Build</h3><p>Strengthen concepts</p></div>
-    <div class="card"><h3>3. Apply</h3><p>Master exam questions</p></div>
+    <div class="card"><h3>1. Evaluate</h3><p>Indicating and understanding the issue</p></div>
+    <div class="card"><h3>2. Diagnose</h3><p>Identify weak areas</p></div>
+    <div class="card"><h3>3. Build</h3><p>Strengthen concepts</p></div>
+    <div class="card"><h3>4. Apply</h3><p>Master exam questions</p></div>
   </div>
 </section>
 
-<!-- FAQ DROPDOWN -->
-<section class="light reveal">
+<!-- FAQ -->
+<section id="faq" class="light reveal">
   <h2>Frequently Asked Questions</h2>
-
   <div class="faq-container">
 
     <div class="faq-item">
       <button class="faq-question">How big are the classes?</button>
-      <div class="faq-answer">
-        <p>Small group classes for focused attention.</p>
-      </div>
+      <div class="faq-answer"><p>Small group classes for focused attention. On top of that, we provide 1-to-1 classes as well.</p></div>
     </div>
 
     <div class="faq-item">
       <button class="faq-question">Which syllabus do you cover?</button>
-      <div class="faq-answer">
-        <p>IGCSE & Singapore O-Level.</p>
-      </div>
+      <div class="faq-answer"><p>IGCSE,Edexel & Singapore O-Level.</p></div>
     </div>
 
     <div class="faq-item">
       <button class="faq-question">Do you provide materials?</button>
-      <div class="faq-answer">
-        <p>Yes, structured notes and exam practice are provided.</p>
-      </div>
+      <div class="faq-answer"><p>Yes, structured notes and exam practice are provided.</p></div>
     </div>
 
     <div class="faq-item">
       <button class="faq-question">How fast can results improve?</button>
-      <div class="faq-answer">
-        <p>Most students improve within a few months.</p>
-      </div>
+      <div class="faq-answer"><p>Most students improve within a few months. However, different students may have their individual learning pace which may have a broad range for specific cases.</p></div>
     </div>
 
   </div>
 </section>
 
+<!-- CTA -->
 <section class="dark reveal">
-  <h2>Ready to See Real Improvement?</h2>
-  <p>Book a trial class and experience the difference.</p>
-  <a href="enquiry.html" class="btn">Book Free Trial</a>
+  <h2>Ready to Improve?</h2>
+  <p>Book a class and experience the difference.</p>
+
+  <a href="enquiry.html" class="btn">Book A Class Now</a>
+  <a href="https://wa.me/60172731112" class="whatsapp-cta" target="_blank">
+    💬 Chat on WhatsApp
+  </a>
 </section>
 
 <footer>
-© 2026 IGCSESGMY Tuition
+© 2026 IGCSEMYSG Tuition
 </footer>
-
-<a href="https://wa.me/60172731112">
-<img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" class="floating-whatsapp">
-</a>
 
 <script>
 // typing
@@ -334,7 +382,7 @@ const observer = new IntersectionObserver(entries=>{
 });
 document.querySelectorAll(".reveal").forEach(el=>observer.observe(el));
 
-// FAQ dropdown
+// FAQ
 document.querySelectorAll(".faq-item").forEach(item=>{
   item.querySelector(".faq-question").addEventListener("click", ()=>{
     item.classList.toggle("active");
