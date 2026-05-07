@@ -51,88 +51,6 @@ body::before {
 }
 
 /* ========================================= */
-/* LOADER */
-/* ========================================= */
-
-#loader {
-  position: fixed;
-  inset: 0;
-
-  background: #f6f7fb;
-
-  display: flex;
-  align-items: center;
-  justify-content: center;
-
-  z-index: 999999;
-  transition: 0.8s ease;
-}
-
-#loader.hidden {
-  opacity: 0;
-  visibility: hidden;
-}
-
-.loader-logo-wrap {
-  position: relative;
-}
-
-.loader-logo {
-  width: 110px;
-  z-index: 2;
-  position: relative;
-
-  animation: float 2.5s ease infinite;
-}
-
-.loader-glow {
-  position: absolute;
-
-  width: 180px;
-  height: 180px;
-
-  top: 50%;
-  left: 50%;
-
-  transform: translate(-50%, -50%);
-
-  background:
-  radial-gradient(circle,
-  rgba(99,102,241,0.35),
-  transparent 70%);
-
-  filter: blur(30px);
-
-  animation: pulseGlow 2.8s ease infinite;
-}
-
-@keyframes pulseGlow {
-
-  0%,100% {
-    transform: translate(-50%, -50%) scale(1);
-    opacity: 0.7;
-  }
-
-  50% {
-    transform: translate(-50%, -50%) scale(1.2);
-    opacity: 1;
-  }
-
-}
-
-@keyframes float {
-
-  0%,100% {
-    transform: translateY(0px);
-  }
-
-  50% {
-    transform: translateY(-8px);
-  }
-
-}
-
-/* ========================================= */
 /* SCROLL BAR */
 /* ========================================= */
 
@@ -859,20 +777,6 @@ footer p {
 
 <body>
 
-<!-- LOADER -->
-
-<div id="loader">
-
-  <div class="loader-logo-wrap">
-
-    <img src="logo.png" class="loader-logo">
-
-    <div class="loader-glow"></div>
-
-  </div>
-
-</div>
-
 <!-- PROGRESS -->
 
 <div id="progress-bar"></div>
@@ -884,13 +788,13 @@ footer p {
   <img src="logo.png" class="nav-logo">
 
   <div class="nav-links">
-  <a href="#about">About</a>
-  <a href="#method">Method</a>
-  <a href="#structure">Structure</a>
-  <a href="#faq">FAQ</a>
-  <a href="platform.html">Platform</a>
-</div>
-  
+    <a href="#about">About</a>
+    <a href="#method">Method</a>
+    <a href="#structure">Structure</a>
+    <a href="#faq">FAQ</a>
+    <a href="platform.html">Platform</a>
+  </div>
+
   <div class="hamburger" id="hamburger">
     <span></span>
     <span></span>
@@ -1153,21 +1057,6 @@ footer p {
 </footer>
 
 <script>
-
-/* ========================================= */
-/* LOADER */
-/* ========================================= */
-
-window.addEventListener("load", () => {
-
-  setTimeout(() => {
-
-    document.getElementById("loader")
-    .classList.add("hidden");
-
-  }, 1400);
-
-});
 
 /* ========================================= */
 /* TYPING */
