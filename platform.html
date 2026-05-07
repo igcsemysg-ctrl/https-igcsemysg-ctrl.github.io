@@ -1,23 +1,799 @@
 <!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+
+<title>IGCSEMYSG Platform</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+<style>
+
+/* ========================================= */
+/* RESET */
+/* ========================================= */
+
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+}
+
+html{
+  scroll-behavior:smooth;
+}
+
+body{
+  font-family:'Inter',sans-serif;
+  background:#f6f7fb;
+  color:#111827;
+  overflow-x:hidden;
+}
+
+/* ========================================= */
+/* BACKGROUND GLOW */
+/* ========================================= */
+
+.bg-glow{
+
+  position:fixed;
+  inset:0;
+
+  z-index:-1;
+
+  background:
+  radial-gradient(circle at top left,
+  rgba(99,102,241,0.12),
+  transparent 30%),
+
+  radial-gradient(circle at bottom right,
+  rgba(236,72,153,0.10),
+  transparent 30%),
+
+  radial-gradient(circle at center,
+  rgba(139,92,246,0.08),
+  transparent 45%);
+}
+
+/* ========================================= */
+/* NAVBAR */
+/* ========================================= */
+
+nav{
+
+  position:fixed;
+
+  top:20px;
+  left:50%;
+
+  transform:translateX(-50%);
+
+  width:92%;
+  max-width:1180px;
+
+  padding:14px 22px;
+
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+
+  border-radius:999px;
+
+  background:rgba(255,255,255,0.65);
+
+  backdrop-filter:blur(18px);
+
+  border:1px solid rgba(255,255,255,0.7);
+
+  box-shadow:
+  0 10px 30px rgba(0,0,0,0.06);
+
+  z-index:1000;
+}
+
+.logo{
+
+  font-size:1.05rem;
+  font-weight:800;
+
+  letter-spacing:-0.5px;
+}
+
+.nav-links{
+
+  display:flex;
+  gap:24px;
+}
+
+.nav-links a{
+
+  text-decoration:none;
+  color:#374151;
+
+  font-size:0.95rem;
+  font-weight:600;
+
+  transition:0.3s ease;
+}
+
+.nav-links a:hover{
+  opacity:0.6;
+}
+
+.nav-btn{
+
+  padding:12px 22px;
+
+  border-radius:999px;
+
+  background:
+  linear-gradient(
+    135deg,
+    #6366f1,
+    #8b5cf6
+  );
+
+  color:white;
+
+  text-decoration:none;
+  font-weight:600;
+
+  box-shadow:
+  0 10px 25px rgba(99,102,241,0.25);
+
+  transition:0.3s ease;
+}
+
+.nav-btn:hover{
+  transform:translateY(-2px);
+}
+
+/* ========================================= */
+/* HERO */
+/* ========================================= */
+
+.hero{
+
+  padding:
+  180px 20px
+  120px;
+
+  text-align:center;
+}
+
+.hero-badge{
+
+  display:inline-flex;
+  align-items:center;
+  gap:10px;
+
+  padding:10px 18px;
+
+  border-radius:999px;
+
+  background:white;
+
+  border:1px solid rgba(0,0,0,0.05);
+
+  box-shadow:
+  0 8px 20px rgba(0,0,0,0.04);
+
+  margin-bottom:30px;
+
+  font-size:0.9rem;
+  font-weight:600;
+}
+
+.hero h1{
+
+  font-size:4.8rem;
+  line-height:1;
+
+  letter-spacing:-3px;
+
+  max-width:1000px;
+  margin:auto;
+}
+
+.gradient-text{
+
+  background:
+  linear-gradient(
+    90deg,
+    #6366f1,
+    #8b5cf6,
+    #ec4899
+  );
+
+  -webkit-background-clip:text;
+  -webkit-text-fill-color:transparent;
+}
+
+.hero p{
+
+  max-width:760px;
+
+  margin:30px auto 0;
+
+  font-size:1.15rem;
+  line-height:1.8;
+
+  color:#5b6475;
+}
+
+/* ========================================= */
+/* BUTTONS */
+/* ========================================= */
+
+.hero-buttons{
+
+  display:flex;
+  justify-content:center;
+  gap:18px;
+
+  margin-top:40px;
+
+  flex-wrap:wrap;
+}
+
+.btn{
+
+  position:relative;
+
+  padding:16px 30px;
+
+  border-radius:999px;
+
+  text-decoration:none;
+  font-weight:700;
+
+  overflow:hidden;
+
+  transition:
+  transform 0.35s ease,
+  box-shadow 0.35s ease;
+}
+
+.btn-primary{
+
+  background:
+  linear-gradient(
+    135deg,
+    #6366f1,
+    #8b5cf6
+  );
+
+  color:white;
+
+  box-shadow:
+  0 16px 40px rgba(99,102,241,0.28);
+}
+
+.btn-secondary{
+
+  background:white;
+
+  color:#111827;
+
+  border:1px solid rgba(0,0,0,0.05);
+
+  box-shadow:
+  0 10px 30px rgba(0,0,0,0.06);
+}
+
+.btn:hover{
+
+  transform:
+  translateY(-4px)
+  scale(1.02);
+}
+
+/* ========================================= */
+/* DASHBOARD PREVIEW */
+/* ========================================= */
+
+.dashboard-preview{
+
+  max-width:1180px;
+  margin:90px auto 0;
+
+  background:white;
+
+  border-radius:32px;
+
+  overflow:hidden;
+
+  box-shadow:
+  0 30px 100px rgba(0,0,0,0.10);
+}
+
+.dashboard-top{
+
+  display:flex;
+  align-items:center;
+  gap:8px;
+
+  padding:18px;
+
+  background:#f9fafc;
+
+  border-bottom:
+  1px solid rgba(0,0,0,0.05);
+}
+
+.dot{
+
+  width:12px;
+  height:12px;
+
+  border-radius:50%;
+}
+
+.red{background:#ef4444;}
+.yellow{background:#f59e0b;}
+.green{background:#10b981;}
+
+.dashboard-body{
+
+  display:grid;
+  grid-template-columns:260px 1fr;
+
+  min-height:680px;
+}
+
+/* SIDEBAR */
+
+.sidebar{
+
+  padding:30px 20px;
+
+  border-right:
+  1px solid rgba(0,0,0,0.05);
+
+  background:#fbfcff;
+}
+
+.sidebar h3{
+
+  font-size:0.8rem;
+
+  letter-spacing:1px;
+
+  text-transform:uppercase;
+
+  color:#9aa3b2;
+
+  margin-bottom:28px;
+}
+
+.sidebar-links{
+
+  display:flex;
+  flex-direction:column;
+  gap:14px;
+}
+
+.sidebar-links a{
+
+  padding:14px 16px;
+
+  border-radius:14px;
+
+  background:white;
+
+  text-decoration:none;
+  color:#111827;
+
+  font-weight:600;
+
+  border:1px solid rgba(0,0,0,0.04);
+
+  transition:0.3s ease;
+}
+
+.sidebar-links a:hover{
+
+  transform:translateX(4px);
+
+  box-shadow:
+  0 10px 25px rgba(0,0,0,0.05);
+}
+
+/* MAIN */
+
+.main-dashboard{
+  padding:40px;
+}
+
+.dashboard-header{
+
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+
+  margin-bottom:40px;
+}
+
+.dashboard-header h2{
+
+  font-size:2rem;
+
+  letter-spacing:-1px;
+}
+
+.dashboard-header p{
+
+  margin-top:8px;
+
+  color:#6b7280;
+}
+
+.dashboard-grid{
+
+  display:grid;
+  grid-template-columns:
+  repeat(auto-fit,minmax(220px,1fr));
+
+  gap:22px;
+}
+
+.stat-card{
+
+  padding:28px;
+
+  border-radius:24px;
+
+  background:#f9fafc;
+
+  border:1px solid rgba(0,0,0,0.04);
+
+  transition:0.35s ease;
+}
+
+.stat-card:hover{
+
+  transform:
+  translateY(-8px);
+
+  box-shadow:
+  0 20px 50px rgba(0,0,0,0.08);
+}
+
+.stat-card h4{
+
+  color:#6b7280;
+
+  margin-bottom:12px;
+
+  font-weight:600;
+}
+
+.stat-card h1{
+
+  font-size:2.6rem;
+
+  letter-spacing:-2px;
+}
+
+/* ========================================= */
+/* FEATURES */
+/* ========================================= */
+
+.features{
+
+  padding:120px 20px;
+}
+
+.section-title{
+
+  text-align:center;
+  margin-bottom:70px;
+}
+
+.section-title h2{
+
+  font-size:3rem;
+
+  letter-spacing:-2px;
+
+  margin-bottom:20px;
+}
+
+.section-title p{
+
+  max-width:700px;
+  margin:auto;
+
+  color:#6b7280;
+
+  line-height:1.8;
+}
+
+.feature-grid{
+
+  max-width:1180px;
+  margin:auto;
+
+  display:grid;
+
+  grid-template-columns:
+  repeat(auto-fit,minmax(280px,1fr));
+
+  gap:24px;
+}
+
+.feature-card{
+
+  padding:34px;
+
+  border-radius:28px;
+
+  background:white;
+
+  border:1px solid rgba(0,0,0,0.04);
+
+  box-shadow:
+  0 10px 30px rgba(0,0,0,0.04);
+
+  transition:0.35s ease;
+}
+
+.feature-card:hover{
+
+  transform:
+  translateY(-10px);
+
+  box-shadow:
+  0 20px 60px rgba(0,0,0,0.08);
+}
+
+.feature-icon{
+
+  width:60px;
+  height:60px;
+
+  border-radius:18px;
+
+  display:flex;
+  align-items:center;
+  justify-content:center;
+
+  background:
+  linear-gradient(
+    135deg,
+    #6366f1,
+    #8b5cf6
+  );
+
+  color:white;
+
+  margin-bottom:24px;
+
+  font-size:1.5rem;
+}
+
+.feature-card h3{
+
+  font-size:1.3rem;
+
+  margin-bottom:14px;
+}
+
+.feature-card p{
+
+  color:#6b7280;
+
+  line-height:1.8;
+}
+
+/* ========================================= */
+/* PRICING */
+/* ========================================= */
+
+.pricing{
+
+  padding:120px 20px;
+}
+
+.pricing-card{
+
+  max-width:460px;
+  margin:auto;
+
+  padding:50px;
+
+  border-radius:32px;
+
+  background:white;
+
+  border:1px solid rgba(0,0,0,0.05);
+
+  box-shadow:
+  0 20px 60px rgba(0,0,0,0.06);
+
+  text-align:center;
+}
+
+.pricing-card h3{
+
+  font-size:2rem;
+}
+
+.price{
+
+  font-size:5rem;
+  font-weight:800;
+
+  letter-spacing:-4px;
+
+  margin:20px 0;
+}
+
+.price span{
+
+  font-size:1rem;
+
+  color:#6b7280;
+}
+
+.pricing-features{
+
+  margin-top:30px;
+
+  display:flex;
+  flex-direction:column;
+  gap:18px;
+}
+
+.pricing-features div{
+
+  padding:14px;
+
+  border-radius:14px;
+
+  background:#f9fafc;
+}
+
+/* ========================================= */
+/* CTA */
+/* ========================================= */
+
+.cta{
+
+  padding:140px 20px;
+
+  text-align:center;
+}
+
+.cta h2{
+
+  font-size:4rem;
+
+  max-width:900px;
+  margin:auto;
+
+  line-height:1.1;
+
+  letter-spacing:-3px;
+}
+
+.cta p{
+
+  max-width:700px;
+
+  margin:30px auto;
+
+  color:#6b7280;
+
+  line-height:1.8;
+}
+
+/* ========================================= */
+/* FOOTER */
+/* ========================================= */
+
+footer{
+
+  padding:40px 20px;
+
+  text-align:center;
+
+  border-top:
+  1px solid rgba(0,0,0,0.05);
+
+  color:#6b7280;
+}
+
+/* ========================================= */
+/* MOBILE */
+/* ========================================= */
+
+@media(max-width:900px){
+
+  .hero h1{
+    font-size:3rem;
+  }
+
+  .dashboard-body{
+    grid-template-columns:1fr;
+  }
+
+  .sidebar{
+
+    border-right:none;
+
+    border-bottom:
+    1px solid rgba(0,0,0,0.05);
+  }
+
+  .nav-links{
+    display:none;
+  }
+
+  .cta h2{
+    font-size:2.5rem;
+  }
+
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="bg-glow"></div>
+
+<!-- NAVBAR -->
+
+<nav>
+
+  <div class="logo">
+    IGCSEMYSG Platform
+  </div>
+
+  <div class="nav-links">
+    <a href="#features">Features</a>
+    <a href="#dashboard">Dashboard</a>
+    <a href="#pricing">Pricing</a>
+  </div>
+
+  <a href="#pricing" class="nav-btn">
+    Start Free Trial
+  </a>
 
 </nav>
+
+<!-- HERO -->
 
 <section class="hero">
 
   <div class="hero-badge">
-    ✨ Premium Education Operating System
+    ✨ Premium Education Platform
   </div>
 
   <h1>
+
     The Future Of
+
     <span class="gradient-text">
       Tuition Management
     </span>
+
   </h1>
 
   <p>
-    A modern platform built for tuition centres, educators and students.
-    Manage lessons, analytics, schedules, payments and student performance — all in one place.
+
+    A modern platform built for tuition centres,
+    educators and students.
+
+    Manage lessons, analytics, schedules,
+    payments and student performance —
+    all in one place.
+
   </p>
 
   <div class="hero-buttons">
@@ -32,29 +808,291 @@
 
   </div>
 
+  <!-- DASHBOARD -->
+
   <div class="dashboard-preview" id="dashboard">
 
     <div class="dashboard-top">
+
       <div class="dot red"></div>
       <div class="dot yellow"></div>
       <div class="dot green"></div>
+
     </div>
 
     <div class="dashboard-body">
+
+      <!-- SIDEBAR -->
 
       <div class="sidebar">
 
         <h3>Platform</h3>
 
         <div class="sidebar-links">
+
           <a href="#">📊 Analytics</a>
           <a href="#">👨‍🎓 Students</a>
           <a href="#">📚 Lessons</a>
           <a href="#">💳 Payments</a>
           <a href="#">📝 Homework</a>
           <a href="#">🤖 AI Assistant</a>
+
         </div>
 
       </div>
 
-      <div class=
+      <!-- MAIN -->
+
+      <div class="main-dashboard">
+
+        <div class="dashboard-header">
+
+          <div>
+
+            <h2>Welcome Back</h2>
+
+            <p>
+              Here's your tuition centre overview.
+            </p>
+
+          </div>
+
+        </div>
+
+        <div class="dashboard-grid">
+
+          <div class="stat-card">
+
+            <h4>Total Students</h4>
+
+            <h1>428</h1>
+
+          </div>
+
+          <div class="stat-card">
+
+            <h4>Monthly Revenue</h4>
+
+            <h1>$12k</h1>
+
+          </div>
+
+          <div class="stat-card">
+
+            <h4>Assignments Done</h4>
+
+            <h1>94%</h1>
+
+          </div>
+
+          <div class="stat-card">
+
+            <h4>Performance Growth</h4>
+
+            <h1>+27%</h1>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+<!-- FEATURES -->
+
+<section class="features" id="features">
+
+  <div class="section-title">
+
+    <h2>
+      Everything Your Tuition Centre Needs
+    </h2>
+
+    <p>
+
+      A premium operating system designed
+      for modern education brands.
+
+    </p>
+
+  </div>
+
+  <div class="feature-grid">
+
+    <div class="feature-card">
+
+      <div class="feature-icon">📊</div>
+
+      <h3>Analytics Dashboard</h3>
+
+      <p>
+        Track student performance,
+        attendance and growth in real time.
+      </p>
+
+    </div>
+
+    <div class="feature-card">
+
+      <div class="feature-icon">🤖</div>
+
+      <h3>AI Study Assistant</h3>
+
+      <p>
+        AI-powered explanations,
+        revision support and guidance.
+      </p>
+
+    </div>
+
+    <div class="feature-card">
+
+      <div class="feature-icon">💳</div>
+
+      <h3>Integrated Payments</h3>
+
+      <p>
+        Accept tuition fees and subscriptions
+        directly through the platform.
+      </p>
+
+    </div>
+
+    <div class="feature-card">
+
+      <div class="feature-icon">📚</div>
+
+      <h3>Student Portal</h3>
+
+      <p>
+        Give students access to notes,
+        schedules and homework.
+      </p>
+
+    </div>
+
+    <div class="feature-card">
+
+      <div class="feature-icon">📅</div>
+
+      <h3>Class Scheduling</h3>
+
+      <p>
+        Manage classes and timetables
+        effortlessly.
+      </p>
+
+    </div>
+
+    <div class="feature-card">
+
+      <div class="feature-icon">⚡</div>
+
+      <h3>Automation</h3>
+
+      <p>
+        Automate reminders,
+        onboarding and communication.
+      </p>
+
+    </div>
+
+  </div>
+
+</section>
+
+<!-- PRICING -->
+
+<section class="pricing" id="pricing">
+
+  <div class="section-title">
+
+    <h2>
+      Simple Pricing
+    </h2>
+
+    <p>
+      Start small and scale as you grow.
+    </p>
+
+  </div>
+
+  <div class="pricing-card">
+
+    <h3>Professional</h3>
+
+    <div class="price">
+
+      $49
+
+      <span>/month</span>
+
+    </div>
+
+    <div class="pricing-features">
+
+      <div>Unlimited Students</div>
+      <div>Analytics Dashboard</div>
+      <div>AI Assistant</div>
+      <div>Payment Integration</div>
+      <div>Premium Support</div>
+
+    </div>
+
+    <div class="hero-buttons" style="margin-top:40px;">
+
+      <a href="#" class="btn btn-primary">
+        Start Free Trial
+      </a>
+
+    </div>
+
+  </div>
+
+</section>
+
+<!-- CTA -->
+
+<section class="cta">
+
+  <h2>
+
+    Build The Future
+    Of Education
+
+  </h2>
+
+  <p>
+
+    Transform your tuition centre into
+    a modern premium education brand.
+
+  </p>
+
+  <div class="hero-buttons">
+
+    <a href="#" class="btn btn-primary">
+      Launch Platform
+    </a>
+
+    <a href="index.html" class="btn btn-secondary">
+      Back To Main Website
+    </a>
+
+  </div>
+
+</section>
+
+<!-- FOOTER -->
+
+<footer>
+  © 2026 IGCSEMYSG Platform
+</footer>
+
+</body>
+</html>
