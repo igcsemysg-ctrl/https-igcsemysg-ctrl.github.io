@@ -1,21 +1,18 @@
+# IGCSEMYSG AI Platform Page
+
+```html
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-
-<title>IGCSEMYSG Platform</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>IGCSEMYSG AI</title>
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 
 <style>
-
-/* ========================================= */
-/* RESET */
-/* ========================================= */
 
 *{
   margin:0;
@@ -34,11 +31,8 @@ body{
   overflow-x:hidden;
 }
 
-/* ========================================= */
-/* BACKGROUND GLOW */
-/* ========================================= */
-
-.bg-glow{
+body::before{
+  content:"";
 
   position:fixed;
   inset:0;
@@ -48,23 +42,14 @@ body{
   background:
   radial-gradient(circle at top left,
   rgba(99,102,241,0.12),
-  transparent 30%),
+  transparent 35%),
 
   radial-gradient(circle at bottom right,
   rgba(236,72,153,0.10),
-  transparent 30%),
-
-  radial-gradient(circle at center,
-  rgba(139,92,246,0.08),
-  transparent 45%);
+  transparent 35%);
 }
 
-/* ========================================= */
-/* NAVBAR */
-/* ========================================= */
-
 nav{
-
   position:fixed;
 
   top:20px;
@@ -75,48 +60,40 @@ nav{
   width:92%;
   max-width:1180px;
 
-  padding:14px 22px;
-
   display:flex;
   justify-content:space-between;
   align-items:center;
 
+  padding:14px 22px;
+
   border-radius:999px;
 
-  background:rgba(255,255,255,0.65);
-
+  background:rgba(255,255,255,0.7);
   backdrop-filter:blur(18px);
 
-  border:1px solid rgba(255,255,255,0.7);
+  border:1px solid rgba(255,255,255,0.6);
 
   box-shadow:
-  0 10px 30px rgba(0,0,0,0.06);
+  0 10px 30px rgba(0,0,0,0.05);
 
   z-index:1000;
 }
 
 .logo{
-
-  font-size:1.05rem;
+  font-size:1rem;
   font-weight:800;
-
   letter-spacing:-0.5px;
 }
 
 .nav-links{
-
   display:flex;
   gap:24px;
 }
 
 .nav-links a{
-
   text-decoration:none;
-  color:#374151;
-
-  font-size:0.95rem;
+  color:#4b5563;
   font-weight:600;
-
   transition:0.3s ease;
 }
 
@@ -125,25 +102,20 @@ nav{
 }
 
 .nav-btn{
+  text-decoration:none;
 
   padding:12px 22px;
 
   border-radius:999px;
 
   background:
-  linear-gradient(
-    135deg,
-    #6366f1,
-    #8b5cf6
-  );
+  linear-gradient(135deg,#6366f1,#8b5cf6);
 
   color:white;
-
-  text-decoration:none;
-  font-weight:600;
+  font-weight:700;
 
   box-shadow:
-  0 10px 25px rgba(99,102,241,0.25);
+  0 12px 30px rgba(99,102,241,0.25);
 
   transition:0.3s ease;
 }
@@ -152,35 +124,24 @@ nav{
   transform:translateY(-2px);
 }
 
-/* ========================================= */
-/* HERO */
-/* ========================================= */
-
 .hero{
-
-  padding:
-  180px 20px
-  120px;
-
+  padding:180px 20px 120px;
   text-align:center;
 }
 
-.hero-badge{
-
+.badge{
   display:inline-flex;
   align-items:center;
   gap:10px;
 
-  padding:10px 18px;
+  padding:12px 18px;
 
   border-radius:999px;
 
   background:white;
 
-  border:1px solid rgba(0,0,0,0.05);
-
   box-shadow:
-  0 8px 20px rgba(0,0,0,0.04);
+  0 8px 24px rgba(0,0,0,0.05);
 
   margin-bottom:30px;
 
@@ -189,8 +150,7 @@ nav{
 }
 
 .hero h1{
-
-  font-size:4.8rem;
+  font-size:5rem;
   line-height:1;
 
   letter-spacing:-3px;
@@ -199,38 +159,25 @@ nav{
   margin:auto;
 }
 
-.gradient-text{
-
+.gradient{
   background:
-  linear-gradient(
-    90deg,
-    #6366f1,
-    #8b5cf6,
-    #ec4899
-  );
+  linear-gradient(90deg,#6366f1,#8b5cf6,#ec4899);
 
   -webkit-background-clip:text;
   -webkit-text-fill-color:transparent;
 }
 
 .hero p{
-
   max-width:760px;
-
   margin:30px auto 0;
 
   font-size:1.15rem;
-  line-height:1.8;
+  line-height:1.9;
 
   color:#5b6475;
 }
 
-/* ========================================= */
-/* BUTTONS */
-/* ========================================= */
-
 .hero-buttons{
-
   display:flex;
   justify-content:center;
   gap:18px;
@@ -241,40 +188,28 @@ nav{
 }
 
 .btn{
-
-  position:relative;
+  text-decoration:none;
 
   padding:16px 30px;
 
   border-radius:999px;
 
-  text-decoration:none;
   font-weight:700;
 
-  overflow:hidden;
-
-  transition:
-  transform 0.35s ease,
-  box-shadow 0.35s ease;
+  transition:0.35s ease;
 }
 
 .btn-primary{
-
   background:
-  linear-gradient(
-    135deg,
-    #6366f1,
-    #8b5cf6
-  );
+  linear-gradient(135deg,#6366f1,#8b5cf6);
 
   color:white;
 
   box-shadow:
-  0 16px 40px rgba(99,102,241,0.28);
+  0 16px 40px rgba(99,102,241,0.25);
 }
 
 .btn-secondary{
-
   background:white;
 
   color:#111827;
@@ -282,22 +217,16 @@ nav{
   border:1px solid rgba(0,0,0,0.05);
 
   box-shadow:
-  0 10px 30px rgba(0,0,0,0.06);
+  0 10px 25px rgba(0,0,0,0.05);
 }
 
 .btn:hover{
-
   transform:
   translateY(-4px)
   scale(1.02);
 }
 
-/* ========================================= */
-/* DASHBOARD PREVIEW */
-/* ========================================= */
-
-.dashboard-preview{
-
+.dashboard{
   max-width:1180px;
   margin:90px auto 0;
 
@@ -308,13 +237,11 @@ nav{
   overflow:hidden;
 
   box-shadow:
-  0 30px 100px rgba(0,0,0,0.10);
+  0 30px 100px rgba(0,0,0,0.08);
 }
 
 .dashboard-top{
-
   display:flex;
-  align-items:center;
   gap:8px;
 
   padding:18px;
@@ -326,7 +253,6 @@ nav{
 }
 
 .dot{
-
   width:12px;
   height:12px;
 
@@ -338,46 +264,37 @@ nav{
 .green{background:#10b981;}
 
 .dashboard-body{
-
   display:grid;
   grid-template-columns:260px 1fr;
-
-  min-height:680px;
 }
 
-/* SIDEBAR */
-
 .sidebar{
+  background:#fbfcff;
 
-  padding:30px 20px;
+  padding:28px 20px;
 
   border-right:
   1px solid rgba(0,0,0,0.05);
-
-  background:#fbfcff;
 }
 
-.sidebar h3{
-
+.sidebar-title{
   font-size:0.8rem;
-
-  letter-spacing:1px;
-
   text-transform:uppercase;
+  letter-spacing:1px;
 
   color:#9aa3b2;
 
-  margin-bottom:28px;
+  margin-bottom:24px;
 }
 
 .sidebar-links{
-
   display:flex;
   flex-direction:column;
   gap:14px;
 }
 
 .sidebar-links a{
+  text-decoration:none;
 
   padding:14px 16px;
 
@@ -385,9 +302,7 @@ nav{
 
   background:white;
 
-  text-decoration:none;
   color:#111827;
-
   font-weight:600;
 
   border:1px solid rgba(0,0,0,0.04);
@@ -396,54 +311,36 @@ nav{
 }
 
 .sidebar-links a:hover{
-
   transform:translateX(4px);
-
-  box-shadow:
-  0 10px 25px rgba(0,0,0,0.05);
 }
 
-/* MAIN */
-
-.main-dashboard{
+.main{
   padding:40px;
 }
 
-.dashboard-header{
-
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
-
-  margin-bottom:40px;
-}
-
-.dashboard-header h2{
-
-  font-size:2rem;
-
+.main-header h2{
+  font-size:2.2rem;
   letter-spacing:-1px;
 }
 
-.dashboard-header p{
-
-  margin-top:8px;
-
+.main-header p{
+  margin-top:10px;
   color:#6b7280;
 }
 
-.dashboard-grid{
-
+.stats{
   display:grid;
+
   grid-template-columns:
   repeat(auto-fit,minmax(220px,1fr));
 
   gap:22px;
+
+  margin-top:40px;
 }
 
 .stat-card{
-
-  padding:28px;
+  padding:30px;
 
   border-radius:24px;
 
@@ -455,66 +352,46 @@ nav{
 }
 
 .stat-card:hover{
-
-  transform:
-  translateY(-8px);
+  transform:translateY(-8px);
 
   box-shadow:
-  0 20px 50px rgba(0,0,0,0.08);
+  0 18px 50px rgba(0,0,0,0.08);
 }
 
 .stat-card h4{
-
   color:#6b7280;
-
   margin-bottom:12px;
-
-  font-weight:600;
 }
 
 .stat-card h1{
-
-  font-size:2.6rem;
-
+  font-size:2.7rem;
   letter-spacing:-2px;
 }
 
-/* ========================================= */
-/* FEATURES */
-/* ========================================= */
-
-.features{
-
+section{
   padding:120px 20px;
 }
 
 .section-title{
-
   text-align:center;
   margin-bottom:70px;
 }
 
 .section-title h2{
-
   font-size:3rem;
-
   letter-spacing:-2px;
-
-  margin-bottom:20px;
+  margin-bottom:18px;
 }
 
 .section-title p{
-
   max-width:700px;
   margin:auto;
 
   color:#6b7280;
-
   line-height:1.8;
 }
 
 .feature-grid{
-
   max-width:1180px;
   margin:auto;
 
@@ -527,7 +404,6 @@ nav{
 }
 
 .feature-card{
-
   padding:34px;
 
   border-radius:28px;
@@ -543,16 +419,13 @@ nav{
 }
 
 .feature-card:hover{
-
-  transform:
-  translateY(-10px);
+  transform:translateY(-10px);
 
   box-shadow:
-  0 20px 60px rgba(0,0,0,0.08);
+  0 24px 60px rgba(0,0,0,0.08);
 }
 
 .feature-icon{
-
   width:60px;
   height:60px;
 
@@ -562,45 +435,27 @@ nav{
   align-items:center;
   justify-content:center;
 
+  margin-bottom:24px;
+
   background:
-  linear-gradient(
-    135deg,
-    #6366f1,
-    #8b5cf6
-  );
+  linear-gradient(135deg,#6366f1,#8b5cf6);
 
   color:white;
-
-  margin-bottom:24px;
 
   font-size:1.5rem;
 }
 
 .feature-card h3{
-
   font-size:1.3rem;
-
   margin-bottom:14px;
 }
 
 .feature-card p{
-
   color:#6b7280;
-
   line-height:1.8;
 }
 
-/* ========================================= */
-/* PRICING */
-/* ========================================= */
-
-.pricing{
-
-  padding:120px 20px;
-}
-
 .pricing-card{
-
   max-width:460px;
   margin:auto;
 
@@ -610,21 +465,15 @@ nav{
 
   background:white;
 
+  text-align:center;
+
   border:1px solid rgba(0,0,0,0.05);
 
   box-shadow:
   0 20px 60px rgba(0,0,0,0.06);
-
-  text-align:center;
-}
-
-.pricing-card h3{
-
-  font-size:2rem;
 }
 
 .price{
-
   font-size:5rem;
   font-weight:800;
 
@@ -634,70 +483,47 @@ nav{
 }
 
 .price span{
-
   font-size:1rem;
-
   color:#6b7280;
 }
 
-.pricing-features{
-
-  margin-top:30px;
-
+.price-features{
   display:flex;
   flex-direction:column;
-  gap:18px;
+  gap:16px;
+
+  margin-top:30px;
 }
 
-.pricing-features div{
+.price-features div{
+  background:#f9fafc;
 
   padding:14px;
 
   border-radius:14px;
-
-  background:#f9fafc;
 }
 
-/* ========================================= */
-/* CTA */
-/* ========================================= */
-
 .cta{
-
-  padding:140px 20px;
-
   text-align:center;
 }
 
 .cta h2{
-
   font-size:4rem;
+  letter-spacing:-3px;
 
   max-width:900px;
   margin:auto;
-
-  line-height:1.1;
-
-  letter-spacing:-3px;
 }
 
 .cta p{
-
   max-width:700px;
-
   margin:30px auto;
 
   color:#6b7280;
-
   line-height:1.8;
 }
 
-/* ========================================= */
-/* FOOTER */
-/* ========================================= */
-
 footer{
-
   padding:40px 20px;
 
   text-align:center;
@@ -707,10 +533,6 @@ footer{
 
   color:#6b7280;
 }
-
-/* ========================================= */
-/* MOBILE */
-/* ========================================= */
 
 @media(max-width:900px){
 
@@ -723,7 +545,6 @@ footer{
   }
 
   .sidebar{
-
     border-right:none;
 
     border-bottom:
@@ -735,24 +556,19 @@ footer{
   }
 
   .cta h2{
-    font-size:2.5rem;
+    font-size:2.4rem;
   }
 
 }
 
 </style>
 </head>
-
 <body>
-
-<div class="bg-glow"></div>
-
-<!-- NAVBAR -->
 
 <nav>
 
   <div class="logo">
-    IGCSEMYSG Platform
+    IGCSEMYSG AI
   </div>
 
   <div class="nav-links">
@@ -767,50 +583,39 @@ footer{
 
 </nav>
 
-<!-- HERO -->
-
 <section class="hero">
 
-  <div class="hero-badge">
-    ✨ Premium Education Platform
+  <div class="badge">
+    ✨ AI-Powered Learning Platform
   </div>
 
   <h1>
-
-    The Future Of
-
-    <span class="gradient-text">
-      Tuition Management
+    Your Personal
+    <span class="gradient">
+      AI Study Assistant
     </span>
-
   </h1>
 
   <p>
-
-    A modern platform built for tuition centres,
-    educators and students.
-
-    Manage lessons, analytics, schedules,
-    payments and student performance —
-    all in one place.
-
+    Built for IGCSE, Edexcel and O-Level students.
+    Get instant explanations, revision plans,
+    past paper analysis and smarter studying —
+    all in one platform.
   </p>
 
   <div class="hero-buttons">
 
     <a href="#pricing" class="btn btn-primary">
-      Start Free Trial
+      Start Learning
     </a>
 
     <a href="#dashboard" class="btn btn-secondary">
-      View Dashboard
+      Explore Platform
     </a>
 
   </div>
 
-  <!-- DASHBOARD -->
-
-  <div class="dashboard-preview" id="dashboard">
+  <div class="dashboard" id="dashboard">
 
     <div class="dashboard-top">
 
@@ -822,75 +627,59 @@ footer{
 
     <div class="dashboard-body">
 
-      <!-- SIDEBAR -->
-
       <div class="sidebar">
 
-        <h3>Platform</h3>
+        <div class="sidebar-title">
+          Workspace
+        </div>
 
         <div class="sidebar-links">
 
-          <a href="#">📊 Analytics</a>
-          <a href="#">👨‍🎓 Students</a>
-          <a href="#">📚 Lessons</a>
-          <a href="#">💳 Payments</a>
-          <a href="#">📝 Homework</a>
-          <a href="#">🤖 AI Assistant</a>
+          <a href="#">🤖 AI Tutor</a>
+          <a href="#">📚 Revision Planner</a>
+          <a href="#">📝 Past Papers</a>
+          <a href="#">📊 Weak Topics</a>
+          <a href="#">⚡ Flashcards</a>
+          <a href="#">🎯 Exam Goals</a>
 
         </div>
 
       </div>
 
-      <!-- MAIN -->
+      <div class="main">
 
-      <div class="main-dashboard">
+        <div class="main-header">
 
-        <div class="dashboard-header">
+          <h2>
+            Welcome Back, Adam.
+          </h2>
 
-          <div>
-
-            <h2>Welcome Back</h2>
-
-            <p>
-              Here's your tuition centre overview.
-            </p>
-
-          </div>
+          <p>
+            Your exam progress is improving this week.
+          </p>
 
         </div>
 
-        <div class="dashboard-grid">
+        <div class="stats">
 
           <div class="stat-card">
-
-            <h4>Total Students</h4>
-
-            <h1>428</h1>
-
+            <h4>Questions Solved</h4>
+            <h1>284</h1>
           </div>
 
           <div class="stat-card">
-
-            <h4>Monthly Revenue</h4>
-
-            <h1>$12k</h1>
-
+            <h4>Topic Mastery</h4>
+            <h1>87%</h1>
           </div>
 
           <div class="stat-card">
-
-            <h4>Assignments Done</h4>
-
-            <h1>94%</h1>
-
+            <h4>Study Streak</h4>
+            <h1>19d</h1>
           </div>
 
           <div class="stat-card">
-
-            <h4>Performance Growth</h4>
-
-            <h1>+27%</h1>
-
+            <h4>Exam Readiness</h4>
+            <h1>A*</h1>
           </div>
 
         </div>
@@ -903,21 +692,17 @@ footer{
 
 </section>
 
-<!-- FEATURES -->
-
-<section class="features" id="features">
+<section id="features">
 
   <div class="section-title">
 
     <h2>
-      Everything Your Tuition Centre Needs
+      Built For Serious Students
     </h2>
 
     <p>
-
-      A premium operating system designed
-      for modern education brands.
-
+      Everything you need to study smarter,
+      improve faster and score higher.
     </p>
 
   </div>
@@ -926,39 +711,13 @@ footer{
 
     <div class="feature-card">
 
-      <div class="feature-icon">📊</div>
-
-      <h3>Analytics Dashboard</h3>
-
-      <p>
-        Track student performance,
-        attendance and growth in real time.
-      </p>
-
-    </div>
-
-    <div class="feature-card">
-
       <div class="feature-icon">🤖</div>
 
-      <h3>AI Study Assistant</h3>
+      <h3>AI Tutor</h3>
 
       <p>
-        AI-powered explanations,
-        revision support and guidance.
-      </p>
-
-    </div>
-
-    <div class="feature-card">
-
-      <div class="feature-icon">💳</div>
-
-      <h3>Integrated Payments</h3>
-
-      <p>
-        Accept tuition fees and subscriptions
-        directly through the platform.
+        Ask questions instantly and get clear,
+        step-by-step explanations.
       </p>
 
     </div>
@@ -967,24 +726,37 @@ footer{
 
       <div class="feature-icon">📚</div>
 
-      <h3>Student Portal</h3>
+      <h3>Revision Planner</h3>
 
       <p>
-        Give students access to notes,
-        schedules and homework.
+        Generate personalised study plans
+        based on your exam date.
       </p>
 
     </div>
 
     <div class="feature-card">
 
-      <div class="feature-icon">📅</div>
+      <div class="feature-icon">📝</div>
 
-      <h3>Class Scheduling</h3>
+      <h3>Past Paper AI</h3>
 
       <p>
-        Manage classes and timetables
-        effortlessly.
+        Upload papers and receive feedback,
+        corrections and analysis.
+      </p>
+
+    </div>
+
+    <div class="feature-card">
+
+      <div class="feature-icon">📊</div>
+
+      <h3>Weak Topic Detection</h3>
+
+      <p>
+        Discover recurring mistakes and focus
+        on what matters most.
       </p>
 
     </div>
@@ -993,11 +765,24 @@ footer{
 
       <div class="feature-icon">⚡</div>
 
-      <h3>Automation</h3>
+      <h3>Smart Flashcards</h3>
 
       <p>
-        Automate reminders,
-        onboarding and communication.
+        Convert notes into revision flashcards
+        automatically.
+      </p>
+
+    </div>
+
+    <div class="feature-card">
+
+      <div class="feature-icon">🎯</div>
+
+      <h3>Goal Tracking</h3>
+
+      <p>
+        Track your progress and stay accountable
+        throughout exam season.
       </p>
 
     </div>
@@ -1006,41 +791,38 @@ footer{
 
 </section>
 
-<!-- PRICING -->
-
-<section class="pricing" id="pricing">
+<section id="pricing">
 
   <div class="section-title">
 
     <h2>
-      Simple Pricing
+      Simple Student Pricing
     </h2>
 
     <p>
-      Start small and scale as you grow.
+      Start free and upgrade when you're ready.
     </p>
 
   </div>
 
   <div class="pricing-card">
 
-    <h3>Professional</h3>
+    <h3>
+      Premium Student
+    </h3>
 
     <div class="price">
-
-      $49
-
+      $12
       <span>/month</span>
-
     </div>
 
-    <div class="pricing-features">
+    <div class="price-features">
 
-      <div>Unlimited Students</div>
-      <div>Analytics Dashboard</div>
-      <div>AI Assistant</div>
-      <div>Payment Integration</div>
-      <div>Premium Support</div>
+      <div>Unlimited AI Questions</div>
+      <div>Past Paper Analysis</div>
+      <div>Revision Planner</div>
+      <div>Weak Topic Analytics</div>
+      <div>Priority AI Responses</div>
 
     </div>
 
@@ -1056,28 +838,22 @@ footer{
 
 </section>
 
-<!-- CTA -->
-
 <section class="cta">
 
   <h2>
-
-    Build The Future
-    Of Education
-
+    Study Smarter.
+    Perform Better.
   </h2>
 
   <p>
-
-    Transform your tuition centre into
-    a modern premium education brand.
-
+    Join the next generation of students using AI
+    to improve faster and prepare smarter.
   </p>
 
   <div class="hero-buttons">
 
     <a href="#" class="btn btn-primary">
-      Launch Platform
+      Create Account
     </a>
 
     <a href="index.html" class="btn btn-secondary">
@@ -1088,11 +864,18 @@ footer{
 
 </section>
 
-<!-- FOOTER -->
-
 <footer>
-  © 2026 IGCSEMYSG Platform
+  © 2026 IGCSEMYSG AI
 </footer>
 
 </body>
 </html>
+```
+
+Save this as:
+
+```html
+platform.html
+```
+
+Then place it in the same folder as your main website.
