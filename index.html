@@ -3,14 +3,19 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <title>IGCSEMYSG Tuition</title>
 
 <link rel="icon" href="favicon.ico">
 <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
 
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
 
 <style>
+
+/* ========================================= */
+/* GLOBAL */
+/* ========================================= */
 
 html {
   scroll-behavior: smooth;
@@ -22,6 +27,27 @@ body {
   background: #f6f7fb;
   color: #111;
   overflow-x: hidden;
+  position: relative;
+}
+
+/* PREMIUM GRAIN */
+
+body::before {
+  content: "";
+
+  position: fixed;
+  inset: 0;
+
+  background-image:
+  radial-gradient(rgba(0,0,0,0.03) 1px, transparent 1px);
+
+  background-size: 4px 4px;
+
+  opacity: 0.25;
+
+  pointer-events: none;
+
+  z-index: 9999999;
 }
 
 /* ========================================= */
@@ -31,6 +57,7 @@ body {
 #loader {
   position: fixed;
   inset: 0;
+
   background: #f6f7fb;
 
   display: flex;
@@ -38,10 +65,7 @@ body {
   justify-content: center;
 
   z-index: 999999;
-
-  transition:
-    opacity 0.8s ease,
-    visibility 0.8s ease;
+  transition: 0.8s ease;
 }
 
 #loader.hidden {
@@ -55,32 +79,35 @@ body {
 
 .loader-logo {
   width: 110px;
-  position: relative;
   z-index: 2;
+  position: relative;
 
-  animation: float 2.5s ease-in-out infinite;
+  animation: float 2.5s ease infinite;
 }
 
 .loader-glow {
   position: absolute;
+
   width: 180px;
   height: 180px;
+
+  top: 50%;
+  left: 50%;
+
+  transform: translate(-50%, -50%);
 
   background:
   radial-gradient(circle,
   rgba(99,102,241,0.35),
   transparent 70%);
 
-  top: 50%;
-  left: 50%;
-
-  transform: translate(-50%, -50%);
   filter: blur(30px);
 
   animation: pulseGlow 2.8s ease infinite;
 }
 
 @keyframes pulseGlow {
+
   0%,100% {
     transform: translate(-50%, -50%) scale(1);
     opacity: 0.7;
@@ -90,15 +117,23 @@ body {
     transform: translate(-50%, -50%) scale(1.2);
     opacity: 1;
   }
+
 }
 
 @keyframes float {
-  0%,100% { transform: translateY(0px); }
-  50% { transform: translateY(-8px); }
+
+  0%,100% {
+    transform: translateY(0px);
+  }
+
+  50% {
+    transform: translateY(-8px);
+  }
+
 }
 
 /* ========================================= */
-/* SCROLL PROGRESS */
+/* SCROLL BAR */
 /* ========================================= */
 
 #progress-bar {
@@ -125,33 +160,37 @@ body {
 /* ========================================= */
 
 #navbar {
+
   position: fixed;
+
   top: 20px;
   left: 50%;
+
   transform: translateX(-50%);
 
   width: 90%;
   max-width: 1100px;
 
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-
   padding: 14px 22px;
 
-  border-radius: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  border-radius: 999px;
 
   background: rgba(255,255,255,0.45);
-  backdrop-filter: blur(16px);
+  backdrop-filter: blur(18px);
 
-  box-shadow: 0 10px 30px rgba(0,0,0,0.05);
-
-  transition: all 0.4s ease;
+  box-shadow:
+    0 10px 30px rgba(0,0,0,0.06);
 
   z-index: 1000;
 
   opacity: 0;
   pointer-events: none;
+
+  transition: 0.4s ease;
 }
 
 #navbar.show {
@@ -161,18 +200,11 @@ body {
 
 #navbar.shrink {
   top: 10px;
-  padding: 8px 18px;
-  border-radius: 30px;
-  background: rgba(255,255,255,0.75);
+  padding: 10px 18px;
 }
 
 .nav-logo {
   height: 40px;
-  transition: 0.3s;
-}
-
-#navbar.shrink .nav-logo {
-  height: 30px;
 }
 
 .nav-links {
@@ -181,11 +213,14 @@ body {
 }
 
 .nav-links a {
+
   text-decoration: none;
-  color: #333;
-  font-weight: 500;
-  font-size: 0.95em;
-  transition: 0.3s;
+  color: #111;
+
+  font-weight: 600;
+  font-size: 0.95rem;
+
+  transition: 0.3s ease;
 }
 
 .nav-links a:hover {
@@ -193,16 +228,17 @@ body {
 }
 
 .nav-cta {
-  padding: 10px 18px;
-  border-radius: 25px;
+  padding: 11px 20px;
 
-  background: #111;
+  border-radius: 999px;
+
+  background: #111827;
   color: white;
 
   text-decoration: none;
   font-weight: 600;
 
-  transition: 0.3s;
+  transition: 0.3s ease;
 }
 
 .nav-cta:hover {
@@ -227,11 +263,10 @@ body {
   background: #111;
 
   border-radius: 999px;
-
-  transition: 0.3s;
 }
 
 .mobile-menu {
+
   position: fixed;
 
   top: 90px;
@@ -272,8 +307,8 @@ body {
 }
 
 .mobile-menu a {
-  text-decoration: none;
 
+  text-decoration: none;
   color: #111;
 
   font-weight: 600;
@@ -294,46 +329,51 @@ body {
 /* ========================================= */
 
 header {
+
   position: relative;
 
   background:
   url('https://images.unsplash.com/photo-1523240795612-9a054b0db644?auto=format&fit=crop&w=1600&q=80')
   center/cover;
 
-  color: white;
-  text-align: center;
+  padding: 180px 20px;
 
-  padding: 170px 20px;
+  text-align: center;
+  color: white;
+
+  overflow: hidden;
 }
 
 header::before {
+
   content: "";
 
   position: absolute;
   inset: 0;
 
-  background: rgba(0,0,0,0.65);
+  background: rgba(0,0,0,0.68);
 }
 
 header::after {
+
   content: "";
 
   position: absolute;
 
-  width: 500px;
-  height: 500px;
-
-  background:
-  radial-gradient(circle,
-  rgba(139,92,246,0.22),
-  transparent 70%);
+  width: 600px;
+  height: 600px;
 
   top: 50%;
   left: 50%;
 
   transform: translate(-50%, -50%);
 
-  filter: blur(80px);
+  background:
+  radial-gradient(circle,
+  rgba(139,92,246,0.22),
+  transparent 70%);
+
+  filter: blur(90px);
 
   animation: heroGlow 7s ease infinite;
 }
@@ -361,18 +401,26 @@ header * {
 
 .logo {
   width: 130px;
-  margin-bottom: 20px;
+  margin-bottom: 25px;
 }
 
 h1 {
-  font-size: 3em;
-  margin-bottom: 12px;
-  letter-spacing: -1px;
+
+  font-size: 4rem;
+  margin-bottom: 16px;
+
+  letter-spacing: -2px;
 }
 
 header p {
-  font-size: 1.08rem;
-  opacity: 0.9;
+
+  max-width: 720px;
+  margin: auto;
+
+  font-size: 1.15rem;
+  line-height: 1.7;
+
+  opacity: 0.92;
 }
 
 .cursor {
@@ -380,8 +428,148 @@ header p {
 }
 
 @keyframes blink {
-  0%,50%,100% { opacity:1; }
-  25%,75% { opacity:0; }
+
+  0%,50%,100% {
+    opacity: 1;
+  }
+
+  25%,75% {
+    opacity: 0;
+  }
+
+}
+
+/* ========================================= */
+/* PREMIUM BUTTONS */
+/* ========================================= */
+
+.hero-buttons {
+
+  display: flex;
+  justify-content: center;
+  gap: 18px;
+
+  flex-wrap: wrap;
+
+  margin-top: 35px;
+}
+
+.btn {
+
+  position: relative;
+
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  gap: 10px;
+
+  padding: 15px 34px;
+
+  border-radius: 999px;
+
+  background:
+  linear-gradient(
+    135deg,
+    #ffffff,
+    #f3f4f6
+  );
+
+  color: #111;
+
+  text-decoration: none;
+  font-weight: 700;
+
+  overflow: hidden;
+
+  cursor: pointer;
+
+  transition:
+    transform 0.35s ease,
+    box-shadow 0.35s ease;
+
+  box-shadow:
+    0 10px 30px rgba(255,255,255,0.10),
+    0 6px 14px rgba(0,0,0,0.10);
+
+  will-change: transform;
+}
+
+.btn::before {
+
+  content: "";
+
+  position: absolute;
+
+  top: 0;
+  left: -140%;
+
+  width: 120%;
+  height: 100%;
+
+  background:
+  linear-gradient(
+    120deg,
+    transparent,
+    rgba(255,255,255,0.95),
+    transparent
+  );
+
+  transform: skewX(-20deg);
+
+  transition: 0.9s ease;
+}
+
+.btn::after {
+
+  content: "";
+
+  position: absolute;
+  inset: 0;
+
+  border-radius: inherit;
+
+  background:
+  radial-gradient(
+    circle at top,
+    rgba(255,255,255,0.45),
+    transparent 72%
+  );
+
+  opacity: 0;
+
+  transition: 0.35s ease;
+}
+
+.btn span {
+  position: relative;
+  z-index: 2;
+}
+
+.btn:hover {
+
+  box-shadow:
+    0 20px 50px rgba(0,0,0,0.18),
+    0 0 35px rgba(99,102,241,0.22);
+}
+
+.btn:hover::before {
+  left: 160%;
+}
+
+.btn:hover::after {
+  opacity: 1;
+}
+
+.btn-secondary {
+
+  background: transparent;
+
+  border: 1px solid rgba(255,255,255,0.22);
+
+  color: white;
+
+  backdrop-filter: blur(10px);
 }
 
 /* ========================================= */
@@ -389,41 +577,8 @@ header p {
 /* ========================================= */
 
 section {
-  position: relative;
   padding: 100px 20px;
   text-align: center;
-}
-
-section::after {
-  content: "";
-
-  position: absolute;
-
-  left: 50%;
-  bottom: 0;
-
-  transform: translateX(-50%);
-
-  width: 85%;
-  height: 1px;
-
-  background:
-  linear-gradient(
-    90deg,
-    transparent,
-    rgba(0,0,0,0.08),
-    transparent
-  );
-}
-
-.dark::after {
-  background:
-  linear-gradient(
-    90deg,
-    transparent,
-    rgba(255,255,255,0.08),
-    transparent
-  );
 }
 
 .light {
@@ -436,8 +591,8 @@ section::after {
 }
 
 h2 {
-  font-size: 2.3rem;
-  margin-bottom: 16px;
+  font-size: 2.5rem;
+  margin-bottom: 18px;
 }
 
 /* ========================================= */
@@ -460,35 +615,45 @@ h2 {
 /* ========================================= */
 
 .grid {
+
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
+
   gap: 22px;
+
   margin-top: 40px;
 }
 
 /* ========================================= */
-/* CARD */
+/* CARDS */
 /* ========================================= */
 
 .card {
+
   position: relative;
   overflow: hidden;
 
   width: 260px;
-  padding: 28px;
+  padding: 30px;
 
-  border-radius: 18px;
+  border-radius: 22px;
 
   transition: 0.35s ease;
 }
 
 .light .card {
+
   background: #f9fafc;
-  box-shadow: 0 10px 25px rgba(0,0,0,0.06);
+
+  box-shadow:
+    0 10px 30px rgba(0,0,0,0.06);
+
+  border: 1px solid rgba(0,0,0,0.04);
 }
 
 .dark .card {
+
   background: rgba(255,255,255,0.06);
 
   backdrop-filter: blur(12px);
@@ -497,6 +662,7 @@ h2 {
 }
 
 .card::before {
+
   content: "";
 
   position: absolute;
@@ -505,13 +671,13 @@ h2 {
   background:
   linear-gradient(
     120deg,
-    rgba(255,255,255,0.18),
+    rgba(255,255,255,0.16),
     transparent 50%
   );
 
   opacity: 0;
 
-  transition: opacity 0.4s ease;
+  transition: 0.4s ease;
 }
 
 .card:hover::before {
@@ -519,63 +685,13 @@ h2 {
 }
 
 .card:hover {
-  transform: translateY(-10px) scale(1.02);
+
+  transform:
+    translateY(-12px)
+    scale(1.03);
 
   box-shadow:
-    0 18px 45px rgba(0,0,0,0.10),
-    0 0 0 1px rgba(255,255,255,0.15) inset;
-}
-
-/* ========================================= */
-/* CTA */
-/* ========================================= */
-
-.btn {
-  display: inline-block;
-
-  margin-top: 25px;
-
-  padding: 14px 30px;
-
-  border-radius: 40px;
-
-  background: white;
-  color: #111;
-
-  text-decoration: none;
-  font-weight: 600;
-
-  transition: all 0.3s ease;
-}
-
-.btn:hover {
-  transform: translateY(-2px);
-
-  box-shadow:
-    0 12px 30px rgba(0,0,0,0.12);
-}
-
-.whatsapp-cta {
-  display: inline-block;
-
-  margin-top: 18px;
-
-  padding: 12px 22px;
-
-  border-radius: 25px;
-
-  background: rgba(37,211,102,0.12);
-
-  color: #25D366;
-
-  text-decoration: none;
-  font-weight: 600;
-
-  transition: 0.3s ease;
-}
-
-.whatsapp-cta:hover {
-  transform: scale(1.04);
+    0 18px 45px rgba(0,0,0,0.12);
 }
 
 /* ========================================= */
@@ -583,6 +699,7 @@ h2 {
 /* ========================================= */
 
 .faq-container {
+
   max-width: 980px;
   margin: 60px auto 0;
 
@@ -593,32 +710,25 @@ h2 {
 }
 
 .faq-item {
-  background: #ffffff;
+
+  background: #fff;
 
   border-radius: 18px;
 
   padding: 22px 24px;
 
   box-shadow:
-    0 10px 30px rgba(0,0,0,0.05),
-    0 1px 0 rgba(255,255,255,0.7) inset;
+    0 10px 30px rgba(0,0,0,0.05);
 
-  border: 1px solid rgba(0,0,0,0.04);
-
-  transition: all 0.35s ease;
-
-  height: fit-content;
+  transition: 0.35s ease;
 }
 
 .faq-item:hover {
   transform: translateY(-3px);
-
-  box-shadow:
-    0 18px 40px rgba(0,0,0,0.08),
-    0 1px 0 rgba(255,255,255,0.8) inset;
 }
 
 .faq-question {
+
   width: 100%;
 
   background: none;
@@ -628,24 +738,18 @@ h2 {
   justify-content: space-between;
   align-items: center;
 
-  gap: 18px;
-
-  padding: 0;
-
   cursor: pointer;
-
-  text-align: left;
 
   font-size: 1.05rem;
   font-weight: 600;
-  line-height: 1.45;
 
   color: #111;
 }
 
 .faq-icon {
-  min-width: 30px;
-  min-height: 30px;
+
+  width: 30px;
+  height: 30px;
 
   border-radius: 50%;
 
@@ -655,14 +759,11 @@ h2 {
   align-items: center;
   justify-content: center;
 
-  font-size: 1.15rem;
-
-  transition: all 0.35s ease;
-
-  flex-shrink: 0;
+  transition: 0.35s ease;
 }
 
 .faq-item.active .faq-icon {
+
   transform: rotate(45deg);
 
   background: #111827;
@@ -670,6 +771,7 @@ h2 {
 }
 
 .faq-answer {
+
   max-height: 0;
   overflow: hidden;
 
@@ -687,39 +789,12 @@ h2 {
 }
 
 .faq-answer p {
+
   margin: 0;
 
-  font-size: 0.97rem;
-  line-height: 1.75;
-
   color: #5b6475;
-}
 
-/* FAQ CTA */
-
-.faq-cta {
-  margin-top: 55px;
-  text-align: center;
-}
-
-.faq-btn {
-  display: inline-flex;
-
-  padding: 13px 28px;
-
-  border-radius: 999px;
-
-  background: #111827;
-  color: white;
-
-  text-decoration: none;
-  font-weight: 600;
-
-  transition: all 0.3s ease;
-}
-
-.faq-btn:hover {
-  transform: translateY(-2px);
+  line-height: 1.7;
 }
 
 /* ========================================= */
@@ -727,12 +802,17 @@ h2 {
 /* ========================================= */
 
 footer {
+
   background: #0f172a;
   color: white;
 
   text-align: center;
 
-  padding: 22px;
+  padding: 40px 20px;
+}
+
+footer p {
+  opacity: 0.7;
 }
 
 /* ========================================= */
@@ -741,10 +821,7 @@ footer {
 
 @media(max-width:768px){
 
-  .nav-links {
-    display: none;
-  }
-
+  .nav-links,
   .nav-cta {
     display: none;
   }
@@ -753,16 +830,26 @@ footer {
     display: flex;
   }
 
+  h1 {
+    font-size: 2.5rem;
+  }
+
+  h2 {
+    font-size: 2rem;
+  }
+
   .faq-container {
     grid-template-columns: 1fr;
   }
 
-  h1 {
-    font-size: 2.2rem;
+  .hero-buttons {
+    flex-direction: column;
+    align-items: center;
   }
 
-  h2 {
-    font-size: 1.9rem;
+  .btn {
+    width: 100%;
+    max-width: 320px;
   }
 
 }
@@ -773,6 +860,7 @@ footer {
 <body>
 
 <!-- LOADER -->
+
 <div id="loader">
 
   <div class="loader-logo-wrap">
@@ -785,10 +873,12 @@ footer {
 
 </div>
 
-<!-- PROGRESS BAR -->
+<!-- PROGRESS -->
+
 <div id="progress-bar"></div>
 
 <!-- NAVBAR -->
+
 <nav id="navbar">
 
   <img src="logo.png" class="nav-logo">
@@ -800,7 +890,6 @@ footer {
     <a href="#faq">FAQ</a>
   </div>
 
-  <!-- HAMBURGER -->
   <div class="hamburger" id="hamburger">
     <span></span>
     <span></span>
@@ -813,6 +902,7 @@ footer {
 </nav>
 
 <!-- MOBILE MENU -->
+
 <div class="mobile-menu" id="mobileMenu">
 
   <a href="#about">About</a>
@@ -824,22 +914,41 @@ footer {
 </div>
 
 <!-- HERO -->
+
 <header>
 
   <img src="logo.png" class="logo">
 
   <h1>
+
     <span id="typing"></span>
     <span class="cursor">|</span>
+
   </h1>
 
   <p>
-    IGCSE, Edexcel & O-Level Tuition That Delivers Real Results
+
+    Structured IGCSE, Edexcel & O-Level Tuition
+    Designed To Deliver Real Academic Results
+
   </p>
+
+  <div class="hero-buttons">
+
+    <a href="enquiry.html" class="btn">
+      <span>Book A Trial</span>
+    </a>
+
+    <a href="#about" class="btn btn-secondary">
+      <span>Learn More</span>
+    </a>
+
+  </div>
 
 </header>
 
 <!-- ABOUT -->
+
 <section id="about" class="light reveal">
 
   <h2>Students Come To Us When...</h2>
@@ -847,15 +956,15 @@ footer {
   <div class="grid">
 
     <div class="card">
-      “I study but i don't see any improvements”
+      “I study but don’t improve.”
     </div>
 
     <div class="card">
-      “I don’t have a strong foundation”
+      “I don’t have a strong foundation.”
     </div>
 
     <div class="card">
-      “Past papers feel impossible”
+      “Past papers feel impossible.”
     </div>
 
   </div>
@@ -863,6 +972,7 @@ footer {
 </section>
 
 <!-- METHOD -->
+
 <section id="method" class="dark reveal">
 
   <h2>Our Teaching Method</h2>
@@ -879,6 +989,7 @@ footer {
 </section>
 
 <!-- STRUCTURE -->
+
 <section id="structure" class="light reveal">
 
   <h2>How Lessons Are Structured</h2>
@@ -887,22 +998,22 @@ footer {
 
     <div class="card">
       <h3>1. Evaluate</h3>
-      <p>Indicating and understanding the issue</p>
+      <p>Understand the problem areas.</p>
     </div>
 
     <div class="card">
       <h3>2. Diagnose</h3>
-      <p>Identify weak areas</p>
+      <p>Identify weak concepts.</p>
     </div>
 
     <div class="card">
       <h3>3. Build</h3>
-      <p>Strengthen concepts</p>
+      <p>Strengthen understanding.</p>
     </div>
 
     <div class="card">
       <h3>4. Apply</h3>
-      <p>Master exam questions</p>
+      <p>Master exam-style questions.</p>
     </div>
 
   </div>
@@ -910,6 +1021,7 @@ footer {
 </section>
 
 <!-- FAQ -->
+
 <section id="faq" class="light reveal">
 
   <h2>Frequently Asked Questions</h2>
@@ -919,15 +1031,19 @@ footer {
     <div class="faq-item">
 
       <button class="faq-question">
+
         How big are the classes?
+
         <span class="faq-icon">+</span>
+
       </button>
 
       <div class="faq-answer">
+
         <p>
-          Small group classes for focused attention.
-          On top of that, we provide 1-to-1 classes as well.
+          Small focused classes with personalised guidance.
         </p>
+
       </div>
 
     </div>
@@ -935,14 +1051,19 @@ footer {
     <div class="faq-item">
 
       <button class="faq-question">
+
         Which syllabus do you cover?
+
         <span class="faq-icon">+</span>
+
       </button>
 
       <div class="faq-answer">
+
         <p>
           IGCSE, Edexcel & Singapore O-Level.
         </p>
+
       </div>
 
     </div>
@@ -950,14 +1071,19 @@ footer {
     <div class="faq-item">
 
       <button class="faq-question">
+
         Do you provide materials?
+
         <span class="faq-icon">+</span>
+
       </button>
 
       <div class="faq-answer">
+
         <p>
-          Yes, structured notes and exam practice are provided.
+          Yes — structured notes, worksheets & exam papers.
         </p>
+
       </div>
 
     </div>
@@ -965,54 +1091,64 @@ footer {
     <div class="faq-item">
 
       <button class="faq-question">
-        How fast can results improve?
+
+        How fast can students improve?
+
         <span class="faq-icon">+</span>
+
       </button>
 
       <div class="faq-answer">
+
         <p>
-          Most students improve within a few months.
-          However, durations of progress can range individually.
+          Most students improve significantly within a few months.
         </p>
+
       </div>
 
     </div>
-
-  </div>
-
-  <div class="faq-cta">
-
-    <p>Still have questions?</p>
-
-    <a href="enquiry.html" class="faq-btn">
-      Send us an enquiry
-    </a>
 
   </div>
 
 </section>
 
 <!-- CTA -->
+
 <section class="dark reveal">
 
-  <h2>Ready to Improve?</h2>
+  <h2>Ready To Improve?</h2>
 
-  <a href="enquiry.html" class="btn">
-    Book A Class Now
-  </a>
+  <div class="hero-buttons">
 
-  <br>
+    <a href="enquiry.html" class="btn">
+      <span>Book A Class</span>
+    </a>
 
-  <a href="https://wa.me/60172731112"
-     class="whatsapp-cta">
-     💬 Chat on WhatsApp
-  </a>
+    <a href="https://wa.me/60172731112"
+       class="btn btn-secondary">
+
+      <span>Chat On WhatsApp</span>
+
+    </a>
+
+  </div>
 
 </section>
 
 <!-- FOOTER -->
+
 <footer>
-  © 2026 IGCSEMYSG Tuition
+
+  <img src="logo.png" width="80">
+
+  <p>
+    Premium IGCSE, Edexcel & O-Level Tuition
+  </p>
+
+  <p>
+    © 2026 IGCSEMYSG Tuition
+  </p>
+
 </footer>
 
 <script>
@@ -1039,51 +1175,49 @@ window.addEventListener("load", () => {
 const text = "IGCSEMYSG";
 
 let index = 0;
-let isDeleting = false;
+let deleting = false;
 
-function typeLoop() {
+function typeLoop(){
 
-  const display =
+  const typing =
   document.getElementById("typing");
 
-  if (!isDeleting) {
+  if(!deleting){
 
-    display.innerHTML =
-    text.substring(0, index + 1);
+    typing.innerHTML =
+    text.substring(0,index+1);
 
     index++;
 
-    if (index === text.length) {
+    if(index === text.length){
 
-      isDeleting = true;
+      deleting = true;
 
-      setTimeout(typeLoop, 1400);
+      setTimeout(typeLoop,1400);
 
       return;
-
     }
 
   } else {
 
-    display.innerHTML =
-    text.substring(0, index - 1);
+    typing.innerHTML =
+    text.substring(0,index-1);
 
     index--;
 
-    if (index === 0) {
+    if(index === 0){
 
-      isDeleting = false;
+      deleting = false;
 
-      setTimeout(typeLoop, 500);
+      setTimeout(typeLoop,500);
 
       return;
-
     }
 
   }
 
   setTimeout(typeLoop,
-  isDeleting ? 60 : 100);
+  deleting ? 60 : 100);
 
 }
 
@@ -1098,7 +1232,7 @@ new IntersectionObserver(entries => {
 
   entries.forEach(entry => {
 
-    if (entry.isIntersecting) {
+    if(entry.isIntersecting){
       entry.target.classList.add("show");
     }
 
@@ -1144,12 +1278,12 @@ window.addEventListener("scroll", () => {
 
   const y = window.scrollY;
 
-  if (y > 80)
+  if(y > 80)
     navbar.classList.add("show");
   else
     navbar.classList.remove("show");
 
-  if (y > 200)
+  if(y > 200)
     navbar.classList.add("shrink");
   else
     navbar.classList.remove("shrink");
@@ -1163,14 +1297,14 @@ window.addEventListener("scroll", () => {
 window.addEventListener("scroll", () => {
 
   const scrollTop =
-    document.documentElement.scrollTop;
+  document.documentElement.scrollTop;
 
   const scrollHeight =
-    document.documentElement.scrollHeight -
-    document.documentElement.clientHeight;
+  document.documentElement.scrollHeight -
+  document.documentElement.clientHeight;
 
   const progress =
-    (scrollTop / scrollHeight) * 100;
+  (scrollTop / scrollHeight) * 100;
 
   document.getElementById("progress-bar")
   .style.width = progress + "%";
@@ -1190,6 +1324,39 @@ document.getElementById("mobileMenu");
 hamburger.addEventListener("click", () => {
 
   mobileMenu.classList.toggle("active");
+
+});
+
+/* ========================================= */
+/* MAGNETIC BUTTONS */
+/* ========================================= */
+
+document.querySelectorAll('.btn').forEach(btn => {
+
+  btn.addEventListener('mousemove', e => {
+
+    const rect = btn.getBoundingClientRect();
+
+    const x = e.clientX - rect.left;
+    const y = e.clientY - rect.top;
+
+    const moveX =
+    (x - rect.width / 2) / 10;
+
+    const moveY =
+    (y - rect.height / 2) / 10;
+
+    btn.style.transform =
+    `translate(${moveX}px, ${moveY}px) scale(1.03)`;
+
+  });
+
+  btn.addEventListener('mouseleave', () => {
+
+    btn.style.transform =
+    'translate(0px, 0px) scale(1)';
+
+  });
 
 });
 
