@@ -11,7 +11,9 @@
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
 
 <style>
-html { scroll-behavior: smooth; }
+html {
+  scroll-behavior: smooth;
+}
 
 body {
   margin: 0;
@@ -28,44 +30,77 @@ body {
   transform: translateX(-50%);
   width: 90%;
   max-width: 1100px;
+
   display: flex;
   justify-content: space-between;
   align-items: center;
+
   padding: 14px 22px;
   border-radius: 50px;
+
   background: rgba(255,255,255,0.45);
   backdrop-filter: blur(16px);
+
   box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+
   transition: all 0.4s ease;
+
   z-index: 1000;
+
   opacity: 0;
   pointer-events: none;
 }
-#navbar.show { opacity:1; pointer-events:auto; }
-#navbar.shrink {
-  top:10px;
-  padding:8px 18px;
-  border-radius:30px;
-  background:rgba(255,255,255,0.75);
-}
-.nav-logo { height:40px; transition:0.3s; }
-#navbar.shrink .nav-logo { height:30px; }
 
-.nav-links { display:flex; gap:25px; }
+#navbar.show {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+#navbar.shrink {
+  top: 10px;
+  padding: 8px 18px;
+  border-radius: 30px;
+  background: rgba(255,255,255,0.75);
+}
+
+.nav-logo {
+  height: 40px;
+  transition: 0.3s;
+}
+
+#navbar.shrink .nav-logo {
+  height: 30px;
+}
+
+.nav-links {
+  display: flex;
+  gap: 25px;
+}
+
 .nav-links a {
-  text-decoration:none;
-  color:#333;
-  font-weight:500;
-  font-size:0.95em;
+  text-decoration: none;
+  color: #333;
+  font-weight: 500;
+  font-size: 0.95em;
+  transition: 0.3s;
+}
+
+.nav-links a:hover {
+  opacity: 0.6;
 }
 
 .nav-cta {
-  padding:10px 18px;
-  border-radius:25px;
-  background:#111;
-  color:white;
-  text-decoration:none;
-  font-weight:600;
+  padding: 10px 18px;
+  border-radius: 25px;
+  background: #111;
+  color: white;
+  text-decoration: none;
+  font-weight: 600;
+  transition: 0.3s;
+}
+
+.nav-cta:hover {
+  transform: scale(1.04);
 }
 
 /* HERO */
@@ -74,316 +109,632 @@ header {
   background: url('https://images.unsplash.com/photo-1523240795612-9a054b0db644?auto=format&fit=crop&w=1600&q=80') center/cover;
   color: white;
   text-align: center;
-  padding: 160px 20px;
+  padding: 170px 20px;
 }
+
 header::before {
-  content:"";
-  position:absolute;
-  inset:0;
-  background:rgba(0,0,0,0.65);
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(0,0,0,0.65);
 }
-header * { position: relative; }
 
-.logo { width:130px; margin-bottom:20px; }
+header * {
+  position: relative;
+}
 
-h1 { font-size:2.8em; }
+.logo {
+  width: 130px;
+  margin-bottom: 20px;
+}
 
-.cursor { animation: blink 1s infinite; }
+h1 {
+  font-size: 3em;
+  margin-bottom: 12px;
+  letter-spacing: -1px;
+}
+
+header p {
+  font-size: 1.08rem;
+  opacity: 0.9;
+}
+
+.cursor {
+  animation: blink 1s infinite;
+}
+
 @keyframes blink {
-  0%,50%,100% {opacity:1;}
-  25%,75% {opacity:0;}
+  0%,50%,100% { opacity:1; }
+  25%,75% { opacity:0; }
 }
 
 /* SECTIONS */
 section {
-  padding:90px 20px;
-  text-align:center;
+  padding: 100px 20px;
+  text-align: center;
 }
-.light { background:#fff; }
-.dark { background:#0b1220; color:white; }
 
+.light {
+  background: #ffffff;
+}
+
+.dark {
+  background: #0b1220;
+  color: white;
+}
+
+h2 {
+  font-size: 2.3rem;
+  margin-bottom: 16px;
+  letter-spacing: -0.5px;
+}
+
+/* REVEAL */
 .reveal {
-  opacity:0;
-  transform:translateY(40px);
-  transition:0.8s;
+  opacity: 0;
+  transform: translateY(40px);
+  transition: 0.8s ease;
 }
+
 .reveal.show {
-  opacity:1;
-  transform:translateY(0);
+  opacity: 1;
+  transform: translateY(0);
 }
 
+/* GRID */
 .grid {
-  display:flex;
-  flex-wrap:wrap;
-  justify-content:center;
-  gap:22px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 22px;
+  margin-top: 40px;
 }
 
+/* CARDS */
 .card {
-  padding:25px;
-  width:260px;
-  border-radius:16px;
+  width: 260px;
+  padding: 28px;
+  border-radius: 18px;
+  transition: 0.35s ease;
 }
+
 .light .card {
-  background:#f9fafc;
-  box-shadow:0 10px 25px rgba(0,0,0,0.06);
+  background: #f9fafc;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.06);
 }
+
 .dark .card {
-  background:rgba(255,255,255,0.06);
+  background: rgba(255,255,255,0.06);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(255,255,255,0.08);
+}
+
+.card:hover {
+  transform: translateY(-8px);
 }
 
 /* CTA */
 .btn {
-  margin-top:25px;
-  padding:14px 30px;
-  border-radius:40px;
-  background:white;
-  color:#111;
-  text-decoration:none;
+  display: inline-block;
+  margin-top: 25px;
+  padding: 14px 30px;
+  border-radius: 40px;
+  background: white;
+  color: #111;
+  text-decoration: none;
+  font-weight: 600;
+  transition: all 0.3s ease;
 }
+
+.btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 12px 30px rgba(0,0,0,0.12);
+}
+
 .whatsapp-cta {
-  display:inline-block;
-  margin-top:18px;
-  padding:10px 20px;
-  border-radius:25px;
-  background:rgba(37,211,102,0.1);
-  color:#25D366;
-  text-decoration:none;
+  display: inline-block;
+  margin-top: 18px;
+  padding: 12px 22px;
+  border-radius: 25px;
+  background: rgba(37,211,102,0.12);
+  color: #25D366;
+  text-decoration: none;
+  font-weight: 600;
+  transition: 0.3s ease;
+}
+
+.whatsapp-cta:hover {
+  transform: scale(1.04);
 }
 
 /* FAQ PREMIUM */
 .faq-container {
-  max-width:900px;
-  margin:50px auto;
-  display:grid;
-  grid-template-columns:1fr 1fr;
-  gap:16px;
-}
-@media(max-width:768px){
-  .faq-container { grid-template-columns:1fr; }
+  max-width: 980px;
+  margin: 60px auto 0;
+
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 18px;
 }
 
 .faq-item {
-  background:#fff;
-  border-radius:14px;
-  padding:18px 22px;
-  box-shadow:0 8px 25px rgba(0,0,0,0.05);
-  transition:0.3s;
+  background: #ffffff;
+  border-radius: 18px;
+
+  padding: 22px 24px;
+
+  box-shadow:
+    0 10px 30px rgba(0,0,0,0.05),
+    0 1px 0 rgba(255,255,255,0.7) inset;
+
+  border: 1px solid rgba(0,0,0,0.04);
+
+  transition: all 0.35s ease;
+
+  height: fit-content;
+}
+
+.faq-item:hover {
+  transform: translateY(-3px);
+
+  box-shadow:
+    0 18px 40px rgba(0,0,0,0.08),
+    0 1px 0 rgba(255,255,255,0.8) inset;
 }
 
 .faq-question {
-  width:100%;
-  background:none;
-  border:none;
-  font-weight:600;
-  display:flex;
-  justify-content:space-between;
-  cursor:pointer;
+  width: 100%;
+  background: none;
+  border: none;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 18px;
+
+  padding: 0;
+
+  cursor: pointer;
+
+  text-align: left;
+
+  font-size: 1.05rem;
+  font-weight: 600;
+  line-height: 1.45;
+
+  color: #111;
 }
 
+/* ICON */
 .faq-icon {
-  width:24px;
-  height:24px;
-  border-radius:50%;
-  background:#eee;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  transition:0.3s;
+  min-width: 30px;
+  min-height: 30px;
+
+  border-radius: 50%;
+
+  background: #f3f4f6;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  font-size: 1.15rem;
+  font-weight: 500;
+
+  transition: all 0.35s ease;
+
+  flex-shrink: 0;
 }
 
 .faq-item.active .faq-icon {
-  transform:rotate(45deg);
-  background:#111;
-  color:white;
+  transform: rotate(45deg);
+  background: #111827;
+  color: white;
 }
 
+/* ANSWER */
 .faq-answer {
-  max-height:0;
-  overflow:hidden;
-  transition:0.4s;
-  opacity:0;
+  max-height: 0;
+  overflow: hidden;
+
+  opacity: 0;
+
+  transition:
+    max-height 0.45s ease,
+    opacity 0.3s ease,
+    margin-top 0.3s ease;
 }
+
 .faq-item.active .faq-answer {
-  margin-top:10px;
-  opacity:0.8;
+  opacity: 1;
+  margin-top: 14px;
+}
+
+.faq-answer p {
+  margin: 0;
+
+  font-size: 0.97rem;
+  line-height: 1.75;
+
+  color: #5b6475;
 }
 
 /* FAQ CTA */
 .faq-cta {
-  text-align:center;
-  margin-top:40px;
+  margin-top: 55px;
+  text-align: center;
 }
+
+.faq-cta p {
+  font-size: 1.08rem;
+  color: #5b6475;
+  margin-bottom: 16px;
+}
+
 .faq-btn {
-  display:inline-block;
-  padding:12px 26px;
-  border-radius:30px;
-  background:#111;
-  color:white;
-  text-decoration:none;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  padding: 13px 28px;
+
+  border-radius: 999px;
+
+  background: #111827;
+  color: white;
+
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 0.95rem;
+
+  transition: all 0.3s ease;
+
+  box-shadow: 0 10px 25px rgba(17,24,39,0.12);
+}
+
+.faq-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 16px 35px rgba(17,24,39,0.18);
 }
 
 /* FOOTER */
 footer {
-  background:#0f172a;
-  color:white;
-  padding:20px;
+  background: #0f172a;
+  color: white;
+  text-align: center;
+  padding: 22px;
 }
 
+/* MOBILE */
 @media(max-width:768px){
-  .nav-links { display:none; }
+
+  .nav-links {
+    display: none;
+  }
+
+  .faq-container {
+    grid-template-columns: 1fr;
+  }
+
+  h1 {
+    font-size: 2.2rem;
+  }
+
+  h2 {
+    font-size: 1.9rem;
+  }
+
 }
 </style>
 </head>
 
 <body>
 
+<!-- NAVBAR -->
 <nav id="navbar">
+
   <img src="logo.png" class="nav-logo">
+
   <div class="nav-links">
     <a href="#about">About</a>
     <a href="#method">Method</a>
     <a href="#structure">Structure</a>
     <a href="#faq">FAQ</a>
   </div>
-  <a href="enquiry.html" class="nav-cta">Book Trial</a>
+
+  <a href="enquiry.html" class="nav-cta">
+    Book Trial
+  </a>
+
 </nav>
 
+<!-- HERO -->
 <header>
+
   <img src="logo.png" class="logo">
-  <h1><span id="typing"></span><span class="cursor">|</span></h1>
-  <p>IGCSE, Edexel & O-Level Tuition That Delivers Real Results</p>
+
+  <h1>
+    <span id="typing"></span>
+    <span class="cursor">|</span>
+  </h1>
+
+  <p>
+    IGCSE, Edexcel & O-Level Tuition That Delivers Real Results
+  </p>
+
 </header>
 
+<!-- ABOUT -->
 <section id="about" class="light reveal">
+
   <h2>Students Come To Us When...</h2>
+
   <div class="grid">
-    <div class="card">“I study but i don't see any improvements”</div>
-    <div class="card">“I don’t have a strong foundation”</div>
-    <div class="card">“Past papers feel impossible”</div>
+
+    <div class="card">
+      “I study but i don't see any improvements”
+    </div>
+
+    <div class="card">
+      “I don’t have a strong foundation”
+    </div>
+
+    <div class="card">
+      “Past papers feel impossible”
+    </div>
+
   </div>
+
 </section>
 
+<!-- METHOD -->
 <section id="method" class="dark reveal">
+
   <h2>Our Teaching Method</h2>
+
   <div class="grid">
+
     <div class="card">Concept Mastery</div>
     <div class="card">Exam Strategy</div>
     <div class="card">Smart Practice</div>
     <div class="card">Confidence Growth</div>
+
   </div>
+
 </section>
 
+<!-- STRUCTURE -->
 <section id="structure" class="light reveal">
+
   <h2>How Lessons Are Structured</h2>
+
   <div class="grid">
-    <div class="card"><h3>1. Evaluate</h3><p>Indicating and understanding the issue</p></div>
-    <div class="card"><h3>2. Diagnose</h3><p>Identify weak areas</p></div>
-    <div class="card"><h3>3. Build</h3><p>Strengthen concepts</p></div>
-    <div class="card"><h3>4. Apply</h3><p>Master exam questions</p></div>
+
+    <div class="card">
+      <h3>1. Evaluate</h3>
+      <p>Indicating and understanding the issue</p>
+    </div>
+
+    <div class="card">
+      <h3>2. Diagnose</h3>
+      <p>Identify weak areas</p>
+    </div>
+
+    <div class="card">
+      <h3>3. Build</h3>
+      <p>Strengthen concepts</p>
+    </div>
+
+    <div class="card">
+      <h3>4. Apply</h3>
+      <p>Master exam questions</p>
+    </div>
+
   </div>
+
 </section>
 
+<!-- FAQ -->
 <section id="faq" class="light reveal">
+
   <h2>Frequently Asked Questions</h2>
 
   <div class="faq-container">
 
     <div class="faq-item">
-      <button class="faq-question">How big are the classes?<span class="faq-icon">+</span></button>
-      <div class="faq-answer"><p>Small group classes for focused attention. On top of that, we provide 1-to-1 classes as well.</p></div>
+
+      <button class="faq-question">
+        How big are the classes?
+        <span class="faq-icon">+</span>
+      </button>
+
+      <div class="faq-answer">
+        <p>
+          Small group classes for focused attention.
+          On top of that, we provide 1-to-1 classes as well.
+        </p>
+      </div>
+
     </div>
 
     <div class="faq-item">
-      <button class="faq-question">Which syllabus do you cover?<span class="faq-icon">+</span></button>
-      <div class="faq-answer"><p>IGCSE,Edexel & Singapore O-Level.</p></div>
+
+      <button class="faq-question">
+        Which syllabus do you cover?
+        <span class="faq-icon">+</span>
+      </button>
+
+      <div class="faq-answer">
+        <p>
+          IGCSE, Edexcel & Singapore O-Level.
+        </p>
+      </div>
+
     </div>
 
     <div class="faq-item">
-      <button class="faq-question">Do you provide materials?<span class="faq-icon">+</span></button>
-      <div class="faq-answer"><p>Yes, structured notes and exam practice are provided.</p></div>
+
+      <button class="faq-question">
+        Do you provide materials?
+        <span class="faq-icon">+</span>
+      </button>
+
+      <div class="faq-answer">
+        <p>
+          Yes, structured notes and exam practice are provided.
+        </p>
+      </div>
+
     </div>
 
     <div class="faq-item">
-      <button class="faq-question">How fast can results improve?<span class="faq-icon">+</span></button>
-      <div class="faq-answer"><p>Most students improve within a few months. However, durations of progress can range individually.</p></div>
+
+      <button class="faq-question">
+        How fast can results improve?
+        <span class="faq-icon">+</span>
+      </button>
+
+      <div class="faq-answer">
+        <p>
+          Most students improve within a few months.
+          However, durations of progress can range individually.
+        </p>
+      </div>
+
     </div>
 
   </div>
 
   <div class="faq-cta">
+
     <p>Still have questions?</p>
-    <a href="enquiry.html" class="faq-btn">Send us an enquiry</a>
+
+    <a href="enquiry.html" class="faq-btn">
+      Send us an enquiry
+    </a>
+
   </div>
 
 </section>
 
+<!-- CTA -->
 <section class="dark reveal">
+
   <h2>Ready to Improve?</h2>
-  <a href="enquiry.html" class="btn">Book A Class Now</a>
-  <a href="https://wa.me/60172731112" class="whatsapp-cta">💬 Chat on WhatsApp</a>
+
+  <a href="enquiry.html" class="btn">
+    Book A Class Now
+  </a>
+
+  <br>
+
+  <a href="https://wa.me/60172731112" class="whatsapp-cta">
+    💬 Chat on WhatsApp
+  </a>
+
 </section>
 
-<footer>© 2026 IGCSEMYSG Tuition</footer>
+<!-- FOOTER -->
+<footer>
+  © 2026 IGCSEMYSG Tuition
+</footer>
 
 <script>
-// typing
+
+// TYPING LOOP
 const text = "IGCSEMYSG";
 let index = 0;
 let isDeleting = false;
 
 function typeLoop() {
+
   const display = document.getElementById("typing");
 
   if (!isDeleting) {
-    // typing
+
     display.innerHTML = text.substring(0, index + 1);
     index++;
 
     if (index === text.length) {
       isDeleting = true;
-      setTimeout(typeLoop, 7000); // pause before deleting
+
+      setTimeout(typeLoop, 1400);
       return;
     }
+
   } else {
-    // deleting
+
     display.innerHTML = text.substring(0, index - 1);
     index--;
 
     if (index === 0) {
       isDeleting = false;
+
+      setTimeout(typeLoop, 500);
+      return;
     }
+
   }
 
-  setTimeout(typeLoop, isDeleting ? 300 : 200);
+  setTimeout(typeLoop, isDeleting ? 60 : 100);
+
 }
 
 window.onload = typeLoop;
 
-// reveal
-const observer=new IntersectionObserver(e=>{
-  e.forEach(x=>{if(x.isIntersecting)x.target.classList.add("show");});
+// REVEAL
+const observer = new IntersectionObserver(entries => {
+
+  entries.forEach(entry => {
+
+    if (entry.isIntersecting) {
+      entry.target.classList.add("show");
+    }
+
+  });
+
 });
-document.querySelectorAll(".reveal").forEach(el=>observer.observe(el));
+
+document.querySelectorAll(".reveal").forEach(el => observer.observe(el));
 
 // FAQ
-document.querySelectorAll(".faq-item").forEach(item=>{
-  item.querySelector(".faq-question").addEventListener("click",()=>{
+document.querySelectorAll(".faq-item").forEach(item => {
+
+  item.querySelector(".faq-question")
+  .addEventListener("click", () => {
+
     item.classList.toggle("active");
-    const answer=item.querySelector(".faq-answer");
-    answer.style.maxHeight=item.classList.contains("active")?answer.scrollHeight+"px":null;
+
+    const answer = item.querySelector(".faq-answer");
+
+    answer.style.maxHeight =
+      item.classList.contains("active")
+      ? answer.scrollHeight + "px"
+      : null;
+
   });
+
 });
 
-// navbar
-const navbar=document.getElementById("navbar");
-window.addEventListener("scroll",()=>{
-  const y=window.scrollY;
-  if(y>80) navbar.classList.add("show"); else navbar.classList.remove("show");
-  if(y>200) navbar.classList.add("shrink"); else navbar.classList.remove("shrink");
+// NAVBAR
+const navbar = document.getElementById("navbar");
+
+window.addEventListener("scroll", () => {
+
+  const y = window.scrollY;
+
+  if (y > 80)
+    navbar.classList.add("show");
+  else
+    navbar.classList.remove("show");
+
+  if (y > 200)
+    navbar.classList.add("shrink");
+  else
+    navbar.classList.remove("shrink");
+
 });
 
-window.onload=typeEffect;
 </script>
 
 </body>
