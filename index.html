@@ -11,6 +11,7 @@
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
 
 <style>
+
 html {
   scroll-behavior: smooth;
 }
@@ -20,14 +21,115 @@ body {
   font-family: 'Inter', sans-serif;
   background: #f6f7fb;
   color: #111;
+  overflow-x: hidden;
 }
 
+/* ========================================= */
+/* LOADER */
+/* ========================================= */
+
+#loader {
+  position: fixed;
+  inset: 0;
+  background: #f6f7fb;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  z-index: 999999;
+
+  transition:
+    opacity 0.8s ease,
+    visibility 0.8s ease;
+}
+
+#loader.hidden {
+  opacity: 0;
+  visibility: hidden;
+}
+
+.loader-logo-wrap {
+  position: relative;
+}
+
+.loader-logo {
+  width: 110px;
+  position: relative;
+  z-index: 2;
+
+  animation: float 2.5s ease-in-out infinite;
+}
+
+.loader-glow {
+  position: absolute;
+  width: 180px;
+  height: 180px;
+
+  background:
+  radial-gradient(circle,
+  rgba(99,102,241,0.35),
+  transparent 70%);
+
+  top: 50%;
+  left: 50%;
+
+  transform: translate(-50%, -50%);
+  filter: blur(30px);
+
+  animation: pulseGlow 2.8s ease infinite;
+}
+
+@keyframes pulseGlow {
+  0%,100% {
+    transform: translate(-50%, -50%) scale(1);
+    opacity: 0.7;
+  }
+
+  50% {
+    transform: translate(-50%, -50%) scale(1.2);
+    opacity: 1;
+  }
+}
+
+@keyframes float {
+  0%,100% { transform: translateY(0px); }
+  50% { transform: translateY(-8px); }
+}
+
+/* ========================================= */
+/* SCROLL PROGRESS */
+/* ========================================= */
+
+#progress-bar {
+  position: fixed;
+  top: 0;
+  left: 0;
+
+  width: 0%;
+  height: 4px;
+
+  background:
+  linear-gradient(
+    90deg,
+    #6366f1,
+    #8b5cf6,
+    #ec4899
+  );
+
+  z-index: 999999;
+}
+
+/* ========================================= */
 /* NAVBAR */
+/* ========================================= */
+
 #navbar {
   position: fixed;
   top: 20px;
   left: 50%;
   transform: translateX(-50%);
+
   width: 90%;
   max-width: 1100px;
 
@@ -36,6 +138,7 @@ body {
   align-items: center;
 
   padding: 14px 22px;
+
   border-radius: 50px;
 
   background: rgba(255,255,255,0.45);
@@ -92,10 +195,13 @@ body {
 .nav-cta {
   padding: 10px 18px;
   border-radius: 25px;
+
   background: #111;
   color: white;
+
   text-decoration: none;
   font-weight: 600;
+
   transition: 0.3s;
 }
 
@@ -103,24 +209,154 @@ body {
   transform: scale(1.04);
 }
 
+/* ========================================= */
+/* HAMBURGER */
+/* ========================================= */
+
+.hamburger {
+  display: none;
+  flex-direction: column;
+  gap: 5px;
+  cursor: pointer;
+}
+
+.hamburger span {
+  width: 24px;
+  height: 2px;
+
+  background: #111;
+
+  border-radius: 999px;
+
+  transition: 0.3s;
+}
+
+.mobile-menu {
+  position: fixed;
+
+  top: 90px;
+  left: 50%;
+
+  transform: translateX(-50%) translateY(-20px);
+
+  width: 88%;
+  max-width: 420px;
+
+  background: rgba(255,255,255,0.82);
+  backdrop-filter: blur(18px);
+
+  border-radius: 24px;
+
+  padding: 18px;
+
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+
+  box-shadow:
+    0 20px 50px rgba(0,0,0,0.12);
+
+  opacity: 0;
+  pointer-events: none;
+
+  transition: 0.35s ease;
+
+  z-index: 999;
+}
+
+.mobile-menu.active {
+  opacity: 1;
+  pointer-events: auto;
+
+  transform: translateX(-50%) translateY(0);
+}
+
+.mobile-menu a {
+  text-decoration: none;
+
+  color: #111;
+
+  font-weight: 600;
+
+  padding: 14px 16px;
+
+  border-radius: 14px;
+
+  transition: 0.25s ease;
+}
+
+.mobile-menu a:hover {
+  background: rgba(0,0,0,0.05);
+}
+
+/* ========================================= */
 /* HERO */
+/* ========================================= */
+
 header {
   position: relative;
-  background: url('https://images.unsplash.com/photo-1523240795612-9a054b0db644?auto=format&fit=crop&w=1600&q=80') center/cover;
+
+  background:
+  url('https://images.unsplash.com/photo-1523240795612-9a054b0db644?auto=format&fit=crop&w=1600&q=80')
+  center/cover;
+
   color: white;
   text-align: center;
+
   padding: 170px 20px;
 }
 
 header::before {
   content: "";
+
   position: absolute;
   inset: 0;
+
   background: rgba(0,0,0,0.65);
+}
+
+header::after {
+  content: "";
+
+  position: absolute;
+
+  width: 500px;
+  height: 500px;
+
+  background:
+  radial-gradient(circle,
+  rgba(139,92,246,0.22),
+  transparent 70%);
+
+  top: 50%;
+  left: 50%;
+
+  transform: translate(-50%, -50%);
+
+  filter: blur(80px);
+
+  animation: heroGlow 7s ease infinite;
+}
+
+@keyframes heroGlow {
+
+  0% {
+    transform: translate(-50%, -50%) scale(1);
+  }
+
+  50% {
+    transform: translate(-50%, -50%) scale(1.15);
+  }
+
+  100% {
+    transform: translate(-50%, -50%) scale(1);
+  }
+
 }
 
 header * {
   position: relative;
+  z-index: 2;
 }
 
 .logo {
@@ -148,14 +384,50 @@ header p {
   25%,75% { opacity:0; }
 }
 
-/* SECTIONS */
+/* ========================================= */
+/* SECTION */
+/* ========================================= */
+
 section {
+  position: relative;
   padding: 100px 20px;
   text-align: center;
 }
 
+section::after {
+  content: "";
+
+  position: absolute;
+
+  left: 50%;
+  bottom: 0;
+
+  transform: translateX(-50%);
+
+  width: 85%;
+  height: 1px;
+
+  background:
+  linear-gradient(
+    90deg,
+    transparent,
+    rgba(0,0,0,0.08),
+    transparent
+  );
+}
+
+.dark::after {
+  background:
+  linear-gradient(
+    90deg,
+    transparent,
+    rgba(255,255,255,0.08),
+    transparent
+  );
+}
+
 .light {
-  background: #ffffff;
+  background: #fff;
 }
 
 .dark {
@@ -166,10 +438,12 @@ section {
 h2 {
   font-size: 2.3rem;
   margin-bottom: 16px;
-  letter-spacing: -0.5px;
 }
 
+/* ========================================= */
 /* REVEAL */
+/* ========================================= */
+
 .reveal {
   opacity: 0;
   transform: translateY(40px);
@@ -181,7 +455,10 @@ h2 {
   transform: translateY(0);
 }
 
+/* ========================================= */
 /* GRID */
+/* ========================================= */
+
 .grid {
   display: flex;
   flex-wrap: wrap;
@@ -190,11 +467,19 @@ h2 {
   margin-top: 40px;
 }
 
-/* CARDS */
+/* ========================================= */
+/* CARD */
+/* ========================================= */
+
 .card {
+  position: relative;
+  overflow: hidden;
+
   width: 260px;
   padding: 28px;
+
   border-radius: 18px;
+
   transition: 0.35s ease;
 }
 
@@ -205,41 +490,87 @@ h2 {
 
 .dark .card {
   background: rgba(255,255,255,0.06);
+
   backdrop-filter: blur(12px);
+
   border: 1px solid rgba(255,255,255,0.08);
 }
 
-.card:hover {
-  transform: translateY(-8px);
+.card::before {
+  content: "";
+
+  position: absolute;
+  inset: 0;
+
+  background:
+  linear-gradient(
+    120deg,
+    rgba(255,255,255,0.18),
+    transparent 50%
+  );
+
+  opacity: 0;
+
+  transition: opacity 0.4s ease;
 }
 
+.card:hover::before {
+  opacity: 1;
+}
+
+.card:hover {
+  transform: translateY(-10px) scale(1.02);
+
+  box-shadow:
+    0 18px 45px rgba(0,0,0,0.10),
+    0 0 0 1px rgba(255,255,255,0.15) inset;
+}
+
+/* ========================================= */
 /* CTA */
+/* ========================================= */
+
 .btn {
   display: inline-block;
+
   margin-top: 25px;
+
   padding: 14px 30px;
+
   border-radius: 40px;
+
   background: white;
   color: #111;
+
   text-decoration: none;
   font-weight: 600;
+
   transition: all 0.3s ease;
 }
 
 .btn:hover {
   transform: translateY(-2px);
-  box-shadow: 0 12px 30px rgba(0,0,0,0.12);
+
+  box-shadow:
+    0 12px 30px rgba(0,0,0,0.12);
 }
 
 .whatsapp-cta {
   display: inline-block;
+
   margin-top: 18px;
+
   padding: 12px 22px;
+
   border-radius: 25px;
+
   background: rgba(37,211,102,0.12);
+
   color: #25D366;
+
   text-decoration: none;
   font-weight: 600;
+
   transition: 0.3s ease;
 }
 
@@ -247,18 +578,23 @@ h2 {
   transform: scale(1.04);
 }
 
-/* FAQ PREMIUM */
+/* ========================================= */
+/* FAQ */
+/* ========================================= */
+
 .faq-container {
   max-width: 980px;
   margin: 60px auto 0;
 
   display: grid;
   grid-template-columns: 1fr 1fr;
+
   gap: 18px;
 }
 
 .faq-item {
   background: #ffffff;
+
   border-radius: 18px;
 
   padding: 22px 24px;
@@ -284,12 +620,14 @@ h2 {
 
 .faq-question {
   width: 100%;
+
   background: none;
   border: none;
 
   display: flex;
   justify-content: space-between;
   align-items: center;
+
   gap: 18px;
 
   padding: 0;
@@ -305,7 +643,6 @@ h2 {
   color: #111;
 }
 
-/* ICON */
 .faq-icon {
   min-width: 30px;
   min-height: 30px;
@@ -319,7 +656,6 @@ h2 {
   justify-content: center;
 
   font-size: 1.15rem;
-  font-weight: 500;
 
   transition: all 0.35s ease;
 
@@ -328,11 +664,11 @@ h2 {
 
 .faq-item.active .faq-icon {
   transform: rotate(45deg);
+
   background: #111827;
   color: white;
 }
 
-/* ANSWER */
 .faq-answer {
   max-height: 0;
   overflow: hidden;
@@ -360,21 +696,14 @@ h2 {
 }
 
 /* FAQ CTA */
+
 .faq-cta {
   margin-top: 55px;
   text-align: center;
 }
 
-.faq-cta p {
-  font-size: 1.08rem;
-  color: #5b6475;
-  margin-bottom: 16px;
-}
-
 .faq-btn {
   display: inline-flex;
-  align-items: center;
-  justify-content: center;
 
   padding: 13px 28px;
 
@@ -385,31 +714,43 @@ h2 {
 
   text-decoration: none;
   font-weight: 600;
-  font-size: 0.95rem;
 
   transition: all 0.3s ease;
-
-  box-shadow: 0 10px 25px rgba(17,24,39,0.12);
 }
 
 .faq-btn:hover {
   transform: translateY(-2px);
-  box-shadow: 0 16px 35px rgba(17,24,39,0.18);
 }
 
+/* ========================================= */
 /* FOOTER */
+/* ========================================= */
+
 footer {
   background: #0f172a;
   color: white;
+
   text-align: center;
+
   padding: 22px;
 }
 
+/* ========================================= */
 /* MOBILE */
+/* ========================================= */
+
 @media(max-width:768px){
 
   .nav-links {
     display: none;
+  }
+
+  .nav-cta {
+    display: none;
+  }
+
+  .hamburger {
+    display: flex;
   }
 
   .faq-container {
@@ -425,10 +766,27 @@ footer {
   }
 
 }
+
 </style>
 </head>
 
 <body>
+
+<!-- LOADER -->
+<div id="loader">
+
+  <div class="loader-logo-wrap">
+
+    <img src="logo.png" class="loader-logo">
+
+    <div class="loader-glow"></div>
+
+  </div>
+
+</div>
+
+<!-- PROGRESS BAR -->
+<div id="progress-bar"></div>
 
 <!-- NAVBAR -->
 <nav id="navbar">
@@ -442,11 +800,28 @@ footer {
     <a href="#faq">FAQ</a>
   </div>
 
+  <!-- HAMBURGER -->
+  <div class="hamburger" id="hamburger">
+    <span></span>
+    <span></span>
+  </div>
+
   <a href="enquiry.html" class="nav-cta">
     Book Trial
   </a>
 
 </nav>
+
+<!-- MOBILE MENU -->
+<div class="mobile-menu" id="mobileMenu">
+
+  <a href="#about">About</a>
+  <a href="#method">Method</a>
+  <a href="#structure">Structure</a>
+  <a href="#faq">FAQ</a>
+  <a href="enquiry.html">Book Trial</a>
+
+</div>
 
 <!-- HERO -->
 <header>
@@ -628,8 +1003,9 @@ footer {
 
   <br>
 
-  <a href="https://wa.me/60172731112" class="whatsapp-cta">
-    💬 Chat on WhatsApp
+  <a href="https://wa.me/60172731112"
+     class="whatsapp-cta">
+     💬 Chat on WhatsApp
   </a>
 
 </section>
@@ -641,49 +1017,84 @@ footer {
 
 <script>
 
-// TYPING LOOP
+/* ========================================= */
+/* LOADER */
+/* ========================================= */
+
+window.addEventListener("load", () => {
+
+  setTimeout(() => {
+
+    document.getElementById("loader")
+    .classList.add("hidden");
+
+  }, 1400);
+
+});
+
+/* ========================================= */
+/* TYPING */
+/* ========================================= */
+
 const text = "IGCSEMYSG";
+
 let index = 0;
 let isDeleting = false;
 
 function typeLoop() {
 
-  const display = document.getElementById("typing");
+  const display =
+  document.getElementById("typing");
 
   if (!isDeleting) {
 
-    display.innerHTML = text.substring(0, index + 1);
+    display.innerHTML =
+    text.substring(0, index + 1);
+
     index++;
 
     if (index === text.length) {
+
       isDeleting = true;
 
       setTimeout(typeLoop, 1400);
+
       return;
+
     }
 
   } else {
 
-    display.innerHTML = text.substring(0, index - 1);
+    display.innerHTML =
+    text.substring(0, index - 1);
+
     index--;
 
     if (index === 0) {
+
       isDeleting = false;
 
       setTimeout(typeLoop, 500);
+
       return;
+
     }
 
   }
 
-  setTimeout(typeLoop, isDeleting ? 60 : 100);
+  setTimeout(typeLoop,
+  isDeleting ? 60 : 100);
 
 }
 
-window.onload = typeLoop;
+typeLoop();
 
-// REVEAL
-const observer = new IntersectionObserver(entries => {
+/* ========================================= */
+/* REVEAL */
+/* ========================================= */
+
+const observer =
+new IntersectionObserver(entries => {
 
   entries.forEach(entry => {
 
@@ -695,29 +1106,39 @@ const observer = new IntersectionObserver(entries => {
 
 });
 
-document.querySelectorAll(".reveal").forEach(el => observer.observe(el));
+document.querySelectorAll(".reveal")
+.forEach(el => observer.observe(el));
 
-// FAQ
-document.querySelectorAll(".faq-item").forEach(item => {
+/* ========================================= */
+/* FAQ */
+/* ========================================= */
+
+document.querySelectorAll(".faq-item")
+.forEach(item => {
 
   item.querySelector(".faq-question")
   .addEventListener("click", () => {
 
     item.classList.toggle("active");
 
-    const answer = item.querySelector(".faq-answer");
+    const answer =
+    item.querySelector(".faq-answer");
 
     answer.style.maxHeight =
-      item.classList.contains("active")
-      ? answer.scrollHeight + "px"
-      : null;
+    item.classList.contains("active")
+    ? answer.scrollHeight + "px"
+    : null;
 
   });
 
 });
 
-// NAVBAR
-const navbar = document.getElementById("navbar");
+/* ========================================= */
+/* NAVBAR */
+/* ========================================= */
+
+const navbar =
+document.getElementById("navbar");
 
 window.addEventListener("scroll", () => {
 
@@ -732,6 +1153,43 @@ window.addEventListener("scroll", () => {
     navbar.classList.add("shrink");
   else
     navbar.classList.remove("shrink");
+
+});
+
+/* ========================================= */
+/* PROGRESS BAR */
+/* ========================================= */
+
+window.addEventListener("scroll", () => {
+
+  const scrollTop =
+    document.documentElement.scrollTop;
+
+  const scrollHeight =
+    document.documentElement.scrollHeight -
+    document.documentElement.clientHeight;
+
+  const progress =
+    (scrollTop / scrollHeight) * 100;
+
+  document.getElementById("progress-bar")
+  .style.width = progress + "%";
+
+});
+
+/* ========================================= */
+/* MOBILE MENU */
+/* ========================================= */
+
+const hamburger =
+document.getElementById("hamburger");
+
+const mobileMenu =
+document.getElementById("mobileMenu");
+
+hamburger.addEventListener("click", () => {
+
+  mobileMenu.classList.toggle("active");
 
 });
 
