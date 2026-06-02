@@ -3,870 +3,546 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>IGCSEMYSG AI</title>
 
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<title>IGCSEMYSG AI Engine</title>
+
+<link rel="icon" href="favicon.ico">
+
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 
 <style>
 
 *{
-  margin:0;
-  padding:0;
-  box-sizing:border-box;
+margin:0;
+padding:0;
+box-sizing:border-box;
 }
 
 html{
-  scroll-behavior:smooth;
+scroll-behavior:smooth;
 }
 
 body{
-  font-family:'Inter',sans-serif;
-  background:#f6f7fb;
-  color:#111827;
-  overflow-x:hidden;
+font-family:'Inter',sans-serif;
+background:#f6f7fb;
+color:#111827;
+overflow-x:hidden;
 }
 
-body::before{
-  content:"";
+/* Background */
 
-  position:fixed;
-  inset:0;
-
-  z-index:-1;
-
-  background:
-  radial-gradient(circle at top left,
-  rgba(99,102,241,0.12),
-  transparent 35%),
-
-  radial-gradient(circle at bottom right,
-  rgba(236,72,153,0.10),
-  transparent 35%);
+.hero{
+position:relative;
+min-height:100vh;
+display:flex;
+align-items:center;
+justify-content:center;
+padding:120px 20px;
+overflow:hidden;
 }
 
-nav{
-  position:fixed;
+.hero::before{
+content:"";
+position:absolute;
+top:-200px;
+left:50%;
+transform:translateX(-50%);
+width:900px;
+height:900px;
 
-  top:20px;
-  left:50%;
+background:
+radial-gradient(
+circle,
+rgba(99,102,241,0.15),
+transparent 70%
+);
 
-  transform:translateX(-50%);
+filter:blur(80px);
+}
 
-  width:92%;
-  max-width:1180px;
+.hero::after{
+content:"";
+position:absolute;
+inset:0;
 
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
+background-image:
+radial-gradient(rgba(0,0,0,0.03) 1px, transparent 1px);
 
-  padding:14px 22px;
+background-size:4px 4px;
 
-  border-radius:999px;
+pointer-events:none;
+}
 
-  background:rgba(255,255,255,0.7);
-  backdrop-filter:blur(18px);
+.container{
+position:relative;
+z-index:2;
+max-width:1200px;
+width:100%;
+}
 
-  border:1px solid rgba(255,255,255,0.6);
+/* Navbar */
 
-  box-shadow:
-  0 10px 30px rgba(0,0,0,0.05);
+.navbar{
 
-  z-index:1000;
+display:flex;
+justify-content:space-between;
+align-items:center;
+
+padding:20px 0;
+margin-bottom:80px;
 }
 
 .logo{
-  font-size:1rem;
-  font-weight:800;
-  letter-spacing:-0.5px;
+font-size:1.2rem;
+font-weight:800;
+letter-spacing:-0.5px;
 }
 
-.nav-links{
-  display:flex;
-  gap:24px;
+.back-btn{
+
+text-decoration:none;
+
+padding:12px 22px;
+
+border-radius:999px;
+
+background:white;
+
+color:#111827;
+
+font-weight:600;
+
+box-shadow:
+0 10px 25px rgba(0,0,0,0.06);
+
+transition:0.3s;
 }
 
-.nav-links a{
-  text-decoration:none;
-  color:#4b5563;
-  font-weight:600;
-  transition:0.3s ease;
+.back-btn:hover{
+transform:translateY(-2px);
 }
 
-.nav-links a:hover{
-  opacity:0.6;
-}
-
-.nav-btn{
-  text-decoration:none;
-
-  padding:12px 22px;
-
-  border-radius:999px;
-
-  background:
-  linear-gradient(135deg,#6366f1,#8b5cf6);
-
-  color:white;
-  font-weight:700;
-
-  box-shadow:
-  0 12px 30px rgba(99,102,241,0.25);
-
-  transition:0.3s ease;
-}
-
-.nav-btn:hover{
-  transform:translateY(-2px);
-}
-
-.hero{
-  padding:180px 20px 120px;
-  text-align:center;
-}
+/* Hero Content */
 
 .badge{
-  display:inline-flex;
-  align-items:center;
-  gap:10px;
 
-  padding:12px 18px;
+display:inline-flex;
+align-items:center;
 
-  border-radius:999px;
+padding:10px 18px;
 
-  background:white;
+border-radius:999px;
 
-  box-shadow:
-  0 8px 24px rgba(0,0,0,0.05);
+background:white;
 
-  margin-bottom:30px;
+border:1px solid rgba(0,0,0,0.05);
 
-  font-size:0.9rem;
-  font-weight:600;
+font-size:0.9rem;
+font-weight:600;
+
+margin-bottom:25px;
+
+box-shadow:
+0 8px 25px rgba(0,0,0,0.05);
 }
 
-.hero h1{
-  font-size:5rem;
-  line-height:1;
+.hero-content{
+text-align:center;
+max-width:850px;
+margin:auto;
+}
 
-  letter-spacing:-3px;
+.hero-content h1{
 
-  max-width:1000px;
-  margin:auto;
+font-size:4.5rem;
+
+line-height:1.05;
+
+letter-spacing:-3px;
+
+margin-bottom:25px;
 }
 
 .gradient{
-  background:
-  linear-gradient(90deg,#6366f1,#8b5cf6,#ec4899);
 
-  -webkit-background-clip:text;
-  -webkit-text-fill-color:transparent;
+background:
+linear-gradient(
+90deg,
+#6366f1,
+#8b5cf6
+);
+
+-webkit-background-clip:text;
+-webkit-text-fill-color:transparent;
 }
 
-.hero p{
-  max-width:760px;
-  margin:30px auto 0;
+.hero-content p{
 
-  font-size:1.15rem;
-  line-height:1.9;
+font-size:1.15rem;
 
-  color:#5b6475;
+line-height:1.9;
+
+color:#5b6475;
+
+max-width:760px;
+
+margin:auto;
 }
 
-.hero-buttons{
-  display:flex;
-  justify-content:center;
-  gap:18px;
+/* Cards */
 
-  margin-top:40px;
+.features{
 
-  flex-wrap:wrap;
+display:grid;
+
+grid-template-columns:
+repeat(auto-fit,minmax(280px,1fr));
+
+gap:24px;
+
+margin-top:90px;
 }
 
-.btn{
-  text-decoration:none;
+.card{
 
-  padding:16px 30px;
+background:white;
 
-  border-radius:999px;
+padding:30px;
 
-  font-weight:700;
+border-radius:24px;
 
-  transition:0.35s ease;
+box-shadow:
+0 15px 40px rgba(0,0,0,0.06);
+
+transition:0.35s ease;
 }
 
-.btn-primary{
-  background:
-  linear-gradient(135deg,#6366f1,#8b5cf6);
+.card:hover{
 
-  color:white;
+transform:
+translateY(-8px);
 
-  box-shadow:
-  0 16px 40px rgba(99,102,241,0.25);
+box-shadow:
+0 20px 50px rgba(0,0,0,0.08);
 }
 
-.btn-secondary{
-  background:white;
+.card h3{
 
-  color:#111827;
+font-size:1.1rem;
 
-  border:1px solid rgba(0,0,0,0.05);
-
-  box-shadow:
-  0 10px 25px rgba(0,0,0,0.05);
+margin-bottom:12px;
 }
 
-.btn:hover{
-  transform:
-  translateY(-4px)
-  scale(1.02);
+.card p{
+
+color:#667085;
+
+line-height:1.7;
 }
 
-.dashboard{
-  max-width:1180px;
-  margin:90px auto 0;
+/* Roadmap */
 
-  background:white;
+.roadmap{
 
-  border-radius:32px;
+margin-top:100px;
 
-  overflow:hidden;
+display:grid;
 
-  box-shadow:
-  0 30px 100px rgba(0,0,0,0.08);
+grid-template-columns:
+repeat(auto-fit,minmax(300px,1fr));
+
+gap:24px;
 }
 
-.dashboard-top{
-  display:flex;
-  gap:8px;
+.roadmap-card{
 
-  padding:18px;
+background:white;
 
-  background:#f9fafc;
+padding:32px;
 
-  border-bottom:
-  1px solid rgba(0,0,0,0.05);
+border-radius:24px;
+
+box-shadow:
+0 15px 40px rgba(0,0,0,0.06);
 }
 
-.dot{
-  width:12px;
-  height:12px;
+.phase{
 
-  border-radius:50%;
+font-size:.85rem;
+
+font-weight:700;
+
+color:#6366f1;
+
+margin-bottom:12px;
+
+text-transform:uppercase;
+letter-spacing:1px;
 }
 
-.red{background:#ef4444;}
-.yellow{background:#f59e0b;}
-.green{background:#10b981;}
+.roadmap-card h3{
 
-.dashboard-body{
-  display:grid;
-  grid-template-columns:260px 1fr;
+margin-bottom:12px;
 }
 
-.sidebar{
-  background:#fbfcff;
+.roadmap-card p{
 
-  padding:28px 20px;
-
-  border-right:
-  1px solid rgba(0,0,0,0.05);
+color:#667085;
+line-height:1.7;
 }
 
-.sidebar-title{
-  font-size:0.8rem;
-  text-transform:uppercase;
-  letter-spacing:1px;
-
-  color:#9aa3b2;
-
-  margin-bottom:24px;
-}
-
-.sidebar-links{
-  display:flex;
-  flex-direction:column;
-  gap:14px;
-}
-
-.sidebar-links a{
-  text-decoration:none;
-
-  padding:14px 16px;
-
-  border-radius:14px;
-
-  background:white;
-
-  color:#111827;
-  font-weight:600;
-
-  border:1px solid rgba(0,0,0,0.04);
-
-  transition:0.3s ease;
-}
-
-.sidebar-links a:hover{
-  transform:translateX(4px);
-}
-
-.main{
-  padding:40px;
-}
-
-.main-header h2{
-  font-size:2.2rem;
-  letter-spacing:-1px;
-}
-
-.main-header p{
-  margin-top:10px;
-  color:#6b7280;
-}
-
-.stats{
-  display:grid;
-
-  grid-template-columns:
-  repeat(auto-fit,minmax(220px,1fr));
-
-  gap:22px;
-
-  margin-top:40px;
-}
-
-.stat-card{
-  padding:30px;
-
-  border-radius:24px;
-
-  background:#f9fafc;
-
-  border:1px solid rgba(0,0,0,0.04);
-
-  transition:0.35s ease;
-}
-
-.stat-card:hover{
-  transform:translateY(-8px);
-
-  box-shadow:
-  0 18px 50px rgba(0,0,0,0.08);
-}
-
-.stat-card h4{
-  color:#6b7280;
-  margin-bottom:12px;
-}
-
-.stat-card h1{
-  font-size:2.7rem;
-  letter-spacing:-2px;
-}
-
-section{
-  padding:120px 20px;
-}
-
-.section-title{
-  text-align:center;
-  margin-bottom:70px;
-}
-
-.section-title h2{
-  font-size:3rem;
-  letter-spacing:-2px;
-  margin-bottom:18px;
-}
-
-.section-title p{
-  max-width:700px;
-  margin:auto;
-
-  color:#6b7280;
-  line-height:1.8;
-}
-
-.feature-grid{
-  max-width:1180px;
-  margin:auto;
-
-  display:grid;
-
-  grid-template-columns:
-  repeat(auto-fit,minmax(280px,1fr));
-
-  gap:24px;
-}
-
-.feature-card{
-  padding:34px;
-
-  border-radius:28px;
-
-  background:white;
-
-  border:1px solid rgba(0,0,0,0.04);
-
-  box-shadow:
-  0 10px 30px rgba(0,0,0,0.04);
-
-  transition:0.35s ease;
-}
-
-.feature-card:hover{
-  transform:translateY(-10px);
-
-  box-shadow:
-  0 24px 60px rgba(0,0,0,0.08);
-}
-
-.feature-icon{
-  width:60px;
-  height:60px;
-
-  border-radius:18px;
-
-  display:flex;
-  align-items:center;
-  justify-content:center;
-
-  margin-bottom:24px;
-
-  background:
-  linear-gradient(135deg,#6366f1,#8b5cf6);
-
-  color:white;
-
-  font-size:1.5rem;
-}
-
-.feature-card h3{
-  font-size:1.3rem;
-  margin-bottom:14px;
-}
-
-.feature-card p{
-  color:#6b7280;
-  line-height:1.8;
-}
-
-.pricing-card{
-  max-width:460px;
-  margin:auto;
-
-  padding:50px;
-
-  border-radius:32px;
-
-  background:white;
-
-  text-align:center;
-
-  border:1px solid rgba(0,0,0,0.05);
-
-  box-shadow:
-  0 20px 60px rgba(0,0,0,0.06);
-}
-
-.price{
-  font-size:5rem;
-  font-weight:800;
-
-  letter-spacing:-4px;
-
-  margin:20px 0;
-}
-
-.price span{
-  font-size:1rem;
-  color:#6b7280;
-}
-
-.price-features{
-  display:flex;
-  flex-direction:column;
-  gap:16px;
-
-  margin-top:30px;
-}
-
-.price-features div{
-  background:#f9fafc;
-
-  padding:14px;
-
-  border-radius:14px;
-}
+/* CTA */
 
 .cta{
-  text-align:center;
+
+margin-top:100px;
+
+text-align:center;
+
+background:white;
+
+padding:60px 30px;
+
+border-radius:32px;
+
+box-shadow:
+0 15px 50px rgba(0,0,0,0.06);
 }
 
 .cta h2{
-  font-size:4rem;
-  letter-spacing:-3px;
 
-  max-width:900px;
-  margin:auto;
+font-size:2.3rem;
+
+margin-bottom:15px;
 }
 
 .cta p{
-  max-width:700px;
-  margin:30px auto;
 
-  color:#6b7280;
-  line-height:1.8;
+max-width:700px;
+
+margin:auto;
+
+line-height:1.8;
+
+color:#667085;
 }
 
-footer{
-  padding:40px 20px;
+.buttons{
 
-  text-align:center;
+margin-top:30px;
 
-  border-top:
-  1px solid rgba(0,0,0,0.05);
-
-  color:#6b7280;
+display:flex;
+justify-content:center;
+gap:15px;
+flex-wrap:wrap;
 }
 
-@media(max-width:900px){
+.btn{
 
-  .hero h1{
-    font-size:3rem;
-  }
+padding:15px 30px;
 
-  .dashboard-body{
-    grid-template-columns:1fr;
-  }
+border-radius:999px;
 
-  .sidebar{
-    border-right:none;
+text-decoration:none;
 
-    border-bottom:
-    1px solid rgba(0,0,0,0.05);
-  }
+font-weight:700;
 
-  .nav-links{
-    display:none;
-  }
+transition:0.3s;
+}
 
-  .cta h2{
-    font-size:2.4rem;
-  }
+.primary{
+
+background:#111827;
+color:white;
+}
+
+.secondary{
+
+background:#f3f4f6;
+color:#111827;
+}
+
+.btn:hover{
+transform:translateY(-3px);
+}
+
+/* Footer */
+
+.footer{
+
+margin-top:60px;
+
+text-align:center;
+
+color:#98a2b3;
+
+font-size:.9rem;
+}
+
+/* Mobile */
+
+@media(max-width:768px){
+
+.hero-content h1{
+font-size:2.8rem;
+}
+
+.hero-content p{
+font-size:1rem;
+}
+
+.cta h2{
+font-size:1.8rem;
+}
 
 }
 
 </style>
 </head>
+
 <body>
-
-<nav>
-
-  <div class="logo">
-    IGCSEMYSG AI
-  </div>
-
-  <div class="nav-links">
-    <a href="#features">Features</a>
-    <a href="#dashboard">Dashboard</a>
-    <a href="#pricing">Pricing</a>
-  </div>
-
-  <a href="#pricing" class="nav-btn">
-    Start Free Trial
-  </a>
-
-</nav>
 
 <section class="hero">
 
-  <div class="badge">
-    ✨ AI-Powered Learning Platform
-  </div>
+<div class="container">
 
-  <h1>
-    Your Personal
-    <span class="gradient">
-      AI Study Assistant
-    </span>
-  </h1>
+<div class="navbar">
 
-  <p>
-    Built for IGCSE, Edexcel and O-Level students.
-    Get instant explanations, revision plans,
-    past paper analysis and smarter studying —
-    all in one platform.
-  </p>
+<div class="logo">
+IGCSEMYSG AI Engine
+</div>
 
-  <div class="hero-buttons">
+<a href="index.html" class="back-btn">
+← Back Home
+</a>
 
-    <a href="#pricing" class="btn btn-primary">
-      Start Learning
-    </a>
+</div>
 
-    <a href="#dashboard" class="btn btn-secondary">
-      Explore Platform
-    </a>
+<div class="hero-content">
 
-  </div>
+<div class="badge">
+Currently In Development • Expected 2027
+</div>
 
-  <div class="dashboard" id="dashboard">
+<h1>
+Designed Around
+<span class="gradient">
+How Students Actually Learn
+</span>
+</h1>
 
-    <div class="dashboard-top">
+<p>
+AI Engine is a learning platform currently being developed by IGCSEMYSG to support students preparing for IGCSE, Edexcel and O-Level examinations.
+<br><br>
+The platform is being built around a simple idea: effective learning requires structure, feedback and consistent practice.
+Our goal is to provide students with tools that help them understand concepts more clearly, identify weaknesses earlier and revise more efficiently.
+</p>
 
-      <div class="dot red"></div>
-      <div class="dot yellow"></div>
-      <div class="dot green"></div>
+</div>
 
-    </div>
+<div class="features">
 
-    <div class="dashboard-body">
+<div class="card">
+<h3>Personalised Learning</h3>
+<p>
+Learning recommendations tailored to individual strengths, weaknesses and academic goals.
+</p>
+</div>
 
-      <div class="sidebar">
+<div class="card">
+<h3>Revision Planning</h3>
+<p>
+Structured revision tools designed to help students stay organised and consistent.
+</p>
+</div>
 
-        <div class="sidebar-title">
-          Workspace
-        </div>
+<div class="card">
+<h3>Progress Insights</h3>
+<p>
+Clear visibility into performance trends and areas requiring further attention.
+</p>
+</div>
 
-        <div class="sidebar-links">
+<div class="card">
+<h3>Exam Preparation</h3>
+<p>
+Focused support aimed at helping students approach examinations with confidence.
+</p>
+</div>
 
-          <a href="#">🤖 AI Tutor</a>
-          <a href="#">📚 Revision Planner</a>
-          <a href="#">📝 Past Papers</a>
-          <a href="#">📊 Weak Topics</a>
-          <a href="#">⚡ Flashcards</a>
-          <a href="#">🎯 Exam Goals</a>
+<div class="card">
+<h3>Practice & Feedback</h3>
+<p>
+Opportunities for targeted practice supported by meaningful feedback.
+</p>
+</div>
 
-        </div>
+<div class="card">
+<h3>Continuous Development</h3>
+<p>
+The platform will continue evolving based on student needs and educational research.
+</p>
+</div>
 
-      </div>
+</div>
 
-      <div class="main">
+<div class="roadmap">
 
-        <div class="main-header">
+<div class="roadmap-card">
+<div class="phase">Phase 1</div>
+<h3>Research & Development</h3>
+<p>
+Building the foundation, testing concepts and validating learning workflows.
+</p>
+</div>
 
-          <h2>
-            Welcome Back, Adam.
-          </h2>
+<div class="roadmap-card">
+<div class="phase">Phase 2</div>
+<h3>Private Testing</h3>
+<p>
+Gathering feedback from a small group of students and refining the experience.
+</p>
+</div>
 
-          <p>
-            Your exam progress is improving this week.
-          </p>
+<div class="roadmap-card">
+<div class="phase">Phase 3</div>
+<h3>Public Launch</h3>
+<p>
+A broader release planned for 2027 with continued improvements thereafter.
+</p>
+</div>
 
-        </div>
+</div>
 
-        <div class="stats">
+<div class="cta">
 
-          <div class="stat-card">
-            <h4>Questions Solved</h4>
-            <h1>284</h1>
-          </div>
+<h2>Follow The Development Journey</h2>
 
-          <div class="stat-card">
-            <h4>Topic Mastery</h4>
-            <h1>87%</h1>
-          </div>
+<p>
+We're taking the time to build a platform that is genuinely useful for students. If you'd like to receive updates as development progresses, join our early access list.
+</p>
 
-          <div class="stat-card">
-            <h4>Study Streak</h4>
-            <h1>19d</h1>
-          </div>
+<div class="buttons">
 
-          <div class="stat-card">
-            <h4>Exam Readiness</h4>
-            <h1>A*</h1>
-          </div>
+<a href="enquiry.html" class="btn primary">
+Join Early Access
+</a>
 
-        </div>
+<a href="index.html" class="btn secondary">
+Return Home
+</a>
 
-      </div>
+</div>
 
-    </div>
+</div>
 
-  </div>
+<div class="footer">
+© 2027 IGCSEMYSG AI Engine. All rights reserved.
+</div>
+
+</div>
 
 </section>
-
-<section id="features">
-
-  <div class="section-title">
-
-    <h2>
-      Built For Serious Students
-    </h2>
-
-    <p>
-      Everything you need to study smarter,
-      improve faster and score higher.
-    </p>
-
-  </div>
-
-  <div class="feature-grid">
-
-    <div class="feature-card">
-
-      <div class="feature-icon">🤖</div>
-
-      <h3>AI Tutor</h3>
-
-      <p>
-        Ask questions instantly and get clear,
-        step-by-step explanations.
-      </p>
-
-    </div>
-
-    <div class="feature-card">
-
-      <div class="feature-icon">📚</div>
-
-      <h3>Revision Planner</h3>
-
-      <p>
-        Generate personalised study plans
-        based on your exam date.
-      </p>
-
-    </div>
-
-    <div class="feature-card">
-
-      <div class="feature-icon">📝</div>
-
-      <h3>Past Paper AI</h3>
-
-      <p>
-        Upload papers and receive feedback,
-        corrections and analysis.
-      </p>
-
-    </div>
-
-    <div class="feature-card">
-
-      <div class="feature-icon">📊</div>
-
-      <h3>Weak Topic Detection</h3>
-
-      <p>
-        Discover recurring mistakes and focus
-        on what matters most.
-      </p>
-
-    </div>
-
-    <div class="feature-card">
-
-      <div class="feature-icon">⚡</div>
-
-      <h3>Smart Flashcards</h3>
-
-      <p>
-        Convert notes into revision flashcards
-        automatically.
-      </p>
-
-    </div>
-
-    <div class="feature-card">
-
-      <div class="feature-icon">🎯</div>
-
-      <h3>Goal Tracking</h3>
-
-      <p>
-        Track your progress and stay accountable
-        throughout exam season.
-      </p>
-
-    </div>
-
-  </div>
-
-</section>
-
-<section id="pricing">
-
-  <div class="section-title">
-
-    <h2>
-      Simple Student Pricing
-    </h2>
-
-    <p>
-      Start free and upgrade when you're ready.
-    </p>
-
-  </div>
-
-  <div class="pricing-card">
-
-    <h3>
-      Premium Student
-    </h3>
-
-    <div class="price">
-      $12
-      <span>/month</span>
-    </div>
-
-    <div class="price-features">
-
-      <div>Unlimited AI Questions</div>
-      <div>Past Paper Analysis</div>
-      <div>Revision Planner</div>
-      <div>Weak Topic Analytics</div>
-      <div>Priority AI Responses</div>
-
-    </div>
-
-    <div class="hero-buttons" style="margin-top:40px;">
-
-      <a href="#" class="btn btn-primary">
-        Start Free Trial
-      </a>
-
-    </div>
-
-  </div>
-
-</section>
-
-<section class="cta">
-
-  <h2>
-    Study Smarter.
-    Perform Better.
-  </h2>
-
-  <p>
-    Join the next generation of students using AI
-    to improve faster and prepare smarter.
-  </p>
-
-  <div class="hero-buttons">
-
-    <a href="#" class="btn btn-primary">
-      Create Account
-    </a>
-
-    <a href="index.html" class="btn btn-secondary">
-      Back To Main Website
-    </a>
-
-  </div>
-
-</section>
-
-<footer>
-  © 2026 IGCSEMYSG AI
-</footer>
 
 </body>
 </html>
-```
-
-
