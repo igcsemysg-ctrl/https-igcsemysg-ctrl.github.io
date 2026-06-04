@@ -1,19 +1,20 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <!-- 🔥 Open Graph (Facebook / WhatsApp / Instagram preview) -->
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<!-- Open Graph -->
 <meta property="og:title" content="IGCSEMYSG | Premium Online IGCSE Tuition" />
 <meta property="og:description" content="Structured IGCSE online tuition designed for real exam results. Learn smarter with expert-guided lessons, notes & strategies." />
 <meta property="og:image" content="https://igcsemysg.site/og-preview.jpg" />
 <meta property="og:url" content="https://igcsemysg.site/" />
 <meta property="og:type" content="website" />
 <meta property="og:site_name" content="IGCSEMYSG" />
-
-<!-- Optional but improves quality -->
 <meta property="og:image:width" content="1200" />
 <meta property="og:image:height" content="630" />
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <title>IGCSEMYSG | Premium IGCSE & O-Level Tuition</title>
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -21,366 +22,401 @@
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Playfair+Display:wght@700;800&display=swap" rel="stylesheet">
 
 <style>
+
 :root{
---bg:#07111f;
---bg2:#0f172a;
---accent:#6366f1;
---accent2:#8b5cf6;
---text:#0f172a;
+  --bg:#07111f;
+  --bg2:#0f172a;
+  --accent:#6366f1;
+  --accent2:#8b5cf6;
 }
 
+/* RESET */
 *{
-margin:0;
-padding:0;
-box-sizing:border-box;
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
 }
 
 html{
-scroll-behavior:smooth;
+  scroll-behavior:smooth;
+  scroll-padding-top:100px;
 }
 
 body{
-font-family:Inter,sans-serif;
-background:#f8fafc;
-color:#111827;
-overflow-x:hidden;
+  font-family:Inter,sans-serif;
+  background:#f8fafc;
+  color:#111827;
+  overflow-x:hidden;
 
-opacity:0;
-animation:pageFadeIn 1s ease forwards;
+  opacity:0;
+  animation:pageFadeIn 1s ease forwards;
+
+  will-change: opacity;
 }
 
+/* PERFORMANCE HELPERS */
+nav, .hero-inner, .card {
+  will-change: transform, opacity;
+}
+
+/* BACKGROUND GLOW */
 .glow{
-position:fixed;
-width:600px;
-height:600px;
-border-radius:50%;
-filter:blur(120px);
-pointer-events:none;
-z-index:-1;
+  position:fixed;
+  width:600px;
+  height:600px;
+  border-radius:50%;
+  filter:blur(120px);
+  pointer-events:none;
+  z-index:-1;
 }
 
 .g1{
-background:#6366f1;
-left:-250px;
-top:-250px;
-opacity:.15;
+  background:#6366f1;
+  left:-250px;
+  top:-250px;
+  opacity:.15;
 }
 
 .g2{
-background:#8b5cf6;
-right:-250px;
-bottom:-250px;
-opacity:.12;
+  background:#8b5cf6;
+  right:-250px;
+  bottom:-250px;
+  opacity:.12;
 }
 
+/* NAV */
 nav{
-position:fixed;
-top:20px;
-left:50%;
-transform:translate(-50%,-20px);
-width:min(1150px,92%);
-padding:16px 24px;
-display:flex;
-justify-content:space-between;
-align-items:center;
-background:rgba(255,255,255,.75);
-backdrop-filter:blur(20px);
-border:1px solid rgba(255,255,255,.5);
-border-radius:999px;
-z-index:1000;
-box-shadow:0 20px 50px rgba(0,0,0,.08);
+  position:fixed;
+  top:20px;
+  left:50%;
+  transform:translateX(-50%) translateY(-20px);
 
-opacity:0;
-animation:navReveal .9s ease .15s forwards;
+  width:min(1150px,92%);
+  padding:16px 24px;
+
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+
+  background:rgba(255,255,255,.75);
+  backdrop-filter:blur(20px);
+  border:1px solid rgba(255,255,255,.5);
+  border-radius:999px;
+
+  z-index:1000;
+  box-shadow:0 20px 50px rgba(0,0,0,.08);
+
+  opacity:0;
+  animation:navReveal .9s ease .15s forwards;
 }
 
 .logo{
-font-weight:800;
-font-size:1.1rem;
+  font-weight:800;
+  font-size:1.1rem;
 }
 
-.logo span{
-color:var(--accent);
-}
+.logo span{ color:var(--accent); }
 
 .nav-links{
-display:flex;
-gap:30px;
+  display:flex;
+  gap:30px;
 }
 
 .nav-links a{
-text-decoration:none;
-color:#111;
-font-weight:600;
+  text-decoration:none;
+  color:#111;
+  font-weight:600;
 }
 
+/* BUTTONS */
 .btn{
-padding:14px 24px;
-border-radius:999px;
-text-decoration:none;
-font-weight:700;
-transition:.3s;
-display:inline-block;
+  padding:14px 24px;
+  border-radius:999px;
+  text-decoration:none;
+  font-weight:700;
+  transition:.3s;
+  display:inline-block;
 }
 
 .btn-primary{
-background:linear-gradient(135deg,var(--accent),var(--accent2));
-color:white;
+  background:linear-gradient(135deg,var(--accent),var(--accent2));
+  color:white;
 }
 
 .btn-secondary{
-border:1px solid rgba(255,255,255,.2);
-background:rgba(255,255,255,.08);
-backdrop-filter:blur(10px);
-color:white;
+  border:1px solid rgba(255,255,255,.2);
+  background:rgba(255,255,255,.08);
+  backdrop-filter:blur(10px);
+  color:white;
 }
 
+/* HERO */
 .hero{
-min-height:100vh;
-background:
-radial-gradient(circle at top, rgba(99,102,241,.35), transparent 40%),
-linear-gradient(135deg,#020617,#0f172a,#111827);
-display:flex;
-align-items:center;
-justify-content:center;
-text-align:center;
-padding:120px 20px;
-color:white;
+  min-height:100vh;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  text-align:center;
+
+  padding:120px 20px;
+
+  color:white;
+  background:
+    radial-gradient(circle at top, rgba(99,102,241,.35), transparent 40%),
+    linear-gradient(135deg,#020617,#0f172a,#111827);
 }
 
 .hero-inner{
-max-width:1000px;
-
-opacity:0;
-transform:translateY(40px);
-animation:heroReveal 1.2s ease .35s forwards;
+  max-width:1000px;
+  opacity:0;
+  transform:translateY(40px);
+  animation:heroReveal 1.2s ease .35s forwards;
 }
 
 .badge{
-display:inline-block;
-padding:10px 18px;
-border-radius:999px;
-background:rgba(255,255,255,.08);
-border:1px solid rgba(255,255,255,.12);
-margin-bottom:30px;
+  display:inline-block;
+  padding:10px 18px;
+  border-radius:999px;
+  background:rgba(255,255,255,.08);
+  border:1px solid rgba(255,255,255,.12);
+  margin-bottom:30px;
 }
 
 h1,h2{
-font-family:"Playfair Display",serif;
+  font-family:"Playfair Display",serif;
 }
 
 h1{
-font-size:clamp(3rem,7vw,5.8rem);
-line-height:1.05;
-margin-bottom:25px;
+  font-size:clamp(3rem,7vw,5.8rem);
+  line-height:1.05;
+  margin-bottom:25px;
 }
 
 .hero p{
-max-width:750px;
-margin:0 auto 35px;
-font-size:1.15rem;
-line-height:1.8;
-opacity:.9;
+  max-width:750px;
+  margin:0 auto 35px;
+  font-size:1.15rem;
+  line-height:1.8;
+  opacity:.9;
 }
 
 .hero-buttons{
-display:flex;
-gap:15px;
-justify-content:center;
-flex-wrap:wrap;
+  display:flex;
+  gap:15px;
+  justify-content:center;
+  flex-wrap:wrap;
 }
 
+/* STATS */
 .stats{
-display:grid;
-grid-template-columns:repeat(3,1fr);
-gap:20px;
-max-width:900px;
-margin:70px auto 0;
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:20px;
+  max-width:900px;
+  margin:70px auto 0;
 }
 
 .stat{
-background:rgba(255,255,255,.06);
-padding:25px;
-border-radius:24px;
-backdrop-filter:blur(20px);
-border:1px solid rgba(255,255,255,.08);
+  background:rgba(255,255,255,.06);
+  padding:25px;
+  border-radius:24px;
+  border:1px solid rgba(255,255,255,.08);
 }
 
-.stat h3{
-font-size:2rem;
-}
+.stat h3{ font-size:2rem; }
 
+/* TRUST */
 .trust{
-padding:30px;
-text-align:center;
-font-weight:700;
-background:white;
-letter-spacing:1px;
+  padding:30px;
+  text-align:center;
+  font-weight:700;
+  background:white;
+  letter-spacing:1px;
 }
 
+/* SECTIONS */
 section{
-padding:120px 20px;
+  padding:120px 20px;
 }
 
 .container{
-max-width:1200px;
-margin:auto;
+  max-width:1200px;
+  margin:auto;
 }
 
 .section-title{
-text-align:center;
-margin-bottom:60px;
+  text-align:center;
+  margin-bottom:60px;
 }
 
 .section-title h2{
-font-size:3rem;
-margin-bottom:15px;
+  font-size:3rem;
+  margin-bottom:15px;
 }
 
 .section-title p{
-max-width:700px;
-margin:auto;
-line-height:1.8;
-color:#64748b;
-}.grid{
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
-gap:24px;
+  max-width:700px;
+  margin:auto;
+  line-height:1.8;
+  color:#64748b;
+}
+
+/* GRID */
+.grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+  gap:24px;
 }
 
 .card{
-background:rgba(255,255,255,.8);
-backdrop-filter:blur(20px);
-padding:35px;
-border-radius:28px;
-border:1px solid rgba(255,255,255,.6);
-box-shadow:0 30px 60px rgba(15,23,42,.08);
-transition:.35s;
+  background:rgba(255,255,255,.8);
+  padding:35px;
+  border-radius:28px;
+  border:1px solid rgba(255,255,255,.6);
+  box-shadow:0 30px 60px rgba(15,23,42,.08);
+  transition:.35s;
 }
 
 .card:hover{
-transform:translateY(-10px) scale(1.02);
+  transform:translateY(-10px) scale(1.02);
 }
 
-.card h3{
-margin-bottom:15px;
-}
-
+/* DARK SECTION */
 .dark{
-background:linear-gradient(135deg,#0b1220,#111827);
-color:white;
+  background:linear-gradient(135deg,#0b1220,#111827);
+  color:white;
 }
 
 .dark .section-title p{
-color:#cbd5e1;
+  color:#cbd5e1;
 }
 
 .dark .card{
-background:rgba(255,255,255,.08);
-border:1px solid rgba(255,255,255,.12);
+  background:rgba(255,255,255,.08);
+  border:1px solid rgba(255,255,255,.12);
 }
 
+/* AI BOX */
 .ai-box{
-padding:60px;
-border-radius:32px;
-background:linear-gradient(135deg,#4f46e5,#7c3aed);
-color:white;
-text-align:center;
+  padding:60px;
+  border-radius:32px;
+  background:linear-gradient(135deg,#4f46e5,#7c3aed);
+  color:white;
+  text-align:center;
 }
 
+/* CTA */
 .cta{
-text-align:center;
+  text-align:center;
 }
 
+/* FOOTER */
 footer{
-background:#020617;
-color:white;
-padding:50px 20px;
-text-align:center;
+  background:#020617;
+  color:white;
+  padding:50px 20px;
+  text-align:center;
 }
 
+/* ANIMATIONS */
 @keyframes pageFadeIn{
-from{opacity:0;}
-to{opacity:1;}
+  from{opacity:0;}
+  to{opacity:1;}
 }
 
 @keyframes navReveal{
-from{
-opacity:0;
-transform:translate(-50%,-20px);
-}
-to{
-opacity:1;
-transform:translate(-50%,0);
-}
+  from{
+    opacity:0;
+    transform:translateX(-50%) translateY(-20px);
+  }
+  to{
+    opacity:1;
+    transform:translateX(-50%) translateY(0);
+  }
 }
 
 @keyframes heroReveal{
-from{
-opacity:0;
-transform:translateY(40px);
-}
-to{
-opacity:1;
-transform:translateY(0);
-}
+  from{
+    opacity:0;
+    transform:translateY(40px);
+  }
+  to{
+    opacity:1;
+    transform:translateY(0);
+  }
 }
 
+/* RESPONSIVE */
 @media(max-width:768px){
-.nav-links{display:none}
-.stats{grid-template-columns:1fr}
-.section-title h2{font-size:2.2rem}
+  .stats{grid-template-columns:1fr;}
+  .section-title h2{font-size:2.2rem;}
 }
+
+/* MOBILE NAV FIX (less aggressive) */
+@media(max-width:500px){
+  .nav-links{display:none;}
+}
+
+/* REDUCED MOTION SUPPORT */
+@media (prefers-reduced-motion: reduce){
+  *{
+    animation:none !important;
+    transition:none !important;
+  }
+}
+
+/* BACKDROP FALLBACK */
+@supports not (backdrop-filter: blur(10px)){
+  nav, .card{
+    background:rgba(255,255,255,.95);
+  }
+}
+
 </style>
-</head><body>
+</head>
+
+<body>
 
 <div class="glow g1"></div>
 <div class="glow g2"></div>
 
 <nav>
-<div class="logo">IGCSE<span>MYSG</span></div>
-<div class="nav-links">
-<a href="#method">Method</a>
-<a href="#results">Results</a>
-<a href="#ai">AI Engine</a>
-<a href="#faq">FAQ</a>
-</div>
-<a class="btn btn-primary" href="enquiry.html">Book Consultation</a>
+  <div class="logo">IGCSE<span>MYSG</span></div>
+
+  <div class="nav-links">
+    <a href="#method">Method</a>
+    <a href="#results">Results</a>
+    <a href="#ai">AI Engine</a>
+    <a href="#faq">FAQ</a>
+  </div>
+
+  <a class="btn btn-primary" href="enquiry.html">Book Consultation</a>
 </nav>
 
 <section class="hero">
-<div class="hero-inner">
-<div class="badge">Premium Online Tuition • Malaysia & Singapore</div>
+  <div class="hero-inner">
 
-<h1>Structured Academic Excellence For IGCSE & O-Level Students</h1>
+    <div class="badge">Premium Online Tuition • Malaysia & Singapore</div>
 
-<p>
-A modern learning system built around concept mastery, exam strategy,
-academic confidence and measurable progress.
-</p>
+    <h1>Structured Academic Excellence For IGCSE & O-Level Students</h1>
 
-<div class="hero-buttons">
-<a href="enquiry.html" class="btn btn-primary">Book Consultation</a>
-<a href="#method" class="btn btn-secondary">Explore Our Method</a>
-</div>
+    <p>
+      A modern learning system built around concept mastery, exam strategy,
+      academic confidence and measurable progress.
+    </p>
 
-<div class="stats">
-<div class="stat">
-<h3>IGCSE</h3>
-<p>Specialist Focus</p>
-</div>
+    <div class="hero-buttons">
+      <a href="enquiry.html" class="btn btn-primary">Book Consultation</a>
+      <a href="#method" class="btn btn-secondary">Explore Our Method</a>
+    </div>
 
-<div class="stat">
-<h3>Online</h3>
-<p>Malaysia & Singapore</p>
-</div>
+    <div class="stats">
+      <div class="stat"><h3>IGCSE</h3><p>Specialist Focus</p></div>
+      <div class="stat"><h3>Online</h3><p>Malaysia & Singapore</p></div>
+      <div class="stat"><h3>2027</h3><p>AI Learning Platform</p></div>
+    </div>
 
-<div class="stat">
-<h3>2027</h3>
-<p>AI Learning Platform</p>
-</div>
-</div>
-</div>
+  </div>
 </section>
 
 <div class="trust">
@@ -389,6 +425,7 @@ CAMBRIDGE • IGCSE • EDEXCEL • SINGAPORE O-LEVEL
 
 <section id="method">
 <div class="container">
+
 <div class="section-title">
 <h2>How Progress Happens</h2>
 <p>A structured framework designed to identify weaknesses, strengthen understanding and improve examination performance.</p>
@@ -400,11 +437,13 @@ CAMBRIDGE • IGCSE • EDEXCEL • SINGAPORE O-LEVEL
 <div class="card"><h3>03 Apply</h3><p>Master exam-style questions and marking schemes.</p></div>
 <div class="card"><h3>04 Perform</h3><p>Build confidence and achieve measurable progress.</p></div>
 </div>
+
 </div>
 </section>
 
 <section id="results" class="dark">
 <div class="container">
+
 <div class="section-title">
 <h2>Built Around Measurable Progress</h2>
 <p>Every lesson is designed to move students closer to academic confidence and stronger examination outcomes.</p>
@@ -415,6 +454,7 @@ CAMBRIDGE • IGCSE • EDEXCEL • SINGAPORE O-LEVEL
 <div class="card"><h3>Exam Strategy</h3><p>Learn how marks are awarded and maximise performance.</p></div>
 <div class="card"><h3>Smart Practice</h3><p>Target weaknesses efficiently with structured practice.</p></div>
 </div>
+
 </div>
 </section>
 
@@ -422,16 +462,14 @@ CAMBRIDGE • IGCSE • EDEXCEL • SINGAPORE O-LEVEL
 <div class="container">
 <div class="ai-box">
 <h2>Coming 2027 — IGCSEMYSG AI Learning Engine</h2>
-<p>
-Personalised revision. Intelligent question generation.
-Performance tracking. Smarter learning experiences.
-</p>
+<p>Personalised revision. Intelligent question generation. Performance tracking.</p>
 </div>
 </div>
 </section>
 
 <section id="faq">
 <div class="container">
+
 <div class="section-title">
 <h2>Frequently Asked Questions</h2>
 </div>
@@ -441,6 +479,7 @@ Performance tracking. Smarter learning experiences.
 <div class="card"><h3>Coverage</h3><p>IGCSE, Edexcel and Singapore O-Level syllabuses.</p></div>
 <div class="card"><h3>Resources</h3><p>Structured notes, worksheets and exam papers included.</p></div>
 </div>
+
 </div>
 </section>
 
