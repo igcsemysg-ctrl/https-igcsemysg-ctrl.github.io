@@ -17,8 +17,6 @@
 
 <title>IGCSEMYSG | Premium IGCSE & O-Level Tuition</title>
 
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Playfair+Display:wght@700;800&display=swap" rel="stylesheet">
 
 <style>
@@ -37,11 +35,6 @@
   box-sizing:border-box;
 }
 
-html{
-  scroll-behavior:smooth;
-  scroll-padding-top:100px;
-}
-
 body{
   font-family:Inter,sans-serif;
   background:#f8fafc;
@@ -50,13 +43,6 @@ body{
 
   opacity:0;
   animation:pageFadeIn 1s ease forwards;
-
-  will-change: opacity;
-}
-
-/* PERFORMANCE HELPERS */
-nav, .hero-inner, .card {
-  will-change: transform, opacity;
 }
 
 /* BACKGROUND GLOW */
@@ -89,8 +75,7 @@ nav{
   position:fixed;
   top:20px;
   left:50%;
-  transform:translateX(-50%) translateY(-20px);
-
+  transform:translateX(-50%);
   width:min(1150px,92%);
   padding:16px 24px;
 
@@ -100,23 +85,33 @@ nav{
 
   background:rgba(255,255,255,.75);
   backdrop-filter:blur(20px);
-  border:1px solid rgba(255,255,255,.5);
   border-radius:999px;
+  border:1px solid rgba(255,255,255,.5);
 
   z-index:1000;
   box-shadow:0 20px 50px rgba(0,0,0,.08);
-
-  opacity:0;
-  animation:navReveal .9s ease .15s forwards;
 }
 
+/* LOGO */
 .logo{
+  display:flex;
+  align-items:center;
+  gap:10px;
   font-weight:800;
-  font-size:1.1rem;
 }
 
-.logo span{ color:var(--accent); }
+.logo-img{
+  width:38px;
+  height:38px;
+  border-radius:10px;
+  object-fit:cover;
+}
 
+.logo span{
+  color:var(--accent);
+}
+
+/* NAV LINKS */
 .nav-links{
   display:flex;
   gap:30px;
@@ -135,7 +130,6 @@ nav{
   text-decoration:none;
   font-weight:700;
   transition:.3s;
-  display:inline-block;
 }
 
 .btn-primary{
@@ -144,10 +138,9 @@ nav{
 }
 
 .btn-secondary{
-  border:1px solid rgba(255,255,255,.2);
-  background:rgba(255,255,255,.08);
-  backdrop-filter:blur(10px);
-  color:white;
+  border:1px solid rgba(0,0,0,.1);
+  background:rgba(255,255,255,.6);
+  color:#111;
 }
 
 /* HERO */
@@ -157,20 +150,37 @@ nav{
   align-items:center;
   justify-content:center;
   text-align:center;
-
   padding:120px 20px;
 
-  color:white;
   background:
     radial-gradient(circle at top, rgba(99,102,241,.35), transparent 40%),
     linear-gradient(135deg,#020617,#0f172a,#111827);
+
+  color:white;
 }
 
 .hero-inner{
   max-width:1000px;
-  opacity:0;
-  transform:translateY(40px);
-  animation:heroReveal 1.2s ease .35s forwards;
+}
+
+/* HERO LOGO */
+.hero-brand{
+  display:flex;
+  justify-content:center;
+  margin-bottom:20px;
+}
+
+.hero-logo{
+  width:90px;
+  height:90px;
+  border-radius:18px;
+  box-shadow:0 20px 60px rgba(99,102,241,.4);
+  animation:floatLogo 4s ease-in-out infinite;
+}
+
+@keyframes floatLogo{
+  0%,100%{transform:translateY(0);}
+  50%{transform:translateY(-8px);}
 }
 
 .badge{
@@ -179,14 +189,11 @@ nav{
   border-radius:999px;
   background:rgba(255,255,255,.08);
   border:1px solid rgba(255,255,255,.12);
-  margin-bottom:30px;
-}
-
-h1,h2{
-  font-family:"Playfair Display",serif;
+  margin-bottom:25px;
 }
 
 h1{
+  font-family:"Playfair Display",serif;
   font-size:clamp(3rem,7vw,5.8rem);
   line-height:1.05;
   margin-bottom:25px;
@@ -195,9 +202,8 @@ h1{
 .hero p{
   max-width:750px;
   margin:0 auto 35px;
-  font-size:1.15rem;
-  line-height:1.8;
   opacity:.9;
+  line-height:1.8;
 }
 
 .hero-buttons{
@@ -205,33 +211,6 @@ h1{
   gap:15px;
   justify-content:center;
   flex-wrap:wrap;
-}
-
-/* STATS */
-.stats{
-  display:grid;
-  grid-template-columns:repeat(3,1fr);
-  gap:20px;
-  max-width:900px;
-  margin:70px auto 0;
-}
-
-.stat{
-  background:rgba(255,255,255,.06);
-  padding:25px;
-  border-radius:24px;
-  border:1px solid rgba(255,255,255,.08);
-}
-
-.stat h3{ font-size:2rem; }
-
-/* TRUST */
-.trust{
-  padding:30px;
-  text-align:center;
-  font-weight:700;
-  background:white;
-  letter-spacing:1px;
 }
 
 /* SECTIONS */
@@ -250,15 +229,16 @@ section{
 }
 
 .section-title h2{
+  font-family:"Playfair Display",serif;
   font-size:3rem;
   margin-bottom:15px;
 }
 
 .section-title p{
+  color:#64748b;
   max-width:700px;
   margin:auto;
   line-height:1.8;
-  color:#64748b;
 }
 
 /* GRID */
@@ -269,26 +249,21 @@ section{
 }
 
 .card{
-  background:rgba(255,255,255,.8);
+  background:rgba(255,255,255,.85);
   padding:35px;
   border-radius:28px;
-  border:1px solid rgba(255,255,255,.6);
   box-shadow:0 30px 60px rgba(15,23,42,.08);
-  transition:.35s;
+  transition:.3s;
 }
 
 .card:hover{
   transform:translateY(-10px) scale(1.02);
 }
 
-/* DARK SECTION */
+/* DARK */
 .dark{
   background:linear-gradient(135deg,#0b1220,#111827);
   color:white;
-}
-
-.dark .section-title p{
-  color:#cbd5e1;
 }
 
 .dark .card{
@@ -296,26 +271,16 @@ section{
   border:1px solid rgba(255,255,255,.12);
 }
 
-/* AI BOX */
-.ai-box{
-  padding:60px;
-  border-radius:32px;
-  background:linear-gradient(135deg,#4f46e5,#7c3aed);
-  color:white;
-  text-align:center;
-}
-
-/* CTA */
-.cta{
-  text-align:center;
+.dark .section-title p{
+  color:#cbd5e1;
 }
 
 /* FOOTER */
 footer{
   background:#020617;
   color:white;
-  padding:50px 20px;
   text-align:center;
+  padding:50px 20px;
 }
 
 /* ANIMATIONS */
@@ -324,55 +289,13 @@ footer{
   to{opacity:1;}
 }
 
-@keyframes navReveal{
-  from{
-    opacity:0;
-    transform:translateX(-50%) translateY(-20px);
-  }
-  to{
-    opacity:1;
-    transform:translateX(-50%) translateY(0);
-  }
-}
-
-@keyframes heroReveal{
-  from{
-    opacity:0;
-    transform:translateY(40px);
-  }
-  to{
-    opacity:1;
-    transform:translateY(0);
-  }
-}
-
-/* RESPONSIVE */
+/* MOBILE */
 @media(max-width:768px){
-  .stats{grid-template-columns:1fr;}
-  .section-title h2{font-size:2.2rem;}
-}
-
-/* MOBILE NAV FIX (less aggressive) */
-@media(max-width:500px){
   .nav-links{display:none;}
 }
 
-/* REDUCED MOTION SUPPORT */
-@media (prefers-reduced-motion: reduce){
-  *{
-    animation:none !important;
-    transition:none !important;
-  }
-}
-
-/* BACKDROP FALLBACK */
-@supports not (backdrop-filter: blur(10px)){
-  nav, .card{
-    background:rgba(255,255,255,.95);
-  }
-}
-
 </style>
+
 </head>
 
 <body>
@@ -380,22 +303,32 @@ footer{
 <div class="glow g1"></div>
 <div class="glow g2"></div>
 
+<!-- NAV -->
 <nav>
-  <div class="logo">IGCSE<span>MYSG</span></div>
 
-<div class="nav-links">
-  <a href="#method">Method</a>
-  <a href="#results">Results</a>
-  <a href="#ai">AI Engine</a>
-  <a href="#faq">FAQ</a>
-  <a href="careers.html">Careers</a>
+  <div class="logo">
+    <img src="logo.png" class="logo-img" alt="IGCSEMYSG Logo">
+    IGCSE<span>MYSG</span>
+  </div>
+
+  <div class="nav-links">
+    <a href="#method">Method</a>
+    <a href="#results">Results</a>
+    <a href="#faq">FAQ</a>
+    <a href="careers.html">Careers</a>
   </div>
 
   <a class="btn btn-primary" href="enquiry.html">Book Consultation</a>
 </nav>
 
+<!-- HERO -->
 <section class="hero">
+
   <div class="hero-inner">
+
+    <div class="hero-brand">
+      <img src="logo.png" class="hero-logo" alt="IGCSEMYSG Logo">
+    </div>
 
     <div class="badge">Premium Online Tuition • Malaysia & Singapore</div>
 
@@ -408,94 +341,71 @@ footer{
 
     <div class="hero-buttons">
       <a href="enquiry.html" class="btn btn-primary">Book Consultation</a>
-      <a href="#method" class="btn btn-secondary">Explore Our Method</a>
-    </div>
-
-    <div class="stats">
-      <div class="stat"><h3>IGCSE</h3><p>Specialist Focus</p></div>
-      <div class="stat"><h3>Online</h3><p>Malaysia & Singapore</p></div>
-      <div class="stat"><h3>2027</h3><p>AI Learning Platform</p></div>
+      <a href="#method" class="btn btn-secondary">Explore Method</a>
     </div>
 
   </div>
+
 </section>
 
-<div class="trust">
-CAMBRIDGE • IGCSE • EDEXCEL • SINGAPORE O-LEVEL
-</div>
-
+<!-- METHOD -->
 <section id="method">
 <div class="container">
 
 <div class="section-title">
 <h2>How Progress Happens</h2>
-<p>A structured framework designed to identify weaknesses, strengthen understanding and improve examination performance.</p>
+<p>Structured learning framework designed for measurable academic improvement.</p>
 </div>
 
 <div class="grid">
-<div class="card"><h3>01 Diagnose</h3><p>Identify conceptual gaps and learning bottlenecks.</p></div>
-<div class="card"><h3>02 Rebuild</h3><p>Develop strong foundations through guided instruction.</p></div>
-<div class="card"><h3>03 Apply</h3><p>Master exam-style questions and marking schemes.</p></div>
-<div class="card"><h3>04 Perform</h3><p>Build confidence and achieve measurable progress.</p></div>
+<div class="card"><h3>Diagnose</h3><p>Identify weak areas.</p></div>
+<div class="card"><h3>Build</h3><p>Strengthen fundamentals.</p></div>
+<div class="card"><h3>Apply</h3><p>Practice exam questions.</p></div>
+<div class="card"><h3>Excel</h3><p>Achieve top results.</p></div>
 </div>
 
 </div>
 </section>
 
-<section id="results" class="dark">
+<!-- RESULTS -->
+<section class="dark">
 <div class="container">
 
 <div class="section-title">
-<h2>Built Around Measurable Progress</h2>
-<p>Every lesson is designed to move students closer to academic confidence and stronger examination outcomes.</p>
+<h2>Results Driven Learning</h2>
+<p>Focused on understanding, exam strategy and performance improvement.</p>
 </div>
 
 <div class="grid">
-<div class="card"><h3>Concept Mastery</h3><p>Understand the why behind every topic.</p></div>
-<div class="card"><h3>Exam Strategy</h3><p>Learn how marks are awarded and maximise performance.</p></div>
-<div class="card"><h3>Smart Practice</h3><p>Target weaknesses efficiently with structured practice.</p></div>
+<div class="card"><h3>Concept Mastery</h3><p>Deep understanding of topics.</p></div>
+<div class="card"><h3>Exam Strategy</h3><p>Learn how marks are awarded.</p></div>
+<div class="card"><h3>Smart Practice</h3><p>Target weaknesses efficiently.</p></div>
 </div>
 
 </div>
 </section>
 
-<section id="ai">
-<div class="container">
-<div class="ai-box">
-<h2>Coming 2027 — IGCSEMYSG AI Learning Engine</h2>
-<p>Personalised revision. Intelligent question generation. Performance tracking.</p>
-</div>
-</div>
-</section>
-
+<!-- FAQ -->
 <section id="faq">
 <div class="container">
 
 <div class="section-title">
-<h2>Frequently Asked Questions</h2>
+<h2>FAQ</h2>
 </div>
 
 <div class="grid">
-<div class="card"><h3>Class Size</h3><p>Small focused classes with personalised guidance.</p></div>
-<div class="card"><h3>Coverage</h3><p>IGCSE, Edexcel and Singapore O-Level syllabuses.</p></div>
-<div class="card"><h3>Resources</h3><p>Structured notes, worksheets and exam papers included.</p></div>
+<div class="card"><h3>Subjects</h3><p>IGCSE, Edexcel, O-Level.</p></div>
+<div class="card"><h3>Format</h3><p>Online interactive classes.</p></div>
+<div class="card"><h3>Materials</h3><p>Notes + worksheets included.</p></div>
 </div>
 
-</div>
-</section>
-
-<section class="cta dark">
-<div class="container">
-<h2>Ready To Build A Stronger Academic Future?</h2>
-<p>Book a consultation and discover a structured approach to academic success.</p>
-<a href="enquiry.html" class="btn btn-primary">Book Your Trial</a>
 </div>
 </section>
 
 <footer>
 <h3>IGCSEMYSG</h3>
 <p>Premium IGCSE, Edexcel & O-Level Tuition</p>
-<p>© 2026 IGCSEMYSG. All Rights Reserved.</p>
+<p>© 2026 IGCSEMYSG</p>
 </footer>
 
 </body>
