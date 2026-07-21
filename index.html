@@ -1,564 +1,88 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<!-- Open Graph -->
-  <meta name="description" content="Expert online IGCSE tuition for students in Malaysia and Singapore. Cambridge IGCSE, Pearson Edexcel and Singapore O Level Maths, Physics, Chemistry, Biology and English tuition with structured exam preparation.">
-<meta property="og:title" content="IGCSEMYSG | Online Tuition for Malaysia & Singapore" />
-<meta property="og:description" content="Online tuition for Cambridge IGCSE, Pearson Edexcel and Singapore O-Level students, with clear teaching, focused practice and learning resources." />
-<meta property="og:image" content="og-preview.png" />
-<meta property="og:url" content="https://igcsemysg.site/" />
-<meta property="og:type" content="website" />
-<meta property="og:site_name" content="IGCSEMYSG" />
-<meta property="og:image:width" content="1200" />
-<meta property="og:image:height" content="630" />
-
-<title>IGCSE Tuition Malaysia & Singapore | Pearson Edexcel, Cambridge IGCSE & Singapore O Level Tuition</title>
-  
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Playfair+Display:wght@700;800&display=swap" rel="stylesheet">
-
-<style>
-
-:root{
-  --bg:#07111f;
-  --bg2:#0f172a;
-  --accent:#6366f1;
-  --accent2:#8b5cf6;
-}
-
-/* RESET */
-*{
-  margin:0;
-  padding:0;
-  box-sizing:border-box;
-}
-
-html{
-  scroll-behavior:smooth;
-  scroll-padding-top:100px;
-}
-
-body{
-  font-family:Inter,sans-serif;
-  background:#f8fafc;
-  color:#111827;
-  overflow-x:hidden;
-
-  opacity:0;
-  animation:pageFadeIn 1s ease forwards;
-
-  will-change: opacity;
-}
-
-/* PERFORMANCE HELPERS */
-nav, .hero-inner, .card {
-  will-change: transform, opacity;
-}
-
-/* BACKGROUND GLOW */
-.glow{
-  position:fixed;
-  width:600px;
-  height:600px;
-  border-radius:50%;
-  filter:blur(120px);
-  pointer-events:none;
-  z-index:-1;
-}
-
-.g1{
-  background:#6366f1;
-  left:-250px;
-  top:-250px;
-  opacity:.15;
-}
-
-.g2{
-  background:#8b5cf6;
-  right:-250px;
-  bottom:-250px;
-  opacity:.12;
-}
-
-/* NAV */
-nav{
-  position:fixed;
-  top:20px;
-  left:50%;
-  transform:translateX(-50%) translateY(-20px);
-
-  width:min(1150px,92%);
-  padding:16px 24px;
-
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
-
-  background:rgba(255,255,255,.75);
-  backdrop-filter:blur(20px);
-  border:1px solid rgba(255,255,255,.5);
-  border-radius:999px;
-
-  z-index:1000;
-  box-shadow:0 20px 50px rgba(0,0,0,.08);
-
-  opacity:0;
-  animation:navReveal .9s ease .15s forwards;
-}
-
-.logo{
-  font-weight:800;
-  font-size:1.1rem;
-}
-
-.logo span{ color:var(--accent); }
-
-.nav-links{
-  display:flex;
-  gap:30px;
-}
-
-.nav-links a{
-  text-decoration:none;
-  color:#111;
-  font-weight:600;
-}
-
-/* BUTTONS */
-.btn{
-  padding:14px 24px;
-  border-radius:999px;
-  text-decoration:none;
-  font-weight:700;
-  transition:.3s;
-  display:inline-block;
-}
-
-.btn-primary{
-  background:linear-gradient(135deg,var(--accent),var(--accent2));
-  color:white;
-}
-
-.btn-secondary{
-  border:1px solid rgba(255,255,255,.2);
-  background:rgba(255,255,255,.08);
-  backdrop-filter:blur(10px);
-  color:white;
-}
-
-/* HERO */
-.hero{
-  min-height:100vh;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  text-align:center;
-
-  padding:120px 20px;
-
-  color:white;
-  background:
-    radial-gradient(circle at top, rgba(99,102,241,.35), transparent 40%),
-    linear-gradient(135deg,#020617,#0f172a,#111827);
-}
-
-.hero-inner{
-  max-width:1000px;
-  opacity:0;
-  transform:translateY(40px);
-  animation:heroReveal 1.2s ease .35s forwards;
-}
-
-.badge{
-  display:inline-block;
-  padding:10px 18px;
-  border-radius:999px;
-  background:rgba(255,255,255,.08);
-  border:1px solid rgba(255,255,255,.12);
-  margin-bottom:30px;
-}
-
-h1,h2{
-  font-family:"Playfair Display",serif;
-}
-
-h1{
-  font-size:clamp(3rem,7vw,5.8rem);
-  line-height:1.05;
-  margin-bottom:25px;
-}
-
-.hero p{
-  max-width:750px;
-  margin:0 auto 35px;
-  font-size:1.15rem;
-  line-height:1.8;
-  opacity:.9;
-}
-
-.hero-buttons{
-  display:flex;
-  gap:15px;
-  justify-content:center;
-  flex-wrap:wrap;
-}
-
-/* STATS */
-.stats{
-  display:grid;
-  grid-template-columns:repeat(3,1fr);
-  gap:20px;
-  max-width:900px;
-  margin:70px auto 0;
-}
-
-.stat{
-  background:rgba(255,255,255,.06);
-  padding:25px;
-  border-radius:24px;
-  border:1px solid rgba(255,255,255,.08);
-}
-
-.stat h3{ font-size:2rem; }
-
-/* TRUST */
-.trust{
-  padding:30px;
-  text-align:center;
-  font-weight:700;
-  background:white;
-  letter-spacing:1px;
-}
-
-/* SECTIONS */
-section{
-  padding:120px 20px;
-}
-
-.container{
-  max-width:1200px;
-  margin:auto;
-}
-
-.section-title{
-  text-align:center;
-  margin-bottom:60px;
-}
-
-.section-title h2{
-  font-size:3rem;
-  margin-bottom:15px;
-}
-
-.section-title p{
-  max-width:700px;
-  margin:auto;
-  line-height:1.8;
-  color:#64748b;
-}
-
-/* GRID */
-.grid{
-  display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
-  gap:24px;
-}
-
-.card{
-  background:rgba(255,255,255,.8);
-  padding:35px;
-  border-radius:28px;
-  border:1px solid rgba(255,255,255,.6);
-  box-shadow:0 30px 60px rgba(15,23,42,.08);
-  transition:.35s;
-}
-
-.card:hover{
-  transform:translateY(-10px) scale(1.02);
-}
-
-.card h3{ margin-bottom:12px; }
-.card p{ color:#64748b; line-height:1.7; }
-.dark .card p{ color:#cbd5e1; }
-
-.eyebrow{
-  margin-bottom:14px;
-  color:var(--accent);
-  font-size:.8rem;
-  font-weight:800;
-  letter-spacing:.12em;
-  text-transform:uppercase;
-}
-
-.content-copy{
-  max-width:780px;
-  margin:0 auto;
-  color:#475569;
-  line-height:1.8;
-  text-align:center;
-}
-
-/* DARK SECTION */
-.dark{
-  background:linear-gradient(135deg,#0b1220,#111827);
-  color:white;
-}
-
-.dark .section-title p{
-  color:#cbd5e1;
-}
-
-.dark .card{
-  background:rgba(255,255,255,.08);
-  border:1px solid rgba(255,255,255,.12);
-}
-
-/* AI BOX */
-.ai-box{
-  padding:60px;
-  border-radius:32px;
-  background:linear-gradient(135deg,#4f46e5,#7c3aed);
-  color:white;
-  text-align:center;
-}
-
-.ai-box h2{ margin-bottom:14px; font-size:clamp(2rem,4vw,3rem); }
-.ai-box p{ line-height:1.7; opacity:.9; }
-
-/* CTA */
-.cta{
-  text-align:center;
-}
-
-.cta h2{ margin-bottom:14px; font-size:clamp(2rem,4vw,3rem); }
-.cta p{ margin:0 auto 28px; color:#cbd5e1; line-height:1.7; }
-
-/* FOOTER */
-footer{
-  background:#020617;
-  color:white;
-  padding:50px 20px;
-  text-align:center;
-}
-
-/* ANIMATIONS */
-@keyframes pageFadeIn{
-  from{opacity:0;}
-  to{opacity:1;}
-}
-
-@keyframes navReveal{
-  from{
-    opacity:0;
-    transform:translateX(-50%) translateY(-20px);
-  }
-  to{
-    opacity:1;
-    transform:translateX(-50%) translateY(0);
-  }
-}
-
-@keyframes heroReveal{
-  from{
-    opacity:0;
-    transform:translateY(40px);
-  }
-  to{
-    opacity:1;
-    transform:translateY(0);
-  }
-}
-
-/* RESPONSIVE */
-@media(max-width:768px){
-  .stats{grid-template-columns:1fr;}
-  .section-title h2{font-size:2.2rem;}
-}
-
-/* MOBILE NAV FIX (less aggressive) */
-@media(max-width:500px){
-  .nav-links{display:none;}
-}
-
-/* REDUCED MOTION SUPPORT */
-@media (prefers-reduced-motion: reduce){
-  *{
-    animation:none !important;
-    transition:none !important;
-  }
-}
-
-/* BACKDROP FALLBACK */
-@supports not (backdrop-filter: blur(10px)){
-  nav, .card{
-    background:rgba(255,255,255,.95);
-  }
-}
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="description" content="Online Cambridge IGCSE, Pearson Edexcel and Singapore O-Level tuition with personalized AI learning and progress tracking for students in Malaysia and Singapore.">
+  <meta property="og:title" content="IGCSEMYSG | Tuition and Personalized Learning">
+  <meta property="og:description" content="Clear teaching, focused practice and a personalized AI workspace for IGCSE and O-Level students.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://igcsemysg.site/">
+  <meta property="og:image" content="og-preview.png">
+  <title>IGCSE Tuition Malaysia & Singapore | IGCSEMYSG</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+:root{--ink:#121a2b;--navy:#0b1325;--navy2:#111d35;--paper:#f5f4ef;--white:#fff;--muted:#687389;--line:#e4e5e8;--violet:#7567ec;--violet2:#9b8cff;--mint:#baf4df}*{box-sizing:border-box}html{scroll-behavior:smooth;scroll-padding-top:90px}body{margin:0;background:var(--paper);color:var(--ink);font-family:"DM Sans",sans-serif}a{color:inherit}.container{width:min(1180px,calc(100% - 40px));margin:auto}.nav-wrap{position:fixed;z-index:50;top:16px;left:0;right:0}.nav{height:64px;padding:0 12px 0 22px;background:#fffffff0;border:1px solid #ffffff;border-radius:18px;box-shadow:0 16px 45px #08112717;backdrop-filter:blur(18px);display:flex;align-items:center}.brand{text-decoration:none;font:800 1rem "Manrope",sans-serif;letter-spacing:-.03em}.brand span{color:var(--violet)}.nav-links{display:flex;align-items:center;gap:23px;margin:auto}.nav-links a,.login{text-decoration:none;font-size:.76rem;font-weight:600;color:#465066}.nav-links a:hover,.login:hover{color:var(--violet)}.nav-actions{display:flex;align-items:center;gap:15px}.button{display:inline-flex;align-items:center;justify-content:center;gap:10px;padding:13px 19px;border:0;border-radius:10px;background:var(--violet);color:white;text-decoration:none;font-size:.78rem;font-weight:700;box-shadow:0 10px 24px #6e61dd36;transition:.2s}.button:hover{transform:translateY(-2px);background:#6759dc}.button.small{padding:10px 16px}.button.ghost{background:#ffffff12;border:1px solid #ffffff2d;box-shadow:none}.button.pale{background:white;color:#4237aa}.menu{display:none;border:0;background:none;font-weight:700}.hero{position:relative;min-height:760px;background:linear-gradient(145deg,#080f1e,#101b32);color:white;overflow:hidden;padding:155px 0 90px}.glow{position:absolute;border-radius:50%;filter:blur(90px);opacity:.23}.glow.one{width:520px;height:520px;background:#604cda;top:-220px;left:-160px}.glow.two{width:440px;height:440px;background:#425cb2;right:-170px;bottom:-260px}.hero-grid{position:relative;display:grid;grid-template-columns:1.06fr .94fr;gap:70px;align-items:center}.eyebrow{margin:0 0 14px;color:var(--violet);font:800 .67rem "Manrope",sans-serif;letter-spacing:.16em}.eyebrow.light{color:#a99fff}.hero h1{font:700 clamp(3.8rem,7vw,6.4rem)/.98 "Manrope",sans-serif;letter-spacing:-.075em;margin:0 0 28px}.hero h1 em{font-style:normal;color:#a99fff}.lead{max-width:610px;color:#bac2d2;font-size:1.06rem;line-height:1.75;margin:0}.actions{display:flex;gap:11px;margin-top:30px}.pathways{display:flex;flex-wrap:wrap;gap:12px 24px;margin-top:46px;padding-top:24px;border-top:1px solid #ffffff19;color:#8f9ab0;font-size:.67rem;font-weight:700;letter-spacing:.05em}.hero-product{background:#f7f8fc;color:var(--ink);padding:20px;border:1px solid #ffffff45;border-radius:23px;box-shadow:0 40px 100px #00000052;transform:rotate(1.3deg)}.product-head{display:flex;justify-content:space-between;align-items:center;padding:4px 3px 17px}.product-head small,.focus-card small,.mini-grid small,.tutor-preview small{display:block;color:#8b95a8;font-size:.55rem;letter-spacing:.1em;font-weight:800}.product-head strong{display:block;font-size:.84rem;margin-top:5px}.status{font-size:.62rem;color:#298a68;background:#e2f8ef;padding:7px 9px;border-radius:20px}.focus-card{background:white;border:1px solid #e7e9ef;border-radius:15px;padding:20px}.focus-card h3{font:700 1.3rem "Manrope",sans-serif;margin:7px 0}.focus-card p{font-size:.7rem;color:var(--muted);margin:0 0 17px}.progress{height:6px;background:#e9ebf1;border-radius:5px}.progress i{display:block;width:31%;height:100%;border-radius:5px;background:linear-gradient(90deg,var(--violet),var(--violet2))}.focus-meta{display:flex;justify-content:space-between;margin-top:8px;font-size:.6rem;color:#8d96a8}.focus-meta b{color:var(--violet)}.mini-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:9px;margin:9px 0}.mini-grid>div{background:white;border:1px solid #e7e9ef;border-radius:12px;padding:13px}.mini-grid strong,.mini-grid span{display:block}.mini-grid strong{font:700 .95rem "Manrope",sans-serif;margin-top:7px}.mini-grid span{font-size:.55rem;color:#8e97a9;margin-top:2px}.tutor-preview{display:flex;align-items:center;gap:11px;background:#151f36;color:white;border-radius:13px;padding:14px}.tutor-preview>span{width:30px;height:30px;border-radius:9px;background:var(--violet);display:grid;place-items:center}.tutor-preview p{flex:1;margin:0}.tutor-preview strong{display:block;font-size:.68rem;margin-top:3px}.tutor-preview>b{font-size:.62rem;color:#bfb8ff}.section{padding:110px 0}.section-head{display:flex;align-items:end;justify-content:space-between;margin-bottom:44px}.section-head h2,.platform-copy h2,.subjects-section h2,.faq-section h2{font:700 clamp(2.2rem,4.2vw,4rem)/1.08 "Manrope",sans-serif;letter-spacing:-.055em;margin:0}.section-head>p{max-width:410px;color:var(--muted);line-height:1.65;font-size:.88rem}.offer-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px}.offer{min-height:460px;padding:34px;border-radius:24px;display:grid;grid-template-columns:55px 1fr;gap:13px;position:relative;overflow:hidden}.offer-number{font:700 1rem "Manrope";color:#9ca4b3}.offer h3{font:700 2rem "Manrope";letter-spacing:-.045em;margin:8px 0 14px}.offer p{color:var(--muted);line-height:1.65}.offer ul{list-style:none;padding:25px 0;margin:25px 0;border-top:1px solid #dfe2e8;border-bottom:1px solid #dfe2e8}.offer li{padding:8px 0;font-size:.82rem}.offer li:before{content:"✓";color:var(--violet);margin-right:10px}.offer a{text-decoration:none;font-size:.78rem;font-weight:800;color:var(--violet)}.offer.human{background:#ebe9e2}.offer.intelligence{background:#e9e7ff}.offer.intelligence:after{content:"✦";position:absolute;right:-10px;bottom:-95px;font-size:240px;color:#d6d1ff}.offer>div{position:relative;z-index:1}.platform-section{background:var(--navy);color:white}.platform-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:90px;align-items:center}.platform-copy>p:not(.eyebrow){color:#aeb7c8;line-height:1.75;max-width:650px}.feature-list{margin:35px 0}.feature-list>div{display:grid;grid-template-columns:35px 1fr;gap:15px;padding:17px 0;border-top:1px solid #ffffff18}.feature-list span{color:#8f83ef;font-size:.7rem}.feature-list p{margin:0;color:#9da7ba;font-size:.76rem;line-height:1.55}.feature-list strong{display:block;color:white;font-size:.85rem;margin-bottom:3px}.disclaimer{display:block;color:#78849a;font-size:.6rem;margin-top:16px}.memory-card{background:#f8f8fb;color:var(--ink);border-radius:22px;padding:24px;box-shadow:0 35px 90px #00000040}.memory-top{display:flex;align-items:center;gap:10px;padding-bottom:19px;border-bottom:1px solid var(--line)}.memory-top>span{width:35px;height:35px;border-radius:10px;background:#e8e5ff;color:var(--violet);display:grid;place-items:center}.memory-top>div{flex:1}.memory-top small,.memory-top strong{display:block}.memory-top small{font-size:.55rem;color:#939cad;letter-spacing:.1em}.memory-top strong{font-size:.8rem;margin-top:4px}.memory-top i{font-style:normal;font-size:.55rem;color:#24795d;background:#dff5ec;padding:6px 8px;border-radius:10px}.memory-row{display:flex;justify-content:space-between;padding:16px 2px;border-bottom:1px solid var(--line);font-size:.7rem;color:#798397}.memory-row strong{color:var(--ink)}.memory-note{margin-top:18px;padding:13px;background:#eceaff;color:#5d53b5;border-radius:10px;font-size:.62rem;line-height:1.55}.method-section{background:white}.steps{display:grid;grid-template-columns:repeat(4,1fr);border-top:1px solid var(--line)}.steps article{padding:30px 25px;border-right:1px solid var(--line)}.steps article:last-child{border:0}.steps span{color:var(--violet);font-size:.65rem;font-weight:800}.steps h3{font:700 1.2rem "Manrope";margin:35px 0 10px}.steps p{color:var(--muted);line-height:1.6;font-size:.77rem}.subjects-section{background:#eceae3}.subject-grid{display:grid;grid-template-columns:.75fr 1.25fr;gap:90px;align-items:center}.subject-grid>div>p:not(.eyebrow){color:var(--muted);line-height:1.7}.subject-cloud{display:flex;flex-wrap:wrap;gap:9px}.subject-cloud span{background:#ffffffa8;border:1px solid #dedfdc;border-radius:50px;padding:13px 17px;font-size:.75rem;font-weight:600}.faq-grid{display:grid;grid-template-columns:.75fr 1.25fr;gap:90px}.faqs details{border-top:1px solid #dcdfe5}.faqs details:last-child{border-bottom:1px solid #dcdfe5}.faqs summary{display:flex;justify-content:space-between;cursor:pointer;padding:21px 0;font-weight:700;font-size:.86rem;list-style:none}.faqs summary span{color:var(--violet)}.faqs details p{color:var(--muted);font-size:.78rem;line-height:1.7;max-width:650px;margin:0 0 20px}.final-cta{text-align:center;background:linear-gradient(145deg,#151f37,#0b1325);color:white;padding:100px 0}.final-cta h2{font:700 clamp(2.7rem,6vw,5.2rem)/1 "Manrope";letter-spacing:-.06em;margin:10px 0 20px}.final-cta>div>p:not(.eyebrow){color:#9da8bb}.final-cta .actions{justify-content:center}footer{background:#070d19;color:#9aa4b8;padding:65px 0 24px}.footer-grid{display:grid;grid-template-columns:2fr 1fr 1fr;gap:40px}.footer-brand{color:white;font-size:1.1rem}.footer-grid p{font-size:.72rem;line-height:1.6;max-width:380px}.footer-grid strong,.footer-grid a{display:block}.footer-grid strong{color:white;font-size:.7rem;margin-bottom:14px}.footer-grid a{text-decoration:none;font-size:.68rem;margin:9px 0}.copyright{display:flex;justify-content:space-between;border-top:1px solid #ffffff13;margin-top:50px;padding-top:20px;font-size:.6rem}.reveal{opacity:0;transform:translateY(18px);transition:.65s ease}.reveal.visible{opacity:1;transform:none}@media(prefers-reduced-motion:reduce){.reveal{opacity:1;transform:none;transition:none}}@media(max-width:930px){.nav-links{display:none;position:absolute;top:70px;left:0;right:0;background:white;border-radius:14px;padding:15px;box-shadow:0 20px 40px #10182c25}.nav-links.open{display:flex;flex-direction:column;align-items:flex-start}.menu{display:block;margin-left:auto}.nav-actions{margin-left:15px}.login{display:none}.hero-grid,.platform-grid{grid-template-columns:1fr;gap:55px}.hero{padding-top:140px}.hero-product{max-width:600px}.section-head,.subject-grid,.faq-grid{grid-template-columns:1fr;display:grid;gap:20px}.offer-grid{grid-template-columns:1fr}.steps{grid-template-columns:1fr 1fr}.steps article:nth-child(2){border-right:0}.subject-grid,.faq-grid{gap:45px}}@media(max-width:600px){.container{width:min(100% - 28px,1180px)}.nav{padding-left:16px}.nav-actions .button{padding:9px 11px}.hero{min-height:auto;padding-bottom:70px}.hero h1{font-size:3.35rem}.actions{flex-direction:column;align-items:stretch}.button{width:100%}.pathways{gap:10px}.hero-product{padding:12px}.mini-grid{grid-template-columns:1fr 1fr}.mini-grid>div:last-child{display:none}.section{padding:78px 0}.section-head h2,.platform-copy h2,.subjects-section h2,.faq-section h2{font-size:2.45rem}.offer{grid-template-columns:1fr;padding:27px;min-height:auto}.steps{grid-template-columns:1fr}.steps article{border-right:0}.footer-grid{grid-template-columns:1fr 1fr}.footer-grid>div:first-child{grid-column:1/-1}.copyright{display:block;line-height:2}.final-cta{padding:75px 0}}
 
 </style>
-  <script type="application/ld+json">
-{
- "@context":"https://schema.org",
- "@type":"EducationalOrganization",
- "name":"IGCSEMYSG",
- "url":"https://igcsemysg.site",
- "description":"Online tuition for Cambridge IGCSE, Pearson Edexcel and Singapore O Level students in Malaysia and Singapore.",
- "areaServed":[
-   "Malaysia",
-   "Singapore"
- ],
- "educationalCredentialAwarded":[
-   "Cambridge IGCSE",
-   "Pearson Edexcel IGCSE",
-   "Singapore O Level"
- ]
-}
-</script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"EducationalOrganization","name":"IGCSEMYSG","url":"https://igcsemysg.site","areaServed":["Malaysia","Singapore"],"description":"Online tuition and personalized learning for Cambridge IGCSE, Pearson Edexcel and Singapore O-Level students."}</script>
 </head>
-
 <body>
+  <header class="nav-wrap">
+    <nav class="nav container" aria-label="Main navigation">
+      <a class="brand" href="index.html">IGCSE<span>MYSG</span></a>
+      <button class="menu" aria-label="Open menu" aria-expanded="false">Menu</button>
+      <div class="nav-links">
+        <a href="#support">Learning support</a><a href="#platform">Exam Intelligence</a><a href="#method">How it works</a><a href="#faq">FAQs</a><a href="careers.html">Careers</a>
+      </div>
+      <div class="nav-actions"><a class="login" href="exam-intelligence/">Student login</a><a class="button small" href="enquiry.html">Enquire</a></div>
+    </nav>
+  </header>
 
-<div class="glow g1"></div>
-<div class="glow g2"></div>
+  <main>
+    <section class="hero">
+      <div class="glow one"></div><div class="glow two"></div>
+      <div class="container hero-grid">
+        <div class="hero-copy reveal">
+          <p class="eyebrow light">ONLINE TUITION · MALAYSIA & SINGAPORE</p>
+          <h1>Where students<br><em>grow with clarity.</em></h1>
+          <p class="lead">Human teaching and personalized learning tools for Cambridge IGCSE, Pearson Edexcel and Singapore O-Level students.</p>
+          <div class="actions"><a class="button" href="enquiry.html">Ask about tuition</a><a class="button ghost" href="exam-intelligence/">Explore Exam Intelligence <span>↗</span></a></div>
+          <div class="pathways"><span>Cambridge IGCSE</span><span>Pearson Edexcel</span><span>Singapore O-Level</span></div>
+        </div>
+        <div class="hero-product reveal">
+          <div class="product-head"><div><small>PERSONAL LEARNING SPACE</small><strong>Good afternoon, Student</strong></div><span class="status">● Tracking</span></div>
+          <div class="focus-card"><small>TODAY'S FOCUS</small><h3>Strengthen trigonometry</h3><p>Based on recent practice and topic mastery.</p><div class="progress"><i></i></div><div class="focus-meta"><span>31% mastery</span><b>Continue lesson →</b></div></div>
+          <div class="mini-grid"><div><small>WEEKLY GOAL</small><strong>3 / 5</strong><span>sessions</span></div><div><small>QUESTIONS</small><strong>42</strong><span>completed</span></div><div><small>STRONGEST</small><strong>Number</strong><span>81% mastery</span></div></div>
+          <div class="tutor-preview"><span>✦</span><p><small>PERSONAL AI TUTOR</small><strong>Want a hint before we solve the next step?</strong></p><b>Ask →</b></div>
+        </div>
+      </div>
+    </section>
 
-<nav>
-  <div class="logo">IGCSE<span>MYSG</span></div>
+    <section id="support" class="section">
+      <div class="container">
+        <div class="section-head reveal"><div><p class="eyebrow">TWO WAYS TO LEARN</p><h2>Support that meets the student.</h2></div><p>Choose direct tuition, independent digital learning, or use both together.</p></div>
+        <div class="offer-grid">
+          <article class="offer human reveal"><div class="offer-number">01</div><div><p class="eyebrow">ONLINE TUITION</p><h3>Learn with a tutor</h3><p>Focused lessons shaped around the student’s syllabus, schoolwork and exam preparation.</p><ul><li>Clear, guided explanations</li><li>Targeted question practice</li><li>Notes and relevant resources</li><li>Feedback on difficult topics</li></ul><a href="enquiry.html">Ask about classes →</a></div></article>
+          <article class="offer intelligence reveal"><div class="offer-number">02</div><div><p class="eyebrow">EXAM INTELLIGENCE</p><h3>Learn with a personal workspace</h3><p>A secure account that remembers progress, adapts practice and supports each topic.</p><ul><li>Personalized AI tutoring</li><li>Topic mastery and revision plans</li><li>Adaptive practice and explanations</li><li>Past-paper pattern analysis</li></ul><a href="exam-intelligence/">Open the platform →</a></div></article>
+        </div>
+      </div>
+    </section>
 
-<div class="nav-links">
-  <a href="#method">How It Works</a>
-  <a href="#included">What's Included</a>
-  <a href="#ai">Learning Platform</a>
-  <a href="#faq">FAQs</a>
-  <a href="careers.html">Careers</a>
-  </div>
+    <section id="platform" class="section platform-section">
+      <div class="container platform-grid">
+        <div class="platform-copy reveal"><p class="eyebrow light">EXAM INTELLIGENCE</p><h2>A tutor that learns how the student learns.</h2><p>Each account develops its own learning profile from topic progress, practice results and tutor conversations. Explanations become more relevant as the system gathers evidence.</p><div class="feature-list"><div><span>01</span><p><strong>Understands the gap</strong>Uses mastery and mistakes to identify what needs attention.</p></div><div><span>02</span><p><strong>Adapts the explanation</strong>Changes depth, tone and examples around the learner.</p></div><div><span>03</span><p><strong>Plans the next step</strong>Connects lessons, practice and spaced revision.</p></div></div><a class="button pale" href="exam-intelligence/">Enter student workspace</a><small class="disclaimer">Forecasts are revision signals, not guarantees of future exam content.</small></div>
+        <div class="memory-card reveal"><div class="memory-top"><span>✦</span><div><small>LEARNING PROFILE</small><strong>Personalized to this account</strong></div><i>Private</i></div><div class="memory-row"><span>Current priority</span><strong>Vectors & functions</strong></div><div class="memory-row"><span>Explanation style</span><strong>Worked examples</strong></div><div class="memory-row"><span>Observed need</span><strong>Multi-step reasoning</strong></div><div class="memory-row"><span>Next review</span><strong>Tomorrow</strong></div><div class="memory-note">Conversation history and learning records remain isolated to the signed-in student.</div></div>
+      </div>
+    </section>
 
-  <a class="btn btn-primary" href="enquiry.html">Enquire</a>
-</nav>
+    <section id="method" class="section method-section">
+      <div class="container"><div class="section-head reveal"><div><p class="eyebrow">THE LEARNING LOOP</p><h2>Progress, one clear step at a time.</h2></div><p>The same structure connects tuition and the digital platform.</p></div><div class="steps"><article class="reveal"><span>01</span><h3>Understand</h3><p>Identify the student’s current level and exact knowledge gaps.</p></article><article class="reveal"><span>02</span><h3>Strengthen</h3><p>Rebuild concepts with clear teaching and suitable examples.</p></article><article class="reveal"><span>03</span><h3>Practise</h3><p>Apply the skill through targeted and exam-style questions.</p></article><article class="reveal"><span>04</span><h3>Review</h3><p>Track mastery, correct mistakes and revisit at the right time.</p></article></div></div>
+    </section>
 
-<section class="hero">
-  <div class="hero-inner">
+    <section class="section subjects-section"><div class="container subject-grid"><div class="reveal"><p class="eyebrow">SUBJECT COVERAGE</p><h2>Built around the syllabus.</h2><p>Support may include schoolwork, topic revision and examination preparation, depending on the student’s needs.</p></div><div class="subject-cloud reveal"><span>Mathematics</span><span>Additional Mathematics</span><span>Physics</span><span>Chemistry</span><span>Biology</span><span>English</span><span>Economics</span><span>Business</span></div></div></section>
 
-    <div class="badge">Online tuition for Malaysia & Singapore</div>
+    <section id="faq" class="section faq-section"><div class="container faq-grid"><div class="reveal"><p class="eyebrow">USEFUL DETAILS</p><h2>Questions, answered simply.</h2></div><div class="faqs reveal"><details><summary>Which syllabuses are supported?<span>+</span></summary><p>Cambridge IGCSE, Pearson Edexcel IGCSE and Singapore O-Level pathways.</p></details><details><summary>Can students use the platform without tuition?<span>+</span></summary><p>Yes. Exam Intelligence is designed as an independent learning workspace and can also complement tutor-led lessons.</p></details><details><summary>Does the AI know future exam questions?<span>+</span></summary><p>No. It can analyse permitted historical patterns and suggest revision priorities, but it cannot know future papers.</p></details><details><summary>Are student accounts private?<span>+</span></summary><p>The platform is designed with account-level authentication and database rules that isolate each student’s learning records.</p></details></div></div></section>
 
-    <h1>
-Where students grow.
-</h1>
+    <section class="final-cta"><div class="container reveal"><p class="eyebrow light">START FROM THE STUDENT'S NEED</p><h2>Choose the right next step.</h2><p>Ask about tutor-led classes or enter the personalized learning workspace.</p><div class="actions"><a class="button" href="enquiry.html">Discuss tuition</a><a class="button ghost" href="exam-intelligence/">Student login</a></div></div></section>
+  </main>
 
-    <p>
-      Online tuition for Cambridge IGCSE, Pearson Edexcel and Singapore O-Level students—built around clear teaching, focused practice and individual learning needs.
-    </p>
+  <footer><div class="container footer-grid"><div><a class="brand footer-brand" href="index.html">IGCSE<span>MYSG</span></a><p>Online tuition and personalized learning for Malaysia and Singapore.</p></div><div><strong>Explore</strong><a href="#support">Learning support</a><a href="exam-intelligence/">Exam Intelligence</a><a href="careers.html">Careers</a></div><div><strong>Contact</strong><a href="enquiry.html">Send an enquiry</a><a href="https://wa.me/60172731112">WhatsApp</a></div></div><div class="container copyright"><span>© 2026 IGCSEMYSG</span><span>Cambridge IGCSE · Pearson Edexcel · Singapore O-Level</span></div></footer>
+  <script>
+const menu=document.querySelector('.menu');const links=document.querySelector('.nav-links');menu?.addEventListener('click',()=>{const open=links.classList.toggle('open');menu.setAttribute('aria-expanded',String(open));menu.textContent=open?'Close':'Menu'});document.querySelectorAll('.nav-links a').forEach(a=>a.addEventListener('click',()=>{links.classList.remove('open');menu?.setAttribute('aria-expanded','false')}));if('IntersectionObserver'in window){const observer=new IntersectionObserver(entries=>entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('visible');observer.unobserve(e.target)}}),{threshold:.12});document.querySelectorAll('.reveal').forEach(el=>observer.observe(el))}else document.querySelectorAll('.reveal').forEach(el=>el.classList.add('visible'));
 
-    <div class="hero-buttons">
-      <a href="enquiry.html" class="btn btn-primary">Ask About Classes</a>
-      <a href="#method" class="btn btn-secondary">See How It Works</a>
-    </div>
-
-    <div class="stats">
-      <div class="stat"><h3>3</h3><p>Exam pathways</p></div>
-      <div class="stat"><h3>Online</h3><p>Learn from anywhere</p></div>
-      <div class="stat"><h3>Included</h3><p>Notes and practice</p></div>
-    </div>
-
-  </div>
-</section>
-
-<div class="trust">
-CAMBRIDGE IGCSE • PEARSON EDEXCEL IGCSE • SINGAPORE O-LEVEL
-</div>
-
-<section id="method">
-<div class="container">
-
-<div class="section-title">
-<div class="eyebrow">The learning process</div>
-<h2>How lessons work</h2>
-<p>We begin with what the student understands, then build towards confident exam application.</p>
-</div>
-
-<div class="grid">
-<div class="card"><h3>01 Understand</h3><p>Review the student’s current level, goals and areas of difficulty.</p></div>
-<div class="card"><h3>02 Strengthen</h3><p>Explain key ideas clearly and rebuild any missing foundations.</p></div>
-<div class="card"><h3>03 Practise</h3><p>Work through relevant questions with feedback and correction.</p></div>
-<div class="card"><h3>04 Prepare</h3><p>Apply exam techniques and revisit topics that still need attention.</p></div>
-</div>
-
-</div>
-</section>
-
-<section id="included" class="dark">
-<div class="container">
-
-<div class="section-title">
-<div class="eyebrow">What students receive</div>
-<h2>Support beyond the lesson</h2>
-<p>Teaching and resources are kept aligned, so students know what to learn, practise and review.</p>
-</div>
-
-<div class="grid">
-<div class="card"><h3>Clear explanations</h3><p>Step-by-step teaching shaped around the student’s syllabus and pace.</p></div>
-<div class="card"><h3>Exam preparation</h3><p>Past-paper practice, marking guidance and techniques for different question types.</p></div>
-<div class="card"><h3>Learning resources</h3><p>Notes, worksheets, topical questions, formulas and revision summaries.</p></div>
-</div>
-
-</div>
-</section>
-
-<section id="ai">
-<div class="container">
-<div class="ai-box">
-<div class="eyebrow" style="color:#ddd6fe">In development</div>
-<h2>A learning platform for 2027</h2>
-<p>We are developing tools for personalised revision, question practice and progress tracking. More details will be shared as the platform develops.</p>
-</div>
-</div>
-</section>
-
-<section id="faq">
-<div class="container">
-
-<div class="section-title">
-<div class="eyebrow">Useful details</div>
-<h2>Frequently asked questions</h2>
-</div>
-
-<div class="grid">
-<div class="card"><h3>What are classes like?</h3><p>Classes are kept focused so students can ask questions and receive guidance.</p></div>
-<div class="card"><h3>Which syllabuses are covered?</h3><p>Cambridge IGCSE, Pearson Edexcel IGCSE and Singapore O-Level.</p></div>
-<div class="card"><h3>Are resources included?</h3><p>Yes. Relevant notes, worksheets and exam-style practice are provided.</p></div>
-</div>
-
-</div>
-</section>
-
-<section class="cta dark">
-<div class="container">
-<h2>Not sure where to begin?</h2>
-<p>Tell us the student’s syllabus, subject and current needs. We’ll explain the suitable next step.</p>
-<a href="enquiry.html" class="btn btn-primary">Send an Enquiry</a>
-</div>
-</section>
-<section>
-<div class="container">
-
-<div class="section-title">
-<div class="eyebrow">Subjects and coverage</div>
-<h2>Online tuition across three exam pathways</h2>
-</div>
-
-<p class="content-copy">IGCSEMYSG supports students in Malaysia and Singapore studying Cambridge IGCSE, Pearson Edexcel IGCSE and Singapore O-Level. Available subjects include Mathematics, Additional Mathematics, Physics, Chemistry, Biology and English, with lessons covering schoolwork, topic revision and exam preparation.</p>
-
-</div>
-</section>
-<footer>
-<h3>IGCSEMYSG</h3>
-<p>Online IGCSE, Edexcel & O-Level Tuition</p>
-<p>© 2026 IGCSEMYSG. All Rights Reserved.</p>
-</footer>
-
+</script>
 </body>
 </html>
