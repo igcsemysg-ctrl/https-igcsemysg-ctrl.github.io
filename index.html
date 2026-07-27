@@ -10,6 +10,127 @@
 
 
 <style>
+  .blob{
+
+position:absolute;
+border-radius:50%;
+filter:blur(80px);
+opacity:0.25;
+z-index:-1;
+
+}
+
+
+
+.blob1{
+
+width:400px;
+height:400px;
+background:#2563eb;
+top:100px;
+left:-100px;
+
+}
+
+
+
+.blob2{
+
+width:350px;
+height:350px;
+background:#60a5fa;
+right:-100px;
+top:400px;
+
+}
+  .quiz-box{
+
+border:1px solid rgba(37,99,235,0.15);
+
+background:
+linear-gradient(
+135deg,
+#ffffff,
+#eff6ff
+);
+
+}
+  /* ANIMATIONS */
+
+
+@keyframes fadeUp {
+
+from {
+
+opacity:0;
+transform:translateY(40px);
+
+}
+
+to {
+
+opacity:1;
+transform:translateY(0);
+
+}
+
+}
+
+
+
+@keyframes float {
+
+0%,100%{
+
+transform:translateY(0);
+
+}
+
+50%{
+
+transform:translateY(-15px);
+
+}
+
+}
+
+
+
+.hero-text {
+
+animation:fadeUp 1s ease;
+
+}
+
+
+
+.hero-card {
+
+animation:float 4s ease-in-out infinite;
+
+}
+
+
+
+.card,
+.step,
+.profile {
+
+transition:0.3s ease;
+
+}
+
+
+
+.card:hover,
+.step:hover,
+.profile:hover {
+
+transform:translateY(-8px);
+
+box-shadow:0 20px 40px rgba(0,0,0,0.12);
+
+}
 
 
 *{
@@ -450,6 +571,9 @@ font-size:40px;
 
 
 <body>
+  <div class="blob blob1"></div>
+<div class="blob blob2"></div>
+ 
 
 
 <nav>
@@ -1703,7 +1827,42 @@ Syllabus-aligned personalised learning for IGCSE students.
 
 </footer>
 
+<script>
 
+const observer = new IntersectionObserver(entries=>{
+
+entries.forEach(entry=>{
+
+if(entry.isIntersecting){
+
+entry.target.style.opacity=1;
+entry.target.style.transform="translateY(0)";
+
+}
+
+});
+
+
+});
+
+
+document.querySelectorAll(
+".section,.card,.step"
+)
+.forEach(el=>{
+
+el.style.opacity=0;
+
+el.style.transform="translateY(40px)";
+
+el.style.transition="0.8s ease";
+
+observer.observe(el);
+
+});
+
+
+</script>
 
 
 </body>
