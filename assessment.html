@@ -1,0 +1,872 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Learning Assessment | IGCSEMYSG</title>
+
+
+<style>
+
+*{
+
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:"Segoe UI",Arial,sans-serif;
+
+}
+
+
+body{
+
+background:#f7f9fc;
+color:#172033;
+
+}
+
+
+.container{
+
+width:90%;
+max-width:900px;
+margin:auto;
+
+}
+
+
+
+.logo{
+
+text-align:center;
+font-size:28px;
+font-weight:800;
+color:#173ea5;
+padding:35px;
+
+}
+
+
+
+
+
+.assessment-box{
+
+background:white;
+padding:45px;
+margin-top:30px;
+border-radius:20px;
+
+box-shadow:
+0 15px 50px rgba(0,0,0,.08);
+
+}
+
+
+
+h1{
+
+font-size:38px;
+text-align:center;
+margin-bottom:15px;
+
+}
+
+
+.subtitle{
+
+text-align:center;
+color:#667085;
+margin-bottom:40px;
+
+}
+
+
+
+
+input,
+select{
+
+width:100%;
+padding:16px;
+margin-bottom:18px;
+
+border-radius:10px;
+border:1px solid #dbe2f0;
+
+font-size:16px;
+
+}
+
+
+
+
+.btn{
+
+width:100%;
+padding:16px;
+
+background:#173ea5;
+color:white;
+
+border:none;
+border-radius:10px;
+
+font-size:16px;
+font-weight:600;
+
+cursor:pointer;
+
+}
+
+
+
+
+.btn:hover{
+
+background:#102d7a;
+
+}
+
+
+
+
+.progress{
+
+height:8px;
+background:#e5e7eb;
+border-radius:20px;
+
+margin-bottom:30px;
+
+}
+
+
+
+.progress div{
+
+height:100%;
+background:#173ea5;
+border-radius:20px;
+
+}
+
+
+
+
+.question{
+
+font-size:25px;
+font-weight:700;
+
+margin-bottom:25px;
+
+}
+
+
+
+.answer{
+
+display:block;
+width:100%;
+
+padding:18px;
+
+margin-bottom:15px;
+
+background:white;
+
+border:1px solid #dbe2f0;
+
+border-radius:12px;
+
+cursor:pointer;
+
+text-align:left;
+
+font-size:16px;
+
+}
+
+
+
+.answer:hover{
+
+background:#f5f8ff;
+border-color:#173ea5;
+
+}
+
+
+
+.answer.selected{
+
+background:#173ea5;
+color:white;
+
+}
+
+
+
+
+.result{
+
+display:none;
+
+}
+
+
+
+.result-card{
+
+background:#f5f8ff;
+
+padding:30px;
+
+border-radius:15px;
+
+margin:25px 0;
+
+}
+
+
+
+.result-card h3{
+
+color:#173ea5;
+
+margin-bottom:10px;
+
+}
+
+
+
+footer{
+
+margin-top:50px;
+
+background:#101828;
+
+color:white;
+
+padding:30px;
+
+text-align:center;
+
+}
+
+
+
+</style>
+
+</head>
+
+
+<body>
+
+
+<div class="logo">
+
+IGCSEMYSG
+
+</div>
+
+
+
+<div class="container">
+
+
+<div class="assessment-box">
+
+
+
+<!-- INTRO FORM -->
+
+
+<div id="student-form">
+
+
+<h1>
+Find Your Learning Barrier
+</h1>
+
+
+<p class="subtitle">
+
+Complete this assessment to discover how you learn best.
+
+</p>
+
+
+
+
+<input id="name"
+placeholder="Student Name"
+>
+
+
+<input id="email"
+placeholder="Email Address"
+>
+
+
+<input id="phone"
+placeholder="Phone Number"
+>
+
+
+<input id="school"
+placeholder="School"
+>
+
+
+
+
+<select id="year">
+
+<option>
+Select Year
+</option>
+
+<option>
+Year 9
+</option>
+
+<option>
+Year 10
+</option>
+
+<option>
+Year 11
+</option>
+
+</select>
+
+
+
+
+
+<select id="subject">
+
+<option>
+Select Subject
+</option>
+
+<option>
+Mathematics
+</option>
+
+<option>
+Additional Mathematics
+</option>
+
+<option>
+Physics
+</option>
+
+<option>
+Chemistry
+</option>
+
+<option>
+Biology
+</option>
+
+<option>
+Accounting
+</option>
+
+<option>
+Economics
+</option>
+
+</select>
+
+
+
+
+<button class="btn"
+onclick="startAssessment()">
+
+Start Assessment
+
+</button>
+
+
+</div>
+
+
+
+
+
+
+
+<!-- QUESTIONS -->
+
+
+<div id="quiz"
+style="display:none;">
+
+
+<div class="progress">
+
+<div id="progressBar"></div>
+
+</div>
+
+
+<div class="question"
+id="question">
+
+</div>
+
+
+<div id="answers">
+
+</div>
+
+
+<button class="btn"
+onclick="nextQuestion()">
+
+Continue
+
+</button>
+
+
+
+</div>
+
+
+
+
+
+
+
+
+<!-- RESULT -->
+
+
+<div class="result"
+id="result">
+
+
+<h1>
+Your Learning Profile
+</h1>
+
+
+<div class="result-card">
+
+
+<h3 id="title">
+
+</h3>
+
+
+<p id="description">
+
+</p>
+
+
+</div>
+
+
+
+<a href="enquiry.html"
+class="btn">
+
+Get Tutor Recommendation
+
+</a>
+
+
+</div>
+
+
+
+
+</div>
+
+
+</div>
+
+
+
+
+
+
+<script>
+
+
+let student={};
+
+
+function startAssessment(){
+
+
+student.name=
+document.getElementById("name").value;
+
+
+student.email=
+document.getElementById("email").value;
+
+
+
+if(student.name=="" || student.email==""){
+
+alert("Please complete your details.");
+
+return;
+
+}
+
+
+
+document.getElementById("student-form")
+.style.display="none";
+
+
+document.getElementById("quiz")
+.style.display="block";
+
+
+loadQuestion();
+
+
+}
+
+
+
+
+
+
+
+const questions=[
+
+
+{
+
+q:"What is your biggest learning challenge?",
+
+a:[
+
+["Understanding concepts","concept"],
+
+["Applying knowledge to questions","application"],
+
+["Staying motivated","confidence"],
+
+["Managing study time","system"]
+
+]
+
+},
+
+
+
+{
+
+q:"During exams, you struggle most with:",
+
+a:[
+
+["Remembering information","concept"],
+
+["Unfamiliar questions","application"],
+
+["Pressure and confidence","confidence"],
+
+["Finishing on time","system"]
+
+]
+
+},
+
+
+
+{
+
+q:"Your revision usually involves:",
+
+a:[
+
+["Reading notes","concept"],
+
+["Practising questions","application"],
+
+["Studying inconsistently","confidence"],
+
+["No clear plan","system"]
+
+]
+
+},
+
+
+
+{
+
+q:"When you make mistakes:",
+
+a:[
+
+["Memorise the answer","concept"],
+
+["Review your method","application"],
+
+["Lose confidence","confidence"],
+
+["Move on quickly","system"]
+
+]
+
+}
+
+
+];
+
+
+
+
+
+let current=0;
+
+
+let selected=null;
+
+
+let scores={
+
+concept:0,
+
+application:0,
+
+confidence:0,
+
+system:0
+
+};
+
+
+
+
+
+function loadQuestion(){
+
+
+let q=questions[current];
+
+
+document.getElementById("question").innerHTML=
+
+(current+1)+". "+q.q;
+
+
+
+document.getElementById("progressBar")
+.style.width=
+
+((current+1)/questions.length*100)+"%";
+
+
+
+let html="";
+
+
+q.a.forEach(x=>{
+
+
+html+=`
+
+<button class="answer"
+onclick="selectAnswer(this,'${x[1]}')">
+
+${x[0]}
+
+</button>
+
+`;
+
+});
+
+
+document.getElementById("answers").innerHTML=html;
+
+
+}
+
+
+
+
+
+
+
+function selectAnswer(btn,type){
+
+
+document.querySelectorAll(".answer")
+.forEach(x=>x.classList.remove("selected"));
+
+
+btn.classList.add("selected");
+
+
+selected=type;
+
+
+}
+
+
+
+
+
+
+function nextQuestion(){
+
+
+if(!selected){
+
+alert("Please select an answer.");
+
+return;
+
+}
+
+
+scores[selected]++;
+
+
+current++;
+
+
+
+if(current < questions.length){
+
+selected=null;
+
+loadQuestion();
+
+}
+
+else{
+
+showResult();
+
+}
+
+
+}
+
+
+
+
+
+
+function showResult(){
+
+
+document.getElementById("quiz")
+.style.display="none";
+
+
+document.getElementById("result")
+.style.display="block";
+
+
+
+let result=
+
+Object.keys(scores)
+.reduce((a,b)=>
+
+scores[a]>scores[b]?a:b);
+
+
+
+if(result=="concept"){
+
+
+document.getElementById("title")
+.innerHTML=
+"Concept Understanding Barrier";
+
+
+document.getElementById("description")
+.innerHTML=
+"You need stronger foundations and clearer explanations before applying knowledge.";
+
+
+}
+
+
+
+else if(result=="application"){
+
+
+document.getElementById("title")
+.innerHTML=
+"Problem Solving Barrier";
+
+
+document.getElementById("description")
+.innerHTML=
+"You understand concepts but need more exam practice and guided application.";
+
+
+}
+
+
+
+else if(result=="confidence"){
+
+
+document.getElementById("title")
+.innerHTML=
+"Confidence Barrier";
+
+
+document.getElementById("description")
+.innerHTML=
+"You need more consistency, support and accountability.";
+
+}
+
+
+
+else{
+
+
+document.getElementById("title")
+.innerHTML=
+"Study System Barrier";
+
+
+document.getElementById("description")
+.innerHTML=
+"You need a clearer revision structure and learning plan.";
+
+}
+
+
+}
+
+
+
+</script>
+
+
+<footer>
+
+© 2026 IGCSEMYSG
+
+</footer>
+
+
+</body>
+
+</html>
