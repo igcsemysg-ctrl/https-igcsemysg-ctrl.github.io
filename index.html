@@ -1,1412 +1,230 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-
 <head>
-
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<title>IGCSEMYSG | Personalised IGCSE Learning</title>
-
-
-<style>
-
-/* =========================
-GLOBAL
-========================= */
-
-*{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
-    font-family:"Segoe UI", Arial, sans-serif;
-}
-
-html{
-    scroll-behavior:smooth;
-}
-
-body{
-    color:#172033;
-    background:#ffffff;
-}
-
-
-a{
-    text-decoration:none;
-}
-
-
-.container{
-    width:84%;
-    max-width:1200px;
-    margin:auto;
-}
-
-
-/* =========================
-NAVBAR
-========================= */
-
-
-nav{
-
-    height:80px;
-    display:flex;
-    align-items:center;
-    justify-content:space-between;
-    padding:0 8%;
-
-    background:white;
-    border-bottom:1px solid #edf0f5;
-
-    position:sticky;
-    top:0;
-    z-index:99;
-
-}
-
-
-.logo{
-
-    font-size:26px;
-    font-weight:800;
-    color:#173ea5;
-
-}
-
-
-.nav-links{
-
-    display:flex;
-    gap:30px;
-
-}
-
-
-.nav-links a{
-
-    color:#344054;
-    font-weight:500;
-
-}
-
-
-.nav-links a:hover{
-
-    color:#173ea5;
-
-}
-
-
-
-.btn{
-
-    display:inline-block;
-    background:#173ea5;
-    color:white;
-    padding:14px 28px;
-    border-radius:8px;
-    font-weight:600;
-    transition:.3s;
-
-}
-
-
-.btn:hover{
-
-    background:#102d7a;
-    transform:translateY(-2px);
-
-}
-
-
-/* =========================
-HERO
-========================= */
-
-
-.hero{
-
-    min-height:90vh;
-    padding:90px 8%;
-
-    display:flex;
-    align-items:center;
-    justify-content:space-between;
-    gap:60px;
-
-    background:
-    linear-gradient(
-        180deg,
-        #ffffff,
-        #f7faff
-    );
-
-}
-
-
-.hero-left{
-
-    width:55%;
-
-}
-
-
-
-.hero h1{
-
-    font-size:58px;
-    line-height:1.12;
-    letter-spacing:-1px;
-    margin-bottom:25px;
-
-}
-
-
-.hero h1 span{
-
-    color:#173ea5;
-
-}
-
-
-
-.hero p{
-
-    font-size:20px;
-    color:#667085;
-    line-height:1.7;
-    margin-bottom:35px;
-
-}
-
-
-
-.hero-buttons{
-
-    display:flex;
-    gap:20px;
-
-}
-
-
-
-.secondary-btn{
-
-    border:1px solid #173ea5;
-    color:#173ea5;
-    padding:14px 28px;
-    border-radius:8px;
-    font-weight:600;
-
-}
-
-
-
-/* HERO CARD */
-
-
-.hero-right{
-
-    width:400px;
-
-}
-
-
-
-.learning-card{
-
-    background:white;
-    padding:35px;
-    border-radius:20px;
-
-    box-shadow:
-    0 20px 50px rgba(0,0,0,.08);
-
-    animation:float 5s infinite ease-in-out;
-
-}
-
-
-
-@keyframes float{
-
-    0%,100%{
-        transform:translateY(0);
-    }
-
-    50%{
-        transform:translateY(-12px);
-    }
-
-}
-
-
-
-.learning-card h3{
-
-    margin-bottom:25px;
-
-}
-
-
-
-.metric{
-
-    margin-bottom:20px;
-
-}
-
-
-
-.metric-top{
-
-    display:flex;
-    justify-content:space-between;
-    font-size:14px;
-    margin-bottom:8px;
-
-}
-
-
-
-.progress{
-
-    height:8px;
-    background:#e5e7eb;
-    border-radius:20px;
-
-}
-
-
-
-.progress div{
-
-    height:100%;
-    background:#173ea5;
-    border-radius:20px;
-
-}
-
-
-
-.profile-preview{
-
-    margin-top:25px;
-    padding:20px;
-    background:#f5f8ff;
-    border-radius:12px;
-
-}
-
-
-
-.profile-preview strong{
-
-    color:#173ea5;
-
-}
-
-
-
-
-
-/* =========================
-SECTION
-========================= */
-
-
-section{
-
-    padding:90px 8%;
-
-}
-
-
-.section-title{
-
-    text-align:center;
-    margin-bottom:50px;
-
-}
-
-
-.section-title h2{
-
-    font-size:42px;
-    margin-bottom:15px;
-
-}
-
-
-.section-title p{
-
-    color:#667085;
-    font-size:18px;
-
-}
-
-
-
-/* =========================
-PROBLEM
-========================= */
-
-
-.problem{
-
-    background:#f8fafc;
-
-}
-
-
-
-.cards{
-
-    display:grid;
-    grid-template-columns:repeat(3,1fr);
-    gap:30px;
-
-}
-
-
-
-.card{
-
-    background:white;
-    padding:35px;
-    border-radius:18px;
-
-    box-shadow:
-    0 10px 35px rgba(0,0,0,.06);
-
-    transition:.3s;
-
-}
-
-
-
-.card:hover{
-
-    transform:translateY(-8px);
-
-}
-
-
-
-.card h3{
-
-    margin-bottom:15px;
-
-}
-
-
-
-.card p{
-
-    color:#667085;
-    line-height:1.6;
-
-}
-
-
-
-/* =========================
-PROCESS
-========================= */
-
-
-.process{
-
-    display:grid;
-    grid-template-columns:repeat(4,1fr);
-    gap:25px;
-
-}
-
-
-
-.process-card{
-
-    text-align:center;
-    padding:30px;
-
-    border-radius:15px;
-
-    background:white;
-
-    box-shadow:
-    0 10px 30px rgba(0,0,0,.06);
-
-}
-
-
-
-.process-card span{
-
-    font-size:35px;
-    font-weight:800;
-    color:#173ea5;
-
-}
-
-
-
-.process-card p{
-
-    color:#667085;
-    margin-top:10px;
-
-}
-
-
-</style>
-
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="description" content="Syllabus-aligned online IGCSE and O-Level tuition for students in Malaysia and Singapore, with a free 15-question learning diagnostic.">
+  <meta property="og:title" content="IGCSEMYSG | Where students grow with direction">
+  <meta property="og:description" content="Identify the barrier, strengthen understanding and build a clearer academic direction.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://igcsemysg.site/">
+  <title>Online IGCSE & O-Level Tuition | IGCSEMYSG</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"EducationalOrganization","name":"IGCSEMYSG","url":"https://igcsemysg.site","areaServed":["Malaysia","Singapore"],"description":"Syllabus-aligned online tuition for Cambridge IGCSE, Pearson Edexcel and Singapore O-Level students."}</script>
 </head>
-
-
 <body>
-
-
-<nav>
-
-
-<div class="logo">
-IGCSEMYSG
-</div>
-
-
-<div class="nav-links">
-
-<a href="about.html">
-About
-</a>
-
-<a href="how-we-help.html">
-How We Help
-</a>
-
-<a href="careers.html">
-Careers
-</a>
-
-<a href="contact.html">
-Contact
-</a>
-
-
-</div>
-
-
-
-<a href="assessment.html" class="btn">
-Free Assessment
-</a>
-
-
-</nav>
-
-
-
-
-
-<section class="hero">
-
-
-<div class="hero-left">
-
-
-<h1>
-
-Every student struggles differently.
-
-<br>
-
-<span>
-We identify why.
-</span>
-
-</h1>
-
-
-
-<p>
-
-A personalised IGCSE learning platform that helps students understand their weaknesses,
-connect with the right tutor and build a clear improvement plan.
-
-</p>
-
-
-
-<div class="hero-buttons">
-
-
-<a href="assessment.html" class="btn">
-
-Discover Your Learning Barrier
-
-</a>
-
-
-<a href="enquiry.html" class="secondary-btn">
-
-Find A Tutor
-
-</a>
-
-
-</div>
-
-
-</div>
-
-
-
-
-
-<div class="hero-right">
-
-
-<div class="learning-card">
-
-
-<h3>
-Example Learning Profile
-</h3>
-
-
-<div class="metric">
-
-<div class="metric-top">
-
-<span>
-Concept Understanding
-</span>
-
-<span>
-70%
-
-</span>
-
-</div>
-
-
-<div class="progress">
-
-<div style="width:70%"></div>
-
-</div>
-
-
-</div>
-
-
-
-
-<div class="metric">
-
-<div class="metric-top">
-
-<span>
-Exam Application
-</span>
-
-<span>
-45%
-
-</span>
-
-</div>
-
-
-<div class="progress">
-
-<div style="width:45%"></div>
-
-</div>
-
-
-</div>
-
-
-
-
-<div class="profile-preview">
-
-
-<strong>
-Main Barrier:
-</strong>
-
-<br>
-
-Applying concepts in unfamiliar questions.
-
-
-<br><br>
-
-
-<strong>
-Recommended:
-</strong>
-
-<br>
-
-Targeted practice + personalised tutor.
-
-
-</div>
-
-
-</div>
-
-
-</div>
-
-
-
-</section>
-<!-- =========================
-TRUST SECTION
-========================= -->
-
-
-<section>
-
-
-<div class="section-title">
-
-
-<h2>
-A Better Way To Prepare For IGCSE
-</h2>
-
-
-<p>
-Not just more tuition. A clearer understanding of what each student needs.
-</p>
-
-
-</div>
-
-
-
-
-<div class="cards">
-
-
-<div class="card">
-
-<h3>
-🎯 Learning Diagnosis
-</h3>
-
-
-<p>
-
-Identify the actual reason behind learning struggles before choosing a solution.
-
-</p>
-
-
-</div>
-
-
-
-
-
-<div class="card">
-
-<h3>
-👨‍🏫 Personalised Tuition
-</h3>
-
-
-<p>
-
-Connect with tutors who match the student's subject needs and learning style.
-
-</p>
-
-
-</div>
-
-
-
-
-
-<div class="card">
-
-<h3>
-📈 Progress Improvement
-</h3>
-
-
-<p>
-
-Follow a structured learning approach focused on understanding and results.
-
-</p>
-
-
-</div>
-
-
-
-</div>
-
-
-
-</section>
-
-
-
-
-
-
-
-
-
-<!-- =========================
-HOW IT WORKS
-========================= -->
-
-
-<section class="problem">
-
-
-<div class="section-title">
-
-
-<h2>
-How IGCSEMYSG Helps Students
-</h2>
-
-
-<p>
-A structured journey from confusion to confidence.
-</p>
-
-
-</div>
-
-
-
-
-
-<div class="process">
-
-
-
-<div class="process-card">
-
-<span>
-01
-</span>
-
-<h3>
-Discover
-</h3>
-
-<p>
-Identify learning barriers through assessment.
-</p>
-
-</div>
-
-
-
-
-
-<div class="process-card">
-
-<span>
-02
-</span>
-
-<h3>
-Understand
-</h3>
-
-<p>
-Build stronger concepts and foundations.
-</p>
-
-</div>
-
-
-
-
-
-<div class="process-card">
-
-<span>
-03
-</span>
-
-<h3>
-Practise
-</h3>
-
-<p>
-Apply knowledge through targeted exercises.
-</p>
-
-</div>
-
-
-
-
-
-<div class="process-card">
-
-<span>
-04
-</span>
-
-<h3>
-Improve
-</h3>
-
-<p>
-Track progress towards academic goals.
-</p>
-
-</div>
-
-
-
-</div>
-
-
-
-</section>
-
-
-
-
-
-
-
-
-<!-- =========================
-WHY STUDENTS CHOOSE
-========================= -->
-
-
-<section>
-
-
-<div class="section-title">
-
-
-<h2>
-Designed For IGCSE Students
-</h2>
-
-
-<p>
-Supporting students across different subjects and learning goals.
-</p>
-
-
-</div>
-
-
-
-
-<div class="cards">
-
-
-<div class="card">
-
-
-<h3>
-Mathematics
-</h3>
-
-
-<p>
-
-Build understanding, improve problem-solving and master exam techniques.
-
-</p>
-
-
-</div>
-
-
-
-
-
-<div class="card">
-
-
-<h3>
-Science Subjects
-</h3>
-
-
-<p>
-
-Strengthen concepts and learn how to apply knowledge in structured questions.
-
-</p>
-
-
-</div>
-
-
-
-
-
-<div class="card">
-
-
-<h3>
-Humanities & Business
-</h3>
-
-
-<p>
-
-Develop clearer thinking, answer structures and exam confidence.
-
-</p>
-
-
-</div>
-
-
-
-</div>
-
-
-
-</section>
-
-
-
-
-
-
-
-
-
-<!-- =========================
-TECHNOLOGY SECTION
-========================= -->
-
-
-<section class="problem">
-
-
-<div class="section-title">
-
-
-<h2>
-More Than Just Tuition
-</h2>
-
-
-<p>
-Combining human guidance with modern learning support.
-</p>
-
-
-</div>
-
-
-
-
-<div class="cards">
-
-
-<div class="card">
-
-
-<h3>
-🤖 AI Learning Support
-</h3>
-
-
-<p>
-
-Help students receive additional explanations, examples and revision support outside lessons.
-
-</p>
-
-
-</div>
-
-
-
-
-
-<div class="card">
-
-
-<h3>
-📚 Personalised Resources
-</h3>
-
-
-<p>
-
-Recommend exercises and materials based on individual weaknesses.
-
-</p>
-
-
-</div>
-
-
-
-
-
-<div class="card">
-
-
-<h3>
-👥 Human Guidance
-</h3>
-
-
-<p>
-
-Tutors provide explanation, motivation and accountability.
-
-</p>
-
-
-</div>
-
-
-
-</div>
-
-
-
-</section>
-
-
-
-
-
-
-
-
-
-<!-- =========================
-TESTIMONIALS
-========================= -->
-
-
-<section>
-
-
-<div class="section-title">
-
-
-<h2>
-Helping Students Learn Better
-</h2>
-
-
-<p>
-A learning experience built around understanding.
-</p>
-
-
-</div>
-
-
-
-
-<div class="cards">
-
-
-<div class="card">
-
-
-<p>
-
-"Students often spend more time studying but still struggle because they do not know what to improve."
-
-</p>
-
-
-<br>
-
-
-<strong>
-Parent Perspective
-</strong>
-
-
-</div>
-
-
-
-
-
-<div class="card">
-
-
-<p>
-
-"The right learning approach can make studying more focused and effective."
-
-</p>
-
-
-<br>
-
-
-<strong>
-Student Perspective
-</strong>
-
-
-</div>
-
-
-
-
-
-<div class="card">
-
-
-<p>
-
-"Our goal is to help students understand, apply and improve."
-
-</p>
-
-
-<br>
-
-
-<strong>
-IGCSEMYSG Mission
-</strong>
-
-
-</div>
-
-
-
-</div>
-
-
-
-</section>
-
-
-
-
-
-
-
-
-
-<!-- =========================
-FINAL CTA
-========================= -->
-
-
-<section style="
-background:#173ea5;
-color:white;
-text-align:center;
-">
-
-
-<h2 style="
-font-size:45px;
-margin-bottom:20px;
-">
-
-
-Find Out What Is Holding You Back
-
-
-</h2>
-
-
-
-<p style="
-font-size:20px;
-margin-bottom:35px;
-">
-
-
-Take a free learning assessment and discover your next step.
-
-
-</p>
-
-
-
-
-<a href="assessment.html"
-class="btn"
-style="
-background:white;
-color:#173ea5;
-">
-
-Start Free Assessment
-
-</a>
-
-
-
-</section>
-
-
-
-
-
-
-
-
-
-<!-- =========================
-FOOTER
-========================= -->
-
-
-<footer style="
-background:#101828;
-color:white;
-padding:50px 8%;
-text-align:center;
-">
-
-
-<h2 style="
-color:white;
-margin-bottom:15px;
-">
-
-IGCSEMYSG
-
-</h2>
-
-
-<p>
-
-Personalised IGCSE learning for students in Malaysia and Singapore.
-
-</p>
-
-
-<br>
-
-
-<div>
-
-
-<a href="about.html" style="color:white;margin:10px;">
-About
-</a>
-
-
-<a href="how-we-help.html" style="color:white;margin:10px;">
-How We Help
-</a>
-
-
-<a href="careers.html" style="color:white;margin:10px;">
-Careers
-</a>
-
-
-<a href="contact.html" style="color:white;margin:10px;">
-Contact
-</a>
-
-
-</div>
-
-
-
-<br>
-
-
-<p>
-© 2026 IGCSEMYSG. All Rights Reserved.
-</p>
-
-
-
-</footer>
-
-
-
-
-
-
-
-<style>
-
-
-@media(max-width:900px){
-
-
-.hero{
-
-flex-direction:column;
-
-}
-
-
-.hero-left,
-.hero-right{
-
-width:100%;
-
-}
-
-
-
-.hero h1{
-
-font-size:40px;
-
-}
-
-
-
-.cards,
-.process{
-
-grid-template-columns:1fr;
-
-}
-
-
-
-.nav-links{
-
-display:none;
-
-}
-
-
-
-}
-
-
-</style>
-
-
-
-
-
+  <header class="site-header">
+    <nav class="nav shell" aria-label="Main navigation">
+      <a class="brand" href="#top" aria-label="IGCSEMYSG home"><span class="brand-mark">I</span><span>IGCSEMYSG</span></a>
+      <button class="menu-button" type="button" aria-expanded="false" aria-controls="nav-links">Menu</button>
+      <div class="nav-links" id="nav-links">
+        <a href="#approach">Approach</a>
+        <a href="#assessment">Assessment</a>
+        <a href="#subjects">Subjects</a>
+        <a href="#faq">FAQ</a>
+        <a href="careers.html">Careers</a>
+      </div>
+      <a class="button button-dark nav-cta" href="#contact">Enquire</a>
+    </nav>
+  </header>
+
+  <main id="top">
+    <section class="hero section">
+      <div class="shell hero-grid">
+        <div class="hero-copy reveal">
+          <p class="kicker"><span></span> Cambridge IGCSE · Pearson Edexcel · Singapore O-Level</p>
+          <h1>Find the barrier.<br><em>Build the way forward.</em></h1>
+          <p class="hero-lead">We help students understand what is holding them back, then provide focused online tuition around the syllabus, the learner and the next meaningful goal.</p>
+          <div class="hero-actions">
+            <a class="button button-dark" href="#assessment">Take the diagnostic</a>
+            <a class="button button-light" href="#approach">See our approach</a>
+          </div>
+          <div class="hero-trust">
+            <span>Malaysia & Singapore</span>
+            <span>One-to-one online support</span>
+            <span>No account required</span>
+          </div>
+        </div>
+
+        <aside class="conversation-card reveal" aria-label="How IGCSEMYSG approaches learning">
+          <div class="conversation-head">
+            <span class="brand-mark">I</span>
+            <div><strong>A clearer starting point</strong><small>IGCSEMYSG learning review</small></div>
+            <i>● Available</i>
+          </div>
+          <div class="message message-student">“I revise, but my grades still do not improve.”</div>
+          <div class="message message-centre">
+            <span class="mini-mark">I</span>
+            <p>That can come from different barriers. We first distinguish between missing foundations, misconceptions, exam technique, language, study habits or loss of direction.</p>
+          </div>
+          <div class="reasoning">
+            <p>Our first priority</p>
+            <strong>Understand the cause before prescribing more practice.</strong>
+          </div>
+        </aside>
+      </div>
+    </section>
+
+    <section class="signal-strip" aria-label="Core principles">
+      <div class="shell signal-grid">
+        <div><span>01</span><strong>Syllabus aligned</strong><small>Teaching connected to the correct examination pathway.</small></div>
+        <div><span>02</span><strong>Student centred</strong><small>Support shaped around the learner’s current barrier.</small></div>
+        <div><span>03</span><strong>Progress directed</strong><small>Clear priorities instead of unfocused repetition.</small></div>
+      </div>
+    </section>
+
+    <section id="approach" class="section">
+      <div class="shell">
+        <div class="section-heading reveal">
+          <div><p class="kicker"><span></span> Our purpose</p><h2>Tuition should solve the right problem.</h2></div>
+          <p>A lower grade does not always mean a student needs more questions. The real issue may be a misconception, weak foundation, language difficulty, ineffective routine, examination pressure or a loss of motivation and direction.</p>
+        </div>
+
+        <div class="purpose-grid">
+          <article class="purpose-feature reveal">
+            <p class="card-label">ONE-TO-ONE ONLINE TUITION</p>
+            <h3>Focused guidance, with room to think.</h3>
+            <p>Students can slow down, ask questions openly and rebuild uncertain ideas without being compared with the pace of a larger class.</p>
+            <a href="#contact">Discuss learning support <span>→</span></a>
+          </article>
+          <div class="purpose-list reveal">
+            <article><span>01</span><div><h3>Understanding first</h3><p>Strengthen concepts and correct misconceptions before relying on memorisation.</p></div></article>
+            <article><span>02</span><div><h3>Application next</h3><p>Connect knowledge to command words, working steps and examination expectations.</p></div></article>
+            <article><span>03</span><div><h3>Confidence through evidence</h3><p>Build confidence from clearer thinking, successful practice and constructive feedback.</p></div></article>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="assessment" class="section assessment-section">
+      <div class="shell assessment-shell">
+        <div class="assessment-intro reveal">
+          <p class="kicker kicker-light"><span></span> Free learning diagnostic</p>
+          <h2>15 questions.<br>A clearer picture.</h2>
+          <p>This short assessment identifies the type of academic struggle a student may currently be experiencing. It does not judge ability or provide a psychological diagnosis.</p>
+          <ul>
+            <li>Approximately 4 minutes</li>
+            <li>No account or personal details required</li>
+            <li>Results stay on this device</li>
+          </ul>
+        </div>
+
+        <div class="diagnostic-card reveal">
+          <div id="diagnostic-start">
+            <p class="diagnostic-step">LEARNING DIAGNOSTIC</p>
+            <h3>Answer based on what is true now.</h3>
+            <p>There are no right or wrong answers. Honest responses help separate the most likely barriers from secondary concerns.</p>
+            <button class="button button-dark full-button" id="start-assessment" type="button">Start assessment</button>
+          </div>
+
+          <form id="diagnostic-form" hidden novalidate>
+            <div class="diagnostic-progress">
+              <div><span id="question-count">Question 1 of 15</span><span id="progress-percent">7%</span></div>
+              <div class="progress-track"><i id="progress-bar"></i></div>
+            </div>
+            <div id="question-panel"></div>
+            <p class="form-error" id="diagnostic-error" role="alert"></p>
+            <div class="diagnostic-actions">
+              <button class="button button-light" id="previous-question" type="button">Back</button>
+              <button class="button button-dark" id="next-question" type="button">Next</button>
+            </div>
+          </form>
+
+          <div id="diagnostic-result" hidden aria-live="polite">
+            <p class="diagnostic-step">YOUR CURRENT PROFILE</p>
+            <h3 id="result-title"></h3>
+            <p id="result-summary"></p>
+            <div class="result-bars" id="result-bars"></div>
+            <div class="result-guidance" id="result-guidance"></div>
+            <div class="result-actions">
+              <a class="button button-dark" id="result-whatsapp" href="#" target="_blank" rel="noopener noreferrer">Discuss this result</a>
+              <button class="button button-light" id="restart-assessment" type="button">Retake</button>
+            </div>
+            <small>This educational screening highlights patterns in the answers. It is not a clinical or psychological assessment.</small>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section framework-section">
+      <div class="shell">
+        <div class="section-heading reveal">
+          <div><p class="kicker"><span></span> The support framework</p><h2>From uncertainty to a clearer direction.</h2></div>
+          <p>The diagnostic is only a starting signal. Teaching decisions are refined through conversation, observation and the student’s response to support.</p>
+        </div>
+        <div class="framework">
+          <article class="reveal"><span>01</span><h3>Consult</h3><p>Understand concerns, goals, learning history and the student’s current sense of direction.</p></article>
+          <article class="reveal"><span>02</span><h3>Troubleshoot</h3><p>Separate likely gaps, misconceptions, language barriers, exam habits and motivational concerns.</p></article>
+          <article class="reveal"><span>03</span><h3>Trial</h3><p>Test focused explanations and short tasks to see what produces a meaningful response.</p></article>
+          <article class="reveal"><span>04</span><h3>Act</h3><p>Build lessons, practice and routines around the strongest evidence—not assumptions.</p></article>
+          <article class="reveal"><span>05</span><h3>Refine</h3><p>Review understanding and performance, then adjust until the next direction is clearer.</p></article>
+        </div>
+        <p class="scope-note reveal"><strong>Responsible scope:</strong> tutors can identify educational and motivational patterns, but do not diagnose psychological conditions. Families should seek an appropriately qualified professional when concerns extend beyond tuition.</p>
+      </div>
+    </section>
+
+    <section id="subjects" class="section subjects-section">
+      <div class="shell subjects-grid">
+        <div class="reveal">
+          <p class="kicker"><span></span> Syllabus coverage</p>
+          <h2>Support across key IGCSE and O-Level subjects.</h2>
+          <p>Availability may vary by tutor and pathway. Enquire with the exact board, syllabus code and current topic for the most accurate match.</p>
+        </div>
+        <div class="subject-cloud reveal" aria-label="Subjects">
+          <span>Mathematics</span><span>Additional Mathematics</span><span>Physics</span><span>Chemistry</span><span>Biology</span><span>English</span><span>Economics</span><span>Business</span><span>ICT</span><span>Computer Science</span><span>Commerce</span><span>Sociology</span><span>Global Perspectives</span><span>Environmental Management</span>
+        </div>
+      </div>
+    </section>
+
+    <section id="faq" class="section faq-section">
+      <div class="shell faq-grid">
+        <div class="faq-intro reveal">
+          <p class="kicker"><span></span> Useful details</p>
+          <h2>Clear answers before you begin.</h2>
+          <p>For a question specific to the student, send the syllabus, subject and current concern through the enquiry section.</p>
+        </div>
+        <div class="faqs reveal">
+          <details open><summary><span>01</span><strong>Which pathways are supported?</strong><i>+</i></summary><p>Cambridge IGCSE, Pearson Edexcel IGCSE and Singapore O-Level pathways.</p></details>
+          <details><summary><span>02</span><strong>What happens before tuition begins?</strong><i>+</i></summary><p>We first discuss the student’s goals, learning history and current concerns. The diagnostic can provide an initial direction, but the tutor still verifies the barrier through conversation and trial work.</p></details>
+          <details><summary><span>03</span><strong>Is the diagnostic a graded test?</strong><i>+</i></summary><p>No. It is a self-reflection screening that highlights likely struggle patterns. It does not measure intelligence, predict grades or replace an academic consultation.</p></details>
+          <details><summary><span>04</span><strong>Can lessons support schoolwork and examinations?</strong><i>+</i></summary><p>Yes. Lessons can address immediate school needs while remaining aligned with longer-term syllabus and examination priorities.</p></details>
+          <details><summary><span>05</span><strong>How is progress reviewed?</strong><i>+</i></summary><p>Through discussion, worked questions, practice and feedback. The teaching focus changes when the evidence points to a different barrier.</p></details>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact" class="section contact-section">
+      <div class="shell contact-grid">
+        <div class="contact-copy reveal">
+          <p class="kicker kicker-light"><span></span> Begin with a conversation</p>
+          <h2>Tell us where learning feels stuck.</h2>
+          <p>Share the student’s board, subject and current concern. We will use that information to understand the most suitable next step.</p>
+          <div class="contact-points"><span>One-to-one online tuition</span><span>Malaysia & Singapore</span><span>WhatsApp response</span></div>
+        </div>
+        <form class="contact-form reveal" id="enquiry-form">
+          <div class="form-row"><label>Parent or student name<input id="enquiry-name" type="text" required maxlength="80" autocomplete="name"></label><label>Student level<input id="enquiry-level" type="text" required maxlength="80" placeholder="e.g. Year 10"></label></div>
+          <div class="form-row"><label>Board<select id="enquiry-board" required><option value="">Select pathway</option><option>Cambridge IGCSE</option><option>Pearson Edexcel IGCSE</option><option>Singapore O-Level</option></select></label><label>Subject<input id="enquiry-subject" type="text" required maxlength="80"></label></div>
+          <label>What is the current concern?<textarea id="enquiry-concern" required maxlength="700" rows="4" placeholder="Briefly describe the difficulty, recent grade or goal."></textarea></label>
+          <button class="button button-white full-button" type="submit">Continue on WhatsApp</button>
+          <small>This opens WhatsApp with the information above. Nothing is stored on this website.</small>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="shell footer-grid">
+      <div><a class="brand footer-brand" href="#top"><span class="brand-mark">I</span><span>IGCSEMYSG</span></a><p>Where students grow with direction.</p></div>
+      <div><strong>Explore</strong><a href="#approach">Approach</a><a href="#assessment">Assessment</a><a href="#subjects">Subjects</a><a href="#faq">FAQ</a></div>
+      <div><strong>Connect</strong><a href="#contact">Enquire</a><a href="careers.html">Careers</a><a href="https://wa.me/60172731112" target="_blank" rel="noopener noreferrer">WhatsApp</a></div>
+    </div>
+    <div class="shell footer-bottom"><span>© 2026 IGCSEMYSG</span><span>Cambridge IGCSE · Pearson Edexcel · Singapore O-Level</span></div>
+  </footer>
+
+  <a class="whatsapp-float" href="https://wa.me/60172731112" target="_blank" rel="noopener noreferrer" aria-label="Chat with IGCSEMYSG on WhatsApp">WA</a>
+  <script src="script.js"></script>
 </body>
-
 </html>
