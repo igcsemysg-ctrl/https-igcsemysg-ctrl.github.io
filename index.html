@@ -6,160 +6,96 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>IGCSEMYSG | Smarter IGCSE Learning</title>
+<title>IGCSEMYSG | Personalised IGCSE Learning</title>
 
 
 <style>
-  .blob{
-
-position:absolute;
-border-radius:50%;
-filter:blur(80px);
-opacity:0.25;
-z-index:-1;
-
-}
 
 
-
-.blob1{
-
-width:400px;
-height:400px;
-background:#2563eb;
-top:100px;
-left:-100px;
-
-}
-
-
-
-.blob2{
-
-width:350px;
-height:350px;
-background:#60a5fa;
-right:-100px;
-top:400px;
-
-}
-  .quiz-box{
-
-border:1px solid rgba(37,99,235,0.15);
-
-background:
-linear-gradient(
-135deg,
-#ffffff,
-#eff6ff
-);
-
-}
-  /* ANIMATIONS */
-
-
-@keyframes fadeUp {
-
-from {
-
-opacity:0;
-transform:translateY(40px);
-
-}
-
-to {
-
-opacity:1;
-transform:translateY(0);
-
-}
-
-}
-
-
-
-@keyframes float {
-
-0%,100%{
-
-transform:translateY(0);
-
-}
-
-50%{
-
-transform:translateY(-15px);
-
-}
-
-}
-
-
-
-.hero-text {
-
-animation:fadeUp 1s ease;
-
-}
-
-
-
-.hero-card {
-
-animation:float 4s ease-in-out infinite;
-
-}
-
-
-
-.card,
-.step,
-.profile {
-
-transition:0.3s ease;
-
-}
-
-
-
-.card:hover,
-.step:hover,
-.profile:hover {
-
-transform:translateY(-8px);
-
-box-shadow:0 20px 40px rgba(0,0,0,0.12);
-
-}
+/* =====================
+GLOBAL
+===================== */
 
 
 *{
 margin:0;
 padding:0;
 box-sizing:border-box;
-font-family:Arial, Helvetica, sans-serif;
+font-family:
+"Inter",
+"Segoe UI",
+Arial,
+sans-serif;
+}
+
+
+html{
+scroll-behavior:smooth;
 }
 
 
 body{
 
-background:#f8fafc;
-color:#111827;
+background:#ffffff;
+color:#172033;
 
 }
 
 
+
+.container{
+
+width:84%;
+max-width:1200px;
+margin:auto;
+
+}
+
+
+
+.btn{
+
+display:inline-block;
+background:#173ea5;
+color:white;
+padding:15px 30px;
+border-radius:8px;
+text-decoration:none;
+font-weight:600;
+transition:.3s;
+
+}
+
+
+.btn:hover{
+
+background:#102d7a;
+transform:translateY(-2px);
+
+}
+
+
+
+/* =====================
+NAVBAR
+===================== */
+
+
 nav{
 
+height:80px;
 display:flex;
 justify-content:space-between;
 align-items:center;
-padding:20px 8%;
+padding:0 8%;
+
 background:white;
+border-bottom:1px solid #edf0f5;
+
 position:sticky;
 top:0;
 z-index:100;
-border-bottom:1px solid #e5e7eb;
+
 
 }
 
@@ -168,15 +104,16 @@ border-bottom:1px solid #e5e7eb;
 
 font-size:25px;
 font-weight:800;
-color:#2563eb;
+color:#173ea5;
 
 }
+
 
 
 .nav-links{
 
 display:flex;
-gap:25px;
+gap:35px;
 
 }
 
@@ -184,133 +121,322 @@ gap:25px;
 .nav-links a{
 
 text-decoration:none;
-color:#374151;
-font-weight:600;
+color:#344054;
+font-weight:500;
 
 }
 
 
-.btn{
+.nav-links a:hover{
 
-background:#2563eb;
-color:white;
-padding:14px 25px;
-border-radius:10px;
-text-decoration:none;
-font-weight:bold;
-cursor:pointer;
-border:none;
+color:#173ea5;
 
 }
 
 
-/* HERO */
+
+
+/* =====================
+HERO
+===================== */
 
 
 .hero{
 
-min-height:90vh;
-padding:80px 8%;
+padding:90px 8%;
 display:flex;
-justify-content:space-between;
 align-items:center;
-gap:40px;
+gap:70px;
+
+background:
+linear-gradient(
+180deg,
+#ffffff,
+#f7faff
+);
+
+min-height:90vh;
 
 }
 
 
-.hero-text{
+
+.hero-left{
 
 width:55%;
 
 }
 
 
+
 .hero h1{
 
-font-size:55px;
-line-height:1.1;
+font-size:58px;
+line-height:1.12;
+letter-spacing:-1px;
 margin-bottom:25px;
 
 }
 
 
-.hero span{
 
-color:#2563eb;
+.hero h1 span{
+
+color:#173ea5;
 
 }
+
 
 
 .hero p{
 
 font-size:20px;
-line-height:1.6;
-color:#6b7280;
+line-height:1.7;
+color:#667085;
 margin-bottom:35px;
 
 }
 
 
-.hero-card{
+
+.hero-buttons{
+
+display:flex;
+gap:20px;
+
+}
+
+
+
+.secondary{
+
+border:1px solid #173ea5;
+color:#173ea5;
+padding:15px 30px;
+border-radius:8px;
+text-decoration:none;
+font-weight:600;
+
+}
+
+
+
+
+/* HERO DIAGNOSTIC CARD */
+
+
+.hero-right{
+
+width:420px;
+
+}
+
+
+
+.analysis-card{
 
 background:white;
 padding:35px;
 border-radius:20px;
-width:350px;
-box-shadow:0 15px 40px rgba(0,0,0,.08);
+
+box-shadow:
+0 20px 50px rgba(0,0,0,.08);
+
+border:1px solid #edf0f5;
+
+animation:float 5s infinite ease-in-out;
 
 }
 
 
-.progress{
 
-height:12px;
-background:#e5e7eb;
+@keyframes float{
+
+0%,100%{
+transform:translateY(0);
+}
+
+50%{
+transform:translateY(-12px);
+}
+
+}
+
+
+
+.analysis-card h3{
+
+margin-bottom:25px;
+
+}
+
+
+
+.analysis-item{
+
+margin-bottom:22px;
+
+}
+
+
+
+.analysis-label{
+
+display:flex;
+justify-content:space-between;
+font-size:14px;
+margin-bottom:8px;
+
+}
+
+
+
+.bar{
+
+height:8px;
+background:#e8edf7;
 border-radius:20px;
-margin:10px 0 20px;
 
 }
 
 
-.progress div{
+
+.bar div{
 
 height:100%;
-background:#2563eb;
+background:#173ea5;
 border-radius:20px;
 
 }
 
 
-/* GENERAL */
+
+.profile-box{
+
+margin-top:25px;
+padding:20px;
+background:#f5f8ff;
+border-radius:12px;
+
+}
+
+
+
+.profile-box strong{
+
+color:#173ea5;
+
+}
+
+
+
+
+
+/* =====================
+TRUST SECTION
+===================== */
+
+
+.trust{
+
+padding:70px 8%;
+text-align:center;
+
+}
+
+
+
+.trust h2{
+
+font-size:38px;
+margin-bottom:15px;
+
+}
+
+
+
+.trust p{
+
+color:#667085;
+font-size:18px;
+
+}
+
+
+
+.trust-grid{
+
+display:grid;
+grid-template-columns:repeat(4,1fr);
+gap:25px;
+margin-top:45px;
+
+}
+
+
+
+.trust-card{
+
+padding:25px;
+border-radius:15px;
+background:#f8fafc;
+
+}
+
+
+
+.trust-card h3{
+
+color:#173ea5;
+font-size:30px;
+
+}
+
+
+
+.trust-card p{
+
+font-size:15px;
+
+}
+
+
+
+/* =====================
+PROBLEM
+===================== */
 
 
 .section{
 
-padding:80px 8%;
+padding:90px 8%;
 
 }
 
 
-.title{
+
+.section-title{
 
 text-align:center;
-margin-bottom:50px;
+margin-bottom:55px;
 
 }
 
 
-.title h2{
 
-font-size:40px;
+.section-title h2{
+
+font-size:42px;
+margin-bottom:15px;
 
 }
 
 
-.title p{
 
-margin-top:15px;
-color:#6b7280;
+.section-title p{
+
+color:#667085;
+font-size:18px;
 
 }
 
@@ -320,7 +446,7 @@ color:#6b7280;
 
 display:grid;
 grid-template-columns:repeat(3,1fr);
-gap:25px;
+gap:30px;
 
 }
 
@@ -328,10 +454,30 @@ gap:25px;
 
 .card{
 
+padding:35px;
 background:white;
-padding:30px;
-border-radius:15px;
-box-shadow:0 10px 30px rgba(0,0,0,.05);
+border-radius:18px;
+
+box-shadow:
+0 10px 35px rgba(0,0,0,.06);
+
+transition:.3s;
+
+}
+
+
+
+.card:hover{
+
+transform:translateY(-8px);
+
+}
+
+
+
+.card h3{
+
+margin-bottom:15px;
 
 }
 
@@ -339,196 +485,77 @@ box-shadow:0 10px 30px rgba(0,0,0,.05);
 
 .card p{
 
-margin-top:15px;
-color:#6b7280;
+color:#667085;
 line-height:1.6;
 
 }
 
 
 
-/* STEPS */
+.problem{
+
+background:#f8fafc;
+
+}
 
 
-.steps{
+
+
+/* =====================
+SOLUTION FLOW
+===================== */
+
+
+.flow{
 
 display:grid;
 grid-template-columns:repeat(4,1fr);
-gap:20px;
-
-}
-
-
-.step{
-
-background:white;
-padding:25px;
-border-radius:15px;
-
-}
-
-
-.number{
-
-font-size:30px;
-font-weight:bold;
-color:#2563eb;
-
-}
-
-
-/* DIAGNOSTIC */
-
-
-.quiz-box{
-
-background:white;
-padding:40px;
-border-radius:20px;
-max-width:700px;
-margin:auto;
-box-shadow:0 10px 30px rgba(0,0,0,.08);
-
-}
-
-
-.answer{
-
-display:block;
-width:100%;
-padding:15px;
-margin:15px 0;
-border-radius:10px;
-border:1px solid #ddd;
-background:white;
-cursor:pointer;
-text-align:left;
-
-}
-
-
-.answer.selected{
-
-background:#2563eb;
-color:white;
-
-}
-
-
-/* RESULT */
-
-
-.result{
-
-background:white;
-padding:40px;
-border-radius:20px;
-max-width:900px;
-margin:auto;
-
-}
-
-
-.profile-grid{
-
-display:grid;
-grid-template-columns:repeat(3,1fr);
-gap:20px;
-margin:30px 0;
-
-}
-
-
-.profile{
-
-background:#eff6ff;
-padding:25px;
-border-radius:15px;
-
-}
-
-
-.path{
-
-display:grid;
-grid-template-columns:repeat(3,1fr);
-gap:20px;
-
-}
-
-
-.path div{
-
-background:#f8fafc;
-padding:25px;
-border-radius:15px;
+gap:25px;
 
 }
 
 
 
-/* FORM */
+.flow-card{
 
-
-.form-box{
-
-max-width:600px;
-margin:auto;
-background:white;
-padding:40px;
-border-radius:20px;
-
-}
-
-
-input,select,textarea{
-
-width:100%;
-padding:15px;
-margin:10px 0;
-border-radius:10px;
-border:1px solid #ddd;
-
-}
-
-
-
-/* CTA */
-
-
-.cta{
-
-background:#2563eb;
-color:white;
-text-align:center;
-padding:80px 8%;
-
-}
-
-
-.cta h2{
-
-font-size:40px;
-
-}
-
-
-
-/* FOOTER */
-
-
-footer{
-
-background:#111827;
-color:white;
-text-align:center;
 padding:30px;
+background:white;
+border-radius:15px;
+text-align:center;
+
+box-shadow:
+0 10px 30px rgba(0,0,0,.06);
 
 }
 
+
+
+.flow-number{
+
+font-size:35px;
+font-weight:800;
+color:#173ea5;
+
+}
+
+
+
+.flow-card p{
+
+color:#667085;
+margin-top:10px;
+
+}
+
+
+
+/* =====================
+RESPONSIVE
+===================== */
 
 
 @media(max-width:900px){
+
 
 .hero{
 
@@ -537,19 +564,10 @@ flex-direction:column;
 }
 
 
-.hero-text{
+.hero-left,
+.hero-right{
 
 width:100%;
-
-}
-
-
-.cards,
-.steps,
-.profile-grid,
-.path{
-
-grid-template-columns:1fr;
 
 }
 
@@ -560,8 +578,25 @@ font-size:40px;
 
 }
 
+
+
+.trust-grid,
+.cards,
+.flow{
+
+grid-template-columns:1fr;
+
 }
 
+
+.nav-links{
+
+display:none;
+
+}
+
+
+}
 
 
 </style>
@@ -569,14 +604,11 @@ font-size:40px;
 </head>
 
 
-
 <body>
-  <div class="blob blob1"></div>
-<div class="blob blob2"></div>
- 
 
 
 <nav>
+
 
 <div class="logo">
 IGCSEMYSG
@@ -585,16 +617,27 @@ IGCSEMYSG
 
 <div class="nav-links">
 
-<a href="#">Home</a>
-<a href="#">Subjects</a>
-<a href="#">Tutors</a>
-<a href="#">Resources</a>
+<a href="#">
+Home
+</a>
+
+<a href="#">
+Subjects
+</a>
+
+<a href="#">
+Tutors
+</a>
+
+<a href="#">
+Resources
+</a>
 
 </div>
 
 
-<a href="#diagnostic" class="btn">
-Start Assessment
+<a class="btn" href="#diagnostic">
+Free Assessment
 </a>
 
 
@@ -607,63 +650,228 @@ Start Assessment
 <section class="hero">
 
 
-<div class="hero-text">
+<div class="hero-left">
+
 
 <h1>
-Stop memorising.
-Start <span>understanding.</span>
+
+Every student struggles differently.
+<br>
+
+<span>
+We identify why.
+</span>
+
 </h1>
+
 
 
 <p>
 
-Syllabus-aligned one-to-one online tuition for Cambridge IGCSE,
-Pearson Edexcel and Singapore O-Level students in Malaysia and Singapore.
+A personalised IGCSE learning platform that discovers your weaknesses,
+matches you with the right tutor, and builds a clear improvement plan.
 
 </p>
 
 
+
+<div class="hero-buttons">
+
+
 <a href="#diagnostic" class="btn">
-Find Your Learning Barrier
+
+Discover Your Learning Barrier
+
+</a>
+
+
+<a href="#" class="secondary">
+
+Explore Tuition
+
 </a>
 
 
 </div>
 
 
+</div>
 
-<div class="hero-card">
+
+
+
+
+<div class="hero-right">
+
+
+<div class="analysis-card">
 
 
 <h3>
-Example Learning Profile
+Student Learning Analysis
 </h3>
 
 
-<p>
-Concept Understanding
-</p>
 
-<div class="progress">
+<div class="analysis-item">
+
+<div class="analysis-label">
+
+<span>
+Concept Understanding
+</span>
+
+<span>
+70%
+</span>
+
+</div>
+
+
+<div class="bar">
 <div style="width:70%"></div>
 </div>
 
 
-<p>
-Exam Technique
-</p>
-
-<div class="progress">
-<div style="width:50%"></div>
 </div>
 
 
+
+
+
+<div class="analysis-item">
+
+<div class="analysis-label">
+
+<span>
+Problem Solving
+</span>
+
+<span>
+45%
+</span>
+
+</div>
+
+
+<div class="bar">
+<div style="width:45%"></div>
+</div>
+
+
+</div>
+
+
+
+
+
+<div class="profile-box">
+
+
+<strong>
+Main Barrier:
+</strong>
+
+<br>
+
+Applying knowledge in exam questions
+
+
+<br><br>
+
+
+<strong>
+Recommended:
+</strong>
+
+<br>
+
+Guided practice + personalised tutor
+
+
+</div>
+
+
+</div>
+
+
+</div>
+
+
+
+</section>
+
+
+
+
+
+
+<section class="trust">
+
+
+<h2>
+Built Around Student Improvement
+</h2>
+
+
 <p>
-Confidence
+Not just more tuition. A clearer understanding of what each student needs.
 </p>
 
-<div class="progress">
-<div style="width:60%"></div>
+
+
+<div class="trust-grid">
+
+
+<div class="trust-card">
+
+<h3>
+1-to-1
+</h3>
+
+<p>
+Personalised tutoring
+</p>
+
+</div>
+
+
+<div class="trust-card">
+
+<h3>
+IGCSE
+</h3>
+
+<p>
+Syllabus focused
+</p>
+
+</div>
+
+
+<div class="trust-card">
+
+<h3>
+AI
+</h3>
+
+<p>
+Learning assistance
+</p>
+
+</div>
+
+
+<div class="trust-card">
+
+<h3>
+100%
+</h3>
+
+<p>
+Student focused
+</p>
+
 </div>
 
 
@@ -676,18 +884,21 @@ Confidence
 
 
 
-<section class="section">
+
+<section class="section problem">
 
 
-<div class="title">
+<div class="section-title">
 
 <h2>
-Why Students Struggle
+Why Students Stay Stuck
 </h2>
 
+
 <p>
-Studying harder does not always mean improving faster.
+Most students work hard but do not know what is preventing improvement.
 </p>
+
 
 </div>
 
@@ -699,38 +910,52 @@ Studying harder does not always mean improving faster.
 <div class="card">
 
 <h3>
-❌ Memorising Without Understanding
+❌ Studying Without Direction
 </h3>
 
+
 <p>
-Students remember information but struggle when questions change.
+
+Students spend hours revising without knowing their weakest areas.
+
 </p>
 
+
 </div>
+
 
 
 <div class="card">
 
 <h3>
-❌ No Personal Guidance
+❌ Same Method For Everyone
 </h3>
 
+
 <p>
-Students do not know their exact weaknesses.
+
+Every student learns differently, but most tuition uses one approach.
+
 </p>
 
+
 </div>
+
 
 
 <div class="card">
 
 <h3>
-❌ Inefficient Revision
+❌ Practising Without Feedback
 </h3>
 
+
 <p>
-Time is wasted studying topics that are already understood.
+
+Students repeat mistakes because they do not understand why they happen.
+
 </p>
+
 
 </div>
 
@@ -739,329 +964,652 @@ Time is wasted studying topics that are already understood.
 
 
 </section>
+<!-- =====================
+DIAGNOSTIC ASSESSMENT
+===================== -->
 
 
+<section class="section" id="diagnostic">
 
 
+<div class="section-title">
 
-<section class="section">
-
-
-<div class="title">
 
 <h2>
-A Smarter Learning System
+Discover Your Learning Barrier
 </h2>
 
-</div>
-
-
-<div class="cards">
-
-
-<div class="card">
-
-<h3>
-🎯 Diagnosis
-</h3>
 
 <p>
-Identify your learning barriers before choosing solutions.
+Understand what is stopping your improvement before choosing the right solution.
 </p>
+
 
 </div>
 
 
-<div class="card">
 
-<h3>
-👨‍🏫 Personal Tutor
+
+
+<div id="quiz-area">
+
+
+<div class="quiz-card">
+
+
+<div class="quiz-top">
+
+
+<span id="question-number">
+Question 1 / 10
+</span>
+
+
+<div class="quiz-progress">
+
+
+<div id="progress-bar"></div>
+
+
+</div>
+
+
+</div>
+
+
+
+
+
+<h3 id="question-text">
+
+Loading question...
+
 </h3>
 
-<p>
-Match with tutors based on your needs.
-</p>
+
+
+<div id="answer-container">
 
 </div>
 
 
-<div class="card">
 
-<h3>
-🤖 AI Support
-</h3>
 
-<p>
-Get personalised explanations and practice.
-</p>
+<button class="btn next-btn" onclick="nextQuestion()">
+
+Continue
+
+</button>
+
+
 
 </div>
 
 
 </div>
 
-</section>
 
 
 
 
 
-<section class="section">
+
+<!-- RESULT -->
 
 
-<div class="title">
+
+<div id="result-area" style="display:none;">
+
+
+
+<div class="result-report">
+
+
+<div class="result-header">
+
 
 <h2>
-How It Works
+Your Personal Learning Profile
 </h2>
 
+
+<p>
+Based on your responses, we identified your main learning barrier.
+</p>
+
+
 </div>
 
 
-<div class="steps">
 
 
-<div class="step">
 
-<div class="number">01</div>
+
+<div class="result-grid">
+
+
+
+<div class="result-box">
+
 
 <h3>
-Assessment
+Main Challenge
+</h3>
+
+
+<p id="result-title">
+
+</p>
+
+
+</div>
+
+
+
+
+
+<div class="result-box">
+
+
+<h3>
+What This Means
+</h3>
+
+
+<p id="result-description">
+
+</p>
+
+
+</div>
+
+
+
+
+
+<div class="result-box">
+
+
+<h3>
+Recommended Approach
+</h3>
+
+
+<p id="result-plan">
+
+</p>
+
+
+</div>
+
+
+
+</div>
+
+
+
+
+
+
+<div class="journey">
+
+
+<h2>
+Your Improvement Journey
+</h2>
+
+
+
+<div class="journey-grid">
+
+
+<div>
+
+<span>
+01
+</span>
+
+<h3>
+Identify
 </h3>
 
 <p>
-Discover your biggest barrier.
+Discover your weaknesses.
 </p>
 
 </div>
 
 
 
-<div class="step">
 
-<div class="number">02</div>
+<div>
 
-<h3>
-Learning Profile
-</h3>
-
-<p>
-Understand your weaknesses.
-</p>
-
-</div>
-
-
-
-<div class="step">
-
-<div class="number">03</div>
-
-<h3>
-Tutor Match
-</h3>
-
-<p>
-Get personalised support.
-</p>
-
-</div>
-
-
-
-<div class="step">
-
-<div class="number">04</div>
+<span>
+02
+</span>
 
 <h3>
 Improve
 </h3>
 
 <p>
-Follow your roadmap.
+Build stronger understanding.
 </p>
 
 </div>
 
 
-</div>
-
-
-</section>
-  <!-- DIAGNOSTIC SECTION -->
-
-
-<section class="section" id="diagnostic">
-
-
-<div class="title">
-
-<h2>
-Discover Your Learning Barrier
-</h2>
-
-<p>
-Answer these questions to understand what is stopping your improvement.
-</p>
-
-</div>
-
-
-
-<div id="quiz-container">
-
-
-<div class="quiz-box">
-
-
-<h3 id="question">
-Loading...
-</h3>
-
-
-<div id="answers"></div>
-
-
-<br>
-
-
-<button class="btn" onclick="nextQuestion()">
-Next Question
-</button>
-
-
-</div>
-
-
-</div>
-
-
-
-
-
-<div id="result-container" style="display:none">
-
-
-<div class="result">
-
-
-<h2>
-Your Learning Profile
-</h2>
-
-
-<div class="profile-grid">
-
-
-<div class="profile">
-
-<h3>
-Main Challenge
-</h3>
-
-<p id="result-title"></p>
-
-</div>
-
-
-
-
-<div class="profile">
-
-<h3>
-Diagnosis
-</h3>
-
-<p id="result-description"></p>
-
-</div>
-
-
-
-
-<div class="profile">
-
-<h3>
-Recommended Method
-</h3>
-
-<p id="recommendation"></p>
-
-</div>
-
-
-</div>
-
-
-
-<h2>
-Your Learning Path
-</h2>
-
-
-<br>
-
-
-<div class="path">
 
 
 <div>
 
+<span>
+03
+</span>
+
 <h3>
-🎯 Topic Diagnosis
+Master
 </h3>
 
 <p>
-Identify weak concepts and misconceptions.
+Apply knowledge confidently.
 </p>
 
 </div>
 
 
-<div>
-
-<h3>
-👨‍🏫 Personal Tutor
-</h3>
-
-<p>
-Receive guidance based on your learning needs.
-</p>
 
 </div>
 
-
-<div>
-
-<h3>
-🤖 AI Support
-</h3>
-
-<p>
-Practice questions and personalised explanations.
-</p>
-
-</div>
 
 
 </div>
 
 
-<br><br>
+
 
 
 <a href="#contact" class="btn">
+
 Get Tutor Recommendation
+
 </a>
 
 
-</div>
 
 
 </div>
+
+
+
+</div>
+
 
 
 </section>
+
+
+
+
+
+
+
+
+
+<style>
+
+
+/* =====================
+QUIZ DESIGN
+===================== */
+
+
+.quiz-card{
+
+
+max-width:750px;
+margin:auto;
+
+background:white;
+
+padding:45px;
+
+border-radius:20px;
+
+box-shadow:
+0 15px 45px rgba(0,0,0,.08);
+
+
+}
+
+
+
+.quiz-top{
+
+margin-bottom:35px;
+
+}
+
+
+
+.quiz-top span{
+
+font-size:14px;
+color:#667085;
+
+}
+
+
+
+.quiz-progress{
+
+height:8px;
+background:#e5e7eb;
+border-radius:20px;
+margin-top:12px;
+
+}
+
+
+
+#progress-bar{
+
+height:100%;
+width:10%;
+
+background:#173ea5;
+
+border-radius:20px;
+
+transition:.4s;
+
+}
+
+
+
+
+
+#question-text{
+
+font-size:26px;
+
+line-height:1.4;
+
+margin-bottom:30px;
+
+}
+
+
+
+
+.answer-btn{
+
+
+display:block;
+
+width:100%;
+
+padding:18px;
+
+margin-bottom:15px;
+
+border-radius:12px;
+
+border:1px solid #dbe2f0;
+
+background:white;
+
+text-align:left;
+
+font-size:16px;
+
+cursor:pointer;
+
+transition:.25s;
+
+
+}
+
+
+
+.answer-btn:hover{
+
+
+border-color:#173ea5;
+
+background:#f5f8ff;
+
+
+}
+
+
+
+.answer-btn.selected{
+
+
+background:#173ea5;
+
+color:white;
+
+border-color:#173ea5;
+
+
+}
+
+
+
+.next-btn{
+
+
+margin-top:15px;
+
+}
+
+
+
+
+
+/* =====================
+RESULT REPORT
+===================== */
+
+
+
+.result-report{
+
+
+max-width:1000px;
+
+margin:auto;
+
+background:white;
+
+padding:50px;
+
+border-radius:25px;
+
+box-shadow:
+0 20px 60px rgba(0,0,0,.08);
+
+
+}
+
+
+
+.result-header{
+
+text-align:center;
+
+margin-bottom:40px;
+
+}
+
+
+
+.result-header p{
+
+color:#667085;
+
+margin-top:10px;
+
+}
+
+
+
+.result-grid{
+
+
+display:grid;
+
+grid-template-columns:repeat(3,1fr);
+
+gap:25px;
+
+margin-bottom:50px;
+
+
+}
+
+
+
+.result-box{
+
+
+background:#f5f8ff;
+
+padding:30px;
+
+border-radius:15px;
+
+
+}
+
+
+
+.result-box h3{
+
+color:#173ea5;
+
+margin-bottom:15px;
+
+}
+
+
+
+.result-box p{
+
+color:#667085;
+
+line-height:1.6;
+
+}
+
+
+
+
+.journey{
+
+
+margin-bottom:40px;
+
+}
+
+
+
+.journey h2{
+
+
+text-align:center;
+
+margin-bottom:30px;
+
+
+}
+
+
+
+.journey-grid{
+
+
+display:grid;
+
+grid-template-columns:repeat(3,1fr);
+
+gap:25px;
+
+
+}
+
+
+
+.journey-grid div{
+
+
+text-align:center;
+
+padding:25px;
+
+background:#f8fafc;
+
+border-radius:15px;
+
+
+}
+
+
+
+.journey-grid span{
+
+
+font-size:30px;
+
+font-weight:800;
+
+color:#173ea5;
+
+
+}
+
+
+
+.journey-grid p{
+
+color:#667085;
+
+margin-top:10px;
+
+}
+
+
+
+
+
+
+
+@media(max-width:900px){
+
+
+.result-grid,
+.journey-grid{
+
+grid-template-columns:1fr;
+
+}
+
+
+.quiz-card,
+.result-report{
+
+padding:30px;
+
+}
+
+
+}
+
+
+</style>
+
 
 
 
@@ -1075,123 +1623,210 @@ const questions = [
 
 
 {
-q:"When learning a new topic, what usually happens?",
-a:[
-["I memorise but don't understand","concept"],
-["I understand but cannot apply it","problem"],
-["I lose motivation quickly","mindset"],
-["I don't know how to organise studying","system"]
+question:
+"What usually happens when learning a difficult topic?",
+
+answers:[
+
+["I memorise information but don't fully understand it","concept"],
+
+["I understand it but struggle applying it","application"],
+
+["I lose motivation when it becomes difficult","confidence"],
+
+["I don't know how to organise my study","system"]
+
 ]
+
 },
 
 
 
 {
-q:"During exams, what is your biggest difficulty?",
-a:[
-["I forget concepts","concept"],
-["I cannot solve unfamiliar questions","problem"],
-["I become nervous","mindset"],
-["I run out of time","system"]
+question:
+"What is your biggest exam difficulty?",
+
+answers:[
+
+["Forgetting concepts","concept"],
+
+["Unable to solve unfamiliar questions","application"],
+
+["Feeling nervous or unsure","confidence"],
+
+["Poor time management","system"]
+
 ]
+
 },
 
 
 
+
 {
-q:"How do you normally revise?",
-a:[
+question:
+"How do you usually revise?",
+
+answers:[
+
 ["Read notes repeatedly","concept"],
-["Do many questions","problem"],
-["Study only near exams","mindset"],
-["No proper schedule","system"]
+
+["Practise questions but repeat mistakes","application"],
+
+["Only study when exams are close","confidence"],
+
+["Study without a clear plan","system"]
+
 ]
+
 },
 
 
 
+
 {
-q:"When you get a wrong answer:",
-a:[
-["I memorise the correct answer","concept"],
-["I analyse my mistake","problem"],
-["I feel discouraged","mindset"],
-["I move on without reviewing","system"]
+question:
+"When you make mistakes, what do you do?",
+
+answers:[
+
+["Memorise the answer","concept"],
+
+["Analyse why I was wrong","application"],
+
+["Feel discouraged","confidence"],
+
+["Move on without reviewing","system"]
+
 ]
+
 },
 
 
 
+
 {
-q:"Your biggest tuition problem is:",
-a:[
-["Need clearer explanations","concept"],
-["Need more exam practice","problem"],
-["Need motivation","mindset"],
-["Need better planning","system"]
+question:
+"What support would help you most?",
+
+answers:[
+
+["Clearer explanations","concept"],
+
+["More guided practice","application"],
+
+["Someone keeping me accountable","confidence"],
+
+["A study roadmap","system"]
+
 ]
+
 },
 
 
 
-{
-q:"Your confidence applying knowledge is:",
-a:[
-["Low because concepts confuse me","concept"],
-["Low because questions are difficult","problem"],
-["Low because I doubt myself","mindset"],
-["Low because I lack consistency","system"]
-]
-},
-
-
 
 {
-q:"Before exams you usually:",
-a:[
-["Memorise everything","concept"],
-["Practise past papers","problem"],
-["Feel stressed","mindset"],
-["Have no revision plan","system"]
-]
-},
+question:
+"Why do your grades not improve?",
 
+answers:[
 
+["I don't understand topics deeply","concept"],
 
-{
-q:"The most useful support would be:",
-a:[
-["Better explanations","concept"],
-["More guided practice","problem"],
-["Someone keeping me accountable","mindset"],
-["A complete study roadmap","system"]
-]
-},
+["I struggle using knowledge","application"],
 
+["I am inconsistent","confidence"],
 
-
-{
-q:"Why are your grades not improving?",
-a:[
-["I don't fully understand topics","concept"],
-["I struggle applying knowledge","problem"],
-["I lack consistency","mindset"],
 ["My study method is inefficient","system"]
+
 ]
+
 },
 
 
 
-{
-q:"Your learning style is:",
-a:[
-["Need examples before understanding","concept"],
-["Need practice to master","problem"],
-["Need encouragement","mindset"],
-["Need structure","system"]
-]
-}
 
+{
+question:
+"Before exams you usually feel:",
+
+answers:[
+
+["I need to memorise more","concept"],
+
+["I need more practice","application"],
+
+["I worry about performance","confidence"],
+
+["I don't know where to start","system"]
+
+]
+
+},
+
+
+
+
+{
+question:
+"Your biggest weakness is:",
+
+answers:[
+
+["Understanding theory","concept"],
+
+["Answering exam questions","application"],
+
+["Maintaining motivation","confidence"],
+
+["Following a routine","system"]
+
+]
+
+},
+
+
+
+
+{
+question:
+"During tuition you prefer:",
+
+answers:[
+
+["Detailed explanations","concept"],
+
+["Worked examples","application"],
+
+["Encouragement","confidence"],
+
+["Structured lessons","system"]
+
+]
+
+},
+
+
+
+
+{
+question:
+"What describes your learning?",
+
+answers:[
+
+["Need concepts simplified","concept"],
+
+["Need more practice","application"],
+
+["Need confidence","confidence"],
+
+["Need better organisation","system"]
+
+]
+
+}
 
 
 ];
@@ -1200,21 +1835,25 @@ a:[
 
 
 
-let current=0;
+let currentQuestion = 0;
 
 
-let scores={
+let selectedAnswer = null;
+
+
+let scores = {
 
 concept:0,
-problem:0,
-mindset:0,
+
+application:0,
+
+confidence:0,
+
 system:0
 
 };
 
 
-
-let selected=null;
 
 
 
@@ -1222,39 +1861,58 @@ let selected=null;
 function loadQuestion(){
 
 
-selected=null;
+let current = questions[currentQuestion];
 
 
-let question=questions[current];
-
-
-document.getElementById("question").innerHTML=
-(current+1)+". "+question.q;
+selectedAnswer=null;
 
 
 
-let output="";
+document.getElementById("question-number").innerHTML=
+
+"Question "
++
+(currentQuestion+1)
++
+" / 10";
 
 
 
-question.a.forEach(function(item){
+document.getElementById("progress-bar").style.width=
+
+((currentQuestion+1)*10)+"%";
 
 
-output+=`
 
-<button class="answer" 
-onclick="choose(this,'${item[1]}')">
+document.getElementById("question-text").innerHTML=current.question;
 
-${item[0]}
+
+
+let html="";
+
+
+
+current.answers.forEach(answer=>{
+
+
+html +=
+
+`
+<button class="answer-btn"
+onclick="selectAnswer(this,'${answer[1]}')">
+
+${answer[0]}
 
 </button>
-
 `;
+
+
 
 });
 
 
-document.getElementById("answers").innerHTML=output;
+
+document.getElementById("answer-container").innerHTML=html;
 
 
 }
@@ -1263,21 +1921,21 @@ document.getElementById("answers").innerHTML=output;
 
 
 
-function choose(button,type){
 
 
-document.querySelectorAll(".answer")
-.forEach(function(btn){
+function selectAnswer(button,type){
 
-btn.classList.remove("selected");
 
-});
+document.querySelectorAll(".answer-btn")
+
+.forEach(btn=>btn.classList.remove("selected"));
+
 
 
 button.classList.add("selected");
 
 
-selected=type;
+selectedAnswer=type;
 
 
 }
@@ -1291,10 +1949,9 @@ selected=type;
 function nextQuestion(){
 
 
+if(selectedAnswer==null){
 
-if(selected==null){
-
-alert("Please select an answer first");
+alert("Please select an answer.");
 
 return;
 
@@ -1302,15 +1959,15 @@ return;
 
 
 
-scores[selected]++;
+scores[selectedAnswer]++;
 
 
 
-current++;
+currentQuestion++;
 
 
 
-if(current < questions.length){
+if(currentQuestion < questions.length){
 
 loadQuestion();
 
@@ -1318,7 +1975,7 @@ loadQuestion();
 
 else{
 
-generateResult();
+showResult();
 
 }
 
@@ -1331,83 +1988,79 @@ generateResult();
 
 
 
-function generateResult(){
+
+function showResult(){
+
+
+document.getElementById("quiz-area").style.display="none";
+
+
+document.getElementById("result-area").style.display="block";
 
 
 
-document.getElementById("quiz-container")
-.style.display="none";
+let result = Object.keys(scores).reduce((a,b)=>
 
+scores[a]>scores[b]?a:b
 
-document.getElementById("result-container")
-.style.display="block";
-
-
-
-let highest =
-Object.keys(scores).reduce(function(a,b){
-
-return scores[a]>scores[b]?a:b;
-
-});
+);
 
 
 
-let title="";
-let description="";
-let recommendation="";
+let title;
+
+let description;
+
+let plan;
 
 
 
-if(highest==="concept"){
+if(result=="concept"){
 
 
 title="Concept Understanding Barrier";
 
 
 description=
-"You may understand parts of the syllabus but struggle connecting ideas together.";
+"You may know information but need deeper understanding of how ideas connect.";
 
 
-recommendation=
-"Visual explanations, simplified concepts and step-by-step teaching.";
-
+plan=
+"Personalised explanations, visual learning and concept breakdown.";
 
 }
 
 
 
-else if(highest==="problem"){
+else if(result=="application"){
 
 
 title="Problem Solving Barrier";
 
 
 description=
-"You understand the theory but struggle applying it in exam situations.";
+"You understand the topic but need more practice applying knowledge."
 
 
-recommendation=
-"More guided practice, past paper analysis and exam techniques.";
-
+plan=
+"Exam techniques, guided questions and feedback.";
 
 }
 
 
 
-else if(highest==="mindset"){
+else if(result=="confidence"){
 
 
-title="Motivation & Confidence Barrier";
+title="Confidence & Motivation Barrier";
 
 
 description=
-"Your biggest challenge is consistency and confidence while studying.";
+"Your progress is limited by consistency and confidence."
 
 
-recommendation=
-"Accountability, structured lessons and progress tracking.";
-
+plan=
+"Structured support, accountability and progress tracking.";
 
 }
 
@@ -1416,32 +2069,27 @@ recommendation=
 else{
 
 
-title="Learning System Barrier";
+title="Study System Barrier";
 
 
 description=
-"Your study method may not be organised efficiently."
+"Your learning approach needs better organisation."
 
 
-recommendation=
-"A personalised study roadmap and revision system.";
+plan=
+"A personalised revision roadmap and study structure.";
 
 }
 
 
 
-document.getElementById("result-title")
-.innerHTML=title;
+document.getElementById("result-title").innerHTML=title;
 
 
-
-document.getElementById("result-description")
-.innerHTML=description;
+document.getElementById("result-description").innerHTML=description;
 
 
-
-document.getElementById("recommendation")
-.innerHTML=recommendation;
+document.getElementById("result-plan").innerHTML=plan;
 
 
 
@@ -1454,20 +2102,24 @@ loadQuestion();
 
 
 </script>
-<!-- TUTOR MATCHING SECTION -->
+<!-- =====================
+TUTOR MATCHING SECTION
+===================== -->
 
 
 <section class="section" id="contact">
 
 
-<div class="title">
+<div class="section-title">
+
 
 <h2>
-Find Your Ideal Tutor
+Find The Right Learning Support
 </h2>
 
+
 <p>
-Tell us about your learning needs and we will recommend the right support.
+Receive a personalised recommendation based on your learning profile.
 </p>
 
 
@@ -1476,25 +2128,93 @@ Tell us about your learning needs and we will recommend the right support.
 
 
 
-<div class="form-box">
+
+<div class="contact-wrapper">
+
+
+
+<div class="contact-info">
+
+
+<h2>
+Why students choose IGCSEMYSG
+</h2>
+
+
+
+<div class="info-item">
+
+<h3>
+✓ Personalised Matching
+</h3>
+
+<p>
+Tutors are matched based on subject needs, learning style and goals.
+</p>
+
+</div>
+
+
+
+<div class="info-item">
+
+<h3>
+✓ Exam-Focused Approach
+</h3>
+
+<p>
+Lessons focus on understanding, application and exam performance.
+</p>
+
+</div>
+
+
+
+<div class="info-item">
+
+<h3>
+✓ Continuous Improvement
+</h3>
+
+<p>
+Track progress and adjust learning strategies over time.
+</p>
+
+</div>
+
+
+</div>
+
+
+
+
+
+<div class="form-card">
+
+
+<h2>
+Get Tutor Recommendation
+</h2>
+
 
 
 <input 
-type="text"
 placeholder="Student Name"
 >
 
 
+
 <input 
-type="email"
 placeholder="Parent Email"
+type="email"
 >
 
 
+
 <input 
-type="tel"
 placeholder="Contact Number"
 >
+
 
 
 <select>
@@ -1535,6 +2255,7 @@ Economics
 
 
 
+
 <select>
 
 <option>
@@ -1554,44 +2275,25 @@ C
 </option>
 
 <option>
-D or below
+Below C
 </option>
 
 </select>
 
 
 
-<select>
 
-<option>
-Target Grade
-</option>
-
-<option>
-A*
-</option>
-
-<option>
-A
-</option>
-
-<option>
-B
-</option>
-
-</select>
-
-
-
-<textarea rows="5"
+<textarea
+rows="5"
 placeholder="Tell us your biggest learning challenge">
 </textarea>
 
 
 
-
 <button class="btn">
+
 Submit Request
+
 </button>
 
 
@@ -1600,6 +2302,10 @@ Submit Request
 
 
 
+</div>
+
+
+
 </section>
 
 
@@ -1608,21 +2314,24 @@ Submit Request
 
 
 
-<!-- AI SUPPORT SECTION -->
+<!-- =====================
+AI SUPPORT
+===================== -->
 
 
-<section class="section">
+<section class="section ai-section">
 
 
-<div class="title">
+<div class="section-title">
+
 
 <h2>
-Beyond Tuition
+Personalised Learning Beyond Tuition
 </h2>
 
 
 <p>
-Technology-powered support to help students improve faster.
+Technology supports students between lessons.
 </p>
 
 
@@ -1630,54 +2339,75 @@ Technology-powered support to help students improve faster.
 
 
 
+
 <div class="cards">
 
 
 <div class="card">
+
 
 <h3>
 🤖 AI Learning Assistant
 </h3>
 
+
 <p>
-Students receive instant explanations, examples and guidance when they are stuck.
+
+Students receive additional explanations and guidance whenever they need help.
+
 </p>
+
 
 </div>
 
 
 
 
+
 <div class="card">
+
 
 <h3>
-📚 Personalised Practice
+📚 Smart Practice
+
 </h3>
 
+
 <p>
-Exercises are recommended based on weaknesses identified during diagnosis.
+
+Recommend exercises based on identified weaknesses.
+
 </p>
+
 
 </div>
 
 
 
 
+
 <div class="card">
+
 
 <h3>
 📈 Progress Tracking
+
 </h3>
 
+
 <p>
-Monitor improvement over time and identify areas needing attention.
+
+Understand improvement and areas requiring more attention.
+
 </p>
 
-</div>
-
-
 
 </div>
+
+
+
+</div>
+
 
 
 </section>
@@ -1689,17 +2419,27 @@ Monitor improvement over time and identify areas needing attention.
 
 
 
-<!-- FAQ -->
+
+<!-- =====================
+TESTIMONIALS
+===================== -->
 
 
-<section class="section">
+<section class="section testimonial-section">
 
 
-<div class="title">
+<div class="section-title">
+
 
 <h2>
-Frequently Asked Questions
+What Parents Want
 </h2>
+
+
+<p>
+Building confidence through personalised support.
+</p>
+
 
 </div>
 
@@ -1709,46 +2449,71 @@ Frequently Asked Questions
 <div class="cards">
 
 
-
 <div class="card">
 
-<h3>
-Is this only for IGCSE students?
-</h3>
 
 <p>
-Currently focused on Cambridge IGCSE, Pearson Edexcel and Singapore O-Level students.
+
+"Before tuition, my child studied for hours but did not know what mistakes were holding them back."
+
 </p>
+
+
+<br>
+
+
+<strong>
+— Parent Perspective
+</strong>
+
 
 </div>
 
 
 
 
+
 <div class="card">
 
-<h3>
-How is this different from tuition centres?
-</h3>
 
 <p>
-Instead of giving every student the same approach, we identify individual learning barriers first.
+
+"A clear learning plan helps students focus on improvement instead of guessing what to study."
+
 </p>
+
+
+<br>
+
+
+<strong>
+— Student Perspective
+</strong>
+
 
 </div>
 
 
 
 
+
 <div class="card">
 
-<h3>
-Do students still need tutors?
-</h3>
 
 <p>
-Yes. Technology supports learning, but personalised human guidance remains important.
+
+"The goal is not just more practice, but better understanding."
+
 </p>
+
+
+<br>
+
+
+<strong>
+— IGCSEMYSG Approach
+</strong>
+
 
 </div>
 
@@ -1766,29 +2531,135 @@ Yes. Technology supports learning, but personalised human guidance remains impor
 
 
 
-<!-- FINAL CTA -->
+
+<!-- =====================
+FAQ
+===================== -->
 
 
-<section class="cta">
+<section class="section faq-section">
+
+
+<div class="section-title">
 
 
 <h2>
-Your Results Start With Understanding Yourself
+Frequently Asked Questions
+</h2>
+
+
+</div>
+
+
+
+<div class="cards">
+
+
+
+<div class="card">
+
+
+<h3>
+Is this only for IGCSE?
+</h3>
+
+
+<p>
+
+IGCSEMYSG focuses on Cambridge IGCSE, Pearson Edexcel and Singapore O-Level students.
+
+</p>
+
+
+</div>
+
+
+
+
+<div class="card">
+
+
+<h3>
+How is this different from normal tuition?
+</h3>
+
+
+<p>
+
+We identify why students struggle first, then recommend the right learning approach.
+
+</p>
+
+
+</div>
+
+
+
+
+
+<div class="card">
+
+
+<h3>
+Does AI replace tutors?
+</h3>
+
+
+<p>
+
+No. AI supports learning, while tutors provide guidance, explanation and accountability.
+
+</p>
+
+
+</div>
+
+
+
+</div>
+
+
+
+</section>
+
+
+
+
+
+
+
+
+
+<!-- =====================
+FINAL CTA
+===================== -->
+
+
+<section class="final-cta">
+
+
+<h2>
+
+Understand Your Weakness.
+Build Your Improvement Plan.
+
 </h2>
 
 
 <p>
-Discover your learning barrier and create your improvement plan.
+
+Start with a free learning assessment.
+
 </p>
 
 
-<br><br>
+
+<br>
 
 
-<a href="#diagnostic" class="btn"
-style="background:white;color:#2563eb;">
+<a href="#diagnostic" class="btn white-btn">
 
-Take Free Assessment
+Take Assessment
 
 </a>
 
@@ -1806,13 +2677,15 @@ Take Free Assessment
 <footer>
 
 
-<h3>
+<div class="logo">
 IGCSEMYSG
-</h3>
+</div>
 
 
 <p>
-Syllabus-aligned personalised learning for IGCSE students.
+
+Personalised IGCSE learning for students in Malaysia and Singapore.
+
 </p>
 
 
@@ -1820,49 +2693,243 @@ Syllabus-aligned personalised learning for IGCSE students.
 
 
 <p>
-© 2026 IGCSEMYSG. All Rights Reserved.
-</p>
 
+© 2026 IGCSEMYSG. All rights reserved.
+
+</p>
 
 
 </footer>
 
-<script>
 
-const observer = new IntersectionObserver(entries=>{
 
-entries.forEach(entry=>{
 
-if(entry.isIntersecting){
 
-entry.target.style.opacity=1;
-entry.target.style.transform="translateY(0)";
+
+
+
+<style>
+
+
+/* =====================
+PART 3 STYLING
+===================== */
+
+
+
+.contact-wrapper{
+
+
+display:grid;
+
+grid-template-columns:1fr 1fr;
+
+gap:50px;
+
+align-items:center;
+
 
 }
 
-});
 
 
-});
+.info-item{
 
 
-document.querySelectorAll(
-".section,.card,.step"
-)
-.forEach(el=>{
+margin-top:30px;
 
-el.style.opacity=0;
-
-el.style.transform="translateY(40px)";
-
-el.style.transition="0.8s ease";
-
-observer.observe(el);
-
-});
+}
 
 
-</script>
+
+.info-item p{
+
+
+color:#667085;
+
+line-height:1.6;
+
+
+}
+
+
+
+
+
+.form-card{
+
+
+background:white;
+
+padding:40px;
+
+border-radius:20px;
+
+box-shadow:
+0 15px 45px rgba(0,0,0,.08);
+
+
+}
+
+
+
+.form-card input,
+.form-card select,
+.form-card textarea{
+
+
+width:100%;
+
+padding:15px;
+
+margin-bottom:15px;
+
+border-radius:10px;
+
+border:1px solid #dbe2f0;
+
+font-size:15px;
+
+
+}
+
+
+
+
+
+.ai-section{
+
+
+background:#f8fafc;
+
+
+}
+
+
+
+
+
+.testimonial-section{
+
+
+background:#f8fafc;
+
+
+}
+
+
+
+
+
+.final-cta{
+
+
+padding:90px 8%;
+
+background:#173ea5;
+
+color:white;
+
+text-align:center;
+
+
+}
+
+
+
+.final-cta h2{
+
+
+font-size:45px;
+
+max-width:800px;
+
+margin:auto;
+
+line-height:1.2;
+
+
+}
+
+
+
+.final-cta p{
+
+
+margin-top:20px;
+
+font-size:20px;
+
+
+}
+
+
+
+.white-btn{
+
+
+background:white;
+
+color:#173ea5;
+
+
+}
+
+
+
+footer{
+
+
+background:#101828;
+
+color:white;
+
+padding:50px 8%;
+
+text-align:center;
+
+
+}
+
+
+
+footer .logo{
+
+
+margin-bottom:15px;
+
+}
+
+
+
+
+
+@media(max-width:900px){
+
+
+.contact-wrapper{
+
+grid-template-columns:1fr;
+
+}
+
+
+.final-cta h2{
+
+font-size:35px;
+
+}
+
+
+}
+
+
+
+</style>
+
+
+
+
 
 
 </body>
