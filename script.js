@@ -296,6 +296,8 @@ function initDiagnostic() {
   const form = document.querySelector("#diagnostic-form");
   if (!start || !startPanel || !form) return;
 
+  form.addEventListener("submit", (event) => event.preventDefault());
+
   start.addEventListener("click", () => {
     startPanel.hidden = true;
     form.hidden = false;
