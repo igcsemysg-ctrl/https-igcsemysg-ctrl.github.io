@@ -1,0 +1,138 @@
+IGCSEMYSG GOOGLE SEARCH SETUP
+=============================
+
+The website files now include:
+
+- A search-focused but reader-first IGCSE tuition guide.
+- Unique titles and descriptions for important pages.
+- Canonical URLs to reduce duplicate versions.
+- Organisation, website, service, article and breadcrumb structured data.
+- robots.txt and sitemap.xml for discovery.
+- Internal links using clear page names.
+- Social-sharing metadata and large preview-image support.
+
+No developer can guarantee a first-page Google position. Ranking also depends
+on indexing, competition, genuinely useful content, reputation, links from
+other relevant websites, location signals and time.
+
+
+1. DEPLOY EVERY FILE FIRST
+--------------------------
+
+Upload the complete package to the root of the GitHub Pages repository. Check:
+
+https://igcsemysg.site/robots.txt
+https://igcsemysg.site/sitemap.xml
+https://igcsemysg.site/igcse-tuition.html
+
+Each address must open the correct file. robots.txt must display plain text,
+and sitemap.xml must display XML rather than the homepage.
+
+
+2. ADD THE DOMAIN TO GOOGLE SEARCH CONSOLE
+------------------------------------------
+
+A. Open https://search.google.com/search-console/
+B. Add a Domain property for:
+
+igcsemysg.site
+
+C. Google will provide a TXT verification record.
+D. Add that TXT record wherever the domain's DNS is managed.
+E. Return to Search Console and select Verify.
+
+Domain verification is preferable because it covers https, http, www and the
+non-www domain together.
+
+
+3. SUBMIT THE SITEMAP
+---------------------
+
+Inside Search Console:
+
+A. Open Sitemaps.
+B. Enter:
+
+sitemap.xml
+
+C. Select Submit.
+
+Then use URL Inspection for these two URLs and request indexing once:
+
+https://igcsemysg.site/
+https://igcsemysg.site/igcse-tuition.html
+
+Do not repeatedly request indexing. Google still decides when to crawl and
+index each page.
+
+
+4. USE ONE PREFERRED DOMAIN
+---------------------------
+
+The HTML identifies https://igcsemysg.site/ as the canonical domain. In the
+GitHub Pages repository settings, keep the custom domain as:
+
+igcsemysg.site
+
+Enable "Enforce HTTPS". The www version should redirect to the non-www version
+if your DNS and GitHub Pages configuration support it.
+
+
+5. BUILD TRUST SIGNALS, NOT KEYWORD REPETITION
+----------------------------------------------
+
+The strongest future additions are real, verifiable information such as:
+
+- Tutor names, subject expertise and relevant qualifications, with consent.
+- A clear explanation of tutor selection and safeguarding practices.
+- Original subject guides written or reviewed by the named tutor.
+- Honest case studies with the student's or parent's permission.
+- Specific syllabus-code pages only when IGCSEMYSG genuinely supports them.
+- A clear business identity, contact details and service region.
+
+Do not create dozens of near-identical city or subject pages. Do not buy links,
+copy competitors, hide text or repeat "IGCSE tuition" unnaturally. These
+approaches can reduce trust and may breach search-engine spam policies.
+
+
+6. EARN RELEVANT MENTIONS
+-------------------------
+
+Useful and legitimate opportunities include:
+
+- Ask partner schools, education communities or tutors to link to a genuinely
+  useful free resource when it benefits their readers.
+- Share original checklists and subject explanations in relevant parent and
+  student communities without posting repetitive promotions.
+- Create and maintain accurate organisation profiles on platforms families
+  already use.
+- Keep the same name, domain, phone and region information wherever the centre
+  is listed.
+
+Never pay for bulk backlinks or use automated link exchanges.
+
+
+7. REVIEW SEARCH PERFORMANCE MONTHLY
+------------------------------------
+
+In Search Console, review:
+
+- Performance > Search results: queries, pages, clicks and impressions.
+- Indexing > Pages: pages that are not indexed and the stated reason.
+- Experience/Core Web Vitals: mobile usability and loading concerns.
+
+Record a baseline after deployment. Review meaningful movement after several
+weeks, not daily. Improve a page only when the query and visitor need are clear.
+
+
+8. KEEP THE SITEMAP CURRENT
+---------------------------
+
+When adding an important permanent HTML page:
+
+A. Give it a unique title, description and canonical URL.
+B. Link to it naturally from at least one existing page.
+C. Add its full https URL to sitemap.xml.
+D. Use the real last substantial update date in YYYY-MM-DD format.
+
+Do not add private, duplicate, missing or noindex pages to the sitemap.

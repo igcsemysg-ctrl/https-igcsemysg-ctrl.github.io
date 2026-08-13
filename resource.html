@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="description" content="A free subject revision-planning resource from IGCSEMYSG.">
+  <meta name="robots" content="noindex,follow">
+  <meta name="theme-color" content="#eef2ef">
+  <link rel="canonical" href="https://igcsemysg.site/resources.html">
+  <title>Free Revision Resource | IGCSEMYSG</title>
+  <link rel="icon" href="favicon.ico" sizes="any">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body class="resource-viewer-body">
+  <header class="site-header no-print">
+    <nav class="nav shell" aria-label="Main navigation">
+      <a class="brand" href="index.html" aria-label="IGCSEMYSG home"><span class="brand-mark">I</span><span>IGCSEMYSG</span></a>
+      <button class="menu-button" type="button" aria-expanded="false" aria-controls="nav-links">Menu</button>
+      <div class="nav-links" id="nav-links">
+        <a href="igcse-tuition.html">IGCSE tuition</a>
+        <a href="index.html#approach">Approach</a>
+        <a href="assessment.html">Assessment</a>
+        <a href="index.html#learning-space">Learning space</a>
+        <a href="resources.html" aria-current="page">Resources</a>
+        <a href="careers.html">Careers</a>
+      </div>
+      <a class="button button-dark nav-cta" href="index.html#contact">Enquire</a>
+    </nav>
+  </header>
+
+  <main>
+    <section class="resource-viewer-section">
+      <div class="shell">
+        <div id="resource-view">
+          <div class="viewer-back no-print"><a href="resources.html">← Return to free resources</a></div>
+          <div class="viewer-heading">
+            <div>
+              <p class="kicker"><span></span> <b id="viewer-subject">Subject</b></p>
+              <h1 id="viewer-title">Revision planner</h1>
+              <p id="viewer-description">Use this checklist to organise your revision priorities.</p>
+            </div>
+            <div class="viewer-actions no-print">
+              <button class="button button-light" id="viewer-reset" type="button">Reset progress</button>
+              <button class="button button-dark" id="viewer-print" type="button">Print checklist</button>
+            </div>
+          </div>
+
+          <div class="viewer-paper">
+            <div class="viewer-paper-head">
+              <div><span>IGCSEMYSG FREE RESOURCE</span><strong id="viewer-board">Subject planning resource</strong></div>
+              <div class="viewer-name">Student name <span></span></div>
+            </div>
+            <div class="viewer-guidance">
+              <strong>How to use this planner</strong>
+              <p>Mark an area after reviewing it and checking your understanding with questions. Completion records organisation—not mastery—so revisit any area where your answers remain uncertain.</p>
+            </div>
+            <div class="viewer-progress">
+              <div><strong>Your planning progress</strong><span id="viewer-progress-text">0 areas marked complete</span></div>
+              <progress class="viewer-progress-track" id="viewer-progress-bar" aria-label="Checklist completion" max="100" value="0">0%</progress>
+            </div>
+            <div class="viewer-checklist" id="viewer-checklist"></div>
+            <div class="viewer-notes">
+              <strong>Topics or questions to revisit</strong>
+              <div></div><div></div><div></div>
+            </div>
+            <p class="viewer-disclaimer">This is a broad planning aid, not an official or exhaustive syllabus. Compare it with the exact examination board, syllabus code and current specification.</p>
+          </div>
+        </div>
+
+        <div class="resource-not-found" id="resource-not-found" hidden>
+          <span>RESOURCE NOT FOUND</span>
+          <h1>This checklist is unavailable.</h1>
+          <p>The resource may have moved or the link may be incomplete.</p>
+          <a class="button button-dark" href="resources.html">Return to free resources</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="no-print">
+    <div class="shell footer-grid">
+      <div><a class="brand footer-brand" href="index.html"><span class="brand-mark">I</span><span>IGCSEMYSG</span></a><p>Where students grow with direction.</p></div>
+      <div><strong>Explore</strong><a href="igcse-tuition.html">IGCSE tuition</a><a href="assessment.html">Assessment</a><a href="resources.html">Free resources</a><a href="index.html#faq">FAQ</a></div>
+      <div><strong>Connect</strong><a href="index.html#contact">Enquire</a><a href="https://app.igcsemysg.site/pricing">Membership</a><a href="https://wa.me/60172731112" target="_blank" rel="noopener noreferrer">WhatsApp</a></div>
+    </div>
+    <div class="shell footer-bottom"><span>© 2026 IGCSEMYSG</span><span>Cambridge IGCSE · Pearson Edexcel · Singapore O-Level</span></div>
+  </footer>
+
+  <script src="script.js"></script>
+  <script src="resources-data.js"></script>
+  <script src="resources.js"></script>
+</body>
+</html>

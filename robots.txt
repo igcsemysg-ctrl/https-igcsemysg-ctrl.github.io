@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://igcsemysg.site/sitemap.xml

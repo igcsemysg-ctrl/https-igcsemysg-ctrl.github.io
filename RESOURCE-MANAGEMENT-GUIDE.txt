@@ -1,0 +1,142 @@
+IGCSEMYSG RESOURCE MANAGEMENT GUIDE
+====================================
+
+The resource library is designed so you normally edit only:
+
+resources-data.js
+
+Do not edit resources.js when adding ordinary resources. That file controls
+filtering, cards, checklist progress and the resource viewer.
+
+
+1. ADD A PDF, WORKSHEET OR NOTES FILE
+-------------------------------------
+
+A. In your GitHub repository, create a folder named:
+
+resources
+
+B. Inside it, create a subject folder. Use lowercase letters and hyphens:
+
+resources/mathematics/
+resources/physics/
+resources/english-first-language/
+
+C. Upload your PDF into the correct folder. Avoid spaces in filenames:
+
+resources/mathematics/algebra-practice-01.pdf
+
+D. Open resources-data.js. Add this object before the final ];
+
+  {
+    id: "mathematics-algebra-practice-01",
+    title: "Algebra practice: linear equations",
+    subject: "Mathematics",
+    type: "PDF worksheet",
+    board: "Cambridge IGCSE",
+    description: "A short practice set for solving and checking linear equations.",
+    kind: "file",
+    url: "resources/mathematics/algebra-practice-01.pdf",
+    published: true,
+    order: 18
+  },
+
+Important:
+
+- Every id must be unique.
+- The subject must exactly match a name in IGCSEMYSG_SUBJECTS.
+- Add a comma between resource objects.
+- published: false hides a resource without deleting it.
+- A lower order number places the resource earlier.
+
+
+2. ADD AN EXTERNAL RESOURCE LINK
+---------------------------------
+
+Use a complete https:// address:
+
+  {
+    id: "physics-command-words-guide",
+    title: "Physics command words guide",
+    subject: "Physics",
+    type: "Web guide",
+    board: "Cross-board",
+    description: "A guide to interpreting common examination command words.",
+    kind: "link",
+    url: "https://example.com/physics-command-words",
+    published: true,
+    order: 19
+  },
+
+Only link to material that you own, have permission to distribute, or that the
+publisher has made legally available.
+
+
+3. ADD AN INTERACTIVE CHECKLIST
+--------------------------------
+
+Interactive checklists open through resource.html and save progress in the
+student's browser:
+
+  {
+    id: "mathematics-exam-week-checklist",
+    title: "Mathematics exam-week checklist",
+    subject: "Mathematics",
+    type: "Interactive checklist",
+    board: "Cross-board planning",
+    description: "A final preparation checklist for the week before an exam.",
+    kind: "checklist",
+    url: "resource.html?id=mathematics-exam-week-checklist",
+    topics: [
+      "Confirm the correct paper and examination time",
+      "Review the formula list",
+      "Complete one timed section",
+      "Review recent errors",
+      "Prepare calculator and equipment"
+    ],
+    published: true,
+    order: 20
+  },
+
+The id in url must exactly match the id at the top of the object.
+
+
+4. ADD A NEW SUBJECT
+--------------------
+
+A. Add the subject name inside window.IGCSEMYSG_SUBJECTS.
+B. Add at least one resource object using the exact same subject spelling.
+C. If the subject is offered for tuition, also add it to the subject list in
+   index.html.
+
+
+5. CHANGE THE MEMBERSHIP BUTTON
+--------------------------------
+
+The membership button is near the bottom of resources.html.
+
+Current destination:
+
+https://app.igcsemysg.site/pricing
+
+Search resources.html for:
+
+Become a member for more resources
+
+Change only the href value if the pricing address changes.
+
+
+6. TEST BEFORE PUBLISHING
+-------------------------
+
+After every update:
+
+1. Open resources.html.
+2. Search for the subject.
+3. Open the new resource.
+4. Confirm the file or link loads.
+5. Test once on a phone.
+6. Confirm the membership button reaches the pricing page.
+
+Never publish a resource card before its target file has been uploaded. Doing
+so creates a broken link.

@@ -1,11 +1,21 @@
 IGCSEMYSG MARKETING SITE UPDATE
 
-Replace these four files in the root of your GitHub Pages repository:
+Upload or replace these files in the root of your GitHub Pages repository:
 
 1. index.html
 2. assessment.html
 3. styles.css
 4. script.js
+5. resources.html
+6. resource.html
+7. resources-data.js
+8. resources.js
+9. RESOURCE-MANAGEMENT-GUIDE.txt
+10. careers.html
+11. igcse-tuition.html
+12. robots.txt
+13. sitemap.xml
+14. SEO-SETUP-GUIDE.txt
 
 What changes:
 
@@ -14,12 +24,32 @@ What changes:
 - assessment.html contains the complete 15-question diagnostic.
 - A learning workspace section explains resumable work, progress, assignment timing and goals.
 - The layout remains responsive for desktop, tablet and mobile.
+- A free resource library is available from the main navigation.
+- Each supported subject includes a printable revision-planning checklist.
+- A member-only resource preview redirects to app.igcsemysg.site/pricing.
+- The careers application opens only when requested.
+- Applicants can prepare CV and cover-letter files before choosing email or
+  WhatsApp.
+- Email applications are addressed to igcsemysg@gmail.com.
+- The homepage and important pages now include technical search metadata.
+- A reader-first IGCSE tuition guide supports related Google searches.
+- robots.txt and sitemap.xml help search engines discover the public pages.
 
 After upload:
 
-1. Commit the four replacements to the main branch.
+1. Commit all uploaded and replaced files to the main branch.
 2. Wait one to three minutes for GitHub Pages to deploy.
 3. Open the homepage in a private browser window.
 4. Test the Take the assessment button and complete the 15 questions once.
+5. Open resources.html and test a checklist, subject filter and search.
+6. Test the membership button at the bottom of the resources page.
+7. Open careers.html and confirm Start application expands the form.
+8. Complete a test application and verify both email and WhatsApp routes.
+9. Open robots.txt and sitemap.xml from the live domain.
+10. Follow SEO-SETUP-GUIDE.txt to verify Google Search Console and submit the sitemap.
 
 Keep assessment.html in the same folder as index.html so the redirect works.
+Keep resource.html, resources.html, resources-data.js and resources.js together
+in the same folder.
+
+Read RESOURCE-MANAGEMENT-GUIDE.txt before adding PDFs, worksheets or links.

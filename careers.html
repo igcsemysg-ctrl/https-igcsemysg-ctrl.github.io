@@ -1,11 +1,21 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="description" content="Apply to teach online with IGCSEMYSG and help students build understanding, confidence and exam readiness.">
+  <meta name="robots" content="index,follow,max-image-preview:large">
   <meta name="theme-color" content="#f7f7f4">
+  <link rel="canonical" href="https://igcsemysg.site/careers.html">
+  <meta property="og:site_name" content="IGCSEMYSG">
+  <meta property="og:title" content="Online Tutor Careers | IGCSEMYSG">
+  <meta property="og:description" content="Apply to teach online with IGCSEMYSG and help students build understanding, confidence and exam readiness.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://igcsemysg.site/careers.html">
+  <meta property="og:image" content="https://igcsemysg.site/og-preview.png">
+  <meta name="twitter:card" content="summary_large_image">
   <title>Careers | IGCSEMYSG</title>
+  <link rel="icon" href="favicon.ico" sizes="any">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@500;600;700&display=swap" rel="stylesheet">
@@ -20,13 +30,15 @@
       </a>
       <button class="menu-button" type="button" aria-expanded="false" aria-controls="nav-links">Menu</button>
       <div class="nav-links" id="nav-links">
+        <a href="igcse-tuition.html">IGCSE tuition</a>
         <a href="index.html#approach">Approach</a>
-        <a href="index.html#assessment">Assessment</a>
-        <a href="index.html#subjects">Subjects</a>
+        <a href="assessment.html">Assessment</a>
+        <a href="index.html#learning-space">Learning space</a>
+        <a href="resources.html">Resources</a>
         <a href="index.html#faq">FAQ</a>
-        <a href="careers.html">Careers</a>
+        <a href="careers.html" aria-current="page">Careers</a>
       </div>
-      <a class="button button-dark nav-cta" href="#apply">Apply</a>
+      <a class="button button-dark nav-cta" href="#application-preparation" data-open-career-application>Apply</a>
     </nav>
   </header>
 
@@ -38,7 +50,7 @@
           <h1>Teach with clarity.<br>Grow with purpose.</h1>
           <p class="hero-lead">We welcome thoughtful educators who can turn syllabus requirements into understanding, useful practice and steady student progress.</p>
           <div class="hero-actions">
-            <a class="button button-dark" href="#apply">Start an application</a>
+            <a class="button button-dark" href="#application-preparation" data-open-career-application>Start an application</a>
             <a class="text-link" href="index.html">Return to the main site <span aria-hidden="true">→</span></a>
           </div>
         </div>
@@ -111,57 +123,122 @@
     </section>
 
     <section class="section career-apply-section" id="apply">
-      <div class="shell career-apply-grid">
-        <div class="section-heading reveal">
-          <p class="kicker"><span></span> Application</p>
-          <h2>Tell us what you teach and how you help students learn.</h2>
-          <p>Complete the form below. It will prepare your application in WhatsApp, where you can attach your CV and supporting certificates.</p>
-          <p class="privacy-note">Your details are not stored on this website.</p>
+      <div class="shell">
+        <div class="application-section-heading reveal">
+          <div>
+            <p class="kicker"><span></span> Application</p>
+            <h2>Prepare your application when you are ready.</h2>
+          </div>
+          <p>The form stays closed until an applicant chooses to begin. Progress through one continuous section, prepare the supporting files, then choose email or WhatsApp.</p>
         </div>
-        <form class="career-form reveal" id="career-form">
-          <div class="form-row">
-            <label>
-              Full name
-              <input id="career-name" name="name" autocomplete="name" required>
-            </label>
-            <label>
-              Email
-              <input id="career-email" name="email" type="email" autocomplete="email" required>
-            </label>
+
+        <details class="application-disclosure reveal" id="application-preparation">
+          <summary>
+            <span class="application-summary-copy">
+              <span>ONLINE TUTOR APPLICATION</span>
+              <strong>Tell us what you teach and how you help students learn.</strong>
+              <small>Approximately 6–8 minutes · CV required</small>
+            </span>
+            <b><span class="summary-closed">Start application</span><span class="summary-open">Close application</span><i>+</i></b>
+          </summary>
+
+          <div class="application-preparation-grid">
+            <aside class="application-guidance" aria-label="Application preparation guidance">
+              <p>BEFORE YOU BEGIN</p>
+              <h3>Prepare two documents.</h3>
+              <ul>
+                <li><strong>CV</strong><span>Required · PDF, DOC or DOCX</span></li>
+                <li><strong>Cover letter</strong><span>Recommended · PDF, DOC or DOCX</span></li>
+              </ul>
+              <div class="application-route-note">
+                <strong>How submission works</strong>
+                <p>This static website prepares the application summary. Your email or WhatsApp app then opens so you can reattach the selected documents and send them securely.</p>
+              </div>
+            </aside>
+
+            <form class="career-form" id="career-form">
+              <div class="application-form-heading">
+                <span>APPLICATION DETAILS</span>
+                <strong>All required fields are marked.</strong>
+              </div>
+              <div class="form-row">
+                <label>
+                  Full name *
+                  <input id="career-name" name="name" type="text" autocomplete="name" required>
+                </label>
+                <label>
+                  Email *
+                  <input id="career-email" name="email" type="email" autocomplete="email" required>
+                </label>
+              </div>
+              <div class="form-row">
+                <label>
+                  Phone number *
+                  <input id="career-phone" name="phone" type="tel" autocomplete="tel" required>
+                </label>
+                <label>
+                  Current location *
+                  <input id="career-location" name="location" type="text" autocomplete="address-level2" required>
+                </label>
+              </div>
+              <label>
+                Subjects you can teach *
+                <input id="career-subjects" name="subjects" type="text" placeholder="e.g. IGCSE Mathematics and Physics" required>
+              </label>
+              <label>
+                Boards and levels *
+                <input id="career-boards" name="boards" type="text" placeholder="e.g. Cambridge IGCSE, Pearson Edexcel" required>
+              </label>
+              <label>
+                Teaching experience *
+                <textarea id="career-experience" name="experience" rows="4" placeholder="Briefly describe your relevant teaching or tutoring experience." required></textarea>
+              </label>
+              <label>
+                Weekly availability *
+                <input id="career-availability" name="availability" type="text" placeholder="Days, times and time zone" required>
+              </label>
+              <label>
+                Why would you like to teach with us? *
+                <textarea id="career-message" name="message" rows="5" placeholder="Explain your teaching approach and the contribution you hope to make." required></textarea>
+              </label>
+
+              <div class="application-attachments">
+                <div class="attachment-heading">
+                  <div><span>SUPPORTING DOCUMENTS</span><strong>Prepare your files before continuing.</strong></div>
+                  <small>Maximum 10 MB per file</small>
+                </div>
+                <div class="attachment-grid">
+                  <label class="file-upload">
+                    <span>Curriculum vitae *</span>
+                    <input id="career-cv" name="cv" type="file" accept=".pdf,.doc,.docx,application/pdf,application/msword,application/vnd.openxmlformats-officedocument.wordprocessingml.document" required>
+                    <small>PDF, DOC or DOCX</small>
+                  </label>
+                  <label class="file-upload">
+                    <span>Cover letter</span>
+                    <input id="career-cover-letter" name="cover-letter" type="file" accept=".pdf,.doc,.docx,application/pdf,application/msword,application/vnd.openxmlformats-officedocument.wordprocessingml.document">
+                    <small>Recommended</small>
+                  </label>
+                </div>
+                <p>Files remain on this device. For privacy and browser security, attach them again after the email or WhatsApp window opens.</p>
+              </div>
+
+              <div class="application-routes">
+                <button class="application-route application-route-email" type="submit">
+                  <span>01 · EMAIL</span>
+                  <strong>Prepare email application</strong>
+                  <small>Addressed to igcsemysg@gmail.com</small>
+                </button>
+                <button class="application-route application-route-whatsapp" id="career-whatsapp-button" type="button">
+                  <span>02 · WHATSAPP</span>
+                  <strong>Prepare in WhatsApp</strong>
+                  <small>Opens a completed message</small>
+                </button>
+              </div>
+              <p class="form-success" id="career-success" role="status" aria-live="polite"></p>
+              <p class="privacy-note">Your form details and selected files are not uploaded or stored by this website.</p>
+            </form>
           </div>
-          <div class="form-row">
-            <label>
-              Phone number
-              <input id="career-phone" name="phone" type="tel" autocomplete="tel" required>
-            </label>
-            <label>
-              Current location
-              <input id="career-location" name="location" autocomplete="address-level2" required>
-            </label>
-          </div>
-          <label>
-            Subjects you can teach
-            <input id="career-subjects" name="subjects" placeholder="e.g. IGCSE Mathematics and Physics" required>
-          </label>
-          <label>
-            Boards and levels
-            <input id="career-boards" name="boards" placeholder="e.g. Cambridge IGCSE, Edexcel" required>
-          </label>
-          <label>
-            Teaching experience
-            <textarea id="career-experience" name="experience" rows="4" placeholder="Briefly describe your relevant teaching or tutoring experience." required></textarea>
-          </label>
-          <label>
-            Weekly availability
-            <input id="career-availability" name="availability" placeholder="Days, times and time zone" required>
-          </label>
-          <label>
-            Why would you like to teach with us?
-            <textarea id="career-message" name="message" rows="5" required></textarea>
-          </label>
-          <button class="button button-dark full-button" type="submit">Prepare application</button>
-          <p class="form-success" id="career-success" role="status"></p>
-        </form>
+        </details>
       </div>
     </section>
   </main>
@@ -169,7 +246,7 @@
   <footer>
     <div class="shell footer-grid">
       <div><a class="brand footer-brand" href="index.html"><span class="brand-mark">I</span><span>IGCSEMYSG</span></a><p>Where students grow with direction.</p></div>
-      <div><strong>Explore</strong><a href="index.html">Main site</a><a href="index.html#assessment">Assessment</a><a href="index.html#faq">FAQ</a></div>
+      <div><strong>Explore</strong><a href="index.html">Main site</a><a href="igcse-tuition.html">IGCSE tuition</a><a href="assessment.html">Assessment</a><a href="resources.html">Free resources</a><a href="index.html#faq">FAQ</a></div>
       <div><strong>Connect</strong><a href="index.html#contact">Enquire</a><a href="https://wa.me/60172731112" target="_blank" rel="noopener noreferrer">WhatsApp</a></div>
     </div>
     <div class="shell footer-bottom"><span>© 2026 IGCSEMYSG</span><span>Online tuition for Malaysia &amp; Singapore</span></div>

@@ -360,11 +360,51 @@ function initEnquiryForm() {
 function initCareerForm() {
   const form = document.querySelector("#career-form");
   if (!form) return;
-  form.addEventListener("submit", (event) => {
-    event.preventDefault();
-    const value = (id) => document.querySelector(id).value.trim();
-    const message = [
+  const success = document.querySelector("#career-success");
+  const whatsappButton = document.querySelector("#career-whatsapp-button");
+  const cvInput = document.querySelector("#career-cv");
+  const coverLetterInput = document.querySelector("#career-cover-letter");
+  const maximumFileSize = 10 * 1024 * 1024;
+  const allowedFilePattern = /\.(pdf|doc|docx)$/i;
+  const value = (id) => document.querySelector(id)?.value.trim() || "";
+  const selectedFile = (input) => input?.files?.[0] || null;
+
+  function validateFile(input, required) {
+    if (!input) return true;
+    const file = selectedFile(input);
+    input.setCustomValidity("");
+    if (!file) {
+      if (required) input.setCustomValidity("Select your CV before continuing.");
+      return !required;
+    }
+    if (!allowedFilePattern.test(file.name)) {
+      input.setCustomValidity("Use a PDF, DOC or DOCX file.");
+      return false;
+    }
+    if (file.size > maximumFileSize) {
+      input.setCustomValidity("Keep each file below 10 MB.");
+      return false;
+    }
+    return true;
+  }
+
+  function validateApplication() {
+    validateFile(cvInput, true);
+    validateFile(coverLetterInput, false);
+    const valid = form.reportValidity();
+    if (!valid && success) {
+      success.textContent = "Complete the required fields and prepare your CV before choosing a submission route.";
+      success.classList.add("is-error");
+    }
+    return valid;
+  }
+
+  function applicationSummary(channel) {
+    const cv = selectedFile(cvInput);
+    const coverLetter = selectedFile(coverLetterInput);
+    return [
       "Hello IGCSEMYSG. I would like to apply as an online tutor.",
+      "",
       `Name: ${value("#career-name")}`,
       `Email: ${value("#career-email")}`,
       `Phone: ${value("#career-phone")}`,
@@ -373,12 +413,61 @@ function initCareerForm() {
       `Boards/levels: ${value("#career-boards")}`,
       `Teaching experience: ${value("#career-experience")}`,
       `Availability: ${value("#career-availability")}`,
-      `About my application: ${value("#career-message")}`,
-      "I will attach my CV and relevant certificates in this chat."
+      `Teaching approach and interest: ${value("#career-message")}`,
+      "",
+      "Documents prepared:",
+      `CV: ${cv ? cv.name : "Not selected"}`,
+      `Cover letter: ${coverLetter ? coverLetter.name : "Not selected"}`,
+      "",
+      `Please remember to attach the listed document${coverLetter ? "s" : ""} in ${channel} before sending.`
     ].join("\n");
-    window.open(createWhatsAppUrl(message), "_blank", "noopener,noreferrer");
-    const success = document.querySelector("#career-success");
-    if (success) success.textContent = "Your application summary is ready in WhatsApp. Please attach your CV and relevant certificates before sending.";
+  }
+
+  [cvInput, coverLetterInput].forEach((input) => {
+    input?.addEventListener("change", () => {
+      validateFile(input, input === cvInput);
+      if (success) {
+        success.textContent = "";
+        success.classList.remove("is-error");
+      }
+    });
+  });
+
+  form.addEventListener("submit", (event) => {
+    event.preventDefault();
+    if (!validateApplication()) return;
+    const subject = `Online tutor application — ${value("#career-name")} — ${value("#career-subjects")}`;
+    const emailUrl = `mailto:igcsemysg@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(
+      applicationSummary("your email app")
+    )}`;
+    if (success) {
+      success.textContent = "Your email application is prepared. Attach your CV and cover letter in the email window, then send it to igcsemysg@gmail.com.";
+      success.classList.remove("is-error");
+    }
+    window.location.href = emailUrl;
+  });
+
+  whatsappButton?.addEventListener("click", () => {
+    if (!validateApplication()) return;
+    if (success) {
+      success.textContent = "Your WhatsApp application is prepared. Attach your CV and cover letter in WhatsApp before sending.";
+      success.classList.remove("is-error");
+    }
+    window.open(createWhatsAppUrl(applicationSummary("WhatsApp")), "_blank", "noopener,noreferrer");
+  });
+}
+
+function initCareerApplicationDisclosure() {
+  const disclosure = document.querySelector("#application-preparation");
+  if (!disclosure) return;
+  document.querySelectorAll("[data-open-career-application]").forEach((trigger) => {
+    trigger.addEventListener("click", (event) => {
+      event.preventDefault();
+      disclosure.open = true;
+      disclosure.scrollIntoView({ behavior: "smooth", block: "start" });
+      const summary = disclosure.querySelector("summary");
+      if (summary) summary.focus({ preventScroll: true });
+    });
   });
 }
 
@@ -388,4 +477,5 @@ document.addEventListener("DOMContentLoaded", () => {
   initDiagnostic();
   initEnquiryForm();
   initCareerForm();
+  initCareerApplicationDisclosure();
 });
