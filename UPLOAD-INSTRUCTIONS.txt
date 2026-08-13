@@ -12,10 +12,9 @@ Upload or replace these files in the root of your GitHub Pages repository:
 8. resources.js
 9. RESOURCE-MANAGEMENT-GUIDE.txt
 10. careers.html
-11. igcse-tuition.html
-12. robots.txt
-13. sitemap.xml
-14. SEO-SETUP-GUIDE.txt
+11. robots.txt
+12. sitemap.xml
+13. SEO-SETUP-GUIDE.txt
 
 What changes:
 
@@ -32,7 +31,6 @@ What changes:
   WhatsApp.
 - Email applications are addressed to igcsemysg@gmail.com.
 - The homepage and important pages now include technical search metadata.
-- A reader-first IGCSE tuition guide supports related Google searches.
 - robots.txt and sitemap.xml help search engines discover the public pages.
 
 After upload:

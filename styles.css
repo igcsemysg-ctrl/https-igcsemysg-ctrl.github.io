@@ -378,71 +378,6 @@ footer{padding:60px 0 25px;background:#0e1513;color:#9ba5a1}
 .application-route-whatsapp span,.application-route-whatsapp small{color:#45836f}
 .application-preparation-grid .privacy-note{margin:10px 0 0!important;color:#8b928e!important;text-align:center}
 
-/* IGCSE tuition guide */
-.tuition-guide-hero{padding:170px 0 105px;background:
-  radial-gradient(circle at 84% 10%,rgba(16,163,127,.13),transparent 31%),
-  linear-gradient(145deg,#f8f8f5,#edf2ee)}
-.tuition-guide-hero-grid{display:grid;grid-template-columns:1.08fr .72fr;gap:78px;align-items:end}
-.breadcrumb{display:flex;align-items:center;gap:9px;margin-bottom:34px;color:#7b837f;font-size:.67rem}
-.breadcrumb a{text-decoration:none}
-.breadcrumb a:hover{color:var(--green-dark)}
-.tuition-guide-hero h1{max-width:820px;margin:0;font:700 clamp(3.55rem,6vw,5.75rem)/1 "Manrope",sans-serif;letter-spacing:-.069em}
-.tuition-guide-hero-grid>div>p:not(.kicker){max-width:750px;margin:25px 0 0;color:var(--muted);font-size:1rem;line-height:1.76}
-.tuition-guide-summary{padding:30px;border:1px solid #d7e0db;border-radius:22px;background:rgba(255,255,255,.82);box-shadow:var(--shadow)}
-.tuition-guide-summary>span{color:var(--green-dark);font-size:.61rem;font-weight:800;letter-spacing:.14em}
-.tuition-guide-summary h2{margin:15px 0 25px;font:700 1.45rem/1.32 "Manrope",sans-serif;letter-spacing:-.035em}
-.tuition-guide-summary dl{margin:0}
-.tuition-guide-summary dl>div{display:grid;grid-template-columns:95px 1fr;gap:17px;padding:15px 0;border-top:1px solid var(--line)}
-.tuition-guide-summary dt{color:#848c88;font-size:.65rem;font-weight:700}
-.tuition-guide-summary dd{margin:0;font-size:.72rem;line-height:1.5}
-.guide-index{position:sticky;top:94px;z-index:10;border-block:1px solid var(--line);background:rgba(255,255,253,.95);backdrop-filter:blur(16px)}
-.guide-index-inner{display:flex;align-items:center;gap:27px;min-height:58px;overflow-x:auto;scrollbar-width:none}
-.guide-index-inner::-webkit-scrollbar{display:none}
-.guide-index strong{flex:0 0 auto;color:var(--ink);font-size:.65rem}
-.guide-index a{flex:0 0 auto;color:#69716d;text-decoration:none;font-size:.65rem;font-weight:600}
-.guide-index a:hover{color:var(--green-dark)}
-.guide-section{background:#fff}
-.guide-two-column{display:grid;grid-template-columns:.72fr 1.28fr;gap:90px;align-items:start}
-.guide-sticky-heading{position:sticky;top:185px}
-.guide-sticky-heading h2,.guide-subjects-grid h2{margin:0;font:700 clamp(2.45rem,4vw,3.9rem)/1.08 "Manrope",sans-serif;letter-spacing:-.055em}
-.guide-prose>p{margin:0 0 19px;color:#525b57;font-size:.91rem;line-height:1.84}
-.guide-signal-grid{display:grid;grid-template-columns:1fr 1fr;gap:11px;margin-top:37px}
-.guide-signal-grid article{min-height:205px;padding:24px;border:1px solid var(--line);border-radius:16px;background:var(--paper)}
-.guide-signal-grid span{color:var(--green-dark);font-size:.58rem;font-weight:800}
-.guide-signal-grid h3{margin:39px 0 8px;font:700 .95rem "Manrope",sans-serif}
-.guide-signal-grid p{margin:0;color:var(--muted);font-size:.73rem;line-height:1.62}
-.board-section{background:var(--sand)}
-.board-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px}
-.board-grid article{min-height:390px;padding:34px;border:1px solid #d9ddd8;border-radius:20px;background:#fff}
-.board-grid article>span{color:var(--green-dark);font-size:.59rem;font-weight:800;letter-spacing:.13em}
-.board-grid h3{margin:72px 0 13px;font:700 1.55rem "Manrope",sans-serif;letter-spacing:-.035em}
-.board-grid p{color:var(--muted);font-size:.8rem;line-height:1.7}
-.board-grid article>strong{display:block;margin:27px 0 10px;padding-top:21px;border-top:1px solid var(--line);font-size:.7rem}
-.board-grid ul{margin:0;padding-left:18px;color:#606964;font-size:.7rem;line-height:1.75}
-.board-grid .board-note{grid-column:1/-1;min-height:auto;display:grid;grid-template-columns:150px 220px 1fr;gap:24px;align-items:center;background:#1a2723;color:#fff}
-.board-note h3{margin:0}
-.board-note p{margin:0;color:#b9c4c0}
-.guide-method-section{background:linear-gradient(145deg,#14201d,#263631);color:#fff}
-.guide-method-section .section-heading>p{color:#afbbb7}
-.guide-method{list-style:none;margin:0;padding:0;border-top:1px solid rgba(255,255,255,.14)}
-.guide-method li{display:grid;grid-template-columns:80px 1fr;gap:35px;padding:29px 4px;border-bottom:1px solid rgba(255,255,255,.14)}
-.guide-method li>span{color:#7ac5ae;font-size:.63rem;font-weight:800}
-.guide-method h3{margin:0 0 8px;font:700 1.05rem "Manrope",sans-serif}
-.guide-method p{max-width:800px;margin:0;color:#b7c2be;font-size:.76rem;line-height:1.68}
-.guide-subjects-section{background:#fff}
-.guide-subjects-grid{display:grid;grid-template-columns:.82fr 1.18fr;gap:90px;align-items:start}
-.guide-subjects-grid>div:first-child>p:not(.kicker){max-width:570px;color:var(--muted);font-size:.82rem;line-height:1.72}
-.guide-subject-groups{overflow:hidden;border:1px solid var(--line);border-radius:20px;background:var(--paper)}
-.guide-subject-groups article{display:grid;grid-template-columns:190px 1fr;gap:28px;padding:27px 29px;border-bottom:1px solid var(--line)}
-.guide-subject-groups article:last-child{border:0}
-.guide-subject-groups strong{font:700 .78rem "Manrope",sans-serif}
-.guide-subject-groups p{margin:0;color:var(--muted);font-size:.74rem;line-height:1.62}
-.guide-cta-section{padding:40px 0;background:#111b18;color:#fff}
-.guide-cta{display:flex;align-items:center;justify-content:space-between;gap:70px;padding:55px 0}
-.guide-cta h2{max-width:740px;margin:0;font:700 clamp(2.35rem,4vw,3.8rem)/1.07 "Manrope",sans-serif;letter-spacing:-.055em}
-.guide-cta p:not(.kicker){max-width:690px;margin:17px 0 0;color:#b6c1bd;font-size:.8rem;line-height:1.7}
-.guide-cta>.button{flex:0 0 auto}
-
 /* Free resources */
 .nav-links a[aria-current="page"]{color:var(--green-dark);font-weight:800}
 .resource-intro-section{background:#fff}
@@ -565,11 +500,11 @@ footer{padding:60px 0 25px;background:#0e1513;color:#9ba5a1}
   .nav-links.open a:hover{background:var(--green-soft)}
   .menu-button{display:block;margin-left:auto;padding:10px}
   .nav-cta{margin-left:6px}
-  .hero-grid,.assessment-shell,.diagnostic-overview,.continuity-heading,.continuity-layout,.assessment-next-grid,.contact-grid,.career-hero-grid,.application-section-heading,.tuition-guide-hero-grid{grid-template-columns:1fr;gap:50px}
+  .hero-grid,.assessment-shell,.diagnostic-overview,.continuity-heading,.continuity-layout,.assessment-next-grid,.contact-grid,.career-hero-grid,.application-section-heading{grid-template-columns:1fr;gap:50px}
   .hero{min-height:auto}
   .conversation-card{max-width:620px}
   .section-heading{display:grid;gap:18px}
-  .purpose-grid,.subjects-grid,.faq-grid,.career-layout,.career-details,.career-apply-grid,.resource-intro-grid,.resource-page-hero-grid,.member-library,.guide-two-column,.guide-subjects-grid{grid-template-columns:1fr;gap:45px}
+  .purpose-grid,.subjects-grid,.faq-grid,.career-layout,.career-details,.career-apply-grid,.resource-intro-grid,.resource-page-hero-grid,.member-library{grid-template-columns:1fr;gap:45px}
   .framework{grid-template-columns:1fr 1fr}
   .framework article{border-bottom:1px solid var(--line)}
   .framework article:nth-child(even){border-right:0}
@@ -587,8 +522,6 @@ footer{padding:60px 0 25px;background:#0e1513;color:#9ba5a1}
   .member-library{gap:60px}
   .locked-resource-stack{max-width:760px}
   .viewer-heading{align-items:flex-start;flex-direction:column}
-  .guide-sticky-heading{position:static}
-  .board-grid .board-note{grid-template-columns:120px 190px 1fr}
 }
 
 @media(max-width:650px){
@@ -659,23 +592,6 @@ footer{padding:60px 0 25px;background:#0e1513;color:#9ba5a1}
   .footer-bottom{display:block;line-height:2}
   .career-hero{padding:125px 0 70px}
   .career-hero h1{font-size:3rem}
-  .tuition-guide-hero{padding:125px 0 76px}
-  .tuition-guide-hero h1{font-size:3rem}
-  .tuition-guide-summary{padding:23px 19px}
-  .guide-index{top:74px}
-  .guide-index-inner{gap:20px}
-  .guide-two-column{gap:35px}
-  .guide-sticky-heading h2,.guide-subjects-grid h2{font-size:2.4rem}
-  .guide-signal-grid,.board-grid{grid-template-columns:1fr}
-  .guide-signal-grid article{min-height:180px}
-  .board-grid article{min-height:auto;padding:27px 22px}
-  .board-grid h3{margin-top:48px}
-  .board-grid .board-note{grid-column:auto;display:block}
-  .board-note h3{margin:45px 0 13px}
-  .guide-method li{grid-template-columns:48px 1fr;gap:14px;padding-block:24px}
-  .guide-subject-groups article{grid-template-columns:1fr;gap:9px;padding:23px 20px}
-  .guide-cta{align-items:stretch;flex-direction:column;gap:30px;padding-block:40px}
-  .guide-cta>.button{width:100%}
   .application-disclosure{margin-top:32px;border-radius:18px}
   .application-disclosure>summary{align-items:flex-start;padding:22px 18px}
   .application-disclosure>summary>b>span{display:none}

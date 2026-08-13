@@ -3,8 +3,7 @@ IGCSEMYSG GOOGLE SEARCH SETUP
 
 The website files now include:
 
-- A search-focused but reader-first IGCSE tuition guide.
-- Unique titles and descriptions for important pages.
+- Search descriptions for important pages without changing their visible copy.
 - Canonical URLs to reduce duplicate versions.
 - Organisation, website, service, article and breadcrumb structured data.
 - robots.txt and sitemap.xml for discovery.
@@ -23,7 +22,7 @@ Upload the complete package to the root of the GitHub Pages repository. Check:
 
 https://igcsemysg.site/robots.txt
 https://igcsemysg.site/sitemap.xml
-https://igcsemysg.site/igcse-tuition.html
+https://igcsemysg.site/resources.html
 
 Each address must open the correct file. robots.txt must display plain text,
 and sitemap.xml must display XML rather than the homepage.
@@ -57,10 +56,9 @@ sitemap.xml
 
 C. Select Submit.
 
-Then use URL Inspection for these two URLs and request indexing once:
+Then use URL Inspection for the homepage and request indexing once:
 
 https://igcsemysg.site/
-https://igcsemysg.site/igcse-tuition.html
 
 Do not repeatedly request indexing. Google still decides when to crawl and
 index each page.
