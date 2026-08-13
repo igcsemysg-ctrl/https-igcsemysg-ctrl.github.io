@@ -3,12 +3,12 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
-  <meta name="description" content="Free IGCSE and O-Level subject resources from IGCSEMYSG, including printable revision-planning checklists across the subjects we support.">
+  <meta name="description" content="Free IGCSE and O-Level resources from IGCSEMYSG, including revision notes, topical questions, papers, model answers and exam guidance.">
   <meta name="robots" content="index,follow,max-image-preview:large">
   <link rel="canonical" href="https://igcsemysg.site/resources.html">
   <meta property="og:site_name" content="IGCSEMYSG">
   <meta property="og:title" content="Free IGCSE &amp; O-Level Resources | IGCSEMYSG">
-  <meta property="og:description" content="Open free subject checklists and organise your next revision priorities.">
+  <meta property="og:description" content="Find free subject resources by title, topic, examination board and resource type.">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://igcsemysg.site/resources.html">
   <meta property="og:image" content="https://igcsemysg.site/og-preview.png">
@@ -41,12 +41,12 @@
         <div class="reveal">
           <p class="kicker"><span></span> Free learning library</p>
           <h1>Start with something useful.</h1>
-          <p>Choose a subject and organise what to review next. Every checklist is free to open, saves progress on the device and can be printed.</p>
+          <p>Find revision notes, topical questions, papers, model answers and exam guidance by subject, board and topic.</p>
         </div>
         <aside class="resource-hero-note reveal">
           <span>FREE ACCESS</span>
           <strong>No account required</strong>
-          <p>The planning checklists are broad revision guides rather than official syllabus documents. Always compare them with the student’s exact board and syllabus code.</p>
+          <p>Free materials open directly from this library. Check the board, syllabus code and topic details shown on each resource before using it.</p>
         </aside>
       </div>
     </section>
@@ -61,10 +61,10 @@
           <span id="resource-count" aria-live="polite">Loading resources…</span>
         </div>
 
-        <div class="resource-toolbar reveal">
-          <label>
+        <div class="resource-toolbar reveal" role="search" aria-label="Resource search and filters">
+          <label class="resource-search-field">
             <span>Search resources</span>
-            <input id="resource-search" type="search" placeholder="Try Mathematics, writing or practical…" autocomplete="off">
+            <input id="resource-search" type="search" placeholder="Search title, subject, syllabus code or topic…" autocomplete="off">
           </label>
           <label>
             <span>Subject</span>
@@ -72,12 +72,34 @@
               <option value="">All subjects</option>
             </select>
           </label>
+          <label>
+            <span>Resource type</span>
+            <select id="resource-type">
+              <option value="">All resource types</option>
+            </select>
+          </label>
+          <label>
+            <span>Exam board</span>
+            <select id="resource-board">
+              <option value="">All exam boards</option>
+            </select>
+          </label>
+          <label>
+            <span>Arrange by</span>
+            <select id="resource-sort">
+              <option value="recommended">Recommended order</option>
+              <option value="newest">Newest first</option>
+              <option value="title">Title A–Z</option>
+            </select>
+          </label>
+          <button class="resource-clear" id="resource-clear" type="button" hidden>Clear filters</button>
         </div>
 
         <div class="resource-grid" id="resource-grid"></div>
         <div class="resource-empty" id="resource-empty" hidden>
-          <h2>No matching resource found.</h2>
-          <p>Try another subject or clear the search.</p>
+          <span aria-hidden="true">↗</span>
+          <h2>Resources are being prepared.</h2>
+          <p>Revision notes, topical questions, papers and answer guidance will appear here as they are published.</p>
         </div>
 
         <noscript>
@@ -93,7 +115,7 @@
       <div class="shell member-library">
         <div class="member-library-copy reveal">
           <p class="kicker kicker-light"><span></span> Member library</p>
-          <h2>More practice, when a checklist is no longer enough.</h2>
+          <h2>A broader library for continued study.</h2>
           <p>Membership provides access to the broader learning platform and its expanding resource collection. Review the available plan before deciding whether it fits the student’s needs.</p>
           <ul>
             <li>Topical question collections</li>

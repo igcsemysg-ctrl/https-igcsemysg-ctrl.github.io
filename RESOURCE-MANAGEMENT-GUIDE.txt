@@ -1,142 +1,226 @@
 IGCSEMYSG RESOURCE MANAGEMENT GUIDE
 ====================================
 
-The resource library is designed so you normally edit only:
-
-resources-data.js
-
-Do not edit resources.js when adding ordinary resources. That file controls
-filtering, cards, checklist progress and the resource viewer.
+You normally edit only resources-data.js. The page design, search, filters and
+sorting are controlled by resources.js.
 
 
-1. ADD A PDF, WORKSHEET OR NOTES FILE
--------------------------------------
+1. CREATE RESOURCE FOLDERS ON GITHUB
+------------------------------------
 
-A. In your GitHub repository, create a folder named:
-
-resources
-
-B. Inside it, create a subject folder. Use lowercase letters and hyphens:
+In the repository root, create resources/ and one folder per subject:
 
 resources/mathematics/
+resources/additional-mathematics/
 resources/physics/
 resources/english-first-language/
 
-C. Upload your PDF into the correct folder. Avoid spaces in filenames:
+You may organise a larger subject into topic folders:
 
-resources/mathematics/algebra-practice-01.pdf
+resources/mathematics/algebra/
+resources/mathematics/geometry/
 
-D. Open resources-data.js. Add this object before the final ];
+Use short lowercase filenames with hyphens and no spaces:
+
+resources/mathematics/algebra/linear-equations-notes.pdf
+
+
+2. UPLOAD THE FILE FIRST
+------------------------
+
+A. Open the correct resources/subject/topic folder on GitHub.
+B. Select Add file > Upload files.
+C. Drag in the PDF or permitted file and commit it.
+D. Open it once and confirm its path.
+
+Do not publish a catalogue entry before its file exists.
+
+
+3. ADD ITS CATALOGUE ENTRY
+--------------------------
+
+Open resources-data.js and paste an object inside:
+
+window.IGCSEMYSG_RESOURCES = [
+  // paste entries here
+];
+
+Complete example:
 
   {
-    id: "mathematics-algebra-practice-01",
-    title: "Algebra practice: linear equations",
+    id: "mathematics-linear-equations-notes",
+    title: "Linear equations revision notes",
     subject: "Mathematics",
-    type: "PDF worksheet",
+    type: "Revision notes",
     board: "Cambridge IGCSE",
-    description: "A short practice set for solving and checking linear equations.",
-    kind: "file",
-    url: "resources/mathematics/algebra-practice-01.pdf",
+    syllabusCode: "0580",
+    topics: ["Algebra", "Linear equations"],
+    level: "Year 10–11",
+    publishedDate: "2026-08-14",
+    updatedDate: "2026-08-14",
+    description: "Concise notes covering methods, worked examples and common errors.",
+    url: "resources/mathematics/algebra/linear-equations-notes.pdf",
+    fileSize: "1.8 MB",
+    featured: true,
     published: true,
-    order: 18
+    order: 10
   },
 
-Important:
-
-- Every id must be unique.
-- The subject must exactly match a name in IGCSEMYSG_SUBJECTS.
-- Add a comma between resource objects.
-- published: false hides a resource without deleting it.
-- A lower order number places the resource earlier.
+Add a comma between entries. The final entry may also have a comma.
 
 
-2. ADD AN EXTERNAL RESOURCE LINK
----------------------------------
+4. FIELD REFERENCE
+------------------
 
-Use a complete https:// address:
+id
+  Permanent unique identifier. Use lowercase letters and hyphens.
+
+title
+  Main title displayed on the card. Keep it specific and useful.
+
+subject
+  Controls the Subject filter. It must exactly match a subject listed inside
+  window.IGCSEMYSG_SUBJECTS.
+
+type
+  Controls the Resource type filter. Use a type from
+  window.IGCSEMYSG_RESOURCE_TYPES.
+
+board
+  Controls the Exam board filter. Use a board from
+  window.IGCSEMYSG_EXAM_BOARDS.
+
+syllabusCode
+  Optional. Examples: "0580", "0625" or "4MA1". Omit this line if irrelevant.
+
+topics
+  Optional searchable labels, for example:
+  topics: ["Algebra", "Simultaneous equations"]
+  Three appear on the card; additional topics remain searchable.
+
+level
+  Optional. Examples: "Year 10–11", "Core", "Extended", "Foundation" or
+  "Higher".
+
+publishedDate
+  Use YYYY-MM-DD. This supports Newest first sorting.
+
+updatedDate
+  Optional. Change it only after a meaningful revision. When present, it is the
+  date displayed and used by Newest first.
+
+description
+  One concise sentence explaining the contents and purpose.
+
+url
+  Relative repository file path or complete https address.
+
+fileSize
+  Optional display detail such as "1.8 MB", "12 pages" or "Web guide".
+
+featured
+  true places the item before ordinary resources in Recommended order. Use it
+  selectively.
+
+published
+  true shows the resource. false hides it without deleting the entry.
+
+order
+  Controls Recommended order after featured status. Lower numbers appear first.
+  Use gaps such as 10, 20 and 30 so you can insert resources later.
+
+
+5. OTHER RESOURCE EXAMPLES
+--------------------------
+
+Topical questions:
 
   {
-    id: "physics-command-words-guide",
-    title: "Physics command words guide",
+    id: "physics-forces-topical-questions-01",
+    title: "Forces and motion: topical questions",
     subject: "Physics",
-    type: "Web guide",
-    board: "Cross-board",
-    description: "A guide to interpreting common examination command words.",
-    kind: "link",
-    url: "https://example.com/physics-command-words",
-    published: true,
-    order: 19
-  },
-
-Only link to material that you own, have permission to distribute, or that the
-publisher has made legally available.
-
-
-3. ADD AN INTERACTIVE CHECKLIST
---------------------------------
-
-Interactive checklists open through resource.html and save progress in the
-student's browser:
-
-  {
-    id: "mathematics-exam-week-checklist",
-    title: "Mathematics exam-week checklist",
-    subject: "Mathematics",
-    type: "Interactive checklist",
-    board: "Cross-board planning",
-    description: "A final preparation checklist for the week before an exam.",
-    kind: "checklist",
-    url: "resource.html?id=mathematics-exam-week-checklist",
-    topics: [
-      "Confirm the correct paper and examination time",
-      "Review the formula list",
-      "Complete one timed section",
-      "Review recent errors",
-      "Prepare calculator and equipment"
-    ],
+    type: "Topical questions",
+    board: "Cambridge IGCSE",
+    syllabusCode: "0625",
+    topics: ["Forces", "Motion", "Graphs"],
+    level: "Extended",
+    publishedDate: "2026-08-14",
+    description: "Focused examination-style questions on forces, motion and graph interpretation.",
+    url: "resources/physics/forces/forces-topical-questions-01.pdf",
+    fileSize: "10 pages",
+    featured: false,
     published: true,
     order: 20
   },
 
-The id in url must exactly match the id at the top of the object.
+External textbook or official link:
+
+  {
+    id: "biology-official-syllabus-link",
+    title: "Biology syllabus information",
+    subject: "Biology",
+    type: "Textbook link",
+    board: "Cambridge IGCSE",
+    syllabusCode: "0610",
+    topics: ["Syllabus"],
+    publishedDate: "2026-08-14",
+    description: "Open the official publisher or examination-board information.",
+    url: "https://example.com/official-page",
+    fileSize: "External website",
+    featured: false,
+    published: true,
+    order: 30
+  },
+
+External links automatically open in a new tab.
 
 
-4. ADD A NEW SUBJECT
+6. ADD A SUBJECT, TYPE OR BOARD
+-------------------------------
+
+Add the new value to IGCSEMYSG_SUBJECTS, IGCSEMYSG_RESOURCE_TYPES or
+IGCSEMYSG_EXAM_BOARDS near the top of resources-data.js. Use exactly the same
+spelling in resource entries.
+
+
+7. ARRANGE RESOURCES
 --------------------
 
-A. Add the subject name inside window.IGCSEMYSG_SUBJECTS.
-B. Add at least one resource object using the exact same subject spelling.
-C. If the subject is offered for tuition, also add it to the subject list in
-   index.html.
+The page offers:
+
+- Recommended: featured items first, followed by order.
+- Newest first: updatedDate, otherwise publishedDate.
+- Title A–Z: alphabetical title.
+
+A useful learning sequence is:
+
+10  Foundational notes
+20  Guided examples
+30  Topical questions
+40  Model answers
+50  Exam guide
 
 
-5. CHANGE THE MEMBERSHIP BUTTON
---------------------------------
+8. COPYRIGHT AND ACCESS
+-----------------------
 
-The membership button is near the bottom of resources.html.
+Only upload files IGCSEMYSG owns, created, licensed or has permission to share.
+Do not upload copyrighted textbooks, restricted papers or paid third-party
+material without permission.
 
-Current destination:
-
-https://app.igcsemysg.site/pricing
-
-Search resources.html for:
-
-Become a member for more resources
-
-Change only the href value if the pricing address changes.
+Do not put paid member files in the public GitHub repository. A visual lock is
+not security. Store protected materials inside the authenticated app or private
+storage with access controls.
 
 
-6. TEST BEFORE PUBLISHING
--------------------------
-
-After every update:
+9. TEST EVERY UPDATE
+--------------------
 
 1. Open resources.html.
-2. Search for the subject.
-3. Open the new resource.
-4. Confirm the file or link loads.
-5. Test once on a phone.
-6. Confirm the membership button reaches the pricing page.
-
-Never publish a resource card before its target file has been uploaded. Doing
-so creates a broken link.
+2. Search by part of the title and by a topic.
+3. Test the subject, type and board filters.
+4. Test Recommended, Newest and Title arrangements.
+5. Open the resource and confirm the correct file loads.
+6. Test once on a phone.
+7. Confirm unpublished entries do not appear.
+8. Confirm the membership button reaches the pricing page.

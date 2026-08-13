@@ -1,5 +1,9 @@
 IGCSEMYSG MARKETING SITE UPDATE
 
+Before uploading this version, delete the old resource.html file from the
+repository. It belonged only to the removed checklist viewer and is no longer
+used.
+
 Upload or replace these files in the root of your GitHub Pages repository:
 
 1. index.html
@@ -7,14 +11,13 @@ Upload or replace these files in the root of your GitHub Pages repository:
 3. styles.css
 4. script.js
 5. resources.html
-6. resource.html
-7. resources-data.js
-8. resources.js
-9. RESOURCE-MANAGEMENT-GUIDE.txt
-10. careers.html
-11. robots.txt
-12. sitemap.xml
-13. SEO-SETUP-GUIDE.txt
+6. resources-data.js
+7. resources.js
+8. RESOURCE-MANAGEMENT-GUIDE.txt
+9. careers.html
+10. robots.txt
+11. sitemap.xml
+12. SEO-SETUP-GUIDE.txt
 
 What changes:
 
@@ -24,7 +27,10 @@ What changes:
 - A learning workspace section explains resumable work, progress, assignment timing and goals.
 - The layout remains responsive for desktop, tablet and mobile.
 - A free resource library is available from the main navigation.
-- Each supported subject includes a printable revision-planning checklist.
+- The placeholder revision checklists have been removed.
+- Resources can be added manually with title, subject, board, type, topics,
+  syllabus code, dates, description, file details and custom order.
+- Search, subject/type/board filters and three arrangement options are included.
 - A member-only resource preview redirects to app.igcsemysg.site/pricing.
 - The careers application opens only when requested.
 - Applicants can prepare CV and cover-letter files before choosing email or
@@ -39,7 +45,7 @@ After upload:
 2. Wait one to three minutes for GitHub Pages to deploy.
 3. Open the homepage in a private browser window.
 4. Test the Take the assessment button and complete the 15 questions once.
-5. Open resources.html and test a checklist, subject filter and search.
+5. Open resources.html and test search, filters and arrangements.
 6. Test the membership button at the bottom of the resources page.
 7. Open careers.html and confirm Start application expands the form.
 8. Complete a test application and verify both email and WhatsApp routes.
@@ -47,7 +53,7 @@ After upload:
 10. Follow SEO-SETUP-GUIDE.txt to verify Google Search Console and submit the sitemap.
 
 Keep assessment.html in the same folder as index.html so the redirect works.
-Keep resource.html, resources.html, resources-data.js and resources.js together
-in the same folder.
+Keep resources.html, resources-data.js and resources.js together in the same
+folder.
 
 Read RESOURCE-MANAGEMENT-GUIDE.txt before adding PDFs, worksheets or links.

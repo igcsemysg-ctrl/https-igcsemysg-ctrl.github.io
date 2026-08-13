@@ -1,250 +1,46 @@
 /*
   IGCSEMYSG RESOURCE CATALOGUE
-  --------------------------------
-  This is the only file you normally edit when adding a resource.
-  See RESOURCE-MANAGEMENT-GUIDE.txt for copy-and-paste examples.
+  Add, edit, hide and arrange resources here.
+  See RESOURCE-MANAGEMENT-GUIDE.txt for full instructions.
 */
 
 window.IGCSEMYSG_SUBJECTS = [
-  "Mathematics",
-  "Additional Mathematics",
-  "Physics",
-  "Chemistry",
-  "Biology",
-  "Accounting",
-  "Economics",
-  "Business",
-  "Geography",
-  "English First Language",
-  "English Second Language",
-  "ICT",
-  "Computer Science",
-  "Commerce",
-  "Sociology",
-  "Global Perspectives",
-  "Environmental Management"
+  "Mathematics", "Additional Mathematics", "Physics", "Chemistry", "Biology",
+  "Accounting", "Economics", "Business", "Geography", "English First Language",
+  "English Second Language", "ICT", "Computer Science", "Commerce", "Sociology",
+  "Global Perspectives", "Environmental Management"
 ];
 
-window.IGCSEMYSG_RESOURCES = [
+window.IGCSEMYSG_RESOURCE_TYPES = [
+  "Revision notes", "Topical questions", "Past paper", "Mark scheme",
+  "Model answer", "Formula sheet", "Exam guide", "Textbook link"
+];
+
+window.IGCSEMYSG_EXAM_BOARDS = [
+  "Cambridge IGCSE", "Pearson Edexcel International GCSE",
+  "Singapore O-Level", "Multiple boards"
+];
+
+/*
+  Paste resource objects between the brackets. Example:
+
   {
-    id: "mathematics-revision-planner",
-    title: "Mathematics revision planner",
+    id: "mathematics-linear-equations-notes",
+    title: "Linear equations revision notes",
     subject: "Mathematics",
-    type: "Interactive checklist",
-    board: "Cross-board planning",
-    description: "Organise the main areas of Mathematics and mark each revision priority as it is completed.",
-    kind: "checklist",
-    url: "resource.html?id=mathematics-revision-planner",
-    topics: ["Number", "Algebra", "Geometry and constructions", "Mensuration", "Trigonometry", "Statistics and probability"],
+    type: "Revision notes",
+    board: "Cambridge IGCSE",
+    syllabusCode: "0580",
+    topics: ["Algebra", "Linear equations"],
+    level: "Year 10–11",
+    publishedDate: "2026-08-14",
+    updatedDate: "2026-08-14",
+    description: "Concise notes covering methods, worked examples and common errors.",
+    url: "resources/mathematics/linear-equations-notes.pdf",
+    fileSize: "1.8 MB",
+    featured: true,
     published: true,
     order: 1
-  },
-  {
-    id: "additional-mathematics-revision-planner",
-    title: "Additional Mathematics revision planner",
-    subject: "Additional Mathematics",
-    type: "Interactive checklist",
-    board: "Cross-board planning",
-    description: "Structure revision across the core algebra, calculus and applied topics commonly studied in Additional Mathematics.",
-    kind: "checklist",
-    url: "resource.html?id=additional-mathematics-revision-planner",
-    topics: ["Functions", "Quadratics and polynomials", "Logarithms and exponentials", "Trigonometry", "Differentiation", "Integration", "Vectors and kinematics"],
-    published: true,
-    order: 2
-  },
-  {
-    id: "physics-revision-planner",
-    title: "Physics revision planner",
-    subject: "Physics",
-    type: "Interactive checklist",
-    board: "Cross-board planning",
-    description: "Track revision across major Physics areas and keep practical skills visible alongside theory.",
-    kind: "checklist",
-    url: "resource.html?id=physics-revision-planner",
-    topics: ["Motion, forces and energy", "Thermal physics", "Waves", "Electricity and magnetism", "Atomic physics", "Space physics", "Practical and data skills"],
-    published: true,
-    order: 3
-  },
-  {
-    id: "chemistry-revision-planner",
-    title: "Chemistry revision planner",
-    subject: "Chemistry",
-    type: "Interactive checklist",
-    board: "Cross-board planning",
-    description: "Plan revision from particle theory and calculations through reactions, analysis and organic chemistry.",
-    kind: "checklist",
-    url: "resource.html?id=chemistry-revision-planner",
-    topics: ["Particles, atoms and bonding", "Stoichiometry", "Energetics and rates", "Acids, bases and salts", "Periodic trends and metals", "Organic chemistry", "Experimental techniques and analysis"],
-    published: true,
-    order: 4
-  },
-  {
-    id: "biology-revision-planner",
-    title: "Biology revision planner",
-    subject: "Biology",
-    type: "Interactive checklist",
-    board: "Cross-board planning",
-    description: "Map revision across cells, organisms, inheritance, ecosystems and experimental skills.",
-    kind: "checklist",
-    url: "resource.html?id=biology-revision-planner",
-    topics: ["Cells and organisation", "Movement of substances", "Nutrition and respiration", "Transport and coordination", "Reproduction and inheritance", "Ecology and human impact", "Practical and data skills"],
-    published: true,
-    order: 5
-  },
-  {
-    id: "accounting-revision-planner",
-    title: "Accounting revision planner",
-    subject: "Accounting",
-    type: "Interactive checklist",
-    board: "Cross-board planning",
-    description: "Keep bookkeeping, adjustments, financial statements and interpretation within one revision plan.",
-    kind: "checklist",
-    url: "resource.html?id=accounting-revision-planner",
-    topics: ["Double entry and source documents", "Books of prime entry", "Trial balance and error correction", "Year-end adjustments", "Financial statements", "Partnerships and companies", "Ratio analysis and interpretation"],
-    published: true,
-    order: 6
-  },
-  {
-    id: "economics-revision-planner",
-    title: "Economics revision planner",
-    subject: "Economics",
-    type: "Interactive checklist",
-    board: "Cross-board planning",
-    description: "Organise economic concepts, diagrams, policy analysis and structured evaluation.",
-    kind: "checklist",
-    url: "resource.html?id=economics-revision-planner",
-    topics: ["The basic economic problem", "Resource allocation and markets", "Firms, workers and households", "Government and the macroeconomy", "Development and living standards", "International trade and globalisation", "Data response and evaluation"],
-    published: true,
-    order: 7
-  },
-  {
-    id: "business-revision-planner",
-    title: "Business revision planner",
-    subject: "Business",
-    type: "Interactive checklist",
-    board: "Cross-board planning",
-    description: "Plan revision across business activity, people, marketing, operations and finance.",
-    kind: "checklist",
-    url: "resource.html?id=business-revision-planner",
-    topics: ["Business activity and ownership", "People in business", "Marketing", "Operations management", "Financial information and decisions", "External influences", "Case-study application and evaluation"],
-    published: true,
-    order: 8
-  },
-  {
-    id: "geography-revision-planner",
-    title: "Geography revision planner",
-    subject: "Geography",
-    type: "Interactive checklist",
-    board: "Cross-board planning",
-    description: "Bring physical, human and environmental topics together with fieldwork and data skills.",
-    kind: "checklist",
-    url: "resource.html?id=geography-revision-planner",
-    topics: ["Population and settlement", "Natural environments", "Economic development", "Resource management", "Case studies", "Map and data skills", "Fieldwork and investigation"],
-    published: true,
-    order: 9
-  },
-  {
-    id: "english-first-language-revision-planner",
-    title: "English First Language revision planner",
-    subject: "English First Language",
-    type: "Interactive checklist",
-    board: "Cross-board planning",
-    description: "Structure practice across comprehension, language analysis, summary and extended writing.",
-    kind: "checklist",
-    url: "resource.html?id=english-first-language-revision-planner",
-    topics: ["Reading comprehension", "Writer's effects and language analysis", "Summary writing", "Directed writing", "Descriptive writing", "Narrative writing", "Editing and technical accuracy"],
-    published: true,
-    order: 10
-  },
-  {
-    id: "english-second-language-revision-planner",
-    title: "English Second Language revision planner",
-    subject: "English Second Language",
-    type: "Interactive checklist",
-    board: "Cross-board planning",
-    description: "Plan balanced practice across reading, writing, listening, speaking and language accuracy.",
-    kind: "checklist",
-    url: "resource.html?id=english-second-language-revision-planner",
-    topics: ["Reading for detail", "Note-taking and summary", "Functional writing", "Extended writing", "Listening comprehension", "Speaking and communication", "Vocabulary and grammar accuracy"],
-    published: true,
-    order: 11
-  },
-  {
-    id: "ict-revision-planner",
-    title: "ICT revision planner",
-    subject: "ICT",
-    type: "Interactive checklist",
-    board: "Cross-board planning",
-    description: "Coordinate theory revision with the practical application skills expected in ICT.",
-    kind: "checklist",
-    url: "resource.html?id=ict-revision-planner",
-    topics: ["Types and components of computer systems", "Input, output and storage", "Networks and communication", "Safety, security and data", "Document production", "Spreadsheets and databases", "Presentations and web authoring"],
-    published: true,
-    order: 12
-  },
-  {
-    id: "computer-science-revision-planner",
-    title: "Computer Science revision planner",
-    subject: "Computer Science",
-    type: "Interactive checklist",
-    board: "Cross-board planning",
-    description: "Track theory, algorithms, programming and computational problem-solving in one place.",
-    kind: "checklist",
-    url: "resource.html?id=computer-science-revision-planner",
-    topics: ["Data representation", "Data transmission", "Hardware and software", "Internet and cybersecurity", "Algorithms and problem-solving", "Programming concepts", "Databases and Boolean logic"],
-    published: true,
-    order: 13
-  },
-  {
-    id: "commerce-revision-planner",
-    title: "Commerce revision planner",
-    subject: "Commerce",
-    type: "Interactive checklist",
-    board: "Cross-board planning",
-    description: "Plan revision across trade, finance, communication and the wider commercial environment.",
-    kind: "checklist",
-    url: "resource.html?id=commerce-revision-planner",
-    topics: ["Production and trade", "Retail and wholesale", "Documents of trade", "Commercial finance", "Insurance", "Communication and transport", "International trade and consumer protection"],
-    published: true,
-    order: 14
-  },
-  {
-    id: "sociology-revision-planner",
-    title: "Sociology revision planner",
-    subject: "Sociology",
-    type: "Interactive checklist",
-    board: "Cross-board planning",
-    description: "Organise theory, evidence and evaluation across the main areas of sociological study.",
-    kind: "checklist",
-    url: "resource.html?id=sociology-revision-planner",
-    topics: ["Research methods", "Identity and socialisation", "Family", "Education", "Crime and deviance", "Media", "Social inequality"],
-    published: true,
-    order: 15
-  },
-  {
-    id: "global-perspectives-revision-planner",
-    title: "Global Perspectives planning checklist",
-    subject: "Global Perspectives",
-    type: "Interactive checklist",
-    board: "Cross-board planning",
-    description: "Keep research, source evaluation, perspectives, collaboration and reflection within one project plan.",
-    kind: "checklist",
-    url: "resource.html?id=global-perspectives-revision-planner",
-    topics: ["Question and issue definition", "Research planning", "Source credibility", "Comparing perspectives", "Analysis and argument", "Team collaboration", "Reflection and communication"],
-    published: true,
-    order: 16
-  },
-  {
-    id: "environmental-management-revision-planner",
-    title: "Environmental Management revision planner",
-    subject: "Environmental Management",
-    type: "Interactive checklist",
-    board: "Cross-board planning",
-    description: "Plan revision across natural systems, resource use, environmental pressures and management responses.",
-    kind: "checklist",
-    url: "resource.html?id=environmental-management-revision-planner",
-    topics: ["Rocks, minerals and energy", "Agriculture and food", "Water resources", "Oceans and fisheries", "Natural hazards", "Atmosphere and climate", "Population and ecosystems", "Investigation and data skills"],
-    published: true,
-    order: 17
   }
-];
+*/
+window.IGCSEMYSG_RESOURCES = [];
