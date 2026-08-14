@@ -11,13 +11,14 @@ Upload or replace these files in the root of your GitHub Pages repository:
 3. styles.css
 4. script.js
 5. resources.html
-6. resources-data.js
-7. resources.js
-8. RESOURCE-MANAGEMENT-GUIDE.txt
-9. careers.html
-10. robots.txt
-11. sitemap.xml
-12. SEO-SETUP-GUIDE.txt
+6. learning-system.html
+7. resources-data.js
+8. resources.js
+9. RESOURCE-MANAGEMENT-GUIDE.txt
+10. careers.html
+11. robots.txt
+12. sitemap.xml
+13. SEO-SETUP-GUIDE.txt
 
 What changes:
 
@@ -31,6 +32,10 @@ What changes:
 - Resources can be added manually with title, subject, board, type, topics,
   syllabus code, dates, description, file details and custom order.
 - Search, subject/type/board filters and three arrangement options are included.
+- The navigation now separates its content groups with subtle visual dividers.
+- learning-system.html explains the LMS through a visual learning record,
+  connected workflow and role-specific benefits.
+- Learning-system buttons open https://app.igcsemysg.site.
 - A member-only resource preview redirects to app.igcsemysg.site/pricing.
 - The careers application opens only when requested.
 - Applicants can prepare CV and cover-letter files before choosing email or
@@ -46,11 +51,12 @@ After upload:
 3. Open the homepage in a private browser window.
 4. Test the Take the assessment button and complete the 15 questions once.
 5. Open resources.html and test search, filters and arrangements.
-6. Test the membership button at the bottom of the resources page.
-7. Open careers.html and confirm Start application expands the form.
-8. Complete a test application and verify both email and WhatsApp routes.
-9. Open robots.txt and sitemap.xml from the live domain.
-10. Follow SEO-SETUP-GUIDE.txt to verify Google Search Console and submit the sitemap.
+6. Open learning-system.html and test every platform button.
+7. Test the membership button at the bottom of the resources page.
+8. Open careers.html and confirm Start application expands the form.
+9. Complete a test application and verify both email and WhatsApp routes.
+10. Open robots.txt and sitemap.xml from the live domain.
+11. Follow SEO-SETUP-GUIDE.txt to verify Google Search Console and submit the sitemap.
 
 Keep assessment.html in the same folder as index.html so the redirect works.
 Keep resources.html, resources-data.js and resources.js together in the same
