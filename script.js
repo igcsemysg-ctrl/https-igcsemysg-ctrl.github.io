@@ -338,23 +338,132 @@ function initDiagnostic() {
 function initEnquiryForm() {
   const form = document.querySelector("#enquiry-form");
   if (!form) return;
+  const whatsappButton = document.querySelector("#enquiry-whatsapp-button");
+  const attachmentInput = document.querySelector("#enquiry-attachments");
+  const fileList = document.querySelector("#enquiry-file-list");
+  const status = document.querySelector("#enquiry-status");
+  const maximumFiles = 3;
+  const maximumFileSize = 10 * 1024 * 1024;
+  const allowedFilePattern = /\.(pdf|doc|docx|jpe?g|png)$/i;
+  const value = (selector) => document.querySelector(selector)?.value.trim() || "";
+  const selectedFiles = () => Array.from(attachmentInput?.files || []);
+  const safeText = (text) => text.replace(/[&<>'"]/g, (character) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", "'": "&#39;", '"': "&quot;" }[character]));
+
+  function setStatus(message, isError = false) {
+    if (!status) return;
+    status.textContent = message;
+    status.classList.toggle("is-error", isError);
+  }
+
+  function renderFiles() {
+    if (!fileList) return;
+    const files = selectedFiles();
+    fileList.classList.toggle("has-files", files.length > 0);
+    if (!files.length) {
+      fileList.innerHTML = "<span>No files selected</span><small>PDF, DOC, DOCX, JPG or PNG · up to 10 MB each · maximum 3 files</small>";
+      return;
+    }
+    fileList.innerHTML = files
+      .map((file) => `<span>${safeText(file.name)} · ${(file.size / 1024 / 1024).toFixed(1)} MB</span>`)
+      .join("");
+  }
+
+  function validateFiles() {
+    if (!attachmentInput) return true;
+    const files = selectedFiles();
+    attachmentInput.setCustomValidity("");
+    if (files.length > maximumFiles) {
+      attachmentInput.setCustomValidity(`Choose no more than ${maximumFiles} files.`);
+      setStatus(`Please choose no more than ${maximumFiles} supporting files.`, true);
+      return false;
+    }
+    const unsupported = files.find((file) => !allowedFilePattern.test(file.name));
+    if (unsupported) {
+      attachmentInput.setCustomValidity("Use PDF, DOC, DOCX, JPG or PNG files only.");
+      setStatus(`${unsupported.name} is not a supported file type.`, true);
+      return false;
+    }
+    const oversized = files.find((file) => file.size > maximumFileSize);
+    if (oversized) {
+      attachmentInput.setCustomValidity("Keep each file below 10 MB.");
+      setStatus(`${oversized.name} is larger than 10 MB.`, true);
+      return false;
+    }
+    return true;
+  }
+
+  function validateEnquiry() {
+    validateFiles();
+    const valid = form.reportValidity();
+    if (!valid && !status?.textContent) setStatus("Complete the required fields before choosing a sending route.", true);
+    return valid;
+  }
+
+  function enquirySummary(channel) {
+    const files = selectedFiles();
+    const attachmentSummary = files.length
+      ? files.map((file, index) => `${index + 1}. ${file.name}`).join("\n")
+      : "No supporting documents selected";
+    return [
+      "IGCSEMYSG — ONLINE TUITION ENQUIRY",
+      "",
+      "CONTACT DETAILS",
+      `Name: ${value("#enquiry-name")}`,
+      `Relationship: ${value("#enquiry-role")}`,
+      `Email: ${value("#enquiry-email")}`,
+      `Phone: ${value("#enquiry-phone") || "Not provided"}`,
+      "",
+      "STUDENT LEARNING CONTEXT",
+      `Level: ${value("#enquiry-level")}`,
+      `Exam pathway: ${value("#enquiry-board")}`,
+      `Subject(s): ${value("#enquiry-subject")}`,
+      "",
+      "CURRENT CONCERN",
+      value("#enquiry-concern"),
+      "",
+      "INTENDED PROGRESS",
+      value("#enquiry-goal") || "Not provided",
+      "",
+      "SUPPORTING DOCUMENTS PREPARED",
+      attachmentSummary,
+      "",
+      files.length ? `Please attach the listed file${files.length === 1 ? "" : "s"} in ${channel} before sending.` : "No attachment is expected with this enquiry."
+    ].join("\n");
+  }
+
+  attachmentInput?.addEventListener("change", () => {
+    renderFiles();
+    if (validateFiles()) setStatus(selectedFiles().length ? "Supporting files are ready to be attached in your chosen sending app." : "");
+  });
+
   form.addEventListener("submit", (event) => {
     event.preventDefault();
-    const name = document.querySelector("#enquiry-name").value.trim();
-    const level = document.querySelector("#enquiry-level").value;
-    const board = document.querySelector("#enquiry-board").value;
-    const subject = document.querySelector("#enquiry-subject").value.trim();
-    const concern = document.querySelector("#enquiry-concern").value.trim();
-    const message = [
-      "Hello IGCSEMYSG. I would like to enquire about online tuition.",
-      `Student/parent name: ${name}`,
-      `Level: ${level}`,
-      `Board: ${board}`,
-      `Subject(s): ${subject}`,
-      `Current concern: ${concern || "Not provided"}`
-    ].join("\n");
-    window.open(createWhatsAppUrl(message), "_blank", "noopener,noreferrer");
+    setStatus("");
+    if (!validateEnquiry()) return;
+    const files = selectedFiles();
+    const subject = `Online tuition enquiry — ${value("#enquiry-name")} — ${value("#enquiry-subject")}`;
+    const emailUrl = `mailto:enquiry@send.igcsemysg.site?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(enquirySummary("your email app"))}`;
+    setStatus(
+      files.length
+        ? "Your enquiry email is prepared. Attach the selected documents in the email window before sending."
+        : "Your enquiry email is prepared and addressed to enquiry@send.igcsemysg.site."
+    );
+    window.location.href = emailUrl;
   });
+
+  whatsappButton?.addEventListener("click", () => {
+    setStatus("");
+    if (!validateEnquiry()) return;
+    const files = selectedFiles();
+    setStatus(
+      files.length
+        ? "Your WhatsApp enquiry is organised and ready. Attach the selected documents in WhatsApp before sending."
+        : "Your answers have been organised into a WhatsApp enquiry ready to send."
+    );
+    window.open(createWhatsAppUrl(enquirySummary("WhatsApp")), "_blank", "noopener,noreferrer");
+  });
+
+  renderFiles();
 }
 
 function initCareerForm() {

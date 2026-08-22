@@ -262,6 +262,62 @@ a{color:inherit}
 .contact-form textarea,.career-form textarea{resize:vertical}
 .contact-form input:focus,.contact-form select:focus,.contact-form textarea:focus,.career-form input:focus,.career-form select:focus,.career-form textarea:focus{outline:3px solid rgba(16,163,127,.18);border-color:var(--green)}
 .contact-form small{display:block;margin-top:12px;color:#8b928e;text-align:center;font-size:.58rem}
+.contact-expectations{display:grid;gap:0;margin-top:35px;border-top:1px solid rgba(255,255,255,.14)}
+.contact-expectations article{display:grid;grid-template-columns:37px 1fr;gap:15px;padding:21px 0;border-bottom:1px solid rgba(255,255,255,.14)}
+.contact-expectations article>span{display:grid;place-items:center;width:34px;height:34px;border:1px solid rgba(121,201,177,.25);border-radius:10px;background:rgba(121,201,177,.08);color:#83cbb5;font-size:.54rem;font-weight:800}
+.contact-expectations strong,.contact-expectations small{display:block}
+.contact-expectations strong{font:700 .77rem "Manrope",sans-serif}
+.contact-expectations small{margin-top:6px;color:#aebbb6;font-size:.63rem;line-height:1.55}
+.enquiry-form-premium{padding:0;overflow:hidden;border:1px solid rgba(255,255,255,.08);border-radius:24px;box-shadow:0 34px 85px rgba(0,0,0,.22)}
+.enquiry-form-head{display:flex;align-items:center;justify-content:space-between;gap:20px;padding:24px 27px;border-bottom:1px solid var(--line);background:#fbfcfb}
+.enquiry-form-head p{margin:0;color:var(--green-dark);font-size:.55rem;font-weight:800;letter-spacing:.13em}
+.enquiry-form-head h3{margin:6px 0 0;font:700 1.08rem "Manrope",sans-serif;letter-spacing:-.025em}
+.enquiry-form-head>span{display:flex;align-items:center;gap:7px;padding:7px 10px;border-radius:999px;background:var(--green-soft);color:var(--green-dark);font-size:.53rem;font-weight:800;white-space:nowrap}
+.enquiry-form-head>span i{width:6px;height:6px;border-radius:50%;background:var(--green)}
+.enquiry-form-premium fieldset{margin:0;padding:25px 27px 8px;border:0;border-bottom:1px solid var(--line)}
+.enquiry-form-premium legend{display:flex;align-items:center;gap:9px;width:100%;padding:0;color:#4b5550;font:700 .66rem "Manrope",sans-serif}
+.enquiry-form-premium legend>span{display:grid;place-items:center;width:25px;height:25px;border-radius:8px;background:var(--green-soft);color:var(--green-dark);font-size:.49rem}
+.enquiry-form-premium legend>small{display:inline;margin:0 0 0 auto;padding:5px 7px;border-radius:999px;background:#f0f2f0;color:#858d89;font-size:.48rem}
+.enquiry-form-premium label{font-size:.64rem}
+.enquiry-form-premium input,.enquiry-form-premium select,.enquiry-form-premium textarea{padding:13px 14px;border-radius:10px;background:#fbfcfb;font-size:.75rem;transition:border-color .18s ease,box-shadow .18s ease,background .18s ease}
+.enquiry-form-premium input:hover,.enquiry-form-premium select:hover,.enquiry-form-premium textarea:hover{border-color:#c4d0ca;background:#fff}
+.enquiry-form-premium textarea{line-height:1.55}
+.enquiry-attachment-fieldset{padding-bottom:25px!important}
+.enquiry-upload{display:grid!important;grid-template-columns:38px 1fr auto;align-items:center;gap:13px;margin:16px 0 0!important;padding:15px!important;border:1px dashed #b9cbc3;border-radius:13px;background:#f7faf8;cursor:pointer;transition:border-color .18s ease,background .18s ease}
+.enquiry-upload:hover{border-color:var(--green);background:#f0f7f4}
+.enquiry-upload-icon{display:grid;place-items:center;width:38px;height:38px;border-radius:11px;background:var(--green-soft);color:var(--green-dark);font-size:1rem}
+.enquiry-upload strong,.enquiry-upload small{display:block;text-align:left}
+.enquiry-upload strong{color:var(--ink);font-size:.67rem}
+.enquiry-upload small{margin:4px 0 0!important;color:#818a85!important;font-size:.54rem!important}
+.enquiry-upload>b{padding:8px 10px;border:1px solid var(--line);border-radius:8px;background:#fff;color:#58625d;font-size:.55rem}
+.enquiry-upload input{position:absolute;width:1px;height:1px;padding:0;margin:0;opacity:0;pointer-events:none}
+.enquiry-file-list{display:flex;flex-wrap:wrap;align-items:center;gap:6px 10px;margin-top:10px;color:#78817c;font-size:.54rem}
+.enquiry-file-list>span{font-weight:700}
+.enquiry-file-list>small{display:inline;margin:0;color:#929995;text-align:left;font-size:.51rem}
+.enquiry-file-list.has-files{display:grid;grid-template-columns:1fr;gap:6px}
+.enquiry-file-list.has-files>span{width:max-content;max-width:100%;padding:7px 9px;border-radius:8px;background:#edf5f1;color:#42675a;overflow-wrap:anywhere}
+.enquiry-route-heading{display:flex;align-items:end;justify-content:space-between;gap:20px;padding:22px 27px 11px}
+.enquiry-route-heading>span{color:#4e5853;font-size:.65rem;font-weight:800}
+.enquiry-route-heading>small{margin:0;color:#8a928e;text-align:right;font-size:.52rem}
+.enquiry-actions{display:grid;grid-template-columns:1.12fr .88fr;gap:10px;padding:0 27px}
+.enquiry-action{position:relative;min-height:116px;display:flex;align-items:flex-start;flex-direction:column;padding:17px 45px 17px 17px;border:1px solid transparent;border-radius:13px;text-align:left;cursor:pointer;transition:transform .2s ease,box-shadow .2s ease,border-color .2s ease}
+.enquiry-action:hover{transform:translateY(-2px)}
+.enquiry-action:focus-visible{outline:3px solid rgba(16,163,127,.25);outline-offset:3px}
+.enquiry-action span,.enquiry-action strong,.enquiry-action small{display:block;margin:0;text-align:left}
+.enquiry-action span{font-size:.48rem;font-weight:800;letter-spacing:.12em}
+.enquiry-action strong{margin-top:12px;font:700 .73rem "Manrope",sans-serif}
+.enquiry-action small{margin-top:6px;font-size:.52rem;line-height:1.5}
+.enquiry-action i{position:absolute;right:16px;bottom:16px;font-style:normal;font-size:.9rem}
+.enquiry-action-email{background:var(--ink);color:#fff;box-shadow:0 12px 28px rgba(23,25,24,.14)}
+.enquiry-action-email span{color:#7bc9b1}
+.enquiry-action-email small{color:#b8c3bf}
+.enquiry-action-email:hover{background:#080909;box-shadow:0 16px 32px rgba(23,25,24,.19)}
+.enquiry-action-whatsapp{border-color:#c8d8d1;background:#f0f7f4;color:#215c49}
+.enquiry-action-whatsapp span,.enquiry-action-whatsapp small{color:#5b8778}
+.enquiry-action-whatsapp:hover{border-color:#94baa9;background:#e8f4ef}
+.enquiry-status{min-height:18px;margin:13px 27px 0;color:#447363;font-size:.58rem;line-height:1.5}
+.enquiry-status.is-error{color:#a23e36}
+.enquiry-privacy{margin:0;padding:12px 27px 24px;color:#8b928e;text-align:center;font-size:.51rem;line-height:1.55}
 
 footer{padding:60px 0 25px;background:#0e1513;color:#9ba5a1}
 .footer-grid{display:grid;grid-template-columns:2fr 1fr 1fr;gap:50px}
@@ -736,6 +792,19 @@ footer{padding:60px 0 25px;background:#0e1513;color:#9ba5a1}
   .faqs details p{margin-inline:50px 39px}
   .form-row{grid-template-columns:1fr;gap:0}
   .contact-form,.career-form{padding:23px 18px}
+  .enquiry-form-premium{padding:0}
+  .enquiry-form-head{align-items:flex-start;padding:21px 18px}
+  .enquiry-form-head>span{display:none}
+  .enquiry-form-premium fieldset{padding:23px 18px 7px}
+  .enquiry-attachment-fieldset{padding-bottom:22px!important}
+  .enquiry-upload{grid-template-columns:36px 1fr!important;padding:14px!important}
+  .enquiry-upload>b{grid-column:1/-1;text-align:center}
+  .enquiry-route-heading{align-items:flex-start;flex-direction:column;gap:6px;padding:20px 18px 10px}
+  .enquiry-route-heading>small{text-align:left}
+  .enquiry-actions{grid-template-columns:1fr;padding:0 18px}
+  .enquiry-action{min-height:105px}
+  .enquiry-status{margin-inline:18px}
+  .enquiry-privacy{padding:12px 18px 22px}
   .footer-grid{grid-template-columns:1fr 1fr}
   .footer-grid>div:first-child{grid-column:1/-1}
   .footer-bottom{display:block;line-height:2}
