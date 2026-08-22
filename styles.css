@@ -34,7 +34,6 @@ a{color:inherit}
 .nav-links a{position:relative;display:inline-flex;align-items:center;gap:7px;padding:9px 10px;border-radius:9px;text-decoration:none;color:#525955;font-size:.73rem;font-weight:600;transition:color .18s ease,background .18s ease}
 .nav-links a:hover{background:#f0f4f2;color:var(--green-dark)}
 .nav-group-featured{margin-inline:2px}
-.nav-dot{width:6px;height:6px;border-radius:50%;background:var(--green);box-shadow:0 0 0 4px rgba(16,163,127,.1)}
 .nav-links a[aria-current="page"]{background:var(--green-soft);color:var(--green-dark);font-weight:800}
 .nav-cta{gap:8px;padding:10px 16px;white-space:nowrap}
 .nav-cta span{font-size:.85rem}
@@ -318,6 +317,53 @@ a{color:inherit}
 .enquiry-status{min-height:18px;margin:13px 27px 0;color:#447363;font-size:.58rem;line-height:1.5}
 .enquiry-status.is-error{color:#a23e36}
 .enquiry-privacy{margin:0;padding:12px 27px 24px;color:#8b928e;text-align:center;font-size:.51rem;line-height:1.55}
+
+/* Dedicated enquiry page */
+.enquiry-page-body{background:#f1f4f2}
+.enquiry-page-hero{padding:166px 0 104px;background:
+  radial-gradient(circle at 12% 0%,rgba(16,163,127,.14),transparent 30%),
+  radial-gradient(circle at 88% 100%,rgba(102,159,138,.12),transparent 31%),
+  linear-gradient(145deg,#f9faf8,#eef3f0)}
+.enquiry-page-hero-grid{display:grid;grid-template-columns:1fr .48fr;gap:100px;align-items:end}
+.enquiry-back-link{margin:0 0 42px;color:#64706a}
+.enquiry-page-hero h1{max-width:850px;margin:0;font:700 clamp(3.7rem,6.3vw,6rem)/.99 "Manrope",sans-serif;letter-spacing:-.072em}
+.enquiry-page-hero-grid>div>p:not(.kicker){max-width:710px;margin:27px 0 0;color:var(--muted);font-size:.98rem;line-height:1.78}
+.enquiry-hero-note{padding:27px;border:1px solid #d1ddd7;border-radius:20px;background:rgba(255,255,255,.78);box-shadow:0 20px 55px rgba(31,54,46,.07)}
+.enquiry-hero-note>span{color:var(--green-dark);font-size:.57rem;font-weight:800;letter-spacing:.13em}
+.enquiry-hero-note>strong{display:block;margin-top:18px;font:700 1.08rem/1.4 "Manrope",sans-serif}
+.enquiry-hero-note>p{margin:10px 0 0;color:var(--muted);font-size:.72rem;line-height:1.65}
+.enquiry-hero-note>div{display:flex;flex-wrap:wrap;gap:7px;margin-top:22px;padding-top:18px;border-top:1px solid var(--line)}
+.enquiry-hero-note>div span{padding:7px 9px;border-radius:999px;background:#eef4f1;color:#597067;font-size:.53rem;font-weight:700}
+.enquiry-page-section{padding:130px 0;background:#f2f5f3}
+.enquiry-page-grid{display:grid;grid-template-columns:.58fr 1.42fr;gap:86px;align-items:start}
+.enquiry-page-guide{position:sticky;top:120px;padding-top:18px}
+.enquiry-page-guide h2{max-width:480px;margin:0;font:700 clamp(2.45rem,4vw,3.8rem)/1.06 "Manrope",sans-serif;letter-spacing:-.058em}
+.enquiry-page-guide>p:not(.kicker){max-width:430px;margin:21px 0 0;color:var(--muted);font-size:.79rem;line-height:1.75}
+.enquiry-page-expectations{margin-top:38px;border-top-color:#d8dfdb}
+.enquiry-page-expectations article{padding:24px 0;border-bottom-color:#d8dfdb}
+.enquiry-page-expectations strong{color:var(--ink)}
+.enquiry-page-expectations small{color:#737c77}
+.enquiry-page-form{padding:0 0 4px;overflow:visible;border:1px solid #d9dfdc;border-radius:26px;background:#fff;box-shadow:0 35px 90px rgba(31,54,46,.10)}
+.enquiry-page-form .enquiry-form-head{padding:35px 38px 30px;border-bottom:0;background:transparent}
+.enquiry-page-form .enquiry-preparation-label{background:#f0f4f2;color:#68736e}
+.enquiry-page-form fieldset{margin:0 28px 24px;padding:31px 31px 13px;border:1px solid #e0e5e2;border-radius:18px;background:#fbfcfb}
+.enquiry-page-form legend{width:auto;padding:0 8px;background:#fff;color:#35413c;font-size:.72rem}
+.enquiry-page-form legend>span{width:29px;height:29px}
+.enquiry-page-form .enquiry-section-intro{margin:1px 0 25px;color:#808985;font-size:.64rem;line-height:1.55}
+.enquiry-page-form label{margin-bottom:20px;font-size:.68rem}
+.enquiry-page-form .form-row{gap:16px}
+.enquiry-page-form input,.enquiry-page-form select,.enquiry-page-form textarea{margin-top:9px;padding:15px 16px;border-radius:11px;background:#fff;font-size:.78rem}
+.enquiry-page-form input,.enquiry-page-form select{min-height:54px}
+.enquiry-page-form .enquiry-attachment-fieldset{padding-bottom:29px!important}
+.enquiry-page-form .enquiry-upload{margin-top:0!important;padding:18px!important;background:#fff}
+.enquiry-page-form .enquiry-file-list{margin-top:13px}
+.enquiry-send-panel{margin:7px 28px 28px;padding:25px 4px 4px;border-radius:18px;background:#f1f5f3}
+.enquiry-page-form .enquiry-route-heading{padding:0 24px 14px}
+.enquiry-page-form .enquiry-actions{padding:0 24px}
+.enquiry-page-form .enquiry-action{min-height:126px;padding:20px 48px 20px 20px}
+.enquiry-page-form .enquiry-action strong{font-size:.78rem}
+.enquiry-page-form .enquiry-status{margin-inline:24px}
+.enquiry-page-form .enquiry-privacy{padding:12px 24px 21px}
 
 footer{padding:60px 0 25px;background:#0e1513;color:#9ba5a1}
 .footer-grid{display:grid;grid-template-columns:2fr 1fr 1fr;gap:50px}
@@ -727,6 +773,9 @@ footer{padding:60px 0 25px;background:#0e1513;color:#9ba5a1}
   .lms-perspective-grid{grid-template-columns:1fr 1fr}
   .lms-perspective-grid>article:last-child{grid-column:1/-1}
   .lms-final{align-items:flex-start;flex-direction:column;gap:30px}
+  .enquiry-page-hero-grid,.enquiry-page-grid{grid-template-columns:1fr;gap:50px}
+  .enquiry-page-guide{position:static;max-width:720px}
+  .enquiry-page-form{max-width:850px}
 }
 
 @media(max-width:650px){
@@ -805,6 +854,19 @@ footer{padding:60px 0 25px;background:#0e1513;color:#9ba5a1}
   .enquiry-action{min-height:105px}
   .enquiry-status{margin-inline:18px}
   .enquiry-privacy{padding:12px 18px 22px}
+  .enquiry-page-hero{padding:118px 0 75px}
+  .enquiry-page-hero h1{font-size:3rem}
+  .enquiry-back-link{margin-bottom:30px}
+  .enquiry-page-section{padding:78px 0}
+  .enquiry-page-guide h2{font-size:2.5rem}
+  .enquiry-page-form .enquiry-form-head{padding:25px 20px 22px}
+  .enquiry-page-form fieldset{margin:0 13px 18px;padding:25px 17px 9px}
+  .enquiry-page-form legend{padding-inline:4px}
+  .enquiry-send-panel{margin:3px 13px 16px;padding-top:21px}
+  .enquiry-page-form .enquiry-route-heading{padding:0 16px 12px}
+  .enquiry-page-form .enquiry-actions{padding:0 16px}
+  .enquiry-page-form .enquiry-status{margin-inline:16px}
+  .enquiry-page-form .enquiry-privacy{padding:12px 16px 20px}
   .footer-grid{grid-template-columns:1fr 1fr}
   .footer-grid>div:first-child{grid-column:1/-1}
   .footer-bottom{display:block;line-height:2}
