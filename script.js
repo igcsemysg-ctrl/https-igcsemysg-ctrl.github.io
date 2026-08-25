@@ -342,12 +342,24 @@ function initEnquiryForm() {
   const attachmentInput = document.querySelector("#enquiry-attachments");
   const fileList = document.querySelector("#enquiry-file-list");
   const status = document.querySelector("#enquiry-status");
+  const stepPanels = Array.from(form.querySelectorAll("[data-enquiry-step]"));
+  const nextButton = document.querySelector("#enquiry-next");
+  const backButton = document.querySelector("#enquiry-back");
+  const stepLabel = document.querySelector("#enquiry-step-label");
+  const stepTitle = document.querySelector("#enquiry-step-title");
+  const progressBar = document.querySelector("#enquiry-progress-bar");
+  const progressDots = Array.from(form.querySelectorAll(".intake-progress-dots i"));
+  const review = document.querySelector("#enquiry-review");
+  const success = document.querySelector("#enquiry-success");
   const maximumFiles = 3;
   const maximumFileSize = 10 * 1024 * 1024;
   const allowedFilePattern = /\.(pdf|doc|docx|jpe?g|png)$/i;
+  const stepTitles = ["About the student", "Academic information", "Understanding the situation", "Goals and expectations", "Review and next step"];
+  let currentStep = 1;
   const value = (selector) => document.querySelector(selector)?.value.trim() || "";
   const selectedFiles = () => Array.from(attachmentInput?.files || []);
   const safeText = (text) => text.replace(/[&<>'"]/g, (character) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", "'": "&#39;", '"': "&quot;" }[character]));
+  const checkedValues = (name) => Array.from(form.querySelectorAll(`input[name="${name}"]:checked`)).map((input) => input.value);
 
   function setStatus(message, isError = false) {
     if (!status) return;
@@ -392,37 +404,96 @@ function initEnquiryForm() {
     return true;
   }
 
-  function validateEnquiry() {
-    validateFiles();
-    const valid = form.reportValidity();
-    if (!valid && !status?.textContent) setStatus("Complete the required fields before choosing a sending route.", true);
-    return valid;
+  function validatePanel(step) {
+    const panel = stepPanels[step - 1];
+    if (!panel) return true;
+    for (const group of panel.querySelectorAll("[data-required-checkbox-group]")) {
+      const first = group.querySelector('input[type="checkbox"]');
+      const selected = group.querySelector('input[type="checkbox"]:checked');
+      if (first) first.setCustomValidity(selected ? "" : "Select at least one option.");
+    }
+    if (step === 3 && !validateFiles()) return false;
+    const controls = Array.from(panel.querySelectorAll("input,select,textarea"));
+    const invalid = controls.find((control) => !control.checkValidity());
+    if (invalid) {
+      invalid.reportValidity();
+      setStatus("Complete the required information before continuing.", true);
+      return false;
+    }
+    setStatus("");
+    return true;
+  }
+
+  function updateStep(step) {
+    currentStep = Math.min(Math.max(step, 1), stepPanels.length);
+    stepPanels.forEach((panel, index) => {
+      const active = index === currentStep - 1;
+      panel.hidden = !active;
+      panel.classList.toggle("active", active);
+    });
+    if (stepLabel) stepLabel.textContent = `Step ${currentStep} of ${stepPanels.length}`;
+    if (stepTitle) stepTitle.textContent = stepTitles[currentStep - 1];
+    if (progressBar) progressBar.style.width = `${currentStep / stepPanels.length * 100}%`;
+    progressDots.forEach((dot, index) => dot.classList.toggle("active", index < currentStep));
+    if (backButton) backButton.hidden = currentStep === 1;
+    if (nextButton) nextButton.hidden = currentStep === stepPanels.length;
+    if (currentStep === stepPanels.length) renderReview();
+  }
+
+  function renderReview() {
+    if (!review) return;
+    const subjects = checkedValues("enquiry-subject");
+    const situations = checkedValues("enquiry-situation");
+    const goals = checkedValues("enquiry-goal");
+    review.innerHTML = [
+      ["Student", `${value("#enquiry-student-name")} · ${value("#enquiry-level")}`],
+      ["Curriculum", form.querySelector('input[name="enquiry-board"]:checked')?.value || "Not provided"],
+      ["Subjects", subjects.join(", ") || "Not provided"],
+      ["Current situation", situations.join(", ") || "Not provided"],
+      ["Goals", goals.join(", ") || "Not provided"]
+    ].map(([label, content]) => `<div><span>${safeText(label)}</span><strong>${safeText(content)}</strong></div>`).join("");
   }
 
   function enquirySummary(channel) {
     const files = selectedFiles();
+    const subjects = checkedValues("enquiry-subject");
+    const situations = checkedValues("enquiry-situation");
+    const goals = checkedValues("enquiry-goal");
+    const board = form.querySelector('input[name="enquiry-board"]:checked')?.value || "Not provided";
     const attachmentSummary = files.length
       ? files.map((file, index) => `${index + 1}. ${file.name}`).join("\n")
       : "No supporting documents selected";
     return [
-      "IGCSEMYSG — ONLINE TUITION ENQUIRY",
+      "IGCSEMYSG — STUDENT FIT ENQUIRY",
       "",
-      "CONTACT DETAILS",
+      "PARENT / GUARDIAN",
       `Name: ${value("#enquiry-name")}`,
-      `Relationship: ${value("#enquiry-role")}`,
+      `Preferred contact: ${value("#enquiry-contact-method")}`,
       `Email: ${value("#enquiry-email")}`,
-      `Phone: ${value("#enquiry-phone") || "Not provided"}`,
+      `Phone / WhatsApp: ${value("#enquiry-phone")}`,
       "",
-      "STUDENT LEARNING CONTEXT",
+      "STUDENT",
+      `Name: ${value("#enquiry-student-name")}`,
       `Level: ${value("#enquiry-level")}`,
-      `Exam pathway: ${value("#enquiry-board")}`,
-      `Subject(s): ${value("#enquiry-subject")}`,
+      `School type: ${value("#enquiry-school-type")}`,
+      `Curriculum: ${board}`,
+      `Subjects: ${subjects.join(", ")}`,
       "",
-      "CURRENT CONCERN",
+      "SITUATION SIGNALS",
+      situations.join(", "),
+      value("#enquiry-situation-other") || "No additional signal provided",
+      "",
+      "WHAT THE FAMILY HAS NOTICED",
       value("#enquiry-concern"),
       "",
-      "INTENDED PROGRESS",
-      value("#enquiry-goal") || "Not provided",
+      "SUPPORT ALREADY TRIED",
+      value("#enquiry-tried") || "Not provided",
+      "",
+      "GOALS AND EXPECTATIONS",
+      `Areas to improve: ${goals.join(", ")}`,
+      `Specific outcome: ${value("#enquiry-outcome") || "Not provided"}`,
+      `Upcoming exam / event: ${value("#enquiry-exam") || "Not provided"}`,
+      `Date / timeframe: ${value("#enquiry-exam-date") || "Not provided"}`,
       "",
       "SUPPORTING DOCUMENTS PREPARED",
       attachmentSummary,
@@ -436,34 +507,48 @@ function initEnquiryForm() {
     if (validateFiles()) setStatus(selectedFiles().length ? "Supporting files are ready to be attached in your chosen sending app." : "");
   });
 
+  nextButton?.addEventListener("click", () => {
+    if (!validatePanel(currentStep)) return;
+    updateStep(currentStep + 1);
+    form.scrollIntoView({ behavior: "smooth", block: "start" });
+  });
+
+  backButton?.addEventListener("click", () => {
+    updateStep(currentStep - 1);
+    form.scrollIntoView({ behavior: "smooth", block: "start" });
+  });
+
   form.addEventListener("submit", (event) => {
     event.preventDefault();
     setStatus("");
-    if (!validateEnquiry()) return;
+    if (!validatePanel(5) || !validateFiles()) return;
     const files = selectedFiles();
-    const subject = `Online tuition enquiry — ${value("#enquiry-name")} — ${value("#enquiry-subject")}`;
+    const subject = `Student fit enquiry — ${value("#enquiry-student-name")} — ${checkedValues("enquiry-subject").join(", ")}`;
     const emailUrl = `mailto:enquiry@send.igcsemysg.site?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(enquirySummary("your email app"))}`;
     setStatus(
       files.length
         ? "Your enquiry email is prepared. Attach the selected documents in the email window before sending."
         : "Your enquiry email is prepared and addressed to enquiry@send.igcsemysg.site."
     );
+    if (success) success.hidden = false;
     window.location.href = emailUrl;
   });
 
   whatsappButton?.addEventListener("click", () => {
     setStatus("");
-    if (!validateEnquiry()) return;
+    if (!validatePanel(5) || !validateFiles()) return;
     const files = selectedFiles();
     setStatus(
       files.length
         ? "Your WhatsApp enquiry is organised and ready. Attach the selected documents in WhatsApp before sending."
         : "Your answers have been organised into a WhatsApp enquiry ready to send."
     );
+    if (success) success.hidden = false;
     window.open(createWhatsAppUrl(enquirySummary("WhatsApp")), "_blank", "noopener,noreferrer");
   });
 
   renderFiles();
+  updateStep(1);
 }
 
 function initCareerForm() {

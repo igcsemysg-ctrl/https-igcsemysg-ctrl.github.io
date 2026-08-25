@@ -2,7 +2,11 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://igcsemysg.site/</loc>
-    <lastmod>2026-08-14</lastmod>
+    <lastmod>2026-08-25</lastmod>
+  </url>
+  <url>
+    <loc>https://igcsemysg.site/who-we-help.html</loc>
+    <lastmod>2026-08-25</lastmod>
   </url>
   <url>
     <loc>https://igcsemysg.site/assessment.html</loc>
@@ -22,6 +26,6 @@
   </url>
   <url>
     <loc>https://igcsemysg.site/enquiry.html</loc>
-    <lastmod>2026-08-23</lastmod>
+    <lastmod>2026-08-25</lastmod>
   </url>
 </urlset>
