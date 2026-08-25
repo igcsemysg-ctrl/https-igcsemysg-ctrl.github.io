@@ -464,7 +464,7 @@ function initEnquiryForm() {
       ? files.map((file, index) => `${index + 1}. ${file.name}`).join("\n")
       : "No supporting documents selected";
     return [
-      "IGCSEMYSG — STUDENT FIT ENQUIRY",
+      "IGCSEMYSG — STUDENT LEARNING ENQUIRY",
       "",
       "PARENT / GUARDIAN",
       `Name: ${value("#enquiry-name")}`,
@@ -523,7 +523,7 @@ function initEnquiryForm() {
     setStatus("");
     if (!validatePanel(5) || !validateFiles()) return;
     const files = selectedFiles();
-    const subject = `Student fit enquiry — ${value("#enquiry-student-name")} — ${checkedValues("enquiry-subject").join(", ")}`;
+    const subject = `Student learning enquiry — ${value("#enquiry-student-name")} — ${checkedValues("enquiry-subject").join(", ")}`;
     const emailUrl = `mailto:enquiry@send.igcsemysg.site?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(enquirySummary("your email app"))}`;
     setStatus(
       files.length

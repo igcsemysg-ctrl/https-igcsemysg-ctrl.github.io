@@ -44,8 +44,8 @@ What changes:
 - The main navigation now uses Enquire as its focused right-side action.
 - The full enquiry form is available on enquiry.html instead of the homepage.
 - The enquiry page supports prepared attachments, email and formatted WhatsApp routes.
-- The enquiry page now includes a complete parent-focused student fit journey,
-  five editable form steps, progress tracking, validation and a review stage.
+- The enquiry page now includes a complete parent-focused learning enquiry journey,
+  five editable form steps, progress tracking, validation and a review-before-payment stage.
 - Every footer includes an Instagram icon linking to @igcsemysg.
 - who-we-help.html provides a complete parent and student recognition journey,
   learning-breakdown model, fit criteria and enquiry actions.
