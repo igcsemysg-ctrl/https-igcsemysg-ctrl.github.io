@@ -924,6 +924,50 @@ footer{padding:60px 0 25px;background:#0e1513;color:#9ba5a1}
 .fit-outline-button{border-color:rgba(255,255,255,.22);background:transparent;color:#fff}
 .fit-outline-button:hover{background:rgba(255,255,255,.07)}
 
+/* Premium select controls and selectable choices */
+.contact-form select,
+.career-form select,
+.enquiry-form-premium select,
+.enquiry-page-form select,
+.intake-form select,
+.resource-toolbar select{
+  -webkit-appearance:none;
+  appearance:none;
+  min-height:52px;
+  padding-right:48px!important;
+  border-color:#d5ded9;
+  background-color:#fff;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='18' height='18' viewBox='0 0 24 24' fill='none' stroke='%233f5c51' stroke-width='2.2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='m6 9 6 6 6-6'/%3E%3C/svg%3E");
+  background-repeat:no-repeat;
+  background-position:right 16px center;
+  background-size:18px;
+  box-shadow:0 1px 2px rgba(24,47,38,.03),inset 0 1px 0 rgba(255,255,255,.85);
+  color-scheme:light;
+  cursor:pointer;
+  transition:border-color .18s ease,box-shadow .18s ease,background-color .18s ease;
+}
+.contact-form select:hover:not(:disabled),
+.career-form select:hover:not(:disabled),
+.enquiry-form-premium select:hover:not(:disabled),
+.enquiry-page-form select:hover:not(:disabled),
+.intake-form select:hover:not(:disabled),
+.resource-toolbar select:hover:not(:disabled){border-color:#9dbbad;background-color:#fbfdfc;box-shadow:0 7px 18px rgba(31,54,46,.07)}
+.contact-form select:focus-visible,
+.career-form select:focus-visible,
+.enquiry-form-premium select:focus-visible,
+.enquiry-page-form select:focus-visible,
+.intake-form select:focus-visible,
+.resource-toolbar select:focus-visible{outline:0;border-color:var(--green);box-shadow:0 0 0 4px rgba(16,163,127,.14),0 9px 24px rgba(31,54,46,.08);background-color:#fff}
+.intake-form select:required:invalid{color:#76817c}
+select option{background:#fff;color:var(--ink)}
+select:disabled{cursor:not-allowed;opacity:.58}
+
+.intake-choice-grid label>span:after{content:"";display:grid;place-items:center;flex:0 0 20px;width:20px;height:20px;margin-left:auto;border:1px solid #c6d2cc;border-radius:6px;background:#fff;color:#fff;font-size:.68rem;font-weight:800;transition:.18s}
+.intake-choice-grid label:hover>span{border-color:#afc6bc;background:#fff;box-shadow:0 7px 18px rgba(31,54,46,.055)}
+.intake-choice-grid input[type="checkbox"]:checked+span:after{content:"✓";border-color:var(--green);background:var(--green)}
+.intake-choice-grid input[type="radio"]+span:after{border-radius:50%}
+.intake-choice-grid input[type="radio"]:checked+span:after{border:5px solid var(--green);background:#fff}
+
 @media(max-width:960px){
   .nav-links{display:none;position:absolute;top:73px;left:0;right:0;padding:10px;border:1px solid var(--line);border-radius:14px;background:#fff;box-shadow:var(--shadow)}
   .nav-links.open{display:flex;flex-direction:column;align-items:stretch;gap:0}
@@ -1066,6 +1110,7 @@ footer{padding:60px 0 25px;background:#0e1513;color:#9ba5a1}
   .faqs summary{grid-template-columns:24px 1fr 27px;padding:17px 14px}
   .faqs details p{margin-inline:50px 39px}
   .form-row{grid-template-columns:1fr;gap:0}
+  .contact-form select,.career-form select,.enquiry-form-premium select,.enquiry-page-form select,.intake-form select,.resource-toolbar select{min-height:54px;font-size:1rem;background-position:right 15px center}
   .contact-form,.career-form{padding:23px 18px}
   .enquiry-form-premium{padding:0}
   .enquiry-form-head{align-items:flex-start;padding:21px 18px}
